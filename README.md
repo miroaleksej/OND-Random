@@ -1,5 +1,7 @@
 # OND Random
 
+![Uploading ChatGPT Image 4 февр. 2026 г., 21_45_15.png…]()
+
 ![CI](https://github.com/miroaleksej/OND-Random/actions/workflows/ci.yml/badge.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
