@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ond-random"
+version = "0.1.0"
+description = "Observed Randomness Dynamics (OND) random system with benchmarks and reports"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "OND Random"}]
+
+dependencies = [
+  "numpy>=1.23",
+]
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.7"]
+dev = [
+  "pytest>=8.2",
+  "build>=1.2",
+  "sigstore>=2.3",
+]
+
+[project.scripts]
+ond-random = "ond_random.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ond_random*"]
