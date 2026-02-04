@@ -1,0 +1,23 @@
+.pytest_cache/
+__pycache__/
+.venv/
+*.pyc
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# OS/IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Tool caches
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+
+# Keep data/ in repo (research set); add to ignore only if publishing minimal core
+# data/

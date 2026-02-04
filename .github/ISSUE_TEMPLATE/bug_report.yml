@@ -1,0 +1,30 @@
+name: Bug report
+description: Report a defect or regression
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug.
+      placeholder: Steps, expected vs actual.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Minimal steps to reproduce.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: v0.x.y or commit hash
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: OS, Python version
