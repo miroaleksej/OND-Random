@@ -1,7 +1,6 @@
 # OND Random
 
-<img width="1024" height="1536" alt="ChatGPT Image 4 февр  2026 г , 21_45_15" src="https://github.com/user-attachments/assets/cab20586-2f85-4fe1-a0e3-68fbce8c9f59" />
-![Вышитый военный значок с короной](https://github.com/user-attachments/assets/c3104439-5673-45a1-a6cd-4843ae095fe2)
+![Uploading ChatGPT Image 4 февр. 2026 г., 21_45_15.png…]()
 
 ![CI](https://github.com/miroaleksej/OND-Random/actions/workflows/ci.yml/badge.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
