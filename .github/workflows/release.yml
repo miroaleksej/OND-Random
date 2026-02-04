@@ -18,8 +18,11 @@ jobs:
           python-version: "3.11"
       - name: Install build tools
         run: |
+          echo "HEAD: $(git rev-parse HEAD)"
+          echo "requirements-dev.txt:"
+          cat requirements-dev.txt
           python -m pip install --upgrade pip
-          pip install -r requirements.txt -r requirements-dev.txt
+          pip install --no-cache-dir -r requirements.txt -r requirements-dev.txt
       - name: Build
         run: python -m build
       - name: Generate manifest + hashes
