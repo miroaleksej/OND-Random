@@ -1,0 +1,11 @@
+{
+  "H_branch": 0.22658555854164555,
+  "H_rank": 0.9581807033967047,
+  "H_sub": 0.2336064206764176,
+  "dimension": 4,
+  "id": "IV-masked",
+  "modulus": null,
+  "n_samples": 10000,
+  "ond_class": "IV",
+  "rank": 4
+}

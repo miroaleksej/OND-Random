@@ -1,0 +1,290 @@
+[
+  {
+    "objective": {
+      "distance": 4202554.854913198,
+      "per_source": {
+        "emulator": 4181145.276043369,
+        "os": 4139148.5440273634,
+        "qrng": 4287370.744668864
+      },
+      "score": 2.3795036963173612e-05,
+      "stability": 1.1806049644904237,
+      "weights": {
+        "H_branch": 902372.3074490677,
+        "H_rank": 640222.7528689128,
+        "H_sub": 603.8378268726875
+      }
+    },
+    "profiles": {
+      "emulator": {
+        "H_branch": 0.010272382547470316,
+        "H_rank": 0.9583380115335656,
+        "H_sub": 0.23321600855952385,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      },
+      "os": {
+        "H_branch": 0.0104071428298289,
+        "H_rank": 0.9587566292161626,
+        "H_sub": 0.23265825207940546,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      },
+      "qrng": {
+        "H_branch": 0.010597337448681455,
+        "H_rank": 0.957277190415887,
+        "H_sub": 0.30333121149223297,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      }
+    },
+    "reseed_interval": 1048576,
+    "seed_bytes": 128
+  },
+  {
+    "objective": {
+      "distance": 4206707.062803311,
+      "per_source": {
+        "emulator": 4172672.574570862,
+        "os": 4244587.871534767,
+        "qrng": 4202860.742304306
+      },
+      "score": 2.3771553627807454e-05,
+      "stability": 0.5758370403537227,
+      "weights": {
+        "H_branch": 902372.3074490677,
+        "H_rank": 640222.7528689128,
+        "H_sub": 603.8378268726875
+      }
+    },
+    "profiles": {
+      "emulator": {
+        "H_branch": 0.011361132916169074,
+        "H_rank": 0.9584224020819871,
+        "H_sub": 0.23414412910899363,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      },
+      "os": {
+        "H_branch": 0.01034393650817591,
+        "H_rank": 0.9577056661937117,
+        "H_sub": 0.23267386012239372,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      },
+      "qrng": {
+        "H_branch": 0.011073278282552338,
+        "H_rank": 0.9581215695025587,
+        "H_sub": 0.2322771743282968,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      }
+    },
+    "reseed_interval": 4194304,
+    "seed_bytes": 32
+  },
+  {
+    "objective": {
+      "distance": 4230785.808281823,
+      "per_source": {
+        "emulator": 4236190.973077763,
+        "os": 4254219.963843271,
+        "qrng": 4201946.487924433
+      },
+      "score": 2.3636263556663925e-05,
+      "stability": 0.3362373180194606,
+      "weights": {
+        "H_branch": 902372.3074490677,
+        "H_rank": 640222.7528689128,
+        "H_sub": 603.8378268726875
+      }
+    },
+    "profiles": {
+      "emulator": {
+        "H_branch": 0.010864220540435936,
+        "H_rank": 0.9577893341545135,
+        "H_sub": 0.23306716408644906,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      },
+      "os": {
+        "H_branch": 0.010317433267149184,
+        "H_rank": 0.9576096943690645,
+        "H_sub": 0.23157766222809809,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      },
+      "qrng": {
+        "H_branch": 0.010552986548957071,
+        "H_rank": 0.9581306983494698,
+        "H_sub": 0.23224593517544093,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      }
+    },
+    "reseed_interval": 1048576,
+    "seed_bytes": 32
+  },
+  {
+    "objective": {
+      "distance": 4259362.20281387,
+      "per_source": {
+        "emulator": 4339752.1437038835,
+        "os": 4294185.288375188,
+        "qrng": 4144149.176362539
+      },
+      "score": 2.3477683277075303e-05,
+      "stability": 0.841748594318169,
+      "weights": {
+        "H_branch": 902372.3074490677,
+        "H_rank": 640222.7528689128,
+        "H_sub": 603.8378268726875
+      }
+    },
+    "profiles": {
+      "emulator": {
+        "H_branch": 0.01016928398702709,
+        "H_rank": 0.956757155879415,
+        "H_sub": 0.2321427824726734,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      },
+      "os": {
+        "H_branch": 0.01008391225656245,
+        "H_rank": 0.9572113146844616,
+        "H_sub": 0.2328157572487081,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      },
+      "qrng": {
+        "H_branch": 0.010491983180030312,
+        "H_rank": 0.9587067394009613,
+        "H_sub": 0.23401206683256154,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      }
+    },
+    "reseed_interval": 4194304,
+    "seed_bytes": 128
+  },
+  {
+    "objective": {
+      "distance": 4293145.007091258,
+      "per_source": {
+        "emulator": 4184602.7847245056,
+        "os": 4355975.960462812,
+        "qrng": 4338856.276086456
+      },
+      "score": 2.3292937502452548e-05,
+      "stability": 0.7885617533736441,
+      "weights": {
+        "H_branch": 902372.3074490677,
+        "H_rank": 640222.7528689128,
+        "H_sub": 603.8378268726875
+      }
+    },
+    "profiles": {
+      "emulator": {
+        "H_branch": 0.011049070851794445,
+        "H_rank": 0.9583035536346836,
+        "H_sub": 0.23234951539035265,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      },
+      "os": {
+        "H_branch": 0.010561002469976379,
+        "H_rank": 0.9565954052745174,
+        "H_sub": 0.23323985977195819,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      },
+      "qrng": {
+        "H_branch": 0.010870337271507198,
+        "H_rank": 0.9567660419420524,
+        "H_sub": 0.23291603651256704,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      }
+    },
+    "reseed_interval": 4194304,
+    "seed_bytes": 64
+  },
+  {
+    "objective": {
+      "distance": 4335983.962940996,
+      "per_source": {
+        "emulator": 4310069.857483798,
+        "os": 4370867.4047221355,
+        "qrng": 4327014.626617054
+      },
+      "score": 2.306280918221653e-05,
+      "stability": 0.2680823291276676,
+      "weights": {
+        "H_branch": 902372.3074490677,
+        "H_rank": 640222.7528689128,
+        "H_sub": 603.8378268726875
+      }
+    },
+    "profiles": {
+      "emulator": {
+        "H_branch": 0.010509416235606021,
+        "H_rank": 0.9570529546261842,
+        "H_sub": 0.23353092166016606,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      },
+      "os": {
+        "H_branch": 0.01049255088946178,
+        "H_rank": 0.9564469907228994,
+        "H_sub": 0.23293219600377035,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      },
+      "qrng": {
+        "H_branch": 0.010675166018810767,
+        "H_rank": 0.9568840576693308,
+        "H_sub": 0.23351336789638935,
+        "dimension": 4,
+        "modulus": null,
+        "n_samples": 10000,
+        "rank": 4
+      }
+    },
+    "reseed_interval": 1048576,
+    "seed_bytes": 64
+  }
+]

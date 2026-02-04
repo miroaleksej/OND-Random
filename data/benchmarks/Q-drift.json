@@ -1,0 +1,11 @@
+{
+  "H_branch": 0.1835502879276999,
+  "H_rank": 0.9677352541860456,
+  "H_sub": 0.2000973285614397,
+  "dimension": 4,
+  "id": "Q-drift",
+  "modulus": null,
+  "n_samples": 10000,
+  "ond_class": "III",
+  "rank": 4
+}

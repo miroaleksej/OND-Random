@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "steps": [
+    {
+      "name": "benchmark",
+      "returncode": 0,
+      "seconds": 0.6650958061218262
+    },
+    {
+      "name": "quality_report",
+      "returncode": 0,
+      "seconds": 0.015859127044677734
+    },
+    {
+      "name": "auto_calibrate",
+      "returncode": 0,
+      "seconds": 0.05845975875854492
+    },
+    {
+      "name": "numeric_validation",
+      "returncode": 0,
+      "seconds": 0.4690268039703369
+    },
+    {
+      "name": "shor_noise_report",
+      "returncode": 0,
+      "seconds": 0.380810022354126
+    },
+    {
+      "name": "backend_benchmark",
+      "returncode": 0,
+      "seconds": 0.10485291481018066
+    },
+    {
+      "name": "system_report",
+      "returncode": 0,
+      "seconds": 0.09415292739868164
+    }
+  ]
+}

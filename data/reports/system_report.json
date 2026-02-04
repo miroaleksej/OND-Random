@@ -1,0 +1,300 @@
+{
+  "auto_calibration": {
+    "count": 2,
+    "description": "online",
+    "mean": {
+      "H_branch": 0.2260396043479167,
+      "H_rank": 0.9582964970485148,
+      "H_sub": 0.2331963077944129
+    },
+    "std": {
+      "H_branch": 0.05,
+      "H_rank": 0.05,
+      "H_sub": 0.05
+    }
+  },
+  "backend_benchmark": {
+    "best": "numpy",
+    "times": {
+      "numpy": 0.003527212142944336
+    }
+  },
+  "bench_profiles": [
+    {
+      "H_branch": 0.224945760179608,
+      "H_rank": 0.9574791635873926,
+      "H_sub": 0.2321690357510554,
+      "dimension": 4,
+      "id": "I-ondmax",
+      "modulus": null,
+      "n_samples": 10000,
+      "ond_class": "I",
+      "rank": 4
+    },
+    {
+      "H_branch": 0.2241474485087468,
+      "H_rank": 0.9572484893142591,
+      "H_sub": 0.2315919310422216,
+      "dimension": 4,
+      "id": "II-lcg",
+      "modulus": null,
+      "n_samples": 10000,
+      "ond_class": "II",
+      "rank": 4
+    },
+    {
+      "H_branch": 0.2250186087612778,
+      "H_rank": 0.9575002275424379,
+      "H_sub": 0.23235236249985516,
+      "dimension": 4,
+      "id": "II-xorshift",
+      "modulus": null,
+      "n_samples": 10000,
+      "ond_class": "II",
+      "rank": 4
+    },
+    {
+      "H_branch": 0.22501355852253166,
+      "H_rank": 0.95871536690825,
+      "H_sub": 0.23259954634756344,
+      "dimension": 4,
+      "id": "III-bounded",
+      "modulus": null,
+      "n_samples": 10000,
+      "ond_class": "III",
+      "rank": 4
+    },
+    {
+      "H_branch": 0.22658555854164555,
+      "H_rank": 0.9581807033967047,
+      "H_sub": 0.2336064206764176,
+      "dimension": 4,
+      "id": "IV-masked",
+      "modulus": null,
+      "n_samples": 10000,
+      "ond_class": "IV",
+      "rank": 4
+    },
+    {
+      "H_branch": 0.22713344851622538,
+      "H_rank": 0.959113830509637,
+      "H_sub": 0.23422357983777037,
+      "dimension": 4,
+      "id": "Q-ideal",
+      "modulus": null,
+      "n_samples": 10000,
+      "ond_class": "I",
+      "rank": 4
+    },
+    {
+      "H_branch": 0.1835502879276999,
+      "H_rank": 0.9677352541860456,
+      "H_sub": 0.2000973285614397,
+      "dimension": 4,
+      "id": "Q-drift",
+      "modulus": null,
+      "n_samples": 10000,
+      "ond_class": "III",
+      "rank": 4
+    }
+  ],
+  "numeric": {
+    "dt_scan": [
+      {
+        "analytic_z": 0.10134207176555687,
+        "dt": 0.2,
+        "expect_z": 0.11599513224118446,
+        "trace": 1.0
+      },
+      {
+        "analytic_z": 0.10134207176555687,
+        "dt": 0.1,
+        "expect_z": 0.10859919209809787,
+        "trace": 1.0
+      },
+      {
+        "analytic_z": 0.10134207176555687,
+        "dt": 0.05,
+        "expect_z": 0.10495357247237802,
+        "trace": 1.0
+      },
+      {
+        "analytic_z": 0.10134207176555687,
+        "dt": 0.02,
+        "expect_z": 0.10278261443880554,
+        "trace": 1.0
+      }
+    ],
+    "dt_scan_rk4": [
+      {
+        "analytic_z": 0.10134207176555687,
+        "dt": 0.2,
+        "expect_z": 0.10134205590835771,
+        "trace": 1.0
+      },
+      {
+        "analytic_z": 0.10134207176555687,
+        "dt": 0.1,
+        "expect_z": 0.10134207079087465,
+        "trace": 1.0
+      },
+      {
+        "analytic_z": 0.10134207176555687,
+        "dt": 0.05,
+        "expect_z": 0.10134207170514503,
+        "trace": 1.0
+      },
+      {
+        "analytic_z": 0.10134207176555687,
+        "dt": 0.02,
+        "expect_z": 0.1013420717640186,
+        "trace": 1.0
+      }
+    ],
+    "gamma_scan": [
+      {
+        "analytic_z": -1.0,
+        "expect_z": -1.0,
+        "gamma1": 0.0
+      },
+      {
+        "analytic_z": -0.5576015661428098,
+        "expect_z": -0.5576015661429367,
+        "gamma1": 0.05
+      },
+      {
+        "analytic_z": -0.21306131942526685,
+        "expect_z": -0.21306131942843914,
+        "gamma1": 0.1
+      },
+      {
+        "analytic_z": 0.26424111765711533,
+        "expect_z": 0.26424111759528945,
+        "gamma1": 0.2
+      }
+    ],
+    "grover": {
+      "iterations": 25,
+      "n_items": 1000,
+      "prob": 0.9994612447444075,
+      "theoretical": 0.9994612447444079
+    },
+    "multi_trace": {
+      "n_qubits": 3,
+      "trace": 1.0
+    },
+    "perf": {
+      "grover_256_state_s": 2.6941299438476562e-05
+    }
+  },
+  "numeric_summary": {
+    "dt_scan_max_error": 0.014653060475627588,
+    "dt_scan_rk4_max_error": 1.585719916485928e-08,
+    "gamma_scan_max_error": 6.182587775072079e-11
+  },
+  "ond_diff": {
+    "H_branch_delta": 0.041395472251908094,
+    "H_sub_delta": 0.03207170718961572
+  },
+  "quality": {
+    "checks": [
+      {
+        "name": "H_rank close to 1 for IID",
+        "pass": true,
+        "threshold": 0.95,
+        "value": 0.9574791635873926
+      },
+      {
+        "iid": 0.2321690357510554,
+        "name": "Q-drift H_sub lower than IID",
+        "pass": true,
+        "q_drift": 0.2000973285614397
+      },
+      {
+        "iid": 0.224945760179608,
+        "name": "Q-drift H_branch lower than IID",
+        "pass": true,
+        "q_drift": 0.1835502879276999
+      },
+      {
+        "iid": 0.2321690357510554,
+        "name": "Q-ideal H_sub close to IID",
+        "pass": true,
+        "q_ideal": 0.23422357983777037,
+        "tolerance": 0.02
+      }
+    ],
+    "status": "PASS"
+  },
+  "shor_noise": [
+    {
+      "N": 15,
+      "ideal": {
+        "N": 15,
+        "a": 2,
+        "gamma1": null,
+        "gamma_phi": null,
+        "shots": 50,
+        "success_rate": 1.0,
+        "successes": 50,
+        "trials": 50
+      },
+      "noisy": {
+        "N": 15,
+        "a": 2,
+        "gamma1": 0.05,
+        "gamma_phi": 0.02,
+        "shots": 50,
+        "success_rate": 1.0,
+        "successes": 50,
+        "trials": 50
+      }
+    },
+    {
+      "N": 21,
+      "ideal": {
+        "N": 21,
+        "a": 2,
+        "gamma1": null,
+        "gamma_phi": null,
+        "shots": 50,
+        "success_rate": 1.0,
+        "successes": 50,
+        "trials": 50
+      },
+      "noisy": {
+        "N": 21,
+        "a": 2,
+        "gamma1": 0.05,
+        "gamma_phi": 0.02,
+        "shots": 50,
+        "success_rate": 1.0,
+        "successes": 50,
+        "trials": 50
+      }
+    },
+    {
+      "N": 35,
+      "ideal": {
+        "N": 35,
+        "a": 2,
+        "gamma1": null,
+        "gamma_phi": null,
+        "shots": 50,
+        "success_rate": 1.0,
+        "successes": 50,
+        "trials": 50
+      },
+      "noisy": {
+        "N": 35,
+        "a": 2,
+        "gamma1": 0.05,
+        "gamma_phi": 0.02,
+        "shots": 50,
+        "success_rate": 1.0,
+        "successes": 50,
+        "trials": 50
+      }
+    }
+  ]
+}

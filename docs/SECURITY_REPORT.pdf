@@ -1,0 +1,169 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R 8 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 2446 >>
+stream
+BT
+/F1 10 Tf
+72 770 Td (OND RANDOM SECURITY REPORT \(ACADEMIC SUMMARY\)) Tj
+72 756 Td () Tj
+72 742 Td () Tj
+72 728 Td (Date: 2026-02-04) Tj
+72 714 Td () Tj
+72 700 Td (ABSTRACT) Tj
+72 686 Td () Tj
+72 672 Td () Tj
+72 658 Td (This report provides formal, conditional security statements for OND Random. The core security claim is derived from the SHAKE256-based extractor \(ONDMaxRNG\) and is framed under explicit assumptions about the source min-entropy and the cryptographic model of SHAKE256. We include a formal threat and adversary model, summarize entropy estimation using NIST SP 800-90B, and present the strongest bounds currently justifiable without external audit.) Tj
+72 644 Td () Tj
+72 630 Td (SYSTEM OVERVIEW) Tj
+72 616 Td () Tj
+72 602 Td () Tj
+72 588 Td (OND Random combines:) Tj
+72 574 Td (1. A raw source RNG \(OS RNG or emulator\).) Tj
+72 560 Td (2. A SHAKE256-based extractor \(ONDMaxRNG\).) Tj
+72 546 Td (3. OND structure metrics \(H_rank, H_sub, H_branch\) for empirical validation.) Tj
+72 532 Td () Tj
+72 518 Td (THREAT MODEL) Tj
+72 504 Td () Tj
+72 490 Td () Tj
+72 476 Td (**Assets:** unpredictability of output bits, integrity of reports, reproducibility of releases.  ) Tj
+72 462 Td (**Scope:** software implementation; no hardware security guarantees.  ) Tj
+72 448 Td (**Assumptions:** source has min-entropy k per input block, SHAKE256 is secure \(FIPS 202\).) Tj
+72 434 Td () Tj
+72 420 Td (FORMAL ADVERSARY MODEL) Tj
+72 406 Td () Tj
+72 392 Td () Tj
+72 378 Td (Let A be a probabilistic polynomial-time adversary with:) Tj
+72 364 Td (- Full knowledge of algorithms and parameters \(Kerckhoffs\).) Tj
+72 350 Td (- Adaptive access to output stream.) Tj
+72 336 Td (- Ability to bias the raw source within stated assumptions.) Tj
+72 322 Td () Tj
+72 308 Td (Goals:) Tj
+72 294 Td (- Predict next output bits with non-negligible advantage.) Tj
+72 280 Td (- Distinguish extracted output from uniform.) Tj
+72 266 Td () Tj
+72 252 Td (We exclude:) Tj
+72 238 Td (- Fully compromised OS/hardware.) Tj
+72 224 Td (- Side-channel attacks unless explicitly modeled.) Tj
+72 210 Td () Tj
+72 196 Td (FORMAL SECURITY CLAIMS \(CONDITIONAL\)) Tj
+72 182 Td () Tj
+72 168 Td () Tj
+72 154 Td (CLAIM 1: INFORMATION-THEORETIC REFERENCE BOUND) Tj
+72 140 Td () Tj
+72 126 Td () Tj
+72 112 Td (If the extractor were a 2-universal hash Ext, the Leftover Hash Lemma gives:) Tj
+72 98 Td () Tj
+72 84 Td (Delta\(Ext\(S\), U_m\) <= 1/2 * sqrt\(2^\(m - k\)\)) Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 2681 >>
+stream
+BT
+/F1 10 Tf
+72 770 Td () Tj
+72 756 Td (This is a reference bound. SHAKE256 is not a 2-universal hash; therefore this bound is not directly applicable to the implementation but provides a conservative target when k is known.) Tj
+72 742 Td () Tj
+72 728 Td (CLAIM 2: COMPUTATIONAL BOUND \(SHAKE256 AS RANDOM ORACLE / SPONGE\)) Tj
+72 714 Td () Tj
+72 700 Td () Tj
+72 686 Td (Model SHAKE256 as an ideal sponge with capacity c = 512. The standard indistinguishability advantage satisfies:) Tj
+72 672 Td () Tj
+72 658 Td (Adv <= q^2 / 2^\(c+1\)) Tj
+72 644 Td () Tj
+72 630 Td (where q is the number of oracle queries. This yields negligible advantage for practical q.) Tj
+72 616 Td () Tj
+72 602 Td (CLAIM 3: OND METRICS) Tj
+72 588 Td () Tj
+72 574 Td () Tj
+72 560 Td (OND metrics detect structure but do not prove min-entropy or unpredictability. They are supporting evidence only.) Tj
+72 546 Td () Tj
+72 532 Td (ENTROPY ESTIMATION \(NIST SP 800-90B\)) Tj
+72 518 Td () Tj
+72 504 Td () Tj
+72 490 Td (We rely on NIST SP 800-90B for min-entropy assessment of raw sources. The repository includes a script to run the official EntropyAssessment tool \(ea_iid / ea_non_iid\). The tool implements the IID and non-IID estimators defined by SP 800-90B and outputs the conservative min-entropy estimate. \(See References.\)) Tj
+72 476 Td () Tj
+72 462 Td (LIMITATIONS) Tj
+72 448 Td () Tj
+72 434 Td () Tj
+72 420 Td (- These proofs are conditional and depend on assumptions about the source and SHAKE256.) Tj
+72 406 Td (- There is no external audit or certification included here.) Tj
+72 392 Td (- Hardware entropy sources are not validated in this report.) Tj
+72 378 Td () Tj
+72 364 Td (REFERENCES) Tj
+72 350 Td () Tj
+72 336 Td () Tj
+72 322 Td (1. NIST SP 800-90B, Recommendation for the Entropy Sources Used for Random Bit Generation.) Tj
+72 308 Td (2. NIST FIPS 202, SHA-3 Standard: Permutation-Based Hash and Extendable-Output Functions.) Tj
+72 294 Td (3. NIST EntropyAssessment Tool \(SP 800-90B reference implementation\).) Tj
+72 280 Td () Tj
+72 266 Td (COMPLIANCE APPENDIX \(EXCERPTS\)) Tj
+72 252 Td () Tj
+72 238 Td () Tj
+72 224 Td (Verbatim excerpts must be inserted into `docs/COMPLIANCE_EXCERPTS.md` from the official sources.) Tj
+72 210 Td (The PDF builder will append those excerpts to the report.) Tj
+72 196 Td () Tj
+72 182 Td (COMPLIANCE APPENDIX — EXCERPTS) Tj
+72 168 Td () Tj
+72 154 Td () Tj
+72 140 Td (COMPLIANCE APPENDIX — EXCERPTS \(INSERT OFFICIAL TEXT\)) Tj
+72 126 Td () Tj
+72 112 Td () Tj
+72 98 Td (**Purpose:** Insert short, verbatim excerpts from the official standards here.) Tj
+72 84 Td (These will be appended to the PDF report by `scripts/build_security_report.py`.) Tj
+ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 366 >>
+stream
+BT
+/F1 10 Tf
+72 770 Td () Tj
+72 756 Td (NIST SP 800-90B \(ENTROPY SOURCES\)) Tj
+72 742 Td () Tj
+72 728 Td () Tj
+72 714 Td (EXCERPT: [Paste official text here, keep each quote <= 25 words.]) Tj
+72 700 Td () Tj
+72 686 Td (FIPS 202 \(SHA-3 / SHAKE\)) Tj
+72 672 Td () Tj
+72 658 Td () Tj
+72 644 Td (EXCERPT: [Paste official text here, keep each quote <= 25 words.]) Tj
+ET
+endstream
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000127 00000 n 
+0000000197 00000 n 
+0000000323 00000 n 
+0000002821 00000 n 
+0000002947 00000 n 
+0000005680 00000 n 
+0000005806 00000 n 
+trailer << /Size 10 /Root 1 0 R >>
+startxref
+6223
+%%EOF

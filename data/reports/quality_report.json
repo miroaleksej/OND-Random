@@ -1,0 +1,30 @@
+{
+  "checks": [
+    {
+      "name": "H_rank close to 1 for IID",
+      "pass": true,
+      "threshold": 0.95,
+      "value": 0.9574791635873926
+    },
+    {
+      "iid": 0.2321690357510554,
+      "name": "Q-drift H_sub lower than IID",
+      "pass": true,
+      "q_drift": 0.2000973285614397
+    },
+    {
+      "iid": 0.224945760179608,
+      "name": "Q-drift H_branch lower than IID",
+      "pass": true,
+      "q_drift": 0.1835502879276999
+    },
+    {
+      "iid": 0.2321690357510554,
+      "name": "Q-ideal H_sub close to IID",
+      "pass": true,
+      "q_ideal": 0.23422357983777037,
+      "tolerance": 0.02
+    }
+  ],
+  "status": "PASS"
+}

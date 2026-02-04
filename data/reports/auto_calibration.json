@@ -1,0 +1,47 @@
+{
+  "targets": {
+    "my-quantum-source": {
+      "count": 1,
+      "description": "online",
+      "mean": {
+        "H_branch": 0.2286968091699935,
+        "H_rank": 0.9569735494503327,
+        "H_sub": 0.23329332675012543
+      },
+      "std": {
+        "H_branch": 0.05,
+        "H_rank": 0.05,
+        "H_sub": 0.05
+      }
+    },
+    "ondmax(system)": {
+      "count": 1,
+      "description": "online",
+      "mean": {
+        "H_branch": 0.22903847530545535,
+        "H_rank": 0.9572408237610704,
+        "H_sub": 0.23358047477064764
+      },
+      "std": {
+        "H_branch": 0.05,
+        "H_rank": 0.05,
+        "H_sub": 0.05
+      }
+    },
+    "quantum": {
+      "count": 1,
+      "description": "online",
+      "mean": {
+        "H_branch": 0.22866271077733413,
+        "H_rank": 0.9572767823045573,
+        "H_sub": 0.23305052975567633
+      },
+      "std": {
+        "H_branch": 0.05,
+        "H_rank": 0.05,
+        "H_sub": 0.05
+      }
+    }
+  },
+  "updated_key": "my-quantum-source"
+}

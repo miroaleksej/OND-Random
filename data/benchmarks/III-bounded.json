@@ -1,0 +1,11 @@
+{
+  "H_branch": 0.22501355852253166,
+  "H_rank": 0.95871536690825,
+  "H_sub": 0.23259954634756344,
+  "dimension": 4,
+  "id": "III-bounded",
+  "modulus": null,
+  "n_samples": 10000,
+  "ond_class": "III",
+  "rank": 4
+}

@@ -1,0 +1,8 @@
+{
+  "bench": {
+    "numpy": 0.0039783954620361325
+  },
+  "best": "numpy",
+  "iters": 5,
+  "qubits": 20
+}

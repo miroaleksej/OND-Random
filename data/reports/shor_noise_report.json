@@ -1,0 +1,71 @@
+[
+  {
+    "N": 15,
+    "ideal": {
+      "N": 15,
+      "a": 2,
+      "gamma1": null,
+      "gamma_phi": null,
+      "shots": 50,
+      "success_rate": 1.0,
+      "successes": 50,
+      "trials": 50
+    },
+    "noisy": {
+      "N": 15,
+      "a": 2,
+      "gamma1": 0.05,
+      "gamma_phi": 0.02,
+      "shots": 50,
+      "success_rate": 1.0,
+      "successes": 50,
+      "trials": 50
+    }
+  },
+  {
+    "N": 21,
+    "ideal": {
+      "N": 21,
+      "a": 2,
+      "gamma1": null,
+      "gamma_phi": null,
+      "shots": 50,
+      "success_rate": 1.0,
+      "successes": 50,
+      "trials": 50
+    },
+    "noisy": {
+      "N": 21,
+      "a": 2,
+      "gamma1": 0.05,
+      "gamma_phi": 0.02,
+      "shots": 50,
+      "success_rate": 1.0,
+      "successes": 50,
+      "trials": 50
+    }
+  },
+  {
+    "N": 35,
+    "ideal": {
+      "N": 35,
+      "a": 2,
+      "gamma1": null,
+      "gamma_phi": null,
+      "shots": 50,
+      "success_rate": 1.0,
+      "successes": 50,
+      "trials": 50
+    },
+    "noisy": {
+      "N": 35,
+      "a": 2,
+      "gamma1": 0.05,
+      "gamma_phi": 0.02,
+      "shots": 50,
+      "success_rate": 1.0,
+      "successes": 50,
+      "trials": 50
+    }
+  }
+]
