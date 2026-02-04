@@ -1,5 +1,8 @@
 # OND Random
 
+![CI](https://github.com/miroaleksej/OND-Random/actions/workflows/ci.yml/badge.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+
 OND Random is a research-grade RNG system and analysis toolkit built around **Observed Randomness Dynamics (OND)**. It provides:
 
 - A library of RNGs, including a quantum measurement emulator
@@ -9,6 +12,39 @@ OND Random is a research-grade RNG system and analysis toolkit built around **Ob
 - A CLI to generate bytes, compute profiles, and build datasets
 
 This project is designed for *maximum mathematical and physical fidelity* in the sense of OND: it models real-world structured randomness, and provides measurable, reproducible improvement relative to a raw QRNG emulator.
+
+## Showcase
+
+**Why OND Random**
+- A single stack that links entropy sources → extractor → structural metrics → reports.
+- Per‑source auto‑calibration and reproducible pipelines.
+- Quantum simulation (statevector/Lindblad/trajectories) aligned with OND metrics.
+
+**Quick demo (3 commands)**
+```bash
+ond-random gen --rng ondmax --bits 256 --hex
+ond-random profile --rng quantum --samples 10000 --dimension 4 --word-bits 32 --modulus --auto-calibrate
+PYTHONPATH=. python scripts/run_pipeline.py --samples 10000 --dimension 4 --word-bits 32 --branch-mode delta
+```
+
+**What you get in 60 seconds**
+
+| Step | Command | Outcome |
+| --- | --- | --- |
+| 1 | `ond-random gen --rng ondmax --bits 256 --hex` | Valid 256‑bit output |
+| 2 | `ond-random profile --rng quantum ... --auto-calibrate` | OND profile + calibration update |
+| 3 | `python scripts/run_pipeline.py ...` | Full report suite + summary |
+
+**Key outputs**
+- System summary: `data/reports/system_report.md`
+- Quality checks: `data/reports/quality_report.json`
+- Numeric validation: `data/reports/numeric_validation.json`
+- Shor noise report: `data/reports/shor_noise_report.json`
+- Trajectories vs Lindblad: `data/reports/trajectories_vs_lindblad.json`
+
+**Plots**
+![Lindblad dt scan](data/reports/plots/dt_scan.png)
+![Lindblad gamma scan](data/reports/plots/gamma_scan.png)
 
 ## Search Tags
 
