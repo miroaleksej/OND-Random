@@ -1,0 +1,44 @@
+{
+  "checks": {
+    "dt_scan_max_error": {
+      "ok": true,
+      "threshold": 0.05,
+      "value": 0.014653060475627588
+    },
+    "dt_scan_rk4_max_error": {
+      "ok": true,
+      "threshold": 1e-05,
+      "value": 1.585719916485928e-08
+    },
+    "gamma_scan_max_error": {
+      "ok": true,
+      "threshold": 1e-05,
+      "value": 6.182587775072079e-11
+    },
+    "grover_theory_error": {
+      "ok": true,
+      "threshold": 1e-06,
+      "value": 4.440892098500626e-16
+    },
+    "multi_trace_error": {
+      "ok": true,
+      "threshold": 1e-06,
+      "value": 0.0
+    }
+  },
+  "metrics": {
+    "dt_scan_max_error": 0.014653060475627588,
+    "dt_scan_rk4_max_error": 1.585719916485928e-08,
+    "gamma_scan_max_error": 6.182587775072079e-11,
+    "grover_theory_error": 4.440892098500626e-16,
+    "multi_trace_error": 0.0
+  },
+  "status": "PASS",
+  "thresholds": {
+    "dt_scan_max_error": 0.05,
+    "dt_scan_rk4_max_error": 1e-05,
+    "gamma_scan_max_error": 1e-05,
+    "grover_theory_error": 1e-06,
+    "multi_trace_error": 1e-06
+  }
+}
