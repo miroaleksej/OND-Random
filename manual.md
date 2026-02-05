@@ -139,3 +139,24 @@ PYTHONPATH=. python scripts/run_pipeline.py --samples 10000 --dimension 4 --word
 PYTHONPATH=. python scripts/accuracy_report.py --thresholds docs/accuracy_thresholds.json --out data/reports/accuracy_report.json
 PYTHONPATH=. python scripts/sla_regression.py --config docs/large_sample_sla.json --out data/reports/sla_regression.json
 ```
+
+**What each command produces**
+
+- `run_pipeline.py`  
+  Writes a full suite of reports and a summary:
+  - `data/reports/pipeline_summary.json`
+  - `data/reports/benchmark_profiles.json`
+  - `data/reports/quality_report.json`
+  - `data/reports/numeric_validation.json`
+  - `data/reports/shor_noise_report.json`
+  - `data/reports/trajectories_vs_lindblad.json`
+  - `data/reports/system_report.json` and `data/reports/system_report.md`
+  - plus updated benchmark artifacts under `data/benchmarks/`
+
+- `accuracy_report.py`  
+  Computes numeric accuracy vs analytic baselines and writes:
+  - `data/reports/accuracy_report.json` (PASS/FAIL + metrics + thresholds)
+
+- `sla_regression.py`  
+  Runs large-sample SLA regression against benchmark profiles and writes:
+  - `data/reports/sla_regression.json` (PASS/FAIL + per-case diffs)
