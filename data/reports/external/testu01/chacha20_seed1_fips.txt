@@ -1,0 +1,37 @@
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                 Starting FIPS_140_2
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+
+============== Summary results of FIPS-140-2 ==============
+
+ File:             /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+ Number of bits:   20000
+
+       Test          s-value        p-value    FIPS Decision
+ --------------------------------------------------------
+ Monobit               9986           0.58       Pass
+ Poker                 7.34           0.95       Pass
+
+ 0 Runs, length 1:     2587                      Pass
+ 0 Runs, length 2:     1210                      Pass
+ 0 Runs, length 3:      661                      Pass
+ 0 Runs, length 4:      306                      Pass
+ 0 Runs, length 5:      146                      Pass
+ 0 Runs, length 6+:     157                      Pass
+
+ 1 Runs, length 1:     2533                      Pass
+ 1 Runs, length 2:     1320                      Pass
+ 1 Runs, length 3:      624                      Pass
+ 1 Runs, length 4:      276                      Pass
+ 1 Runs, length 5:      171                      Pass
+ 1 Runs, length 6+:     143                      Pass
+
+ Longest run of 0:       11           0.91       Pass
+ Longest run of 1:       12           0.70       Pass
+ ----------------------------------------------------------
+ All values are within the required intervals of FIPS-140-2
+
+
+

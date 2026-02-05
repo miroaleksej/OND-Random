@@ -7,7 +7,7 @@
     "max_subspace_dim": 6,
     "modulus": false,
     "reference": "data/benchmarks/reference_profiles.json",
-    "samples": 100000,
+    "samples": 500000,
     "stride": 1,
     "word_bits": 32
   },
@@ -27,83 +27,301 @@
   },
   "results": [
     {
-      "distance_to_class_I": 17.51724405426155,
+      "distance_to_class_I": 47.03651643323169,
       "metrics": {
-        "H_branch": 0.19341132492714283,
-        "H_rank": 0.9576722365848946,
-        "H_sub": 0.23301086644187843
+        "H_branch": 0.1957265553388035,
+        "H_rank": 0.9578299403479559,
+        "H_sub": 0.30320588700415735
+      },
+      "rank_class_I": 14,
+      "rng": "ondmax",
+      "seed": null
+    },
+    {
+      "distance_to_class_I": 16.29368137810589,
+      "metrics": {
+        "H_branch": 0.19565011164151558,
+        "H_rank": 0.9579804840542601,
+        "H_sub": 0.23320890639365727
+      },
+      "rank_class_I": 8,
+      "rng": "system",
+      "seed": null
+    },
+    {
+      "distance_to_class_I": 16.310998980498677,
+      "metrics": {
+        "H_branch": 0.1956274288887202,
+        "H_rank": 0.9578738065297386,
+        "H_sub": 0.23302915618221615
+      },
+      "rank_class_I": 10,
+      "rng": "lcg",
+      "seed": 1
+    },
+    {
+      "distance_to_class_I": 16.312069320917523,
+      "metrics": {
+        "H_branch": 0.19561729028205527,
+        "H_rank": 0.9579722359314051,
+        "H_sub": 0.2332964865554804
+      },
+      "rank_class_I": 11,
+      "rng": "lcg",
+      "seed": 2
+    },
+    {
+      "distance_to_class_I": 47.07586145606831,
+      "metrics": {
+        "H_branch": 0.19566843835130282,
+        "H_rank": 0.9578858512880564,
+        "H_sub": 0.3032559295318604
+      },
+      "rank_class_I": 15,
+      "rng": "lcg",
+      "seed": 3
+    },
+    {
+      "distance_to_class_I": 16.23623768835818,
+      "metrics": {
+        "H_branch": 0.19576124185654695,
+        "H_rank": 0.9579243383499362,
+        "H_sub": 0.23313102153221776
+      },
+      "rank_class_I": 2,
+      "rng": "xorshift",
+      "seed": 1
+    },
+    {
+      "distance_to_class_I": 16.295201433841797,
+      "metrics": {
+        "H_branch": 0.1956599197692927,
+        "H_rank": 0.957842595143248,
+        "H_sub": 0.23318447581148288
+      },
+      "rank_class_I": 9,
+      "rng": "xorshift",
+      "seed": 2
+    },
+    {
+      "distance_to_class_I": 47.202029798172966,
+      "metrics": {
+        "H_branch": 0.19562176576765233,
+        "H_rank": 0.957916671278079,
+        "H_sub": 0.3034556915464477
+      },
+      "rank_class_I": 16,
+      "rng": "xorshift",
+      "seed": 3
+    },
+    {
+      "distance_to_class_I": 16.255215345339575,
+      "metrics": {
+        "H_branch": 0.19573326720729287,
+        "H_rank": 0.9578492051002866,
+        "H_sub": 0.23310829443117034
+      },
+      "rank_class_I": 4,
+      "rng": "chacha20",
+      "seed": 1
+    },
+    {
+      "distance_to_class_I": 16.26302174133933,
+      "metrics": {
+        "H_branch": 0.19571266158908165,
+        "H_rank": 0.9579170212969633,
+        "H_sub": 0.2329588765631172
+      },
+      "rank_class_I": 5,
+      "rng": "chacha20",
+      "seed": 2
+    },
+    {
+      "distance_to_class_I": 16.34746152787855,
+      "metrics": {
+        "H_branch": 0.1955607475987837,
+        "H_rank": 0.9578666034850091,
+        "H_sub": 0.23297315424443094
+      },
+      "rank_class_I": 12,
+      "rng": "chacha20",
+      "seed": 3
+    },
+    {
+      "distance_to_class_I": 16.25390490144608,
+      "metrics": {
+        "H_branch": 0.19572141969335907,
+        "H_rank": 0.9580079859609216,
+        "H_sub": 0.23310735805393923
+      },
+      "rank_class_I": 3,
+      "rng": "quantum",
+      "seed": 1
+    },
+    {
+      "distance_to_class_I": 16.28538128596025,
+      "metrics": {
+        "H_branch": 0.19566889179505073,
+        "H_rank": 0.9579381732396417,
+        "H_sub": 0.23315099479618123
+      },
+      "rank_class_I": 7,
+      "rng": "quantum",
+      "seed": 2
+    },
+    {
+      "distance_to_class_I": 16.269063632747848,
+      "metrics": {
+        "H_branch": 0.1956958826967736,
+        "H_rank": 0.9579761914384465,
+        "H_sub": 0.23313740865226681
+      },
+      "rank_class_I": 6,
+      "rng": "quantum",
+      "seed": 3
+    },
+    {
+      "distance_to_class_I": 16.465854528466956,
+      "metrics": {
+        "H_branch": 0.19535012946272312,
+        "H_rank": 0.9577841456715891,
+        "H_sub": 0.23328348670726534
+      },
+      "rank_class_I": 13,
+      "rng": "masked",
+      "seed": null
+    },
+    {
+      "distance_to_class_I": 16.194645458022215,
+      "metrics": {
+        "H_branch": 0.19583179132147394,
+        "H_rank": 0.95800211898789,
+        "H_sub": 0.2331337890467145
       },
       "rank_class_I": 1,
+      "rng": "bounded",
+      "seed": null
+    }
+  ],
+  "summary": [
+    {
+      "distance_to_class_I_mean": 47.03651643323169,
+      "distance_to_class_I_std": 0.0,
+      "metrics_mean": {
+        "H_branch": 0.1957265553388035,
+        "H_rank": 0.9578299403479559,
+        "H_sub": 0.30320588700415735
+      },
+      "metrics_std": {
+        "H_branch": 0.0,
+        "H_rank": 0.0,
+        "H_sub": 0.0
+      },
       "rng": "ondmax"
     },
     {
-      "distance_to_class_I": 17.589047697640286,
-      "metrics": {
-        "H_branch": 0.19323390809361837,
-        "H_rank": 0.9582204331473233,
-        "H_sub": 0.23319294010150787
+      "distance_to_class_I_mean": 16.29368137810589,
+      "distance_to_class_I_std": 0.0,
+      "metrics_mean": {
+        "H_branch": 0.19565011164151558,
+        "H_rank": 0.9579804840542601,
+        "H_sub": 0.23320890639365727
       },
-      "rank_class_I": 5,
+      "metrics_std": {
+        "H_branch": 0.0,
+        "H_rank": 0.0,
+        "H_sub": 0.0
+      },
       "rng": "system"
     },
     {
-      "distance_to_class_I": 17.58834566658944,
-      "metrics": {
-        "H_branch": 0.19324380701027621,
-        "H_rank": 0.9581017114683796,
-        "H_sub": 0.23272946380558313
+      "distance_to_class_I_mean": 26.5663099191615,
+      "distance_to_class_I_std": 14.502442977424744,
+      "metrics_mean": {
+        "H_branch": 0.1956377191740261,
+        "H_rank": 0.9579106312497334,
+        "H_sub": 0.256527190756519
       },
-      "rank_class_I": 4,
+      "metrics_std": {
+        "H_branch": 2.2112571472590947e-05,
+        "H_rank": 4.383774365879459e-05,
+        "H_sub": 0.03304238830182317
+      },
       "rng": "lcg"
     },
     {
-      "distance_to_class_I": 17.538586413408993,
-      "metrics": {
-        "H_branch": 0.1933410001682181,
-        "H_rank": 0.9579996112137322,
-        "H_sub": 0.2328702406240654
+      "distance_to_class_I_mean": 26.577822973457646,
+      "distance_to_class_I_std": 14.583536369077192,
+      "metrics_mean": {
+        "H_branch": 0.19568097579783064,
+        "H_rank": 0.9578945349237543,
+        "H_sub": 0.25659039629671615
       },
-      "rank_class_I": 2,
+      "metrics_std": {
+        "H_branch": 5.885525803006364e-05,
+        "H_rank": 3.686011030012089e-05,
+        "H_sub": 0.03313877525873457
+      },
       "rng": "xorshift"
     },
     {
-      "distance_to_class_I": 47.53954968360293,
-      "metrics": {
-        "H_branch": 0.19345089587598008,
-        "H_rank": 0.9579233569780136,
-        "H_sub": 0.3033198849706751
+      "distance_to_class_I_mean": 16.288566204852486,
+      "distance_to_class_I_std": 0.04176704650307218,
+      "metrics_mean": {
+        "H_branch": 0.19566889213171942,
+        "H_rank": 0.957877609960753,
+        "H_sub": 0.2330134417462395
       },
-      "rank_class_I": 8,
+      "metrics_std": {
+        "H_branch": 7.693104218878351e-05,
+        "H_rank": 2.8758952393418712e-05,
+        "H_sub": 6.732377947831633e-05
+      },
       "rng": "chacha20"
     },
     {
-      "distance_to_class_I": 17.655706690622353,
-      "metrics": {
-        "H_branch": 0.19312275029249354,
-        "H_rank": 0.9579992691354037,
-        "H_sub": 0.23310706215618804
+      "distance_to_class_I_mean": 16.26944994005139,
+      "distance_to_class_I_std": 0.012853083171506945,
+      "metrics_mean": {
+        "H_branch": 0.19569539806172778,
+        "H_rank": 0.9579741168796699,
+        "H_sub": 0.23313192050079576
       },
-      "rank_class_I": 7,
+      "metrics_std": {
+        "H_branch": 2.1447162648682554e-05,
+        "H_rank": 2.8538650502026163e-05,
+        "H_sub": 1.823241021369557e-05
+      },
       "rng": "quantum"
     },
     {
-      "distance_to_class_I": 17.65279306891063,
-      "metrics": {
-        "H_branch": 0.1931351163688225,
-        "H_rank": 0.9579111287919131,
-        "H_sub": 0.23311311217718944
+      "distance_to_class_I_mean": 16.465854528466956,
+      "distance_to_class_I_std": 0.0,
+      "metrics_mean": {
+        "H_branch": 0.19535012946272312,
+        "H_rank": 0.9577841456715891,
+        "H_sub": 0.23328348670726534
       },
-      "rank_class_I": 6,
+      "metrics_std": {
+        "H_branch": 0.0,
+        "H_rank": 0.0,
+        "H_sub": 0.0
+      },
       "rng": "masked"
     },
     {
-      "distance_to_class_I": 17.56948323582628,
-      "metrics": {
-        "H_branch": 0.19329219349645063,
-        "H_rank": 0.9579829516576456,
-        "H_sub": 0.23246836335917878
+      "distance_to_class_I_mean": 16.194645458022215,
+      "distance_to_class_I_std": 0.0,
+      "metrics_mean": {
+        "H_branch": 0.19583179132147394,
+        "H_rank": 0.95800211898789,
+        "H_sub": 0.2331337890467145
       },
-      "rank_class_I": 3,
+      "metrics_std": {
+        "H_branch": 0.0,
+        "H_rank": 0.0,
+        "H_sub": 0.0
+      },
       "rng": "bounded"
     }
   ]

@@ -1,0 +1,837 @@
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+          Starting Rabbit:   nb = 536870912
+          Version: TestU01 1.2.3
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+smultin_MultinomialBitsOver test:
+-----------------------------------------------
+   N = 30,  n = 9942048,  r =  0,   s = 32,   L =   38,
+       Sparse =   TRUE
+
+       Number of bits = n = 9942048
+       Number of cells = 2^L =       274877906944
+       Expected number per cell =  1 /  27648.016
+       EColl = n^2 / (2k) =  179.7967678
+       Hashing =   TRUE
+
+       Collision test
+       CollisionOver:   density = n / k =  1 /   27648.02
+       Expected number of collisions = Mu =     179.79
+
+
+-----------------------------------------------
+Results of CollisionOver test:
+
+POISSON approximation                 :
+Expected number of collisions = N*Mu  :     5393.80
+Observed number of collisions         :     5274
+p-value of test                       :    0.95
+
+-----------------------------
+Total number of cells containing j balls
+
+  j =  0                              :    8246038952154
+  j =  1                              :        298250892
+  j =  2                              :             5274
+  j =  3                              :                0
+  j =  4                              :                0
+  j =  5                              :                0
+
+-----------------------------------------------
+CPU time used                    :  00:00:26.17
+
+Generator state:
+ 298261440  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+snpair_ClosePairsBitMatch test:
+-----------------------------------------------
+   N =  5,  n = 1677721,  r =  0,  t = 2
+
+
+-----------------------------------------------
+Max of all bit distances              :   22.00
+p-value of test                       :    0.10
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.37
+
+Generator state:
+ 536870720  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+snpair_ClosePairsBitMatch test:
+-----------------------------------------------
+   N =  5,  n = 838860,  r =  0,  t = 4
+
+
+-----------------------------------------------
+Max of all bit distances              :   10.00
+p-value of test                       :    0.10
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.26
+
+Generator state:
+ 536870400  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+svaria_AppearanceSpacings test:
+-----------------------------------------------
+   N =  1,   Q = 16777216,   K = 16777216,   r = 0,   s = 30,   L = 15
+
+   Sequences of n = (K + Q)L =    503316480 bits
+   Q = 16777216 initialization blocks
+   K = 16777216 blocks for the test
+   the blocks have L = 15 bits
+
+
+
+-----------------------------------------------
+Normal statistic                      :   -0.12
+p-value of test                       :    0.55
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.07
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+scomp_LinearComp test:
+-----------------------------------------------
+   N =  1,  n = 56320,  r =  0,    s = 32
+
+
+
+-----------------------------------------------
+Number of degrees of freedom          :    9
+Chi2 statistic for size of jumps      :    5.29
+p-value of test                       :    0.81
+
+
+-----------------------------------------------
+Normal statistic for number of jumps  :   -1.01
+p-value of test                       :    0.84
+
+
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.16
+
+Generator state:
+ 56320  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+scomp_LempelZiv test:
+-----------------------------------------------
+   N =  1,  n = 268435456,  r =  0,   s =   32,   k =   28
+
+
+-----------------------------------------------
+Normal statistic                      :   -1.46
+p-value of test                       :    0.93
+
+-----------------------------------------------
+CPU time used                    :  00:00:06.50
+
+Generator state:
+ 268435456  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+sspectral_Fourier1 test:
+-----------------------------------------------
+   N =  1,  n = 1048576,  r =  0,   s =   32,   k =   20
+
+
+-----------------------------------------------
+Normal statistic                      :   -0.27
+p-value of test                       :    0.61
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.03
+
+Generator state:
+ 1048576  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+sspectral_Fourier3 test:
+-----------------------------------------------
+   N = 32704,  n = 16384,  r =  0,   s =   32,   k =   14
+
+
+-----------------------------------------------
+
+Kolmogorov-Smirnov+ statistic = D+    : 8.45e-3
+p-value of test                       :    0.55
+
+Kolmogorov-Smirnov- statistic = D-    :   0.014
+p-value of test                       :    0.18
+
+Anderson-Darling statistic = A2       :    0.68
+p-value of test                       :    0.58
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.64
+
+Generator state:
+ 536868864  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+sstring_LongestHeadRun test:
+-----------------------------------------------
+   N =  1,  n = 600,  r =  0,   s = 32,   L = 894784
+
+
+-----------------------------------------------
+Number of degrees of freedom          :    8
+Chi-square statistic                  :   10.00
+p-value of test                       :    0.27
+
+-----------------------------------------------
+Global longest run of 1               :   26.00
+p-value of test                       :    0.86
+
+
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.90
+
+Generator state:
+ 536870400  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+sstring_PeriodsInStrings test:
+-----------------------------------------------
+   N =  1,  n = 16777216,  r =  0,   s =   31
+
+
+-----------------------------------------------
+Number of degrees of freedom          :  191
+Chi-square statistic                  :  207.04
+p-value of test                       :    0.20
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.29
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+sstring_HammingWeight test:
+-----------------------------------------------
+   N =  1,  n = 16777216,  r =  0,   s = 32,   L = 32
+
+
+-----------------------------------------------
+Number of degrees of freedom          :   26
+Chi-square statistic                  :   18.62
+p-value of test                       :    0.85
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.04
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+sstring_HammingCorr test:
+-----------------------------------------------
+   N =  1,  n = 16777216,  r =  0,   s = 32,   L = 32
+
+
+
+-----------------------------------------------
+Normal statistic                      :   -0.89
+p-value of test                       :    0.81
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.04
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+sstring_HammingCorr test:
+-----------------------------------------------
+   N =  1,  n = 8388608,  r =  0,   s = 32,   L = 64
+
+
+
+-----------------------------------------------
+Normal statistic                      :   -0.45
+p-value of test                       :    0.67
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.04
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+sstring_HammingCorr test:
+-----------------------------------------------
+   N =  1,  n = 4194304,  r =  0,   s = 32,   L = 128
+
+
+
+-----------------------------------------------
+Normal statistic                      :   -2.08
+p-value of test                       :    0.98
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.03
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+sstring_HammingIndep test:
+-----------------------------------------------
+   N =  1,  n = 16777216,  r =  0,   s = 32,   L = 16,   d = 0
+
+
+
+Counters with expected numbers >= 10
+-----------------------------------------------
+Number of degrees of freedom          :  241
+Chi-square statistic                  :  222.11
+p-value of test                       :    0.80
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.17
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+sstring_HammingIndep test:
+-----------------------------------------------
+   N =  1,  n = 8388608,  r =  0,   s = 32,   L = 32,   d = 0
+
+
+
+Counters with expected numbers >= 10
+-----------------------------------------------
+Number of degrees of freedom          :  461
+Chi-square statistic                  :  461.22
+p-value of test                       :    0.49
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.06
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+sstring_HammingIndep test:
+-----------------------------------------------
+   N =  1,  n = 4194304,  r =  0,   s = 32,   L = 64,   d = 0
+
+
+
+Counters with expected numbers >= 10
+-----------------------------------------------
+Number of degrees of freedom          :  821
+Chi-square statistic                  :  762.89
+p-value of test                       :    0.93
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.03
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+sstring_AutoCor test:
+-----------------------------------------------
+   N =  1,  n = 536870849,  r =  0,   s = 32,   d = 1
+
+
+-----------------------------------------------
+Normal statistic                      :   -1.13
+p-value of test                       :    0.87
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.13
+
+Generator state:
+ 536870880  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+sstring_AutoCor test:
+-----------------------------------------------
+   N =  1,  n = 536870850,  r =  0,   s = 32,   d = 2
+
+
+-----------------------------------------------
+Normal statistic                      :  -0.010
+p-value of test                       :    0.50
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.10
+
+Generator state:
+ 536870880  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+sstring_Run test:
+-----------------------------------------------
+   N =  1,  n = 107374182,  r =  0,   s =   32
+
+
+-----------------------------------------------
+Total number of 1 runs:  107374182
+
+Number of degrees of freedom          :   46
+Chi2 statistic for number of runs     :   51.89
+p-value of test                       :    0.26
+
+
+-----------------------------------------------
+Total number of bits:  429511840
+
+Normal statistic for number of bits   :    0.52
+p-value of test                       :    0.30
+
+
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.15
+
+Generator state:
+ 429511840  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+smarsa_MatrixRank test:
+-----------------------------------------------
+   N =  1,  n = 524288,  r =  0,    s = 32,    L = 32,    k = 32
+
+
+-----------------------------------------------
+Number of degrees of freedom          :    4
+Chi-square statistic                  :    8.54
+p-value of test                       :    0.07
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.32
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+smarsa_MatrixRank test:
+-----------------------------------------------
+   N =  1,  n = 5242,  r =  0,    s = 32,    L = 320,    k = 320
+
+
+-----------------------------------------------
+Number of degrees of freedom          :    3
+Chi-square statistic                  :    1.95
+p-value of test                       :    0.58
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.35
+
+Generator state:
+ 536780800  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+smarsa_MatrixRank test:
+-----------------------------------------------
+   N =  1,  n = 512,  r =  0,    s = 32,    L = 1024,    k = 1024
+
+
+-----------------------------------------------
+Number of degrees of freedom          :    2
+Chi-square statistic                  :    2.79
+p-value of test                       :    0.25
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.86
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+swalk_RandomWalk1 test:
+-----------------------------------------------
+   N =  1,  n = 4194304,  r =  0,   s = 32,   L0 =  128,   L1 =  128
+
+
+
+-----------------------------------------------
+Test on the values of the Statistic H
+
+Number of degrees of freedom          :   52
+ChiSquare statistic                   :   48.90
+p-value of test                       :    0.60
+
+
+-----------------------------------------------
+Test on the values of the Statistic M
+
+Number of degrees of freedom          :   51
+ChiSquare statistic                   :   51.36
+p-value of test                       :    0.46
+
+
+-----------------------------------------------
+Test on the values of the Statistic J
+
+Number of degrees of freedom          :   64
+ChiSquare statistic                   :   60.53
+p-value of test                       :    0.60
+
+
+-----------------------------------------------
+Test on the values of the Statistic R
+
+Number of degrees of freedom          :   42
+ChiSquare statistic                   :   48.78
+p-value of test                       :    0.22
+
+
+-----------------------------------------------
+Test on the values of the Statistic C
+
+Number of degrees of freedom          :   26
+ChiSquare statistic                   :   40.91
+p-value of test                       :    0.03
+
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.32
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+swalk_RandomWalk1 test:
+-----------------------------------------------
+   N =  1,  n = 524288,  r =  0,   s = 32,   L0 = 1024,   L1 = 1024
+
+
+
+-----------------------------------------------
+Test on the values of the Statistic H
+
+Number of degrees of freedom          :  126
+ChiSquare statistic                   :  116.65
+p-value of test                       :    0.71
+
+
+-----------------------------------------------
+Test on the values of the Statistic M
+
+Number of degrees of freedom          :  126
+ChiSquare statistic                   :   98.59
+p-value of test                       :    0.97
+
+
+-----------------------------------------------
+Test on the values of the Statistic J
+
+Number of degrees of freedom          :  512
+ChiSquare statistic                   :  571.64
+p-value of test                       :    0.03
+
+
+-----------------------------------------------
+Test on the values of the Statistic R
+
+Number of degrees of freedom          :  119
+ChiSquare statistic                   :  108.35
+p-value of test                       :    0.75
+
+
+-----------------------------------------------
+Test on the values of the Statistic C
+
+Number of degrees of freedom          :   65
+ChiSquare statistic                   :   66.35
+p-value of test                       :    0.43
+
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.13
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_system.bin
+
+
+swalk_RandomWalk1 test:
+-----------------------------------------------
+   N =  1,  n = 53601,  r =  0,   s = 32,   L0 = 10016,   L1 = 10016
+
+
+
+-----------------------------------------------
+Test on the values of the Statistic H
+
+Number of degrees of freedom          :  298
+ChiSquare statistic                   :  283.69
+p-value of test                       :    0.72
+
+
+-----------------------------------------------
+Test on the values of the Statistic M
+
+Number of degrees of freedom          :  299
+ChiSquare statistic                   :  326.19
+p-value of test                       :    0.13
+
+
+-----------------------------------------------
+Test on the values of the Statistic J
+
+Number of degrees of freedom          : 3174
+ChiSquare statistic                   : 3147.23
+p-value of test                       :    0.63
+
+
+-----------------------------------------------
+Test on the values of the Statistic R
+
+Number of degrees of freedom          :  295
+ChiSquare statistic                   :  355.67
+p-value of test                       :  8.9e-3
+
+
+-----------------------------------------------
+Test on the values of the Statistic C
+
+Number of degrees of freedom          :  160
+ChiSquare statistic                   :  156.54
+p-value of test                       :    0.56
+
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.03
+
+Generator state:
+ 536867616  bits have been read.
+
+
+
+
+
+========= Summary results of Rabbit =========
+
+ Version:          TestU01 1.2.3
+ File:             /tmp/ond_tools/rng_data/testu01_system.bin
+ Number of bits:   536870912
+ Number of statistics:  40
+ Total CPU time:   00:00:49.35
+
+ All tests were passed
+
+
+

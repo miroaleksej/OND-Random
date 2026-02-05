@@ -1,0 +1,837 @@
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+          Starting Rabbit:   nb = 536870912
+          Version: TestU01 1.2.3
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+smultin_MultinomialBitsOver test:
+-----------------------------------------------
+   N = 30,  n = 9942048,  r =  0,   s = 32,   L =   38,
+       Sparse =   TRUE
+
+       Number of bits = n = 9942048
+       Number of cells = 2^L =       274877906944
+       Expected number per cell =  1 /  27648.016
+       EColl = n^2 / (2k) =  179.7967678
+       Hashing =   TRUE
+
+       Collision test
+       CollisionOver:   density = n / k =  1 /   27648.02
+       Expected number of collisions = Mu =     179.79
+
+
+-----------------------------------------------
+Results of CollisionOver test:
+
+POISSON approximation                 :
+Expected number of collisions = N*Mu  :     5393.80
+Observed number of collisions         :     5402
+p-value of test                       :    0.46
+
+-----------------------------
+Total number of cells containing j balls
+
+  j =  0                              :    8246038952282
+  j =  1                              :        298250636
+  j =  2                              :             5402
+  j =  3                              :                0
+  j =  4                              :                0
+  j =  5                              :                0
+
+-----------------------------------------------
+CPU time used                    :  00:00:26.21
+
+Generator state:
+ 298261440  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+snpair_ClosePairsBitMatch test:
+-----------------------------------------------
+   N =  5,  n = 1677721,  r =  0,  t = 2
+
+
+-----------------------------------------------
+Max of all bit distances              :   20.00
+p-value of test                       :    0.80
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.39
+
+Generator state:
+ 536870720  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+snpair_ClosePairsBitMatch test:
+-----------------------------------------------
+   N =  5,  n = 838860,  r =  0,  t = 4
+
+
+-----------------------------------------------
+Max of all bit distances              :   10.00
+p-value of test                       :    0.10
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.26
+
+Generator state:
+ 536870400  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+svaria_AppearanceSpacings test:
+-----------------------------------------------
+   N =  1,   Q = 16777216,   K = 16777216,   r = 0,   s = 30,   L = 15
+
+   Sequences of n = (K + Q)L =    503316480 bits
+   Q = 16777216 initialization blocks
+   K = 16777216 blocks for the test
+   the blocks have L = 15 bits
+
+
+
+-----------------------------------------------
+Normal statistic                      :   -1.20
+p-value of test                       :    0.88
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.08
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+scomp_LinearComp test:
+-----------------------------------------------
+   N =  1,  n = 56320,  r =  0,    s = 32
+
+
+
+-----------------------------------------------
+Number of degrees of freedom          :    9
+Chi2 statistic for size of jumps      :    2.28
+p-value of test                       :    0.99
+
+
+-----------------------------------------------
+Normal statistic for number of jumps  :    0.32
+p-value of test                       :    0.38
+
+
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.14
+
+Generator state:
+ 56320  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+scomp_LempelZiv test:
+-----------------------------------------------
+   N =  1,  n = 268435456,  r =  0,   s =   32,   k =   28
+
+
+-----------------------------------------------
+Normal statistic                      :   -0.41
+p-value of test                       :    0.66
+
+-----------------------------------------------
+CPU time used                    :  00:00:06.52
+
+Generator state:
+ 268435456  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+sspectral_Fourier1 test:
+-----------------------------------------------
+   N =  1,  n = 1048576,  r =  0,   s =   32,   k =   20
+
+
+-----------------------------------------------
+Normal statistic                      :   -0.69
+p-value of test                       :    0.75
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.03
+
+Generator state:
+ 1048576  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+sspectral_Fourier3 test:
+-----------------------------------------------
+   N = 32704,  n = 16384,  r =  0,   s =   32,   k =   14
+
+
+-----------------------------------------------
+
+Kolmogorov-Smirnov+ statistic = D+    :   0.012
+p-value of test                       :    0.31
+
+Kolmogorov-Smirnov- statistic = D-    : 3.06e-3
+p-value of test                       :    0.92
+
+Anderson-Darling statistic = A2       :    1.08
+p-value of test                       :    0.32
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.63
+
+Generator state:
+ 536868864  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+sstring_LongestHeadRun test:
+-----------------------------------------------
+   N =  1,  n = 600,  r =  0,   s = 32,   L = 894784
+
+
+-----------------------------------------------
+Number of degrees of freedom          :    8
+Chi-square statistic                  :    7.91
+p-value of test                       :    0.44
+
+-----------------------------------------------
+Global longest run of 1               :   27.00
+p-value of test                       :    0.63
+
+
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.90
+
+Generator state:
+ 536870400  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+sstring_PeriodsInStrings test:
+-----------------------------------------------
+   N =  1,  n = 16777216,  r =  0,   s =   31
+
+
+-----------------------------------------------
+Number of degrees of freedom          :  191
+Chi-square statistic                  :  197.49
+p-value of test                       :    0.36
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.31
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+sstring_HammingWeight test:
+-----------------------------------------------
+   N =  1,  n = 16777216,  r =  0,   s = 32,   L = 32
+
+
+-----------------------------------------------
+Number of degrees of freedom          :   26
+Chi-square statistic                  :   29.20
+p-value of test                       :    0.30
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.04
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+sstring_HammingCorr test:
+-----------------------------------------------
+   N =  1,  n = 16777216,  r =  0,   s = 32,   L = 32
+
+
+
+-----------------------------------------------
+Normal statistic                      :   0.042
+p-value of test                       :    0.48
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.03
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+sstring_HammingCorr test:
+-----------------------------------------------
+   N =  1,  n = 8388608,  r =  0,   s = 32,   L = 64
+
+
+
+-----------------------------------------------
+Normal statistic                      :    0.11
+p-value of test                       :    0.46
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.03
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+sstring_HammingCorr test:
+-----------------------------------------------
+   N =  1,  n = 4194304,  r =  0,   s = 32,   L = 128
+
+
+
+-----------------------------------------------
+Normal statistic                      :    0.57
+p-value of test                       :    0.28
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.03
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+sstring_HammingIndep test:
+-----------------------------------------------
+   N =  1,  n = 16777216,  r =  0,   s = 32,   L = 16,   d = 0
+
+
+
+Counters with expected numbers >= 10
+-----------------------------------------------
+Number of degrees of freedom          :  241
+Chi-square statistic                  :  254.51
+p-value of test                       :    0.26
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.17
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+sstring_HammingIndep test:
+-----------------------------------------------
+   N =  1,  n = 8388608,  r =  0,   s = 32,   L = 32,   d = 0
+
+
+
+Counters with expected numbers >= 10
+-----------------------------------------------
+Number of degrees of freedom          :  461
+Chi-square statistic                  :  512.72
+p-value of test                       :    0.05
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.04
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+sstring_HammingIndep test:
+-----------------------------------------------
+   N =  1,  n = 4194304,  r =  0,   s = 32,   L = 64,   d = 0
+
+
+
+Counters with expected numbers >= 10
+-----------------------------------------------
+Number of degrees of freedom          :  821
+Chi-square statistic                  :  846.63
+p-value of test                       :    0.26
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.03
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+sstring_AutoCor test:
+-----------------------------------------------
+   N =  1,  n = 536870849,  r =  0,   s = 32,   d = 1
+
+
+-----------------------------------------------
+Normal statistic                      :    1.80
+p-value of test                       :    0.04
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.13
+
+Generator state:
+ 536870880  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+sstring_AutoCor test:
+-----------------------------------------------
+   N =  1,  n = 536870850,  r =  0,   s = 32,   d = 2
+
+
+-----------------------------------------------
+Normal statistic                      :    0.12
+p-value of test                       :    0.45
+
+-----------------------------------------------
+CPU time used                    :  00:00:00.10
+
+Generator state:
+ 536870880  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+sstring_Run test:
+-----------------------------------------------
+   N =  1,  n = 107374182,  r =  0,   s =   32
+
+
+-----------------------------------------------
+Total number of 1 runs:  107374188
+
+Number of degrees of freedom          :   46
+Chi2 statistic for number of runs     :   47.61
+p-value of test                       :    0.41
+
+
+-----------------------------------------------
+Total number of bits:  429447168
+
+Normal statistic for number of bits   :   -1.69
+p-value of test                       :    0.95
+
+
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.17
+
+Generator state:
+ 429447168  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+smarsa_MatrixRank test:
+-----------------------------------------------
+   N =  1,  n = 524288,  r =  0,    s = 32,    L = 32,    k = 32
+
+
+-----------------------------------------------
+Number of degrees of freedom          :    4
+Chi-square statistic                  :    1.72
+p-value of test                       :    0.79
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.31
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+smarsa_MatrixRank test:
+-----------------------------------------------
+   N =  1,  n = 5242,  r =  0,    s = 32,    L = 320,    k = 320
+
+
+-----------------------------------------------
+Number of degrees of freedom          :    3
+Chi-square statistic                  :    3.16
+p-value of test                       :    0.37
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.35
+
+Generator state:
+ 536780800  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+smarsa_MatrixRank test:
+-----------------------------------------------
+   N =  1,  n = 512,  r =  0,    s = 32,    L = 1024,    k = 1024
+
+
+-----------------------------------------------
+Number of degrees of freedom          :    2
+Chi-square statistic                  :    1.59
+p-value of test                       :    0.45
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.86
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+swalk_RandomWalk1 test:
+-----------------------------------------------
+   N =  1,  n = 4194304,  r =  0,   s = 32,   L0 =  128,   L1 =  128
+
+
+
+-----------------------------------------------
+Test on the values of the Statistic H
+
+Number of degrees of freedom          :   52
+ChiSquare statistic                   :   51.37
+p-value of test                       :    0.50
+
+
+-----------------------------------------------
+Test on the values of the Statistic M
+
+Number of degrees of freedom          :   51
+ChiSquare statistic                   :   55.76
+p-value of test                       :    0.30
+
+
+-----------------------------------------------
+Test on the values of the Statistic J
+
+Number of degrees of freedom          :   64
+ChiSquare statistic                   :   66.14
+p-value of test                       :    0.40
+
+
+-----------------------------------------------
+Test on the values of the Statistic R
+
+Number of degrees of freedom          :   42
+ChiSquare statistic                   :   52.08
+p-value of test                       :    0.14
+
+
+-----------------------------------------------
+Test on the values of the Statistic C
+
+Number of degrees of freedom          :   26
+ChiSquare statistic                   :   26.00
+p-value of test                       :    0.46
+
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.34
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+swalk_RandomWalk1 test:
+-----------------------------------------------
+   N =  1,  n = 524288,  r =  0,   s = 32,   L0 = 1024,   L1 = 1024
+
+
+
+-----------------------------------------------
+Test on the values of the Statistic H
+
+Number of degrees of freedom          :  126
+ChiSquare statistic                   :  109.32
+p-value of test                       :    0.86
+
+
+-----------------------------------------------
+Test on the values of the Statistic M
+
+Number of degrees of freedom          :  126
+ChiSquare statistic                   :  110.80
+p-value of test                       :    0.83
+
+
+-----------------------------------------------
+Test on the values of the Statistic J
+
+Number of degrees of freedom          :  512
+ChiSquare statistic                   :  522.43
+p-value of test                       :    0.37
+
+
+-----------------------------------------------
+Test on the values of the Statistic R
+
+Number of degrees of freedom          :  119
+ChiSquare statistic                   :  130.87
+p-value of test                       :    0.22
+
+
+-----------------------------------------------
+Test on the values of the Statistic C
+
+Number of degrees of freedom          :   65
+ChiSquare statistic                   :   58.74
+p-value of test                       :    0.69
+
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.11
+
+Generator state:
+ 536870912  bits have been read.
+
+
+
+
+***********************************************************
+HOST = MacBook-Air-od-Aleksej.local, Darwin
+
+ufile_CreateReadBin:   /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+
+
+swalk_RandomWalk1 test:
+-----------------------------------------------
+   N =  1,  n = 53601,  r =  0,   s = 32,   L0 = 10016,   L1 = 10016
+
+
+
+-----------------------------------------------
+Test on the values of the Statistic H
+
+Number of degrees of freedom          :  298
+ChiSquare statistic                   :  300.30
+p-value of test                       :    0.45
+
+
+-----------------------------------------------
+Test on the values of the Statistic M
+
+Number of degrees of freedom          :  299
+ChiSquare statistic                   :  301.29
+p-value of test                       :    0.45
+
+
+-----------------------------------------------
+Test on the values of the Statistic J
+
+Number of degrees of freedom          : 3174
+ChiSquare statistic                   : 3366.33
+p-value of test                       :  8.8e-3
+
+
+-----------------------------------------------
+Test on the values of the Statistic R
+
+Number of degrees of freedom          :  295
+ChiSquare statistic                   :  270.79
+p-value of test                       :    0.84
+
+
+-----------------------------------------------
+Test on the values of the Statistic C
+
+Number of degrees of freedom          :  160
+ChiSquare statistic                   :  165.50
+p-value of test                       :    0.37
+
+
+-----------------------------------------------
+CPU time used                    :  00:00:01.03
+
+Generator state:
+ 536867616  bits have been read.
+
+
+
+
+
+========= Summary results of Rabbit =========
+
+ Version:          TestU01 1.2.3
+ File:             /tmp/ond_tools/rng_data/testu01_chacha20_seed1.bin
+ Number of bits:   536870912
+ Number of statistics:  40
+ Total CPU time:   00:00:49.43
+
+ All tests were passed
+
+
+

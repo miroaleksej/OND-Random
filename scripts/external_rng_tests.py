@@ -119,7 +119,9 @@ def _run_practrand(rng: RNG, args: argparse.Namespace) -> int:
     if word not in (8, 16, 32, 64):
         raise SystemExit("--stdin-word must be one of: 8, 16, 32, 64")
 
-    extra_args: List[str] = args.practrand_args or []
+    extra_args: List[str] = list(args.practrand_args or [])
+    if args.practrand_args_str:
+        extra_args.extend(shlex.split(args.practrand_args_str))
     cmd_list = [cmd, f"stdin{word}"] + extra_args
 
     stdout = None
@@ -211,6 +213,7 @@ def main() -> int:
     p_pr.add_argument("--stdin-word", type=int, default=64)
     p_pr.add_argument("--practrand-cmd", default="RNG_test")
     p_pr.add_argument("--practrand-args", nargs="*", default=[])
+    p_pr.add_argument("--practrand-args-str", default=None, help="optional raw args string passed to RNG_test")
     p_pr.add_argument("--chunk", type=int, default=1 << 20)
     p_pr.add_argument("--log", default=None, help="optional log file path")
     p_pr.set_defaults(func=cmd_practrand)
