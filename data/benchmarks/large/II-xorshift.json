@@ -1,0 +1,11 @@
+{
+  "H_branch": 0.22587754738396396,
+  "H_rank": 0.9579996112137322,
+  "H_sub": 0.2328702406240654,
+  "dimension": 4,
+  "id": "II-xorshift",
+  "modulus": null,
+  "n_samples": 100000,
+  "ond_class": "II",
+  "rank": 4
+}

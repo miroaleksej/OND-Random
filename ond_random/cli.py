@@ -495,7 +495,20 @@ def cmd_benchmark(args: argparse.Namespace) -> None:
         ("II-xorshift", XorShiftRNG(1, 2), ONDClass.II),
         ("III-bounded", BoundedRNG(SystemRNG(), bound_bits=12), ONDClass.III),
         ("IV-masked", MaskedRNG(SystemRNG(), mask_low_bits=6), ONDClass.IV),
-        ("Q-ideal", QuantumEmulatorRNG(seed=1, model=QuantumNoiseModel()), ONDClass.I),
+        (
+            "Q-ideal",
+            QuantumEmulatorRNG(
+                seed=1,
+                model=QuantumNoiseModel(
+                    bias=0.0,
+                    drift_sigma=0.0,
+                    drift_rho=0.0,
+                    memory=0.0,
+                    phase_sigma=0.0,
+                ),
+            ),
+            ONDClass.I,
+        ),
         ("Q-drift", QuantumEmulatorRNG(seed=2, model=QuantumNoiseModel(bias=0.05, drift_sigma=0.02, memory=0.2, phase_sigma=0.01)), ONDClass.III),
     ]
 

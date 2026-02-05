@@ -1,0 +1,11 @@
+{
+  "H_branch": 0.22557461962436773,
+  "H_rank": 0.9581017114683796,
+  "H_sub": 0.23272946380558313,
+  "dimension": 4,
+  "id": "II-lcg",
+  "modulus": null,
+  "n_samples": 100000,
+  "ond_class": "II",
+  "rank": 4
+}

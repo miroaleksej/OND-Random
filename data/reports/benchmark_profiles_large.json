@@ -1,0 +1,79 @@
+[
+  {
+    "H_branch": 0.225830221059225,
+    "H_rank": 0.9577882863741447,
+    "H_sub": 0.23295970827806348,
+    "dimension": 4,
+    "id": "I-ondmax",
+    "modulus": null,
+    "n_samples": 100000,
+    "ond_class": "I",
+    "rank": 4
+  },
+  {
+    "H_branch": 0.22557461962436773,
+    "H_rank": 0.9581017114683796,
+    "H_sub": 0.23272946380558313,
+    "dimension": 4,
+    "id": "II-lcg",
+    "modulus": null,
+    "n_samples": 100000,
+    "ond_class": "II",
+    "rank": 4
+  },
+  {
+    "H_branch": 0.22587754738396396,
+    "H_rank": 0.9579996112137322,
+    "H_sub": 0.2328702406240654,
+    "dimension": 4,
+    "id": "II-xorshift",
+    "modulus": null,
+    "n_samples": 100000,
+    "ond_class": "II",
+    "rank": 4
+  },
+  {
+    "H_branch": 0.226016684012081,
+    "H_rank": 0.9583502496573968,
+    "H_sub": 0.23306043561630135,
+    "dimension": 4,
+    "id": "III-bounded",
+    "modulus": null,
+    "n_samples": 100000,
+    "ond_class": "III",
+    "rank": 4
+  },
+  {
+    "H_branch": 0.2259134729261435,
+    "H_rank": 0.9580430386342694,
+    "H_sub": 0.23297112815283713,
+    "dimension": 4,
+    "id": "IV-masked",
+    "modulus": null,
+    "n_samples": 100000,
+    "ond_class": "IV",
+    "rank": 4
+  },
+  {
+    "H_branch": 0.22629919255857936,
+    "H_rank": 0.9578675156459513,
+    "H_sub": 0.23322025243949474,
+    "dimension": 4,
+    "id": "Q-ideal",
+    "modulus": null,
+    "n_samples": 100000,
+    "ond_class": "I",
+    "rank": 4
+  },
+  {
+    "H_branch": 0.1849110204187911,
+    "H_rank": 0.9677084054107481,
+    "H_sub": 0.20126860752096193,
+    "dimension": 4,
+    "id": "Q-drift",
+    "modulus": null,
+    "n_samples": 100000,
+    "ond_class": "III",
+    "rank": 4
+  }
+]

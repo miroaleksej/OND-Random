@@ -1,12 +1,12 @@
 {
   "targets": {
     "I-ondmax": {
-      "count": 1,
+      "count": 3,
       "description": "online",
       "mean": {
-        "H_branch": 0.2245126896968838,
-        "H_rank": 0.9579015228976158,
-        "H_sub": 0.23197728454780056
+        "H_branch": 0.2244593594818934,
+        "H_rank": 0.9572577450241212,
+        "H_sub": 0.25507526201139263
       },
       "std": {
         "H_branch": 0.05,
@@ -15,7 +15,7 @@
       }
     },
     "II-lcg": {
-      "count": 1,
+      "count": 3,
       "description": "online",
       "mean": {
         "H_branch": 0.2241474485087468,
@@ -29,7 +29,7 @@
       }
     },
     "II-xorshift": {
-      "count": 1,
+      "count": 3,
       "description": "online",
       "mean": {
         "H_branch": 0.2250186087612778,
@@ -43,12 +43,12 @@
       }
     },
     "III-bounded": {
-      "count": 1,
+      "count": 3,
       "description": "online",
       "mean": {
-        "H_branch": 0.22446079993234014,
-        "H_rank": 0.9586823236880251,
-        "H_sub": 0.23878994308785337
+        "H_branch": 0.2259697977504227,
+        "H_rank": 0.958802252029408,
+        "H_sub": 0.23688449347772575
       },
       "std": {
         "H_branch": 0.05,
@@ -57,12 +57,12 @@
       }
     },
     "IV-masked": {
-      "count": 1,
+      "count": 3,
       "description": "online",
       "mean": {
-        "H_branch": 0.22509858561402377,
-        "H_rank": 0.9569390955669648,
-        "H_sub": 0.2321999857327659
+        "H_branch": 0.22524074320762993,
+        "H_rank": 0.9581734964833273,
+        "H_sub": 0.25573914690591115
       },
       "std": {
         "H_branch": 0.05,
@@ -71,7 +71,7 @@
       }
     },
     "Q-drift": {
-      "count": 1,
+      "count": 3,
       "description": "online",
       "mean": {
         "H_branch": 0.1835502879276999,
@@ -85,12 +85,12 @@
       }
     },
     "Q-ideal": {
-      "count": 1,
+      "count": 3,
       "description": "online",
       "mean": {
-        "H_branch": 0.22713344851622538,
-        "H_rank": 0.959113830509637,
-        "H_sub": 0.23422357983777037
+        "H_branch": 0.2266130917111296,
+        "H_rank": 0.9588076668198672,
+        "H_sub": 0.23376836709885815
       },
       "std": {
         "H_branch": 0.05,

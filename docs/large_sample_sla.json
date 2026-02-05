@@ -9,7 +9,7 @@
     "bins": 16,
     "max_subspace_dim": 6,
     "branch_bins": null,
-    "branch_mode": "raw",
+    "branch_mode": "delta",
     "max_l2": 0.05,
     "max_abs": {
       "H_rank": 0.02,
@@ -22,34 +22,34 @@
       "id": "ondmax-system",
       "rng": "ondmax",
       "source": "system",
-      "baseline_profile": "data/benchmarks/I-ondmax.json"
+      "baseline_profile": "data/benchmarks/large/I-ondmax.json"
     },
     {
       "id": "lcg",
       "rng": "lcg",
       "seed": 1,
-      "baseline_profile": "data/benchmarks/II-lcg.json"
+      "baseline_profile": "data/benchmarks/large/II-lcg.json"
     },
     {
       "id": "xorshift",
       "rng": "xorshift",
       "seed": 1,
       "seed2": 2,
-      "baseline_profile": "data/benchmarks/II-xorshift.json"
+      "baseline_profile": "data/benchmarks/large/II-xorshift.json"
     },
     {
       "id": "bounded",
       "rng": "bounded",
       "source": "system",
       "bound_bits": 12,
-      "baseline_profile": "data/benchmarks/III-bounded.json"
+      "baseline_profile": "data/benchmarks/large/III-bounded.json"
     },
     {
       "id": "masked",
       "rng": "masked",
       "source": "system",
-      "mask_low_bits": 4,
-      "baseline_profile": "data/benchmarks/IV-masked.json"
+      "mask_low_bits": 6,
+      "baseline_profile": "data/benchmarks/large/IV-masked.json"
     }
   ]
 }
