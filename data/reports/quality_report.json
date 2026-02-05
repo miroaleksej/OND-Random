@@ -4,22 +4,22 @@
       "name": "H_rank close to 1 for IID",
       "pass": true,
       "threshold": 0.95,
-      "value": 0.9572883615690484
+      "value": 0.9569109924989344
     },
     {
-      "iid": 0.23205761309137385,
+      "iid": 0.23247974099789157,
       "name": "Q-drift H_sub lower than IID",
       "pass": true,
       "q_drift": 0.2000973285614397
     },
     {
-      "iid": 0.22489729611445522,
+      "iid": 0.2249961130145479,
       "name": "Q-drift H_branch lower than IID",
       "pass": true,
       "q_drift": 0.1835502879276999
     },
     {
-      "iid": 0.23205761309137385,
+      "iid": 0.23247974099789157,
       "name": "Q-ideal H_sub close to IID",
       "pass": true,
       "q_ideal": 0.23285794162103374,
