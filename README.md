@@ -1,5 +1,5 @@
 # OND Random
-<img width="1024" height="1536" alt="ChatGPT Image 4 февр  2026 г , 21_45_15" src="https://github.com/user-attachments/assets/25603efe-efb6-4637-946a-c61d4cd9dbb3" />
+<img width="1024" height="1536" alt="ChatGPT image (Feb 4, 2026)" src="https://github.com/user-attachments/assets/25603efe-efb6-4637-946a-c61d4cd9dbb3" />
 ![CI](https://github.com/miroaleksej/OND-Random/actions/workflows/ci.yml/badge.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
@@ -100,7 +100,7 @@ source .venv/bin/activate
 pip install -e .
 ```
 
-Offline / no-build-isolation (если нет доступа к PyPI):
+Offline / no-build-isolation (if you do not have access to PyPI):
 
 ```bash
 pip install -e . --no-build-isolation
@@ -520,10 +520,10 @@ OND-maximality here means that the extracted output is as close as possible to t
 
 ## Formal Criteria (Fixed)
 
-1. **OND‑Maximality**: `H_rank`, `H_sub`, `H_branch` максимально близки к IID‑null на сырых данных.
-2. **Устойчивость**: стабильность профиля при смене источника (QRNG, OS RNG, эмулятор) и при разных режимах.
-3. **Проверяемость**: воспроизводимый отчёт и методика, проверяемая без доступа к внутреннему состоянию.
-4. **Безопасность**: строгая экстракция (SHAKE‑based), отсутствие скрытых параметров, прозрачный код.
+1. **OND‑Maximality**: `H_rank`, `H_sub`, `H_branch` are as close as possible to the IID‑null on raw data.
+2. **Stability**: profile stability across sources (QRNG, OS RNG, emulator) and modes.
+3. **Verifiability**: reproducible report and methodology verifiable without internal state access.
+4. **Security**: strict extraction (SHAKE‑based), no hidden parameters, transparent code.
 
 ## Production Readiness
 
