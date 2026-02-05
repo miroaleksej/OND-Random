@@ -1,0 +1,56 @@
+A total of 188 tests (some of the 15 tests actually consist of multiple sub-tests)
+were conducted to evaluate the randomness of 256 bitstreams of 1048576 bits from:
+
+	/tmp/ond_tools/rng_data/nist_ondmax_256.txt
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+The numerous empirical results of these tests were then interpreted with
+an examination of the proportion of sequences that pass a statistical test
+(proportion analysis) and the distribution of p-values to check for uniformity
+(uniformity analysis). The results were the following:
+
+	187/188 tests passed successfully both the analyses.
+	1/188 tests did not pass successfully both the analyses.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Here are the results of the single tests:
+
+ - The "Frequency" test passed both the analyses.
+
+ - The "Block Frequency" test passed both the analyses.
+
+ - The "Cumulative Sums" (forward) test passed both the analyses.
+   The "Cumulative Sums" (backward) test passed both the analyses.
+
+ - The "Runs" test passed both the analyses.
+
+ - The "Longest Run of Ones" test passed both the analyses.
+
+ - The "Binary Matrix Rank" test passed both the analyses.
+
+ - The "Discrete Fourier Transform" test FAILED the proportion analysis.
+
+ - 148/148 of the "Non-overlapping Template Matching" tests passed both the analyses.
+
+ - The "Overlapping Template Matching" test passed both the analyses.
+
+ - The "Maurer's Universal Statistical" test passed both the analyses.
+
+ - The "Approximate Entropy" test passed both the analyses.
+
+ - 8/8 of the "Random Excursions" tests passed both the analyses.
+
+ - 18/18 of the "Random Excursions Variant" tests passed both the analyses.
+
+ - The "Serial" (first) test passed both the analyses.
+   The "Serial" (second) test passed both the analyses.
+
+ - The "Linear Complexity" test passed both the analyses.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+The missing tests (if any) were whether disabled manually by the user or disabled
+at run time due to input size requirements not satisfied by this run.
+

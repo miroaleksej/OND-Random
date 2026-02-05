@@ -1,0 +1,31 @@
+Testing data from file: /tmp/ond_tools/rng_data/nist_system_256.txt
+Start of init phase
+End of init phase
+
+Start of iterate phase
+Completed iteration 1 of 256 at 2026-02-05 23:33:51
+Completed iteration 17 of 256 at 2026-02-05 23:33:53
+Completed iteration 33 of 256 at 2026-02-05 23:33:56
+Completed iteration 49 of 256 at 2026-02-05 23:33:57
+Completed iteration 65 of 256 at 2026-02-05 23:34:01
+Completed iteration 81 of 256 at 2026-02-05 23:34:05
+Completed iteration 97 of 256 at 2026-02-05 23:34:07
+Completed iteration 113 of 256 at 2026-02-05 23:34:11
+Completed iteration 129 of 256 at 2026-02-05 23:34:12
+Completed iteration 145 of 256 at 2026-02-05 23:34:16
+Completed iteration 161 of 256 at 2026-02-05 23:34:20
+Completed iteration 177 of 256 at 2026-02-05 23:34:22
+Completed iteration 193 of 256 at 2026-02-05 23:34:26
+Completed iteration 209 of 256 at 2026-02-05 23:34:28
+Completed iteration 225 of 256 at 2026-02-05 23:34:32
+Completed iteration 241 of 256 at 2026-02-05 23:34:36
+End of iterate phase
+
+Start of assess phase
+End of assess phase
+
+Start of destroy phase
+End of destroy phase
+
+Execution completed!
+Check the result.txt file for the results

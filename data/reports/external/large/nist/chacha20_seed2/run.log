@@ -1,0 +1,31 @@
+Testing data from file: /tmp/ond_tools/rng_data/nist_chacha20_seed2_256.txt
+Start of init phase
+End of init phase
+
+Start of iterate phase
+Completed iteration 1 of 256 at 2026-02-05 23:37:14
+Completed iteration 17 of 256 at 2026-02-05 23:37:16
+Completed iteration 33 of 256 at 2026-02-05 23:37:20
+Completed iteration 49 of 256 at 2026-02-05 23:37:22
+Completed iteration 65 of 256 at 2026-02-05 23:37:27
+Completed iteration 81 of 256 at 2026-02-05 23:37:30
+Completed iteration 97 of 256 at 2026-02-05 23:37:32
+Completed iteration 113 of 256 at 2026-02-05 23:37:36
+Completed iteration 129 of 256 at 2026-02-05 23:37:38
+Completed iteration 145 of 256 at 2026-02-05 23:37:42
+Completed iteration 161 of 256 at 2026-02-05 23:37:46
+Completed iteration 177 of 256 at 2026-02-05 23:37:48
+Completed iteration 193 of 256 at 2026-02-05 23:37:52
+Completed iteration 209 of 256 at 2026-02-05 23:37:54
+Completed iteration 225 of 256 at 2026-02-05 23:37:58
+Completed iteration 241 of 256 at 2026-02-05 23:38:02
+End of iterate phase
+
+Start of assess phase
+End of assess phase
+
+Start of destroy phase
+End of destroy phase
+
+Execution completed!
+Check the result.txt file for the results
