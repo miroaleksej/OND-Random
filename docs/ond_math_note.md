@@ -26,8 +26,6 @@ This makes randomness a **geometric object** in the observation space.
 ---
 
 ## 3) Data and notation
-Formulas below are written in LaTeX display form (using $$ ... $$).
-Let:
 
 - U in R^(N x d): observation matrix (N samples, dimension d)  
 - D = ΔU: centered differences (dynamics)
