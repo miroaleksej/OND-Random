@@ -1,0 +1,2901 @@
+{
+  "summary": {
+    "total": 94,
+    "confirmed": 35,
+    "needs_parameters": 0,
+    "derived_reports": 22,
+    "not_observation": 35,
+    "error": 0
+  },
+  "results": [
+    {
+      "path": "IsogenyGuard-SDK/data.csv",
+      "kind": "csv",
+      "status": "confirmed",
+      "analysis": {
+        "rows": 200,
+        "columns": [
+          "r",
+          "s",
+          "z"
+        ],
+        "numeric_columns": [],
+        "hex_columns": [
+          "r",
+          "s",
+          "z"
+        ],
+        "hex_stats": {
+          "r": {
+            "count": 200,
+            "min_bits": 247.0,
+            "max_bits": 256.0,
+            "mean_bits": 254.985
+          },
+          "s": {
+            "count": 200,
+            "min_bits": 248.0,
+            "max_bits": 256.0,
+            "mean_bits": 254.79
+          },
+          "z": {
+            "count": 200,
+            "min_bits": 250.0,
+            "max_bits": 256.0,
+            "mean_bits": 255.125
+          }
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "ecdsa-secp256k1-rsz-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "Z_mod_m",
+          "modulus": 115792089237316195423570985008687907852837564279074904382605163141518161494337,
+          "d": 2
+        }
+      }
+    },
+    {
+      "path": "IsogenyGuard-SDK/isogenyguard/schemas/ond-art-report-0.1.schema.json",
+      "kind": "schema",
+      "status": "not_observation"
+    },
+    {
+      "path": "IsogenyGuard-SDK/report.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "IsogenyGuard-SDK/tests/fixtures/ond_art_report_example.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "Noisy-VQE-Benchmark-Rayon-scaling-/chi_40.csv",
+      "kind": "csv",
+      "status": "confirmed",
+      "analysis": {
+        "rows": 40,
+        "columns": [
+          "max_bond",
+          "depth",
+          "chi_max",
+          "layer_ms"
+        ],
+        "numeric_columns": [
+          "max_bond",
+          "depth",
+          "chi_max",
+          "layer_ms"
+        ],
+        "hex_columns": [],
+        "numeric_stats": {
+          "max_bond": {
+            "count": 40,
+            "min": 16.0,
+            "max": 32.0,
+            "mean": 24.0,
+            "std": 8.0,
+            "p05": 16.0,
+            "p50": 24.0,
+            "p95": 32.0
+          },
+          "depth": {
+            "count": 40,
+            "min": 5.0,
+            "max": 100.0,
+            "mean": 52.5,
+            "std": 28.83140648667699,
+            "p05": 9.75,
+            "p50": 52.5,
+            "p95": 95.24999999999999
+          },
+          "chi_max": {
+            "count": 40,
+            "min": 16.0,
+            "max": 32.0,
+            "mean": 24.0,
+            "std": 8.0,
+            "p05": 16.0,
+            "p50": 24.0,
+            "p95": 32.0
+          },
+          "layer_ms": {
+            "count": 40,
+            "min": 5.6591584,
+            "max": 49.4359584,
+            "mean": 27.101004820000004,
+            "std": 20.08161817013879,
+            "p05": 7.926250840000001,
+            "p50": 9.140804200000002,
+            "p95": 49.38712743999999
+          }
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "chi_40-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        },
+        "columns": [
+          "max_bond",
+          "depth",
+          "chi_max",
+          "layer_ms"
+        ]
+      }
+    },
+    {
+      "path": "Noisy-VQE-Benchmark-Rayon-scaling-/fid_12.csv",
+      "kind": "csv",
+      "status": "confirmed",
+      "analysis": {
+        "rows": 4,
+        "columns": [
+          "chi",
+          "fidelity",
+          "one_minus_fidelity"
+        ],
+        "numeric_columns": [
+          "chi",
+          "fidelity",
+          "one_minus_fidelity"
+        ],
+        "hex_columns": [],
+        "numeric_stats": {
+          "chi": {
+            "count": 4,
+            "min": 4.0,
+            "max": 32.0,
+            "mean": 15.0,
+            "std": 10.723805294763608,
+            "p05": 4.6,
+            "p50": 12.0,
+            "p95": 29.599999999999994
+          },
+          "fidelity": {
+            "count": 4,
+            "min": 0.015554192577235941,
+            "max": 0.8375558904917502,
+            "mean": 0.3912170108880202,
+            "std": 0.31572572809001526,
+            "p05": 0.04152722624810366,
+            "p50": 0.35587898024154735,
+            "p95": 0.7903800384329986
+          },
+          "one_minus_fidelity": {
+            "count": 4,
+            "min": 0.16244410950824983,
+            "max": 0.9844458074227641,
+            "mean": 0.6087829891119798,
+            "std": 0.3157257280900153,
+            "p05": 0.20961996156700127,
+            "p50": 0.6441210197584526,
+            "p95": 0.9584727737518963
+          }
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "fid_12-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 3
+        },
+        "columns": [
+          "chi",
+          "fidelity",
+          "one_minus_fidelity"
+        ]
+      }
+    },
+    {
+      "path": "Noisy-VQE-Benchmark-Rayon-scaling-/fidelity_24.csv",
+      "kind": "csv",
+      "status": "confirmed",
+      "analysis": {
+        "rows": 4,
+        "columns": [
+          "chi",
+          "fidelity",
+          "one_minus_fidelity"
+        ],
+        "numeric_columns": [
+          "chi",
+          "fidelity",
+          "one_minus_fidelity"
+        ],
+        "hex_columns": [],
+        "numeric_stats": {
+          "chi": {
+            "count": 4,
+            "min": 4.0,
+            "max": 32.0,
+            "mean": 15.0,
+            "std": 10.723805294763608,
+            "p05": 4.6,
+            "p50": 12.0,
+            "p95": 29.599999999999994
+          },
+          "fidelity": {
+            "count": 4,
+            "min": 2.475875230099986e-09,
+            "max": 1.0756100538050471e-07,
+            "mean": 4.3453905901019664e-08,
+            "std": 3.919082480405683e-08,
+            "p05": 5.896951930702812e-09,
+            "p50": 3.188937149673698e-08,
+            "p95": 9.720120803733225e-08
+          },
+          "one_minus_fidelity": {
+            "count": 4,
+            "min": 0.9999998924389946,
+            "max": 0.9999999975241247,
+            "mean": 0.9999999565460941,
+            "std": 3.919082481651065e-08,
+            "p05": 0.9999999027987919,
+            "p50": 0.9999999681106285,
+            "p95": 0.9999999941030481
+          }
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "fidelity_24-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 3
+        },
+        "columns": [
+          "chi",
+          "fidelity",
+          "one_minus_fidelity"
+        ]
+      }
+    },
+    {
+      "path": "Noisy-VQE-Benchmark-Rayon-scaling-/fidelity_24_depth.csv",
+      "kind": "csv",
+      "status": "confirmed",
+      "analysis": {
+        "rows": 60,
+        "columns": [
+          "depth",
+          "chi",
+          "fidelity",
+          "one_minus_fidelity"
+        ],
+        "numeric_columns": [
+          "depth",
+          "chi",
+          "fidelity",
+          "one_minus_fidelity"
+        ],
+        "hex_columns": [],
+        "numeric_stats": {
+          "depth": {
+            "count": 60,
+            "min": 2.0,
+            "max": 30.0,
+            "mean": 16.0,
+            "std": 8.640987597877148,
+            "p05": 2.0,
+            "p50": 16.0,
+            "p95": 30.0
+          },
+          "chi": {
+            "count": 60,
+            "min": 4.0,
+            "max": 32.0,
+            "mean": 15.0,
+            "std": 10.723805294763608,
+            "p05": 4.0,
+            "p50": 12.0,
+            "p95": 32.0
+          },
+          "fidelity": {
+            "count": 60,
+            "min": 2.475875230099986e-09,
+            "max": 1.0,
+            "mean": 0.14261860744992083,
+            "std": 0.3196777822713654,
+            "p05": 4.502607558809658e-09,
+            "p50": 1.0557474608151306e-06,
+            "p95": 1.0
+          },
+          "one_minus_fidelity": {
+            "count": 60,
+            "min": 0.0,
+            "max": 0.9999999975241247,
+            "mean": 0.8573813925500793,
+            "std": 0.3196777822713654,
+            "p05": 0.0,
+            "p50": 0.9999989442525392,
+            "p95": 0.9999999954973925
+          }
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "fidelity_24_depth-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        },
+        "columns": [
+          "depth",
+          "chi",
+          "fidelity",
+          "one_minus_fidelity"
+        ]
+      }
+    },
+    {
+      "path": "Noisy-VQE-Benchmark-Rayon-scaling-/vqe_analytic.csv",
+      "kind": "csv",
+      "status": "confirmed",
+      "analysis": {
+        "rows": 201,
+        "columns": [
+          "theta",
+          "energy"
+        ],
+        "numeric_columns": [
+          "theta",
+          "energy"
+        ],
+        "hex_columns": [],
+        "numeric_stats": {
+          "theta": {
+            "count": 201,
+            "min": 0.0,
+            "max": 6.283185307179586,
+            "mean": 3.141592653589793,
+            "std": 1.8228458012222035,
+            "p05": 0.3141592653589793,
+            "p50": 3.141592653589793,
+            "p95": 5.969026041820607
+          },
+          "energy": {
+            "count": 201,
+            "min": -1.0,
+            "max": 1.0,
+            "mean": 0.004975124378109408,
+            "std": 0.7088461118793535,
+            "p05": -0.9876883405951378,
+            "p50": 2.220446049250313e-16,
+            "p95": 0.9876883405951378
+          }
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "vqe_analytic-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 2
+        },
+        "columns": [
+          "theta",
+          "energy"
+        ]
+      }
+    },
+    {
+      "path": "Noisy-VQE-Benchmark-Rayon-scaling-/vqe_noisy.csv",
+      "kind": "csv",
+      "status": "confirmed",
+      "analysis": {
+        "rows": 201,
+        "columns": [
+          "theta",
+          "energy"
+        ],
+        "numeric_columns": [
+          "theta",
+          "energy"
+        ],
+        "hex_columns": [],
+        "numeric_stats": {
+          "theta": {
+            "count": 201,
+            "min": 0.0,
+            "max": 6.283185307179586,
+            "mean": 3.141592653589793,
+            "std": 1.8228458012222035,
+            "p05": 0.3141592653589793,
+            "p50": 3.141592653589793,
+            "p95": 5.969026041820607
+          },
+          "energy": {
+            "count": 201,
+            "min": -1.0,
+            "max": 1.0,
+            "mean": 0.002467661691542304,
+            "std": 0.702102117417824,
+            "p05": -0.992,
+            "p50": 0.0,
+            "p95": 0.992
+          }
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "vqe_noisy-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 2
+        },
+        "columns": [
+          "theta",
+          "energy"
+        ]
+      }
+    },
+    {
+      "path": "Noisy-VQE-Benchmark-Rayon-scaling-/vqe_shots.csv",
+      "kind": "csv",
+      "status": "confirmed",
+      "analysis": {
+        "rows": 61,
+        "columns": [
+          "theta",
+          "energy"
+        ],
+        "numeric_columns": [
+          "theta",
+          "energy"
+        ],
+        "hex_columns": [],
+        "numeric_stats": {
+          "theta": {
+            "count": 61,
+            "min": 0.0,
+            "max": 6.283185307179585,
+            "mean": 3.141592653589793,
+            "std": 1.8437815501896282,
+            "p05": 0.3141592653589793,
+            "p50": 3.1415926535897927,
+            "p95": 5.969026041820607
+          },
+          "energy": {
+            "count": 61,
+            "min": -1.0,
+            "max": 1.0,
+            "mean": 0.01836065573770492,
+            "std": 0.7168445891610022,
+            "p05": -1.0,
+            "p50": 0.0,
+            "p95": 1.0
+          }
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "vqe_shots-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 2
+        },
+        "columns": [
+          "theta",
+          "energy"
+        ]
+      }
+    },
+    {
+      "path": "OND-ART-CI-Pack-v0.1-/examples/report.sample.core.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "OND-ART-CI-Pack-v0.1-/examples/report.sample.dev.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "OND-ART-CI-Pack-v0.1-/examples/report.sample.nodisclaimer.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "OND-ART-CI-Pack-v0.1-/examples/report.sample.recommended.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "OND-ART-CI-Pack-v0.1-/schemas/observations-0.1.schema.json",
+      "kind": "schema",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-ART-CI-Pack-v0.1-/schemas/ond-art-report-0.1.schema.json",
+      "kind": "schema",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/benchmarks/I-ondmax.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/benchmarks/I-ondmax.npz",
+      "kind": "npz",
+      "status": "confirmed",
+      "analysis": {
+        "arrays": {
+          "U": {
+            "shape": [
+              10000,
+              4
+            ],
+            "dtype": "uint64",
+            "stats": {
+              "overall": {
+                "count": 40000,
+                "min": 361285.0,
+                "max": 4294746607.0,
+                "mean": 2162496291.761775,
+                "std": 1252477816.3025415,
+                "p05": 209508936.0,
+                "p50": 2163937904.5,
+                "p95": 4103521222.8999977
+              },
+              "per_column": [
+                {
+                  "count": 10000,
+                  "min": 361285.0,
+                  "max": 4294746607.0,
+                  "mean": 2162624353.7345,
+                  "std": 1252361466.576469,
+                  "p05": 209928640.3,
+                  "p50": 2163937904.5,
+                  "p95": 4103521222.8999996
+                },
+                {
+                  "count": 10000,
+                  "min": 361285.0,
+                  "max": 4294746607.0,
+                  "mean": 2162370915.1378,
+                  "std": 1252509238.2919781,
+                  "p05": 209500833.1,
+                  "p50": 2163747309.5,
+                  "p95": 4103521222.8999996
+                },
+                {
+                  "count": 10000,
+                  "min": 361285.0,
+                  "max": 4294746607.0,
+                  "mean": 2162405306.5141,
+                  "std": 1252511971.8219123,
+                  "p05": 209500833.1,
+                  "p50": 2163937904.5,
+                  "p95": 4103521222.8999996
+                },
+                {
+                  "count": 10000,
+                  "min": 361285.0,
+                  "max": 4294746607.0,
+                  "mean": 2162584591.6607,
+                  "std": 1252528561.9881277,
+                  "p05": 209500833.1,
+                  "p50": 2164382002.5,
+                  "p95": 4103521222.8999996
+                }
+              ]
+            }
+          }
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "I-ondmax-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "OND-Random/data/benchmarks/II-lcg.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/benchmarks/II-lcg.npz",
+      "kind": "npz",
+      "status": "confirmed",
+      "analysis": {
+        "arrays": {
+          "U": {
+            "shape": [
+              10000,
+              4
+            ],
+            "dtype": "uint64",
+            "stats": {
+              "overall": {
+                "count": 40000,
+                "min": 101256.0,
+                "max": 4294856578.0,
+                "mean": 2155496858.313125,
+                "std": 1230983415.8879378,
+                "p05": 218010863.9,
+                "p50": 2146151747.0,
+                "p95": 4086213300.0499997
+              },
+              "per_column": [
+                {
+                  "count": 10000,
+                  "min": 101256.0,
+                  "max": 4294856578.0,
+                  "mean": 2155266550.565,
+                  "std": 1230898245.032226,
+                  "p05": 218010863.9,
+                  "p50": 2146110401.0,
+                  "p95": 4086213300.0499997
+                },
+                {
+                  "count": 10000,
+                  "min": 101256.0,
+                  "max": 4294856578.0,
+                  "mean": 2155461685.2388,
+                  "std": 1230999379.8508272,
+                  "p05": 218010863.9,
+                  "p50": 2146570653.0,
+                  "p95": 4086213300.0499997
+                },
+                {
+                  "count": 10000,
+                  "min": 101256.0,
+                  "max": 4294856578.0,
+                  "mean": 2155545811.2332,
+                  "std": 1230958770.4583402,
+                  "p05": 218010863.9,
+                  "p50": 2146570653.0,
+                  "p95": 4086213300.0499997
+                },
+                {
+                  "count": 10000,
+                  "min": 101256.0,
+                  "max": 4294856578.0,
+                  "mean": 2155713386.2155,
+                  "std": 1231077219.275937,
+                  "p05": 218010863.9,
+                  "p50": 2146570653.0,
+                  "p95": 4086213300.0499997
+                }
+              ]
+            }
+          }
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "II-lcg-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "OND-Random/data/benchmarks/II-xorshift.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/benchmarks/II-xorshift.npz",
+      "kind": "npz",
+      "status": "confirmed",
+      "analysis": {
+        "arrays": {
+          "U": {
+            "shape": [
+              10000,
+              4
+            ],
+            "dtype": "uint64",
+            "stats": {
+              "overall": {
+                "count": 40000,
+                "min": 0.0,
+                "max": 4294809396.0,
+                "mean": 2139804751.283775,
+                "std": 1234762077.9467797,
+                "p05": 213572675.0,
+                "p50": 2135288500.0,
+                "p95": 4069988711.9999986
+              },
+              "per_column": [
+                {
+                  "count": 10000,
+                  "min": 0.0,
+                  "max": 4294809396.0,
+                  "mean": 2139324335.8037,
+                  "std": 1234964962.188847,
+                  "p05": 213307411.05,
+                  "p50": 2134730513.5,
+                  "p95": 4069988711.9999995
+                },
+                {
+                  "count": 10000,
+                  "min": 0.0,
+                  "max": 4294809396.0,
+                  "mean": 2139674154.4555,
+                  "std": 1234854370.0544834,
+                  "p05": 213560526.4,
+                  "p50": 2135196948.0,
+                  "p95": 4069988711.9999995
+                },
+                {
+                  "count": 10000,
+                  "min": 0.0,
+                  "max": 4294809396.0,
+                  "mean": 2139970398.4831,
+                  "std": 1234698372.6940782,
+                  "p05": 213770888.70000002,
+                  "p50": 2135325682.5,
+                  "p95": 4069988711.9999995
+                },
+                {
+                  "count": 10000,
+                  "min": 16384.0,
+                  "max": 4294809396.0,
+                  "mean": 2140250116.3928,
+                  "std": 1234530371.55349,
+                  "p05": 215337618.60000008,
+                  "p50": 2135557320.0,
+                  "p95": 4069988711.9999995
+                }
+              ]
+            }
+          }
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "II-xorshift-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "OND-Random/data/benchmarks/III-bounded.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/benchmarks/III-bounded.npz",
+      "kind": "npz",
+      "status": "confirmed",
+      "analysis": {
+        "arrays": {
+          "U": {
+            "shape": [
+              10000,
+              4
+            ],
+            "dtype": "uint64",
+            "stats": {
+              "overall": {
+                "count": 40000,
+                "min": 0.0,
+                "max": 4095.0,
+                "mean": 2025.309975,
+                "std": 1187.1442813704236,
+                "p05": 196.0,
+                "p50": 2030.0,
+                "p95": 3882.0
+              },
+              "per_column": [
+                {
+                  "count": 10000,
+                  "min": 0.0,
+                  "max": 4095.0,
+                  "mean": 2025.2621,
+                  "std": 1187.1223356518865,
+                  "p05": 195.95000000000005,
+                  "p50": 2030.0,
+                  "p95": 3882.0
+                },
+                {
+                  "count": 10000,
+                  "min": 0.0,
+                  "max": 4095.0,
+                  "mean": 2025.1478,
+                  "std": 1187.226384879969,
+                  "p05": 195.95000000000005,
+                  "p50": 2030.0,
+                  "p95": 3882.0
+                },
+                {
+                  "count": 10000,
+                  "min": 0.0,
+                  "max": 4095.0,
+                  "mean": 2025.4481,
+                  "std": 1187.0964164322922,
+                  "p05": 196.0,
+                  "p50": 2030.0,
+                  "p95": 3882.0
+                },
+                {
+                  "count": 10000,
+                  "min": 0.0,
+                  "max": 4095.0,
+                  "mean": 2025.3819,
+                  "std": 1187.1319621897096,
+                  "p05": 196.0,
+                  "p50": 2030.0,
+                  "p95": 3882.0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "III-bounded-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "OND-Random/data/benchmarks/IV-masked.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/benchmarks/IV-masked.npz",
+      "kind": "npz",
+      "status": "confirmed",
+      "analysis": {
+        "arrays": {
+          "U": {
+            "shape": [
+              10000,
+              4
+            ],
+            "dtype": "uint64",
+            "stats": {
+              "overall": {
+                "count": 40000,
+                "min": 0.0,
+                "max": 3233857728.0,
+                "mean": 1608438790.776,
+                "std": 1198003954.995226,
+                "p05": 49152.0,
+                "p50": 1086374016.0,
+                "p95": 3233808576.0
+              },
+              "per_column": [
+                {
+                  "count": 10000,
+                  "min": 0.0,
+                  "max": 3233857728.0,
+                  "mean": 1608571855.0656,
+                  "std": 1198076597.45224,
+                  "p05": 49152.0,
+                  "p50": 1086374016.0,
+                  "p95": 3233808576.0
+                },
+                {
+                  "count": 10000,
+                  "min": 0.0,
+                  "max": 3233857728.0,
+                  "mean": 1608357526.1376,
+                  "std": 1197978281.401937,
+                  "p05": 49152.0,
+                  "p50": 1086374016.0,
+                  "p95": 3233808576.0
+                },
+                {
+                  "count": 10000,
+                  "min": 0.0,
+                  "max": 3233857728.0,
+                  "mean": 1608358784.4224,
+                  "std": 1197979982.0684507,
+                  "p05": 49152.0,
+                  "p50": 1086374016.0,
+                  "p95": 3233808576.0
+                },
+                {
+                  "count": 10000,
+                  "min": 0.0,
+                  "max": 3233857728.0,
+                  "mean": 1608466997.4784,
+                  "std": 1197980942.9702668,
+                  "p05": 49152.0,
+                  "p50": 1086374016.0,
+                  "p95": 3233808576.0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "IV-masked-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "OND-Random/data/benchmarks/Q-drift.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/benchmarks/Q-drift.npz",
+      "kind": "npz",
+      "status": "confirmed",
+      "analysis": {
+        "arrays": {
+          "U": {
+            "shape": [
+              10000,
+              4
+            ],
+            "dtype": "uint64",
+            "stats": {
+              "overall": {
+                "count": 40000,
+                "min": 0.0,
+                "max": 4294967295.0,
+                "mean": 2544819579.551275,
+                "std": 1917124035.2546773,
+                "p05": 0.0,
+                "p50": 3767803891.5,
+                "p95": 4294967295.0
+              },
+              "per_column": [
+                {
+                  "count": 10000,
+                  "min": 0.0,
+                  "max": 4294967295.0,
+                  "mean": 2545009481.5833,
+                  "std": 1916956766.0860922,
+                  "p05": 0.0,
+                  "p50": 3767803891.5,
+                  "p95": 4294967295.0
+                },
+                {
+                  "count": 10000,
+                  "min": 0.0,
+                  "max": 4294967295.0,
+                  "mean": 2544905036.8558,
+                  "std": 1917066970.8612423,
+                  "p05": 0.0,
+                  "p50": 3767803891.5,
+                  "p95": 4294967295.0
+                },
+                {
+                  "count": 10000,
+                  "min": 0.0,
+                  "max": 4294967295.0,
+                  "mean": 2544684416.4654,
+                  "std": 1917232876.9381835,
+                  "p05": 0.0,
+                  "p50": 3767803891.5,
+                  "p95": 4294967295.0
+                },
+                {
+                  "count": 10000,
+                  "min": 0.0,
+                  "max": 4294967295.0,
+                  "mean": 2544679383.3006,
+                  "std": 1917239491.2195807,
+                  "p05": 0.0,
+                  "p50": 3767803891.5,
+                  "p95": 4294967295.0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "Q-drift-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "OND-Random/data/benchmarks/Q-ideal.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/benchmarks/Q-ideal.npz",
+      "kind": "npz",
+      "status": "confirmed",
+      "analysis": {
+        "arrays": {
+          "U": {
+            "shape": [
+              10000,
+              4
+            ],
+            "dtype": "uint64",
+            "stats": {
+              "overall": {
+                "count": 40000,
+                "min": 1093698.0,
+                "max": 4293353343.0,
+                "mean": 2150869796.4225,
+                "std": 1246938040.638299,
+                "p05": 213119871.75,
+                "p50": 2163489011.0,
+                "p95": 4088807603.149995
+              },
+              "per_column": [
+                {
+                  "count": 10000,
+                  "min": 1093698.0,
+                  "max": 4293353343.0,
+                  "mean": 2150838659.2653,
+                  "std": 1246805008.2606962,
+                  "p05": 213119871.75,
+                  "p50": 2163489011.0,
+                  "p95": 4088807603.149999
+                },
+                {
+                  "count": 10000,
+                  "min": 1093698.0,
+                  "max": 4293353343.0,
+                  "mean": 2150764251.1502,
+                  "std": 1246897598.5008023,
+                  "p05": 213119871.75,
+                  "p50": 2163489011.0,
+                  "p95": 4088807603.149999
+                },
+                {
+                  "count": 10000,
+                  "min": 1093698.0,
+                  "max": 4293353343.0,
+                  "mean": 2150854261.1334,
+                  "std": 1246964962.464283,
+                  "p05": 213119871.75,
+                  "p50": 2163489011.0,
+                  "p95": 4088807603.149999
+                },
+                {
+                  "count": 10000,
+                  "min": 1093698.0,
+                  "max": 4293353343.0,
+                  "mean": 2151022014.1411,
+                  "std": 1247084562.4327335,
+                  "p05": 213119871.75,
+                  "p50": 2163489011.0,
+                  "p95": 4088807603.149999
+                }
+              ]
+            }
+          }
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "Q-ideal-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "OND-Random/data/benchmarks/reference_profiles.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/reports/auto_calibration.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/reports/backend_benchmark.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/reports/benchmark_profiles.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/reports/numeric_validation.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/reports/ondmax_optimization.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/reports/online_calibration_state.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/reports/pipeline_summary.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/reports/quality_report.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/reports/shor_noise_report.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/reports/system_report.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/data/reports/trajectories_vs_lindblad.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/docs/baseline_policy.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "OND-Random/docs/pi_registry.json",
+      "kind": "json",
+      "status": "registry_or_policy"
+    },
+    {
+      "path": "OND-Random/reports/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "OND-Random/reports/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "benchmark-ondmax-r4",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:aa26a2614c834c21ac4c78bb7015350e603b59fe9bcefbb5bff62404baa023d6",
+          "obs_space": {
+            "type": "R^d",
+            "d": 4
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          10000,
+          4
+        ],
+        "dtype": "int64",
+        "stats": {
+          "overall": {
+            "count": 40000,
+            "min": 361285.0,
+            "max": 4294746607.0,
+            "mean": 2162496291.761775,
+            "std": 1252477816.3025415,
+            "p05": 209508936.0,
+            "p50": 2163937904.5,
+            "p95": 4103521222.8999977
+          },
+          "per_column": [
+            {
+              "count": 10000,
+              "min": 361285.0,
+              "max": 4294746607.0,
+              "mean": 2162624353.7345,
+              "std": 1252361466.576469,
+              "p05": 209928640.3,
+              "p50": 2163937904.5,
+              "p95": 4103521222.8999996
+            },
+            {
+              "count": 10000,
+              "min": 361285.0,
+              "max": 4294746607.0,
+              "mean": 2162370915.1378,
+              "std": 1252509238.2919781,
+              "p05": 209500833.1,
+              "p50": 2163747309.5,
+              "p95": 4103521222.8999996
+            },
+            {
+              "count": 10000,
+              "min": 361285.0,
+              "max": 4294746607.0,
+              "mean": 2162405306.5141,
+              "std": 1252511971.8219123,
+              "p05": 209500833.1,
+              "p50": 2163937904.5,
+              "p95": 4103521222.8999996
+            },
+            {
+              "count": 10000,
+              "min": 361285.0,
+              "max": 4294746607.0,
+              "mean": 2162584591.6607,
+              "std": 1252528561.9881277,
+              "p05": 209500833.1,
+              "p50": 2164382002.5,
+              "p95": 4103521222.8999996
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "benchmark-ondmax-r4",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "Topology-Guided-Empirical-Formula-Discovery-TGEFD-/benchmarks/curves/ecdsa_detection_vs_n.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "Topology-Guided-Empirical-Formula-Discovery-TGEFD-/benchmarks/curves/pq_dilithium_detection_vs_n.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "Topology-Guided-Empirical-Formula-Discovery-TGEFD-/docs/benchmarks/ond_class_mapping.csv",
+      "kind": "csv",
+      "status": "not_observation",
+      "analysis": {
+        "rows": 4,
+        "columns": [
+          "Model",
+          "OND Class",
+          "Expected Profile",
+          "Notes"
+        ],
+        "numeric_columns": [],
+        "hex_columns": []
+      }
+    },
+    {
+      "path": "Topology-Guided-Empirical-Formula-Discovery-TGEFD-/docs/dashboards/tgefd_overview.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "Topology-Guided-Empirical-Formula-Discovery-TGEFD-/examples/data/sample_measurements.csv",
+      "kind": "csv",
+      "status": "confirmed",
+      "analysis": {
+        "rows": 10,
+        "columns": [
+          "time",
+          "signal"
+        ],
+        "numeric_columns": [
+          "time",
+          "signal"
+        ],
+        "hex_columns": [],
+        "numeric_stats": {
+          "time": {
+            "count": 10,
+            "min": 0.0,
+            "max": 0.9,
+            "mean": 0.45,
+            "std": 0.2872281323269014,
+            "p05": 0.045000000000000005,
+            "p50": 0.45,
+            "p95": 0.855
+          },
+          "signal": {
+            "count": 10,
+            "min": 0.12,
+            "max": 1.02,
+            "mean": 0.509,
+            "std": 0.28984306098300855,
+            "p05": 0.147,
+            "p50": 0.46499999999999997,
+            "p95": 0.9569999999999999
+          }
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "sample_measurements-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 2
+        },
+        "columns": [
+          "time",
+          "signal"
+        ]
+      }
+    },
+    {
+      "path": "Topology-Guided-Empirical-Formula-Discovery-TGEFD-/helm/tgefd/dashboards/tgefd_overview.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "Topology-Guided-Empirical-Formula-Discovery-TGEFD-/schemas/ond_rng_bench_v1.json",
+      "kind": "schema",
+      "status": "not_observation"
+    },
+    {
+      "path": "Topology-Guided-Empirical-Formula-Discovery-TGEFD-/schemas/tgefd_config_v1.json",
+      "kind": "schema",
+      "status": "not_observation"
+    },
+    {
+      "path": "Unified-LHC-Framework/tad_lhc.log",
+      "kind": "log",
+      "status": "confirmed",
+      "analysis": {
+        "lines": 192,
+        "event_windows": 28,
+        "mean_stats": {
+          "count": 28,
+          "min": 0.001,
+          "max": 0.05,
+          "mean": 0.005357142857142858,
+          "std": 0.01238364210709978,
+          "p05": 0.0015,
+          "p50": 0.002,
+          "p95": 0.03319999999999994
+        },
+        "min_stats": {
+          "count": 28,
+          "min": 0.0,
+          "max": 0.0,
+          "mean": 0.0,
+          "std": 0.0,
+          "p05": 0.0,
+          "p50": 0.0,
+          "p95": 0.0
+        },
+        "max_stats": {
+          "count": 28,
+          "min": 2.0,
+          "max": 42.0,
+          "mean": 5.678571428571429,
+          "std": 10.092619550332564,
+          "p05": 2.0,
+          "p50": 3.0,
+          "p95": 28.699999999999946
+        },
+        "regex": "Event distribution: min=([0-9.]+), max=([0-9.]+), mean=([0-9.]+)"
+      },
+      "pi_suggestion": {
+        "pi_id": "tad_lhc-event-mean-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 1
+        },
+        "regex": "Event distribution: min=([0-9.]+), max=([0-9.]+), mean=([0-9.]+) (use mean)"
+      }
+    },
+    {
+      "path": "audit/ond_audit_summary.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_chi_40.csv/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_chi_40.csv/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "chi_40-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:31ec90d13a177024f46bb990b979ce78899acaf5065216f118834bb09c11950f",
+          "obs_space": {
+            "type": "R^d",
+            "d": 4
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          40,
+          4
+        ],
+        "dtype": "float64",
+        "stats": {
+          "overall": {
+            "count": 160,
+            "min": 5.0,
+            "max": 100.0,
+            "mean": 31.900251205,
+            "std": 21.99279281274036,
+            "p05": 8.03847798,
+            "p50": 32.0,
+            "p95": 80.24999999999991
+          },
+          "per_column": [
+            {
+              "count": 40,
+              "min": 16.0,
+              "max": 32.0,
+              "mean": 24.0,
+              "std": 8.0,
+              "p05": 16.0,
+              "p50": 24.0,
+              "p95": 32.0
+            },
+            {
+              "count": 40,
+              "min": 5.0,
+              "max": 100.0,
+              "mean": 52.5,
+              "std": 28.83140648667699,
+              "p05": 9.75,
+              "p50": 52.5,
+              "p95": 95.24999999999999
+            },
+            {
+              "count": 40,
+              "min": 16.0,
+              "max": 32.0,
+              "mean": 24.0,
+              "std": 8.0,
+              "p05": 16.0,
+              "p50": 24.0,
+              "p95": 32.0
+            },
+            {
+              "count": 40,
+              "min": 5.6591584,
+              "max": 49.4359584,
+              "mean": 27.101004820000004,
+              "std": 20.08161817013879,
+              "p05": 7.926250840000001,
+              "p50": 9.140804200000002,
+              "p95": 49.38712743999999
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "chi_40-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_fid_12.csv/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_fid_12.csv/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "fid_12-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:dec5eb3e429284b7b97b19898c3ec31707eb7fd6ee30b113bef4ac006581f239",
+          "obs_space": {
+            "type": "R^d",
+            "d": 3
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          4,
+          3
+        ],
+        "dtype": "float64",
+        "stats": {
+          "overall": {
+            "count": 12,
+            "min": 0.015554192577235941,
+            "max": 32.0,
+            "mean": 5.333333333333333,
+            "std": 9.226586577473869,
+            "p05": 0.09634364688929359,
+            "p50": 0.8244240700543648,
+            "p95": 23.19999999999999
+          },
+          "per_column": [
+            {
+              "count": 4,
+              "min": 4.0,
+              "max": 32.0,
+              "mean": 15.0,
+              "std": 10.723805294763608,
+              "p05": 4.6,
+              "p50": 12.0,
+              "p95": 29.599999999999994
+            },
+            {
+              "count": 4,
+              "min": 0.015554192577235941,
+              "max": 0.8375558904917502,
+              "mean": 0.3912170108880202,
+              "std": 0.31572572809001526,
+              "p05": 0.04152722624810366,
+              "p50": 0.35587898024154735,
+              "p95": 0.7903800384329986
+            },
+            {
+              "count": 4,
+              "min": 0.16244410950824983,
+              "max": 0.9844458074227641,
+              "mean": 0.6087829891119798,
+              "std": 0.3157257280900153,
+              "p05": 0.20961996156700127,
+              "p50": 0.6441210197584526,
+              "p95": 0.9584727737518963
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "fid_12-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 3
+        }
+      }
+    },
+    {
+      "path": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_fidelity_24.csv/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_fidelity_24.csv/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "fidelity_24-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:e7bb2d2f2b83201f53c6a8b62ebc7e5dae24058942f001ff06463db39a1af1b4",
+          "obs_space": {
+            "type": "R^d",
+            "d": 3
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          4,
+          3
+        ],
+        "dtype": "float64",
+        "stats": {
+          "overall": {
+            "count": 12,
+            "min": 2.475875230099986e-09,
+            "max": 32.0,
+            "mean": 5.333333333333333,
+            "std": 9.231588281181791,
+            "p05": 1.501982313231035e-08,
+            "p50": 0.9999999681106285,
+            "p95": 23.19999999999999
+          },
+          "per_column": [
+            {
+              "count": 4,
+              "min": 4.0,
+              "max": 32.0,
+              "mean": 15.0,
+              "std": 10.723805294763608,
+              "p05": 4.6,
+              "p50": 12.0,
+              "p95": 29.599999999999994
+            },
+            {
+              "count": 4,
+              "min": 2.475875230099986e-09,
+              "max": 1.0756100538050471e-07,
+              "mean": 4.3453905901019664e-08,
+              "std": 3.919082480405683e-08,
+              "p05": 5.896951930702812e-09,
+              "p50": 3.188937149673698e-08,
+              "p95": 9.720120803733225e-08
+            },
+            {
+              "count": 4,
+              "min": 0.9999998924389946,
+              "max": 0.9999999975241247,
+              "mean": 0.9999999565460941,
+              "std": 3.919082481651065e-08,
+              "p05": 0.9999999027987919,
+              "p50": 0.9999999681106285,
+              "p95": 0.9999999941030481
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "fidelity_24-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 3
+        }
+      }
+    },
+    {
+      "path": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_fidelity_24_depth.csv/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_fidelity_24_depth.csv/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "fidelity_24_depth-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:51652e9e195c5c105d8231c67d5c0d07c52772d70f3ddbad84d4f7d5b140c95f",
+          "obs_space": {
+            "type": "R^d",
+            "d": 4
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          60,
+          4
+        ],
+        "dtype": "float64",
+        "stats": {
+          "overall": {
+            "count": 240,
+            "min": 0.0,
+            "max": 32.0,
+            "mean": 8.0,
+            "std": 10.193459880667415,
+            "p05": 3.3904596934041636e-08,
+            "p50": 1.5,
+            "p95": 32.0
+          },
+          "per_column": [
+            {
+              "count": 60,
+              "min": 2.0,
+              "max": 30.0,
+              "mean": 16.0,
+              "std": 8.640987597877148,
+              "p05": 2.0,
+              "p50": 16.0,
+              "p95": 30.0
+            },
+            {
+              "count": 60,
+              "min": 4.0,
+              "max": 32.0,
+              "mean": 15.0,
+              "std": 10.723805294763608,
+              "p05": 4.0,
+              "p50": 12.0,
+              "p95": 32.0
+            },
+            {
+              "count": 60,
+              "min": 2.475875230099986e-09,
+              "max": 1.0,
+              "mean": 0.14261860744992083,
+              "std": 0.3196777822713654,
+              "p05": 4.502607558809658e-09,
+              "p50": 1.0557474608151306e-06,
+              "p95": 1.0
+            },
+            {
+              "count": 60,
+              "min": 0.0,
+              "max": 0.9999999975241247,
+              "mean": 0.8573813925500793,
+              "std": 0.3196777822713654,
+              "p05": 0.0,
+              "p50": 0.9999989442525392,
+              "p95": 0.9999999954973925
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "fidelity_24_depth-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_vqe_analytic.csv/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_vqe_analytic.csv/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "vqe_analytic-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:d803a38616b8c03da2de5f8639be6cb0d6b84c27a452423236bd301bec65796c",
+          "obs_space": {
+            "type": "R^d",
+            "d": 2
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          201,
+          2
+        ],
+        "dtype": "float64",
+        "stats": {
+          "overall": {
+            "count": 402,
+            "min": -1.0,
+            "max": 6.283185307179586,
+            "mean": 1.5732838889839513,
+            "std": 2.0909823513888033,
+            "p05": -0.9505477289281072,
+            "p50": 0.9048270524660195,
+            "p95": 5.653295980134832
+          },
+          "per_column": [
+            {
+              "count": 201,
+              "min": 0.0,
+              "max": 6.283185307179586,
+              "mean": 3.141592653589793,
+              "std": 1.8228458012222035,
+              "p05": 0.3141592653589793,
+              "p50": 3.141592653589793,
+              "p95": 5.969026041820607
+            },
+            {
+              "count": 201,
+              "min": -1.0,
+              "max": 1.0,
+              "mean": 0.004975124378109408,
+              "std": 0.7088461118793535,
+              "p05": -0.9876883405951378,
+              "p50": 2.220446049250313e-16,
+              "p95": 0.9876883405951378
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "vqe_analytic-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 2
+        }
+      }
+    },
+    {
+      "path": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_vqe_noisy.csv/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_vqe_noisy.csv/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "vqe_noisy-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:fc1671a6b79e0de16807ec25c862de8341f2a569235601d37ddfca97ec43a3b7",
+          "obs_space": {
+            "type": "R^d",
+            "d": 2
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          201,
+          2
+        ],
+        "dtype": "float64",
+        "stats": {
+          "overall": {
+            "count": 402,
+            "min": -1.0,
+            "max": 6.283185307179586,
+            "mean": 1.5720301576406674,
+            "std": 2.090785385410959,
+            "p05": -0.96,
+            "p50": 0.896,
+            "p95": 5.653295980134832
+          },
+          "per_column": [
+            {
+              "count": 201,
+              "min": 0.0,
+              "max": 6.283185307179586,
+              "mean": 3.141592653589793,
+              "std": 1.8228458012222035,
+              "p05": 0.3141592653589793,
+              "p50": 3.141592653589793,
+              "p95": 5.969026041820607
+            },
+            {
+              "count": 201,
+              "min": -1.0,
+              "max": 1.0,
+              "mean": 0.002467661691542304,
+              "std": 0.702102117417824,
+              "p05": -0.992,
+              "p50": 0.0,
+              "p95": 0.992
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "vqe_noisy-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 2
+        }
+      }
+    },
+    {
+      "path": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_vqe_shots.csv/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_vqe_shots.csv/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "vqe_shots-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:edf38a57ca0e8e3632a2907ea2c305e40624122d3c85bac7a52d8379a637fbee",
+          "obs_space": {
+            "type": "R^d",
+            "d": 2
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          61,
+          2
+        ],
+        "dtype": "float64",
+        "stats": {
+          "overall": {
+            "count": 122,
+            "min": -1.0,
+            "max": 6.283185307179585,
+            "mean": 1.579976654663749,
+            "std": 2.0965072890444056,
+            "p05": -0.96,
+            "p50": 0.92,
+            "p95": 5.649630788705643
+          },
+          "per_column": [
+            {
+              "count": 61,
+              "min": 0.0,
+              "max": 6.283185307179585,
+              "mean": 3.141592653589793,
+              "std": 1.8437815501896282,
+              "p05": 0.3141592653589793,
+              "p50": 3.1415926535897927,
+              "p95": 5.969026041820607
+            },
+            {
+              "count": 61,
+              "min": -1.0,
+              "max": 1.0,
+              "mean": 0.01836065573770492,
+              "std": 0.7168445891610022,
+              "p05": -1.0,
+              "p50": 0.0,
+              "p95": 1.0
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "vqe_shots-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 2
+        }
+      }
+    },
+    {
+      "path": "audit/verification/OND-Random_data_benchmarks_I-ondmax.npz/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/OND-Random_data_benchmarks_I-ondmax.npz/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "I-ondmax-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:12da92fd12e973f04bcb026cacac0b9b523675e9a45f9a0f49df4a578ce51fca",
+          "obs_space": {
+            "type": "R^d",
+            "d": 4
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          10000,
+          4
+        ],
+        "dtype": "int64",
+        "stats": {
+          "overall": {
+            "count": 40000,
+            "min": 361285.0,
+            "max": 4294746607.0,
+            "mean": 2162496291.761775,
+            "std": 1252477816.3025415,
+            "p05": 209508936.0,
+            "p50": 2163937904.5,
+            "p95": 4103521222.8999977
+          },
+          "per_column": [
+            {
+              "count": 10000,
+              "min": 361285.0,
+              "max": 4294746607.0,
+              "mean": 2162624353.7345,
+              "std": 1252361466.576469,
+              "p05": 209928640.3,
+              "p50": 2163937904.5,
+              "p95": 4103521222.8999996
+            },
+            {
+              "count": 10000,
+              "min": 361285.0,
+              "max": 4294746607.0,
+              "mean": 2162370915.1378,
+              "std": 1252509238.2919781,
+              "p05": 209500833.1,
+              "p50": 2163747309.5,
+              "p95": 4103521222.8999996
+            },
+            {
+              "count": 10000,
+              "min": 361285.0,
+              "max": 4294746607.0,
+              "mean": 2162405306.5141,
+              "std": 1252511971.8219123,
+              "p05": 209500833.1,
+              "p50": 2163937904.5,
+              "p95": 4103521222.8999996
+            },
+            {
+              "count": 10000,
+              "min": 361285.0,
+              "max": 4294746607.0,
+              "mean": 2162584591.6607,
+              "std": 1252528561.9881277,
+              "p05": 209500833.1,
+              "p50": 2164382002.5,
+              "p95": 4103521222.8999996
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "I-ondmax-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "audit/verification/OND-Random_data_benchmarks_II-lcg.npz/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/OND-Random_data_benchmarks_II-lcg.npz/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "II-lcg-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:c13b796e04ca6774489d51fc1b8d40f5b868fd4b1bb147ad9b27b96fdb69768e",
+          "obs_space": {
+            "type": "R^d",
+            "d": 4
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          10000,
+          4
+        ],
+        "dtype": "int64",
+        "stats": {
+          "overall": {
+            "count": 40000,
+            "min": 101256.0,
+            "max": 4294856578.0,
+            "mean": 2155496858.313125,
+            "std": 1230983415.8879378,
+            "p05": 218010863.9,
+            "p50": 2146151747.0,
+            "p95": 4086213300.0499997
+          },
+          "per_column": [
+            {
+              "count": 10000,
+              "min": 101256.0,
+              "max": 4294856578.0,
+              "mean": 2155266550.565,
+              "std": 1230898245.032226,
+              "p05": 218010863.9,
+              "p50": 2146110401.0,
+              "p95": 4086213300.0499997
+            },
+            {
+              "count": 10000,
+              "min": 101256.0,
+              "max": 4294856578.0,
+              "mean": 2155461685.2388,
+              "std": 1230999379.8508272,
+              "p05": 218010863.9,
+              "p50": 2146570653.0,
+              "p95": 4086213300.0499997
+            },
+            {
+              "count": 10000,
+              "min": 101256.0,
+              "max": 4294856578.0,
+              "mean": 2155545811.2332,
+              "std": 1230958770.4583402,
+              "p05": 218010863.9,
+              "p50": 2146570653.0,
+              "p95": 4086213300.0499997
+            },
+            {
+              "count": 10000,
+              "min": 101256.0,
+              "max": 4294856578.0,
+              "mean": 2155713386.2155,
+              "std": 1231077219.275937,
+              "p05": 218010863.9,
+              "p50": 2146570653.0,
+              "p95": 4086213300.0499997
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "II-lcg-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "audit/verification/OND-Random_data_benchmarks_II-xorshift.npz/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/OND-Random_data_benchmarks_II-xorshift.npz/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "II-xorshift-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:d9485496c49541b1e62e9b368d2f0879774e52397b2be858162a542a721ee2a4",
+          "obs_space": {
+            "type": "R^d",
+            "d": 4
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          10000,
+          4
+        ],
+        "dtype": "int64",
+        "stats": {
+          "overall": {
+            "count": 40000,
+            "min": 0.0,
+            "max": 4294809396.0,
+            "mean": 2139804751.283775,
+            "std": 1234762077.9467797,
+            "p05": 213572675.0,
+            "p50": 2135288500.0,
+            "p95": 4069988711.9999986
+          },
+          "per_column": [
+            {
+              "count": 10000,
+              "min": 0.0,
+              "max": 4294809396.0,
+              "mean": 2139324335.8037,
+              "std": 1234964962.188847,
+              "p05": 213307411.05,
+              "p50": 2134730513.5,
+              "p95": 4069988711.9999995
+            },
+            {
+              "count": 10000,
+              "min": 0.0,
+              "max": 4294809396.0,
+              "mean": 2139674154.4555,
+              "std": 1234854370.0544834,
+              "p05": 213560526.4,
+              "p50": 2135196948.0,
+              "p95": 4069988711.9999995
+            },
+            {
+              "count": 10000,
+              "min": 0.0,
+              "max": 4294809396.0,
+              "mean": 2139970398.4831,
+              "std": 1234698372.6940782,
+              "p05": 213770888.70000002,
+              "p50": 2135325682.5,
+              "p95": 4069988711.9999995
+            },
+            {
+              "count": 10000,
+              "min": 16384.0,
+              "max": 4294809396.0,
+              "mean": 2140250116.3928,
+              "std": 1234530371.55349,
+              "p05": 215337618.60000008,
+              "p50": 2135557320.0,
+              "p95": 4069988711.9999995
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "II-xorshift-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "audit/verification/OND-Random_data_benchmarks_III-bounded.npz/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/OND-Random_data_benchmarks_III-bounded.npz/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "III-bounded-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:61a09349318e01ac7fe047ce2d0634fb9140ead2c10ca8a91c218fcde2c0b992",
+          "obs_space": {
+            "type": "R^d",
+            "d": 4
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          10000,
+          4
+        ],
+        "dtype": "int64",
+        "stats": {
+          "overall": {
+            "count": 40000,
+            "min": 0.0,
+            "max": 4095.0,
+            "mean": 2025.309975,
+            "std": 1187.1442813704236,
+            "p05": 196.0,
+            "p50": 2030.0,
+            "p95": 3882.0
+          },
+          "per_column": [
+            {
+              "count": 10000,
+              "min": 0.0,
+              "max": 4095.0,
+              "mean": 2025.2621,
+              "std": 1187.1223356518865,
+              "p05": 195.95000000000005,
+              "p50": 2030.0,
+              "p95": 3882.0
+            },
+            {
+              "count": 10000,
+              "min": 0.0,
+              "max": 4095.0,
+              "mean": 2025.1478,
+              "std": 1187.226384879969,
+              "p05": 195.95000000000005,
+              "p50": 2030.0,
+              "p95": 3882.0
+            },
+            {
+              "count": 10000,
+              "min": 0.0,
+              "max": 4095.0,
+              "mean": 2025.4481,
+              "std": 1187.0964164322922,
+              "p05": 196.0,
+              "p50": 2030.0,
+              "p95": 3882.0
+            },
+            {
+              "count": 10000,
+              "min": 0.0,
+              "max": 4095.0,
+              "mean": 2025.3819,
+              "std": 1187.1319621897096,
+              "p05": 196.0,
+              "p50": 2030.0,
+              "p95": 3882.0
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "III-bounded-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "audit/verification/OND-Random_data_benchmarks_IV-masked.npz/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/OND-Random_data_benchmarks_IV-masked.npz/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "IV-masked-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:da12ef5254ceea636344ffd13e071c4f30690f52f92e4bfcf2742e2555f3a0ec",
+          "obs_space": {
+            "type": "R^d",
+            "d": 4
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          10000,
+          4
+        ],
+        "dtype": "int64",
+        "stats": {
+          "overall": {
+            "count": 40000,
+            "min": 0.0,
+            "max": 3233857728.0,
+            "mean": 1608438790.776,
+            "std": 1198003954.995226,
+            "p05": 49152.0,
+            "p50": 1086374016.0,
+            "p95": 3233808576.0
+          },
+          "per_column": [
+            {
+              "count": 10000,
+              "min": 0.0,
+              "max": 3233857728.0,
+              "mean": 1608571855.0656,
+              "std": 1198076597.45224,
+              "p05": 49152.0,
+              "p50": 1086374016.0,
+              "p95": 3233808576.0
+            },
+            {
+              "count": 10000,
+              "min": 0.0,
+              "max": 3233857728.0,
+              "mean": 1608357526.1376,
+              "std": 1197978281.401937,
+              "p05": 49152.0,
+              "p50": 1086374016.0,
+              "p95": 3233808576.0
+            },
+            {
+              "count": 10000,
+              "min": 0.0,
+              "max": 3233857728.0,
+              "mean": 1608358784.4224,
+              "std": 1197979982.0684507,
+              "p05": 49152.0,
+              "p50": 1086374016.0,
+              "p95": 3233808576.0
+            },
+            {
+              "count": 10000,
+              "min": 0.0,
+              "max": 3233857728.0,
+              "mean": 1608466997.4784,
+              "std": 1197980942.9702668,
+              "p05": 49152.0,
+              "p50": 1086374016.0,
+              "p95": 3233808576.0
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "IV-masked-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "audit/verification/OND-Random_data_benchmarks_Q-drift.npz/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/OND-Random_data_benchmarks_Q-drift.npz/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "Q-drift-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:4e5b0ed1c8ccf73df9d0054c3a8f01b5b8c8e9764fa61b4abce66ad6a7d8228b",
+          "obs_space": {
+            "type": "R^d",
+            "d": 4
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          10000,
+          4
+        ],
+        "dtype": "int64",
+        "stats": {
+          "overall": {
+            "count": 40000,
+            "min": 0.0,
+            "max": 4294967295.0,
+            "mean": 2544819579.551275,
+            "std": 1917124035.2546773,
+            "p05": 0.0,
+            "p50": 3767803891.5,
+            "p95": 4294967295.0
+          },
+          "per_column": [
+            {
+              "count": 10000,
+              "min": 0.0,
+              "max": 4294967295.0,
+              "mean": 2545009481.5833,
+              "std": 1916956766.0860922,
+              "p05": 0.0,
+              "p50": 3767803891.5,
+              "p95": 4294967295.0
+            },
+            {
+              "count": 10000,
+              "min": 0.0,
+              "max": 4294967295.0,
+              "mean": 2544905036.8558,
+              "std": 1917066970.8612423,
+              "p05": 0.0,
+              "p50": 3767803891.5,
+              "p95": 4294967295.0
+            },
+            {
+              "count": 10000,
+              "min": 0.0,
+              "max": 4294967295.0,
+              "mean": 2544684416.4654,
+              "std": 1917232876.9381835,
+              "p05": 0.0,
+              "p50": 3767803891.5,
+              "p95": 4294967295.0
+            },
+            {
+              "count": 10000,
+              "min": 0.0,
+              "max": 4294967295.0,
+              "mean": 2544679383.3006,
+              "std": 1917239491.2195807,
+              "p05": 0.0,
+              "p50": 3767803891.5,
+              "p95": 4294967295.0
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "Q-drift-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "audit/verification/OND-Random_data_benchmarks_Q-ideal.npz/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/OND-Random_data_benchmarks_Q-ideal.npz/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "Q-ideal-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:34c8e1906f35f46b1cf1e6e29ef335a57632f4cb88022d139c48aa3d21666147",
+          "obs_space": {
+            "type": "R^d",
+            "d": 4
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          10000,
+          4
+        ],
+        "dtype": "int64",
+        "stats": {
+          "overall": {
+            "count": 40000,
+            "min": 1093698.0,
+            "max": 4293353343.0,
+            "mean": 2150869796.4225,
+            "std": 1246938040.638299,
+            "p05": 213119871.75,
+            "p50": 2163489011.0,
+            "p95": 4088807603.149995
+          },
+          "per_column": [
+            {
+              "count": 10000,
+              "min": 1093698.0,
+              "max": 4293353343.0,
+              "mean": 2150838659.2653,
+              "std": 1246805008.2606962,
+              "p05": 213119871.75,
+              "p50": 2163489011.0,
+              "p95": 4088807603.149999
+            },
+            {
+              "count": 10000,
+              "min": 1093698.0,
+              "max": 4293353343.0,
+              "mean": 2150764251.1502,
+              "std": 1246897598.5008023,
+              "p05": 213119871.75,
+              "p50": 2163489011.0,
+              "p95": 4088807603.149999
+            },
+            {
+              "count": 10000,
+              "min": 1093698.0,
+              "max": 4293353343.0,
+              "mean": 2150854261.1334,
+              "std": 1246964962.464283,
+              "p05": 213119871.75,
+              "p50": 2163489011.0,
+              "p95": 4088807603.149999
+            },
+            {
+              "count": 10000,
+              "min": 1093698.0,
+              "max": 4293353343.0,
+              "mean": 2151022014.1411,
+              "std": 1247084562.4327335,
+              "p05": 213119871.75,
+              "p50": 2163489011.0,
+              "p95": 4088807603.149999
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "Q-ideal-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "audit/verification/OND-Random_reports_observations.jsonl/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/OND-Random_reports_observations.jsonl/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "benchmark-ondmax-r4",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:aa26a2614c834c21ac4c78bb7015350e603b59fe9bcefbb5bff62404baa023d6",
+          "obs_space": {
+            "type": "R^d",
+            "d": 4
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          10000,
+          4
+        ],
+        "dtype": "int64",
+        "stats": {
+          "overall": {
+            "count": 40000,
+            "min": 361285.0,
+            "max": 4294746607.0,
+            "mean": 2162496291.761775,
+            "std": 1252477816.3025415,
+            "p05": 209508936.0,
+            "p50": 2163937904.5,
+            "p95": 4103521222.8999977
+          },
+          "per_column": [
+            {
+              "count": 10000,
+              "min": 361285.0,
+              "max": 4294746607.0,
+              "mean": 2162624353.7345,
+              "std": 1252361466.576469,
+              "p05": 209928640.3,
+              "p50": 2163937904.5,
+              "p95": 4103521222.8999996
+            },
+            {
+              "count": 10000,
+              "min": 361285.0,
+              "max": 4294746607.0,
+              "mean": 2162370915.1378,
+              "std": 1252509238.2919781,
+              "p05": 209500833.1,
+              "p50": 2163747309.5,
+              "p95": 4103521222.8999996
+            },
+            {
+              "count": 10000,
+              "min": 361285.0,
+              "max": 4294746607.0,
+              "mean": 2162405306.5141,
+              "std": 1252511971.8219123,
+              "p05": 209500833.1,
+              "p50": 2163937904.5,
+              "p95": 4103521222.8999996
+            },
+            {
+              "count": 10000,
+              "min": 361285.0,
+              "max": 4294746607.0,
+              "mean": 2162584591.6607,
+              "std": 1252528561.9881277,
+              "p05": 209500833.1,
+              "p50": 2164382002.5,
+              "p95": 4103521222.8999996
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "benchmark-ondmax-r4",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 4
+        }
+      }
+    },
+    {
+      "path": "audit/verification/Topology-Guided-Empirical-Formula-Discovery-TGEFD-_examples_data_sample_measurements.csv/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/Topology-Guided-Empirical-Formula-Discovery-TGEFD-_examples_data_sample_measurements.csv/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "sample_measurements-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:af8b4c170fec4afbc5242a30626b88a688b7cb7724d96372d577ceb38f0f1cb8",
+          "obs_space": {
+            "type": "R^d",
+            "d": 2
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          10,
+          2
+        ],
+        "dtype": "float64",
+        "stats": {
+          "overall": {
+            "count": 20,
+            "min": 0.0,
+            "max": 1.02,
+            "mean": 0.4795,
+            "std": 0.29004266927471206,
+            "p05": 0.09500000000000001,
+            "p50": 0.45499999999999996,
+            "p95": 0.9060000000000001
+          },
+          "per_column": [
+            {
+              "count": 10,
+              "min": 0.0,
+              "max": 0.9,
+              "mean": 0.45,
+              "std": 0.2872281323269014,
+              "p05": 0.045000000000000005,
+              "p50": 0.45,
+              "p95": 0.855
+            },
+            {
+              "count": 10,
+              "min": 0.12,
+              "max": 1.02,
+              "mean": 0.509,
+              "std": 0.28984306098300855,
+              "p05": 0.147,
+              "p50": 0.46499999999999997,
+              "p95": 0.9569999999999999
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "sample_measurements-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 2
+        }
+      }
+    },
+    {
+      "path": "audit/verification/Unified-LHC-Framework_tad_lhc.log/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/Unified-LHC-Framework_tad_lhc.log/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "tad_lhc-event-mean-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:dc8ef95942407c29e19db8138daacb03ab9206653e048e9b08ae744952be123d",
+          "obs_space": {
+            "type": "R^d",
+            "d": 1
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          28,
+          1
+        ],
+        "dtype": "float64",
+        "stats": {
+          "overall": {
+            "count": 28,
+            "min": 0.001,
+            "max": 0.05,
+            "mean": 0.005357142857142858,
+            "std": 0.01238364210709978,
+            "p05": 0.0015,
+            "p50": 0.002,
+            "p95": 0.03319999999999994
+          },
+          "per_column": [
+            {
+              "count": 28,
+              "min": 0.001,
+              "max": 0.05,
+              "mean": 0.005357142857142858,
+              "std": 0.01238364210709978,
+              "p05": 0.0015,
+              "p50": 0.002,
+              "p95": 0.03319999999999994
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "tad_lhc-event-mean-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 1
+        }
+      }
+    },
+    {
+      "path": "audit/verification/pi_registry.json",
+      "kind": "json",
+      "status": "registry_or_policy"
+    },
+    {
+      "path": "audit/verification/validation_summary.json",
+      "kind": "json",
+      "status": "not_observation"
+    },
+    {
+      "path": "audit/verification/verification_summary.json",
+      "kind": "json",
+      "status": "not_observation"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{"type": "meta", "pi_id": "fid_12-v1", "pi_version": "1.0.0", "pi_spec_hash": "sha256:dec5eb3e429284b7b97b19898c3ec31707eb7fd6ee30b113bef4ac006581f239", "obs_space": {"type": "R^d", "d": 3}, "spec": {"name": "ODD-OBS", "version": "0.1"}, "context": {"source_path": "Noisy-VQE-Benchmark-Rayon-scaling-/fid_12.csv"}}
+{"type": "obs", "u": [4.0, 0.015554192577235941, 0.9844458074227641], "i": 0}
+{"type": "obs", "u": [8.0, 0.1887077503830207, 0.8112922496169793], "i": 1}
+{"type": "obs", "u": [16.0, 0.523050210100074, 0.476949789899926], "i": 2}
+{"type": "obs", "u": [32.0, 0.8375558904917502, 0.16244410950824983], "i": 3}

@@ -1,0 +1,94 @@
+{
+  "baseline": {
+    "baseline_id": "Unified-LHC-Framework_tad_lhc.log",
+    "classification": "Within Baseline Envelope",
+    "distance": 0.0,
+    "distance_ci95": [
+      0.0,
+      0.4097478375796806
+    ],
+    "thresholds": {
+      "green": 0.2084886266970396,
+      "red": 0.3791259943821026,
+      "yellow": 0.2912766864790149
+    }
+  },
+  "bootstrap": {
+    "B": 200,
+    "block_length": 0,
+    "method": "percentile",
+    "unit": "U"
+  },
+  "context": {
+    "params": {},
+    "protocol": "physics",
+    "public_context_hash": "sha256:71f81ed90eb8421b0bd2be861615b2afac741fc08dc9bc2ae5c3a2bc5fc25181",
+    "scheme": "LHC-log"
+  },
+  "data": {
+    "N": 28,
+    "invalid_count": 0,
+    "message_policy": "custom",
+    "order": "custom"
+  },
+  "metrics": {
+    "branching": {
+      "H": 0.1569857172908709,
+      "ci95": [
+        0.0,
+        0.4131564891763529
+      ],
+      "clustering": {
+        "K": 2,
+        "method": "grid",
+        "seed": 0
+      }
+    },
+    "rank": {
+      "H": -0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "rho": 0.0,
+      "svd_settings": {
+        "eps": 1e-09
+      }
+    },
+    "subspace": {
+      "H": 0.15841057013179086,
+      "binning": {
+        "M_occ": 2,
+        "b": 16
+      },
+      "ci95": [
+        0.0,
+        0.39604001929608185
+      ],
+      "rho": 0.05713453598838201
+    }
+  },
+  "notes": [
+    "Diagnostic only; no security claim."
+  ],
+  "pi": {
+    "obs_space": {
+      "d": 1,
+      "type": "R^d"
+    },
+    "pi_id": "tad_lhc-event-mean-v1",
+    "pi_spec_hash": "sha256:dc8ef95942407c29e19db8138daacb03ab9206653e048e9b08ae744952be123d",
+    "pi_version": "1.0.0"
+  },
+  "run": {
+    "created_at": "2026-02-05T15:18:11.324655+00:00",
+    "run_id": "2026-02-05T15:18:11.324655+00:00#b57a716165224b88bf5060c820967bef",
+    "timezone": "Etc/UTC"
+  },
+  "spec": {
+    "name": "OND-ART",
+    "profile": "dev",
+    "version": "0.1",
+    "x-method_version": "ond-random@0.1.0/audit"
+  }
+}

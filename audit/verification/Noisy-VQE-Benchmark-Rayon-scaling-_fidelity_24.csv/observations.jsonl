@@ -1,0 +1,5 @@
+{"type": "meta", "pi_id": "fidelity_24-v1", "pi_version": "1.0.0", "pi_spec_hash": "sha256:e7bb2d2f2b83201f53c6a8b62ebc7e5dae24058942f001ff06463db39a1af1b4", "obs_space": {"type": "R^d", "d": 3}, "spec": {"name": "ODD-OBS", "version": "0.1"}, "context": {"source_path": "Noisy-VQE-Benchmark-Rayon-scaling-/fidelity_24.csv"}}
+{"type": "obs", "u": [4.0, 2.5283053234118824e-08, 0.9999999747169468], "i": 0}
+{"type": "obs", "u": [8.0, 2.475875230099986e-09, 0.9999999975241247], "i": 1}
+{"type": "obs", "u": [16.0, 3.849568975935514e-08, 0.9999999615043103], "i": 2}
+{"type": "obs", "u": [32.0, 1.0756100538050471e-07, 0.9999998924389946], "i": 3}

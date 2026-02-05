@@ -1,0 +1,94 @@
+{
+  "baseline": {
+    "baseline_id": "Topology-Guided-Empirical-Formula-Discovery-TGEFD-_examples_data_sample_measurements.csv",
+    "classification": "Within Baseline Envelope",
+    "distance": 0.0,
+    "distance_ci95": [
+      0.0,
+      0.6026562047443528
+    ],
+    "thresholds": {
+      "green": 0.4610184052742924,
+      "red": 0.6026562047443528,
+      "yellow": 0.539881938307698
+    }
+  },
+  "bootstrap": {
+    "B": 200,
+    "block_length": 0,
+    "method": "percentile",
+    "unit": "U"
+  },
+  "context": {
+    "params": {},
+    "protocol": "ml",
+    "public_context_hash": "sha256:b4e14e4087cfa68da477b612b41f5dec838be1938193f146bb8094e9c337efa5",
+    "scheme": "TGEFD"
+  },
+  "data": {
+    "N": 10,
+    "invalid_count": 0,
+    "message_policy": "custom",
+    "order": "custom"
+  },
+  "metrics": {
+    "branching": {
+      "H": 0.2780013464101044,
+      "ci95": [
+        0.0,
+        0.8283022165960001
+      ],
+      "clustering": {
+        "K": 3,
+        "method": "grid",
+        "seed": 0
+      }
+    },
+    "rank": {
+      "H": 0.35846901468558645,
+      "ci95": [
+        0.1877946850533757,
+        0.8465282545451215
+      ],
+      "rho": 0.5171614697992486,
+      "svd_settings": {
+        "eps": 1e-09
+      }
+    },
+    "subspace": {
+      "H": 2.1972245773362196,
+      "binning": {
+        "M_occ": 9,
+        "b": 16
+      },
+      "ci95": [
+        0.3302005209835743,
+        0.4622807293770039
+      ],
+      "rho": 0.3962406251802891
+    }
+  },
+  "notes": [
+    "Diagnostic only; no security claim."
+  ],
+  "pi": {
+    "obs_space": {
+      "d": 2,
+      "type": "R^d"
+    },
+    "pi_id": "sample_measurements-v1",
+    "pi_spec_hash": "sha256:af8b4c170fec4afbc5242a30626b88a688b7cb7724d96372d577ceb38f0f1cb8",
+    "pi_version": "1.0.0"
+  },
+  "run": {
+    "created_at": "2026-02-05T15:18:11.294776+00:00",
+    "run_id": "2026-02-05T15:18:11.294776+00:00#b5cf2debcd6d4f2cb2c2eaa85d42d70f",
+    "timezone": "Etc/UTC"
+  },
+  "spec": {
+    "name": "OND-ART",
+    "profile": "dev",
+    "version": "0.1",
+    "x-method_version": "ond-random@0.1.0/audit"
+  }
+}

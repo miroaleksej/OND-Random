@@ -1,0 +1,94 @@
+{
+  "baseline": {
+    "baseline_id": "OND-Random_data_benchmarks_I-ondmax.npz",
+    "classification": "Within Baseline Envelope",
+    "distance": 0.0,
+    "distance_ci95": [
+      0.0,
+      1.3562350702392059
+    ],
+    "thresholds": {
+      "green": 1.350179335538595,
+      "red": 1.3562350702392059,
+      "yellow": 1.3535784627921115
+    }
+  },
+  "bootstrap": {
+    "B": 200,
+    "block_length": 0,
+    "method": "percentile",
+    "unit": "U"
+  },
+  "context": {
+    "params": {},
+    "protocol": "rng",
+    "public_context_hash": "sha256:0adebc2084e6cab003e1d19120b5705e7007d2a2d8b2e2fdd33e3903f120bc49",
+    "scheme": "I-ondmax"
+  },
+  "data": {
+    "N": 10000,
+    "invalid_count": 0,
+    "message_policy": "custom",
+    "order": "custom"
+  },
+  "metrics": {
+    "branching": {
+      "H": 1.4682204515364001,
+      "ci95": [
+        0.11313782507900494,
+        2.8233030779937955
+      ],
+      "clustering": {
+        "K": 625,
+        "method": "grid",
+        "seed": 0
+      }
+    },
+    "rank": {
+      "H": 1.3104029637742465,
+      "ci95": [
+        0.8905577362885083,
+        0.9999541211147972
+      ],
+      "rho": 0.9452559287016528,
+      "svd_settings": {
+        "eps": 1e-09
+      }
+    },
+    "subspace": {
+      "H": 8.637434778344684,
+      "binning": {
+        "M_occ": 6425,
+        "b": 16
+      },
+      "ci95": [
+        0.7567803605807563,
+        0.800867679509211
+      ],
+      "rho": 0.7788240200449836
+    }
+  },
+  "notes": [
+    "Diagnostic only; no security claim."
+  ],
+  "pi": {
+    "obs_space": {
+      "d": 4,
+      "type": "R^d"
+    },
+    "pi_id": "I-ondmax-v1",
+    "pi_spec_hash": "sha256:12da92fd12e973f04bcb026cacac0b9b523675e9a45f9a0f49df4a578ce51fca",
+    "pi_version": "1.0.0"
+  },
+  "run": {
+    "created_at": "2026-02-05T15:17:31.100997+00:00",
+    "run_id": "2026-02-05T15:17:31.100997+00:00#dec2dc36d2eb4fa185a8dca61b98610c",
+    "timezone": "Etc/UTC"
+  },
+  "spec": {
+    "name": "OND-ART",
+    "profile": "core",
+    "version": "0.1",
+    "x-method_version": "ond-random@0.1.0/audit"
+  }
+}

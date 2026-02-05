@@ -1,0 +1,94 @@
+{
+  "baseline": {
+    "baseline_id": "OND-Random_data_benchmarks_III-bounded.npz",
+    "classification": "Within Baseline Envelope",
+    "distance": 0.0,
+    "distance_ci95": [
+      0.0,
+      1.3569848386685313
+    ],
+    "thresholds": {
+      "green": 1.3511252658436583,
+      "red": 1.3569848386685313,
+      "yellow": 1.3537802739733742
+    }
+  },
+  "bootstrap": {
+    "B": 200,
+    "block_length": 0,
+    "method": "percentile",
+    "unit": "U"
+  },
+  "context": {
+    "params": {},
+    "protocol": "rng",
+    "public_context_hash": "sha256:935214dfc301a7890e3ccaeb06aa8f5a0332b18191ceb567847fb533e487be9e",
+    "scheme": "III-bounded"
+  },
+  "data": {
+    "N": 10000,
+    "invalid_count": 0,
+    "message_policy": "custom",
+    "order": "custom"
+  },
+  "metrics": {
+    "branching": {
+      "H": 1.4696227630673342,
+      "ci95": [
+        0.11383823285138361,
+        2.825407293283285
+      ],
+      "clustering": {
+        "K": 625,
+        "method": "grid",
+        "seed": 0
+      }
+    },
+    "rank": {
+      "H": 1.3133120140161425,
+      "ci95": [
+        0.8947549723126418,
+        0.9999537574483439
+      ],
+      "rho": 0.9473543648804928,
+      "svd_settings": {
+        "eps": 1e-09
+      }
+    },
+    "subspace": {
+      "H": 8.664155910113195,
+      "binning": {
+        "M_occ": 6572,
+        "b": 16
+      },
+      "ci95": [
+        0.756694742041729,
+        0.8057721035844098
+      ],
+      "rho": 0.7812334228130694
+    }
+  },
+  "notes": [
+    "Diagnostic only; no security claim."
+  ],
+  "pi": {
+    "obs_space": {
+      "d": 4,
+      "type": "R^d"
+    },
+    "pi_id": "III-bounded-v1",
+    "pi_spec_hash": "sha256:61a09349318e01ac7fe047ce2d0634fb9140ead2c10ca8a91c218fcde2c0b992",
+    "pi_version": "1.0.0"
+  },
+  "run": {
+    "created_at": "2026-02-05T15:17:48.702748+00:00",
+    "run_id": "2026-02-05T15:17:48.702748+00:00#7013bffbcb8043d09dac7af4d2919056",
+    "timezone": "Etc/UTC"
+  },
+  "spec": {
+    "name": "OND-ART",
+    "profile": "core",
+    "version": "0.1",
+    "x-method_version": "ond-random@0.1.0/audit"
+  }
+}

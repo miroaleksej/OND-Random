@@ -1,0 +1,221 @@
+{
+  "pi": {
+    "I-ondmax-v1": [
+      {
+        "description": "OND-Random/data/benchmarks/I-ondmax.npz",
+        "obs_space": {
+          "d": 4,
+          "type": "R^d"
+        },
+        "pi_id": "I-ondmax-v1",
+        "pi_spec_hash": "sha256:12da92fd12e973f04bcb026cacac0b9b523675e9a45f9a0f49df4a578ce51fca",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "II-lcg-v1": [
+      {
+        "description": "OND-Random/data/benchmarks/II-lcg.npz",
+        "obs_space": {
+          "d": 4,
+          "type": "R^d"
+        },
+        "pi_id": "II-lcg-v1",
+        "pi_spec_hash": "sha256:c13b796e04ca6774489d51fc1b8d40f5b868fd4b1bb147ad9b27b96fdb69768e",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "II-xorshift-v1": [
+      {
+        "description": "OND-Random/data/benchmarks/II-xorshift.npz",
+        "obs_space": {
+          "d": 4,
+          "type": "R^d"
+        },
+        "pi_id": "II-xorshift-v1",
+        "pi_spec_hash": "sha256:d9485496c49541b1e62e9b368d2f0879774e52397b2be858162a542a721ee2a4",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "III-bounded-v1": [
+      {
+        "description": "OND-Random/data/benchmarks/III-bounded.npz",
+        "obs_space": {
+          "d": 4,
+          "type": "R^d"
+        },
+        "pi_id": "III-bounded-v1",
+        "pi_spec_hash": "sha256:61a09349318e01ac7fe047ce2d0634fb9140ead2c10ca8a91c218fcde2c0b992",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "IV-masked-v1": [
+      {
+        "description": "OND-Random/data/benchmarks/IV-masked.npz",
+        "obs_space": {
+          "d": 4,
+          "type": "R^d"
+        },
+        "pi_id": "IV-masked-v1",
+        "pi_spec_hash": "sha256:da12ef5254ceea636344ffd13e071c4f30690f52f92e4bfcf2742e2555f3a0ec",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "Q-drift-v1": [
+      {
+        "description": "OND-Random/data/benchmarks/Q-drift.npz",
+        "obs_space": {
+          "d": 4,
+          "type": "R^d"
+        },
+        "pi_id": "Q-drift-v1",
+        "pi_spec_hash": "sha256:4e5b0ed1c8ccf73df9d0054c3a8f01b5b8c8e9764fa61b4abce66ad6a7d8228b",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "Q-ideal-v1": [
+      {
+        "description": "OND-Random/data/benchmarks/Q-ideal.npz",
+        "obs_space": {
+          "d": 4,
+          "type": "R^d"
+        },
+        "pi_id": "Q-ideal-v1",
+        "pi_spec_hash": "sha256:34c8e1906f35f46b1cf1e6e29ef335a57632f4cb88022d139c48aa3d21666147",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "benchmark-ondmax-r4": [
+      {
+        "description": "OND-Random/reports/observations.jsonl",
+        "obs_space": {
+          "d": 4,
+          "type": "R^d"
+        },
+        "pi_id": "benchmark-ondmax-r4",
+        "pi_spec_hash": "sha256:aa26a2614c834c21ac4c78bb7015350e603b59fe9bcefbb5bff62404baa023d6",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "chi_40-v1": [
+      {
+        "description": "Noisy-VQE-Benchmark-Rayon-scaling-/chi_40.csv",
+        "obs_space": {
+          "d": 4,
+          "type": "R^d"
+        },
+        "pi_id": "chi_40-v1",
+        "pi_spec_hash": "sha256:31ec90d13a177024f46bb990b979ce78899acaf5065216f118834bb09c11950f",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "ecdsa-secp256k1-rsz-v1": [
+      {
+        "description": "IsogenyGuard-SDK/data.csv",
+        "obs_space": {
+          "d": 4,
+          "type": "R^d"
+        },
+        "pi_id": "ecdsa-secp256k1-rsz-v1",
+        "pi_spec_hash": "sha256:532f4e75fe15f1201b932d8e7853defb60919e2bdae8186bb10db97e978350da",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "fid_12-v1": [
+      {
+        "description": "Noisy-VQE-Benchmark-Rayon-scaling-/fid_12.csv",
+        "obs_space": {
+          "d": 3,
+          "type": "R^d"
+        },
+        "pi_id": "fid_12-v1",
+        "pi_spec_hash": "sha256:dec5eb3e429284b7b97b19898c3ec31707eb7fd6ee30b113bef4ac006581f239",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "fidelity_24-v1": [
+      {
+        "description": "Noisy-VQE-Benchmark-Rayon-scaling-/fidelity_24.csv",
+        "obs_space": {
+          "d": 3,
+          "type": "R^d"
+        },
+        "pi_id": "fidelity_24-v1",
+        "pi_spec_hash": "sha256:e7bb2d2f2b83201f53c6a8b62ebc7e5dae24058942f001ff06463db39a1af1b4",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "fidelity_24_depth-v1": [
+      {
+        "description": "Noisy-VQE-Benchmark-Rayon-scaling-/fidelity_24_depth.csv",
+        "obs_space": {
+          "d": 4,
+          "type": "R^d"
+        },
+        "pi_id": "fidelity_24_depth-v1",
+        "pi_spec_hash": "sha256:51652e9e195c5c105d8231c67d5c0d07c52772d70f3ddbad84d4f7d5b140c95f",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "sample_measurements-v1": [
+      {
+        "description": "Topology-Guided-Empirical-Formula-Discovery-TGEFD-/examples/data/sample_measurements.csv",
+        "obs_space": {
+          "d": 2,
+          "type": "R^d"
+        },
+        "pi_id": "sample_measurements-v1",
+        "pi_spec_hash": "sha256:af8b4c170fec4afbc5242a30626b88a688b7cb7724d96372d577ceb38f0f1cb8",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "tad_lhc-event-mean-v1": [
+      {
+        "description": "Unified-LHC-Framework/tad_lhc.log",
+        "obs_space": {
+          "d": 1,
+          "type": "R^d"
+        },
+        "pi_id": "tad_lhc-event-mean-v1",
+        "pi_spec_hash": "sha256:dc8ef95942407c29e19db8138daacb03ab9206653e048e9b08ae744952be123d",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "vqe_analytic-v1": [
+      {
+        "description": "Noisy-VQE-Benchmark-Rayon-scaling-/vqe_analytic.csv",
+        "obs_space": {
+          "d": 2,
+          "type": "R^d"
+        },
+        "pi_id": "vqe_analytic-v1",
+        "pi_spec_hash": "sha256:d803a38616b8c03da2de5f8639be6cb0d6b84c27a452423236bd301bec65796c",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "vqe_noisy-v1": [
+      {
+        "description": "Noisy-VQE-Benchmark-Rayon-scaling-/vqe_noisy.csv",
+        "obs_space": {
+          "d": 2,
+          "type": "R^d"
+        },
+        "pi_id": "vqe_noisy-v1",
+        "pi_spec_hash": "sha256:fc1671a6b79e0de16807ec25c862de8341f2a569235601d37ddfca97ec43a3b7",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "vqe_shots-v1": [
+      {
+        "description": "Noisy-VQE-Benchmark-Rayon-scaling-/vqe_shots.csv",
+        "obs_space": {
+          "d": 2,
+          "type": "R^d"
+        },
+        "pi_id": "vqe_shots-v1",
+        "pi_spec_hash": "sha256:edf38a57ca0e8e3632a2907ea2c305e40624122d3c85bac7a52d8379a637fbee",
+        "pi_version": "1.0.0"
+      }
+    ]
+  },
+  "version": "0.1"
+}

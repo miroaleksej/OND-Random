@@ -1,0 +1,275 @@
+{
+  "generated": 18,
+  "results": [
+    {
+      "path": "IsogenyGuard-SDK/data.csv",
+      "status": "generated",
+      "protocol": "signature",
+      "scheme": "ECDSA-secp256k1",
+      "pi_id": "ecdsa-secp256k1-rsz-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        200,
+        4
+      ],
+      "observations": "audit/verification/IsogenyGuard-SDK_data.csv/observations.jsonl",
+      "baseline_report": "audit/verification/IsogenyGuard-SDK_data.csv/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "Noisy-VQE-Benchmark-Rayon-scaling-/chi_40.csv",
+      "status": "generated",
+      "protocol": "ml",
+      "scheme": "VQE",
+      "pi_id": "chi_40-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        40,
+        4
+      ],
+      "observations": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_chi_40.csv/observations.jsonl",
+      "baseline_report": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_chi_40.csv/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "Noisy-VQE-Benchmark-Rayon-scaling-/fid_12.csv",
+      "status": "generated",
+      "protocol": "ml",
+      "scheme": "VQE",
+      "pi_id": "fid_12-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        4,
+        3
+      ],
+      "observations": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_fid_12.csv/observations.jsonl",
+      "baseline_report": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_fid_12.csv/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "Noisy-VQE-Benchmark-Rayon-scaling-/fidelity_24.csv",
+      "status": "generated",
+      "protocol": "ml",
+      "scheme": "VQE",
+      "pi_id": "fidelity_24-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        4,
+        3
+      ],
+      "observations": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_fidelity_24.csv/observations.jsonl",
+      "baseline_report": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_fidelity_24.csv/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "Noisy-VQE-Benchmark-Rayon-scaling-/fidelity_24_depth.csv",
+      "status": "generated",
+      "protocol": "ml",
+      "scheme": "VQE",
+      "pi_id": "fidelity_24_depth-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        60,
+        4
+      ],
+      "observations": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_fidelity_24_depth.csv/observations.jsonl",
+      "baseline_report": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_fidelity_24_depth.csv/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "Noisy-VQE-Benchmark-Rayon-scaling-/vqe_analytic.csv",
+      "status": "generated",
+      "protocol": "ml",
+      "scheme": "VQE",
+      "pi_id": "vqe_analytic-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        201,
+        2
+      ],
+      "observations": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_vqe_analytic.csv/observations.jsonl",
+      "baseline_report": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_vqe_analytic.csv/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "Noisy-VQE-Benchmark-Rayon-scaling-/vqe_noisy.csv",
+      "status": "generated",
+      "protocol": "ml",
+      "scheme": "VQE",
+      "pi_id": "vqe_noisy-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        201,
+        2
+      ],
+      "observations": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_vqe_noisy.csv/observations.jsonl",
+      "baseline_report": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_vqe_noisy.csv/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "Noisy-VQE-Benchmark-Rayon-scaling-/vqe_shots.csv",
+      "status": "generated",
+      "protocol": "ml",
+      "scheme": "VQE",
+      "pi_id": "vqe_shots-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        61,
+        2
+      ],
+      "observations": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_vqe_shots.csv/observations.jsonl",
+      "baseline_report": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_vqe_shots.csv/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "OND-Random/data/benchmarks/I-ondmax.npz",
+      "status": "generated",
+      "protocol": "rng",
+      "scheme": "I-ondmax",
+      "pi_id": "I-ondmax-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        10000,
+        4
+      ],
+      "observations": "audit/verification/OND-Random_data_benchmarks_I-ondmax.npz/observations.jsonl",
+      "baseline_report": "audit/verification/OND-Random_data_benchmarks_I-ondmax.npz/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "OND-Random/data/benchmarks/II-lcg.npz",
+      "status": "generated",
+      "protocol": "rng",
+      "scheme": "II-lcg",
+      "pi_id": "II-lcg-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        10000,
+        4
+      ],
+      "observations": "audit/verification/OND-Random_data_benchmarks_II-lcg.npz/observations.jsonl",
+      "baseline_report": "audit/verification/OND-Random_data_benchmarks_II-lcg.npz/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "OND-Random/data/benchmarks/II-xorshift.npz",
+      "status": "generated",
+      "protocol": "rng",
+      "scheme": "II-xorshift",
+      "pi_id": "II-xorshift-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        10000,
+        4
+      ],
+      "observations": "audit/verification/OND-Random_data_benchmarks_II-xorshift.npz/observations.jsonl",
+      "baseline_report": "audit/verification/OND-Random_data_benchmarks_II-xorshift.npz/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "OND-Random/data/benchmarks/III-bounded.npz",
+      "status": "generated",
+      "protocol": "rng",
+      "scheme": "III-bounded",
+      "pi_id": "III-bounded-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        10000,
+        4
+      ],
+      "observations": "audit/verification/OND-Random_data_benchmarks_III-bounded.npz/observations.jsonl",
+      "baseline_report": "audit/verification/OND-Random_data_benchmarks_III-bounded.npz/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "OND-Random/data/benchmarks/IV-masked.npz",
+      "status": "generated",
+      "protocol": "rng",
+      "scheme": "IV-masked",
+      "pi_id": "IV-masked-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        10000,
+        4
+      ],
+      "observations": "audit/verification/OND-Random_data_benchmarks_IV-masked.npz/observations.jsonl",
+      "baseline_report": "audit/verification/OND-Random_data_benchmarks_IV-masked.npz/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "OND-Random/data/benchmarks/Q-drift.npz",
+      "status": "generated",
+      "protocol": "rng",
+      "scheme": "Q-drift",
+      "pi_id": "Q-drift-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        10000,
+        4
+      ],
+      "observations": "audit/verification/OND-Random_data_benchmarks_Q-drift.npz/observations.jsonl",
+      "baseline_report": "audit/verification/OND-Random_data_benchmarks_Q-drift.npz/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "OND-Random/data/benchmarks/Q-ideal.npz",
+      "status": "generated",
+      "protocol": "rng",
+      "scheme": "Q-ideal",
+      "pi_id": "Q-ideal-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        10000,
+        4
+      ],
+      "observations": "audit/verification/OND-Random_data_benchmarks_Q-ideal.npz/observations.jsonl",
+      "baseline_report": "audit/verification/OND-Random_data_benchmarks_Q-ideal.npz/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "OND-Random/reports/observations.jsonl",
+      "status": "generated",
+      "protocol": "rng",
+      "scheme": "ondmax",
+      "pi_id": "benchmark-ondmax-r4",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        10000,
+        4
+      ],
+      "observations": "audit/verification/OND-Random_reports_observations.jsonl/observations.jsonl",
+      "baseline_report": "audit/verification/OND-Random_reports_observations.jsonl/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "Topology-Guided-Empirical-Formula-Discovery-TGEFD-/examples/data/sample_measurements.csv",
+      "status": "generated",
+      "protocol": "ml",
+      "scheme": "TGEFD",
+      "pi_id": "sample_measurements-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        10,
+        2
+      ],
+      "observations": "audit/verification/Topology-Guided-Empirical-Formula-Discovery-TGEFD-_examples_data_sample_measurements.csv/observations.jsonl",
+      "baseline_report": "audit/verification/Topology-Guided-Empirical-Formula-Discovery-TGEFD-_examples_data_sample_measurements.csv/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "Unified-LHC-Framework/tad_lhc.log",
+      "status": "generated",
+      "protocol": "physics",
+      "scheme": "LHC-log",
+      "pi_id": "tad_lhc-event-mean-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        28,
+        1
+      ],
+      "observations": "audit/verification/Unified-LHC-Framework_tad_lhc.log/observations.jsonl",
+      "baseline_report": "audit/verification/Unified-LHC-Framework_tad_lhc.log/baseline_report.json",
+      "registry_note": null
+    }
+  ]
+}

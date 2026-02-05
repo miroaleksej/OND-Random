@@ -1,0 +1,11 @@
+{"type": "meta", "pi_id": "sample_measurements-v1", "pi_version": "1.0.0", "pi_spec_hash": "sha256:af8b4c170fec4afbc5242a30626b88a688b7cb7724d96372d577ceb38f0f1cb8", "obs_space": {"type": "R^d", "d": 2}, "spec": {"name": "ODD-OBS", "version": "0.1"}, "context": {"source_path": "Topology-Guided-Empirical-Formula-Discovery-TGEFD-/examples/data/sample_measurements.csv"}}
+{"type": "obs", "u": [0.0, 0.12], "i": 0}
+{"type": "obs", "u": [0.1, 0.18], "i": 1}
+{"type": "obs", "u": [0.2, 0.25], "i": 2}
+{"type": "obs", "u": [0.3, 0.33], "i": 3}
+{"type": "obs", "u": [0.4, 0.41], "i": 4}
+{"type": "obs", "u": [0.5, 0.52], "i": 5}
+{"type": "obs", "u": [0.6, 0.63], "i": 6}
+{"type": "obs", "u": [0.7, 0.75], "i": 7}
+{"type": "obs", "u": [0.8, 0.88], "i": 8}
+{"type": "obs", "u": [0.9, 1.02], "i": 9}
