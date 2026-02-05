@@ -160,3 +160,32 @@ PYTHONPATH=. python scripts/sla_regression.py --config docs/large_sample_sla.jso
 - `sla_regression.py`  
   Runs large-sample SLA regression against benchmark profiles and writes:
   - `data/reports/sla_regression.json` (PASS/FAIL + per-case diffs)
+
+---
+
+## CI / Quality Gates (Formalized)
+
+**Hard gates (automated PASS/FAIL)**
+
+| Gate | Command | Artifact | Pass rule |
+| --- | --- | --- | --- |
+| Pipeline summary | `PYTHONPATH=. python scripts/run_pipeline.py --samples 10000 --dimension 4 --word-bits 32 --branch-mode delta` | `data/reports/pipeline_summary.json` | `status == "PASS"` |
+| Quality report | `PYTHONPATH=. python scripts/quality_report.py` | `data/reports/quality_report.json` | `status == "PASS"` |
+| Accuracy gate | `PYTHONPATH=. python scripts/accuracy_report.py --thresholds docs/accuracy_thresholds.json --out data/reports/accuracy_report.json` | `data/reports/accuracy_report.json` | `status == "PASS"` |
+| SLA regression | `PYTHONPATH=. python scripts/sla_regression.py --config docs/large_sample_sla.json --out data/reports/sla_regression.json` | `data/reports/sla_regression.json` | `status == "PASS"` |
+
+**Soft gates (thresholds must be defined by policy)**
+
+| Gate | Command | Artifact | Suggested pass rule |
+| --- | --- | --- | --- |
+| Numeric validation | `PYTHONPATH=. python scripts/numeric_validation.py` | `data/reports/numeric_validation.json` | Max errors below policy thresholds |
+| Shor noise | `PYTHONPATH=. python scripts/shor_noise_report.py --shots 50 --trials 50 --gamma1 0.05 --gamma-phi 0.02` | `data/reports/shor_noise_report.json` | Success rate ≥ policy minimum |
+| Trajectories vs Lindblad | `PYTHONPATH=. python scripts/trajectories_report.py` | `data/reports/trajectories_vs_lindblad.json` | Mean/max error ≤ policy thresholds |
+| Backend benchmarks | `PYTHONPATH=. python scripts/benchmark_kernels.py --qubits 20 --iters 5 --out data/reports/backend_benchmark.json` | `data/reports/backend_benchmark.json` | Runtime ≤ policy budget |
+| NIST 90B entropy | `PYTHONPATH=. python scripts/nist_entropy_estimator.py --rng ondmax --symbols 1000000 --bits-per-symbol 8 --track non-iid` | `data/reports/nist_entropy_report.json` | Min-entropy ≥ policy minimum |
+| External batteries | `PYTHONPATH=. python scripts/external_rng_tests.py practrand --rng ondmax --total-bytes 1000000` (and NIST STS/TestU01) | `data/reports/external/**` | No failures per battery policy |
+
+**Candidate definition (for “works as intended”)**
+- Any hard-gate FAIL.
+- Any soft-gate breach of its policy threshold.
+- Any command error/exception or missing required artifact.
