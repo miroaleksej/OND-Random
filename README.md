@@ -198,7 +198,8 @@ ond-random odd-report \
   --out reports/ond_art_report.json
 ```
 
-Then validate in CI using OND‑ART CI Pack (`ond-art-validate`) against `reports/**/*.json`. See the full gate list in `manual.md` → **CI / Quality Gates (Formalized)**.
+Then validate in CI using OND‑ART CI Pack (`ond-art-validate`) against `reports/**/*.json`. See the full gate list in `manual.md` → **CI / Quality Gates (Formalized)**.  
+Scientific note: `docs/ond_math_note.md`.
 Examples: `reports/observations.jsonl`, `reports/baseline_report.json`.
 Reports include `spec.profile` and `spec.x-method_version` (override with `--profile` / `--method-version`).
 

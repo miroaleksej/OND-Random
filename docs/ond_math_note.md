@@ -26,7 +26,7 @@ This makes randomness a **geometric object** in the observation space.
 ---
 
 ## 3) Data and notation
-Formulas below are shown in plain ASCII to render correctly on GitHub.
+Formulas below are written in LaTeX display form (using $$ ... $$).
 Let:
 
 - U in R^(N x d): observation matrix (N samples, dimension d)  
@@ -34,9 +34,9 @@ Let:
 
 With a modulus, differences are computed modulo m and centered into [-m/2, m/2):
 
-```
-Di = (U[i+1] - U[i]) mod m
-```
+$$
+D_i = (U_{i+1} - U_i) \bmod m
+$$
 
 ---
 
@@ -46,9 +46,9 @@ Compute the entropy of singular values of D.
 
 Let s1..sr be singular values and p_i = s_i / sum(s_i). Then:
 
-```
-H_rank = -(1 / log r) * sum_{i=1..r} (p_i * log p_i)
-```
+$$
+H_{rank} = -\frac{1}{\log r}\sum_{i=1}^{r} p_i \log p_i
+$$
 
 Interpretation: a more uniform spectrum (richer dynamics) gives higher H_rank.
 
@@ -58,9 +58,9 @@ Interpretation: a more uniform spectrum (richer dynamics) gives higher H_rank.
 3) Bin Y into B bins per axis (total B^r cells).  
 4) Compute entropy of the occupancy distribution.
 
-```
-H_sub = -(1 / log(B^r)) * sum_k (q_k * log q_k)
-```
+$$
+H_{sub} = -\frac{1}{\log(B^r)}\sum_{k} q_k \log q_k
+$$
 where \(q_k\) is the fraction of points in cell \(k\).
 
 Interpretation: how fully the dynamic subspace is filled.
@@ -82,9 +82,9 @@ Process:
 ## 5) Profile and classes
 An **OND profile** is:
 
-```
-P(U) = (H_rank, H_sub, H_branch)
-```
+$$
+P(U) = (H_{rank}, H_{sub}, H_{branch})
+$$
 
 Profiles are compared to **reference classes** (I/II/III/IV), defined by means and standard deviations over canonical sources.
 
