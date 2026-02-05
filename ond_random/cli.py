@@ -4,11 +4,34 @@ import argparse
 import json
 import os
 from pathlib import Path
+from typing import Any
 
 import numpy as np
 
-from .ond import ObservationMap, compute_profile, OnlineCalibrator
+from .ond import (
+    ObservationMap,
+    ObservationsMeta,
+    OnlineCalibrator,
+    compute_profile,
+    delay_embed_series,
+    load_csv_matrix,
+    load_csv_series,
+    load_ecdsa_rsz_csv,
+    load_npy,
+    load_npz,
+    load_text_series_regex,
+    read_observations_jsonl,
+    torus_embed_modular,
+    unit_scale_modular,
+    write_observations_jsonl,
+    add_entry,
+    check_entry,
+    load_registry,
+    save_registry,
+)
 from .ond.benchmark import classify_profile, load_reference_profiles, save_reference_profiles, ReferenceProfile, ONDClass
+from .ond.baseline_policy import load_policy, select_policy
+from .ond.odd_report import build_ond_art_report, hash_json, hash_text
 from .rng.base import RNG
 from .rng.system import SystemRNG
 from .rng.lcg import LCGRNG
@@ -19,6 +42,27 @@ from .rng.extractor import ONDMaxRNG
 from .rng.structured import MaskedRNG, BoundedRNG
 from .quantum.grover import grover_search
 from .quantum.shor import shor_factor
+
+
+def _parse_int_base0(text: str) -> int:
+    return int(text, 0)
+
+
+def _load_json_arg(value: str | None) -> dict | None:
+    if not value:
+        return None
+    if value.startswith("@"):
+        payload = Path(value[1:]).read_text(encoding="utf-8")
+        return json.loads(payload)
+    return json.loads(value)
+
+
+def _load_text_arg(value: str | None) -> str | None:
+    if not value:
+        return None
+    if value.startswith("@"):
+        return Path(value[1:]).read_text(encoding="utf-8")
+    return value
 
 
 def _load_calibration_bank(path: str) -> dict[str, OnlineCalibrator]:
@@ -155,6 +199,291 @@ def cmd_profile(args: argparse.Namespace) -> None:
         print(output)
 
 
+def _infer_input_format(path: str, explicit: str | None) -> str:
+    if explicit and explicit != "auto":
+        return explicit
+    suffix = Path(path).suffix.lower()
+    if suffix == ".npy":
+        return "npy"
+    if suffix == ".npz":
+        return "npz"
+    if suffix == ".csv":
+        return "csv"
+    return "text"
+
+
+def _split_columns(text: str | None) -> list[str]:
+    if not text:
+        return []
+    return [c.strip() for c in text.split(",") if c.strip()]
+
+
+def _load_U_from_file_args(args: argparse.Namespace) -> tuple[np.ndarray, int | None]:
+    fmt = _infer_input_format(args.input, args.input_format)
+    delimiter = args.delimiter
+
+    modulus: int | None = args.modulus
+    is_series = False
+
+    if fmt == "npy":
+        U_raw = load_npy(args.input)
+        if U_raw.ndim == 1:
+            is_series = True
+    elif fmt == "npz":
+        U_raw = load_npz(args.input, key=args.npz_key)
+        if U_raw.ndim == 1:
+            is_series = True
+    elif fmt == "csv":
+        if args.ecdsa_rsz:
+            if args.ecdsa_n is None:
+                raise ValueError("--ecdsa-n is required when --ecdsa-rsz is set")
+            modulus = int(args.ecdsa_n)
+            U_raw = load_ecdsa_rsz_csv(
+                args.input,
+                n=modulus,
+                r_col=args.ecdsa_r_col,
+                s_col=args.ecdsa_s_col,
+                z_col=args.ecdsa_z_col,
+                delimiter=delimiter,
+            )
+        elif args.column:
+            is_series = True
+            U_raw = load_csv_series(args.input, column=args.column, delimiter=delimiter)
+        else:
+            columns = _split_columns(args.columns)
+            if not columns:
+                raise ValueError("CSV input requires --columns (matrix) or --column (series), or --ecdsa-rsz")
+            U_raw = load_csv_matrix(args.input, columns=columns, delimiter=delimiter)
+    elif fmt == "text":
+        if not args.regex:
+            raise ValueError("text input requires --regex")
+        is_series = True
+        U_raw = load_text_series_regex(args.input, pattern=args.regex)
+    else:
+        raise ValueError(f"unsupported input format: {fmt}")
+
+    # Build 2D observation matrix U
+    if is_series:
+        series = np.asarray(U_raw, dtype=float).reshape(-1)
+        if args.embed_dim > 1:
+            U = delay_embed_series(series, embed_dim=args.embed_dim, delay=args.embed_delay, stride=args.embed_stride)
+        else:
+            U = series.reshape(-1, 1)
+        effective_modulus = None
+    else:
+        U = np.asarray(U_raw)
+        effective_modulus = modulus
+
+    # Optional modular embedding
+    if effective_modulus is not None:
+        if args.modulus_embedding == "unit":
+            U = unit_scale_modular(U, effective_modulus)
+            effective_modulus = None
+        elif args.modulus_embedding == "torus":
+            U = torus_embed_modular(U, effective_modulus)
+            effective_modulus = None
+        elif args.modulus_embedding != "wrap":
+            raise ValueError("modulus_embedding must be wrap|unit|torus")
+
+    return U, effective_modulus
+
+
+def cmd_profile_file(args: argparse.Namespace) -> None:
+    U, effective_modulus = _load_U_from_file_args(args)
+
+    profile = compute_profile(
+        U,
+        modulus=effective_modulus,
+        bins=args.bins,
+        max_subspace_dim=args.max_subspace_dim,
+        branch_bins=args.branch_bins,
+        branch_mode=args.branch_mode,
+    )
+    result = profile.as_dict()
+    if args.references:
+        refs = load_reference_profiles(args.references)
+        result["ond_class"] = classify_profile(result, refs).value
+
+    output = json.dumps(result, indent=2, sort_keys=True)
+    if args.out:
+        Path(args.out).write_text(output, encoding="utf-8")
+    else:
+        print(output)
+
+
+def cmd_obs_export(args: argparse.Namespace) -> None:
+    U, effective_modulus = _load_U_from_file_args(args)
+
+    if not args.pi_id or not args.pi_version:
+        raise ValueError("--pi-id and --pi-version are required for obs-export")
+
+    obs_space: dict[str, Any]
+    if args.obs_space_type:
+        obs_space = {"type": args.obs_space_type}
+        if args.obs_space_d:
+            obs_space["d"] = int(args.obs_space_d)
+        if args.obs_space_modulus:
+            obs_space["modulus"] = int(args.obs_space_modulus)
+    else:
+        if effective_modulus is not None:
+            obs_space = {"type": "Z_mod_m", "modulus": int(effective_modulus), "d": int(U.shape[1])}
+        else:
+            obs_space = {"type": "R^d", "d": int(U.shape[1])}
+
+    pi_spec_raw = _load_text_arg(args.pi_spec)
+    if pi_spec_raw:
+        try:
+            pi_spec = json.loads(pi_spec_raw)
+            pi_spec_hash = hash_json(pi_spec)
+        except Exception:
+            pi_spec_hash = hash_text(pi_spec_raw)
+    else:
+        pi_spec_hash = hash_json({"pi_id": args.pi_id, "pi_version": args.pi_version, "obs_space": obs_space})
+
+    context = _load_json_arg(args.context_json)
+
+    meta = ObservationsMeta(
+        pi_id=args.pi_id,
+        pi_version=args.pi_version,
+        pi_spec_hash=pi_spec_hash,
+        obs_space=obs_space,
+        spec={"name": "ODD-OBS", "version": "0.1"},
+        context=context,
+        public_context_hash=args.public_context_hash,
+    )
+
+    if args.pi_registry:
+        registry = load_registry(args.pi_registry)
+        if args.pi_registry_mode == "check":
+            check_entry(registry, pi_id=args.pi_id, pi_version=args.pi_version, pi_spec_hash=pi_spec_hash)
+        elif args.pi_registry_mode == "add":
+            add_entry(
+                registry,
+                pi_id=args.pi_id,
+                pi_version=args.pi_version,
+                pi_spec_hash=pi_spec_hash,
+                obs_space=obs_space,
+                description=args.pi_description,
+            )
+            save_registry(args.pi_registry, registry)
+        else:
+            raise ValueError("pi_registry_mode must be 'check' or 'add'")
+
+    write_observations_jsonl(args.out, U, meta, stringify_large_ints=not args.no_stringify_large_ints)
+
+
+def cmd_odd_report(args: argparse.Namespace) -> None:
+    baseline_report = None
+    if args.baseline_report:
+        baseline_report = json.loads(Path(args.baseline_report).read_text(encoding="utf-8"))
+
+    params = _load_json_arg(args.params_json) or {}
+
+    if args.public_context_hash:
+        public_context_hash = args.public_context_hash
+    elif args.public_context:
+        public_context_hash = hash_text(_load_text_arg(args.public_context) or "")
+    else:
+        public_context_hash = None
+
+    percentiles = None
+    profile = args.profile
+    if args.baseline_policy:
+        policy = load_policy(args.baseline_policy)
+        policy_pct, policy_profile = select_policy(policy, args.protocol, args.scheme)
+        if percentiles is None:
+            percentiles = policy_pct
+        if profile is None:
+            profile = policy_profile
+    if args.baseline_percentiles:
+        parsed = tuple(float(x) for x in args.baseline_percentiles.split(","))
+        if len(parsed) != 3:
+            raise ValueError("--baseline-percentiles must have 3 comma-separated values")
+        percentiles = parsed
+    if percentiles is None:
+        percentiles = (50.0, 80.0, 95.0)
+    if profile is None:
+        profile = "core"
+
+    notes = []
+    if args.note:
+        notes.extend(args.note)
+    if not any("Diagnostic only; no security claim." in n for n in notes):
+        notes.append("Diagnostic only; no security claim.")
+
+    try:
+        from ond_random import __version__ as pkg_version
+    except Exception:
+        pkg_version = "unknown"
+    method_version = args.method_version or f"ond-random@{pkg_version}/odd-report"
+
+    report = build_ond_art_report(
+        observations_path=args.observations,
+        baseline_observations=args.baseline_observations,
+        baseline_report=baseline_report,
+        baseline_id=args.baseline_id,
+        baseline_percentiles=(percentiles[0], percentiles[1], percentiles[2]),
+        bins=args.bins,
+        max_subspace_dim=args.max_subspace_dim,
+        branch_bins=args.branch_bins,
+        branch_mode=args.branch_mode,
+        bootstrap_samples=args.bootstrap_samples,
+        bootstrap_seed=args.bootstrap_seed,
+        protocol=args.protocol,
+        scheme=args.scheme,
+        params=params,
+        public_context_hash=public_context_hash,
+        order=args.order,
+        message_policy=args.message_policy,
+        spec_profile=profile,
+        method_version=method_version,
+        notes=notes,
+        timezone_name=args.timezone,
+    )
+
+    out = Path(args.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
+    print(json.dumps(report, indent=2, sort_keys=True))
+
+
+def cmd_pi_registry(args: argparse.Namespace) -> None:
+    registry = load_registry(args.registry)
+    if args.pi_command == "add":
+        pi_spec_raw = _load_text_arg(args.pi_spec) or ""
+        try:
+            pi_spec = json.loads(pi_spec_raw)
+            pi_spec_hash = hash_json(pi_spec)
+        except Exception:
+            pi_spec_hash = hash_text(pi_spec_raw)
+
+        obs_space = {"type": args.obs_space_type}
+        if args.obs_space_d is not None:
+            obs_space["d"] = int(args.obs_space_d)
+        if args.obs_space_modulus is not None:
+            obs_space["modulus"] = int(args.obs_space_modulus)
+
+        add_entry(
+            registry,
+            pi_id=args.pi_id,
+            pi_version=args.pi_version,
+            pi_spec_hash=pi_spec_hash,
+            obs_space=obs_space,
+            description=args.description,
+        )
+        save_registry(args.registry, registry)
+        print(json.dumps(registry, indent=2, sort_keys=True))
+    elif args.pi_command == "check":
+        pi_spec_raw = _load_text_arg(args.pi_spec) or ""
+        try:
+            pi_spec = json.loads(pi_spec_raw)
+            pi_spec_hash = hash_json(pi_spec)
+        except Exception:
+            pi_spec_hash = hash_text(pi_spec_raw)
+        check_entry(registry, pi_id=args.pi_id, pi_version=args.pi_version, pi_spec_hash=pi_spec_hash)
+        print("OK")
+    else:
+        raise ValueError("Unknown pi-registry command")
 def cmd_benchmark(args: argparse.Namespace) -> None:
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -323,6 +652,114 @@ def build_parser() -> argparse.ArgumentParser:
     p_profile.add_argument("--calibration-out", default="data/reports/auto_calibration.json")
     p_profile.add_argument("--calibration-key", help="override calibration key (default: rng or rng(source))")
     p_profile.set_defaults(func=cmd_profile)
+
+    p_profile_file = sub.add_parser("profile-file", help="Compute OND profile from a file (CSV/NPY/log)")
+    p_profile_file.add_argument("--input", required=True, help="Input file path")
+    p_profile_file.add_argument("--input-format", choices=["auto", "npy", "npz", "csv", "text"], default="auto")
+    p_profile_file.add_argument("--npz-key", default="U")
+    p_profile_file.add_argument("--delimiter", default=",", help="CSV delimiter (default: ,)")
+    p_profile_file.add_argument("--columns", help="CSV matrix columns (comma-separated)")
+    p_profile_file.add_argument("--column", help="CSV scalar column (for series)")
+    p_profile_file.add_argument("--regex", help="Regex with one capture group (for text series)")
+    p_profile_file.add_argument("--embed-dim", type=int, default=1, help="Delay embedding dimension for series (default: 1)")
+    p_profile_file.add_argument("--embed-delay", type=int, default=1, help="Delay embedding delay (default: 1)")
+    p_profile_file.add_argument("--embed-stride", type=int, default=1, help="Delay embedding stride (default: 1)")
+    p_profile_file.add_argument("--modulus", type=_parse_int_base0, default=None, help="Optional modulus for modular observations (supports 0x... hex)")
+    p_profile_file.add_argument("--modulus-embedding", choices=["wrap", "unit", "torus"], default="wrap")
+    p_profile_file.add_argument("--ecdsa-rsz", action="store_true", help="Parse CSV r,s,z and map to (u_r,u_z)")
+    p_profile_file.add_argument("--ecdsa-n", type=_parse_int_base0, default=None, help="ECDSA group order n (required with --ecdsa-rsz; supports 0x... hex)")
+    p_profile_file.add_argument("--ecdsa-r-col", default="r")
+    p_profile_file.add_argument("--ecdsa-s-col", default="s")
+    p_profile_file.add_argument("--ecdsa-z-col", default="z")
+    p_profile_file.add_argument("--bins", type=int, default=16)
+    p_profile_file.add_argument("--max-subspace-dim", type=int, default=6)
+    p_profile_file.add_argument("--branch-bins", type=int, default=None)
+    p_profile_file.add_argument("--branch-mode", choices=["raw", "delta"], default="raw")
+    p_profile_file.add_argument("--references")
+    p_profile_file.add_argument("--out")
+    p_profile_file.set_defaults(func=cmd_profile_file)
+
+    p_obs = sub.add_parser("obs-export", help="Export observations.jsonl with pi_id/pi_version")
+    p_obs.add_argument("--input", required=True, help="Input file path")
+    p_obs.add_argument("--input-format", choices=["auto", "npy", "npz", "csv", "text"], default="auto")
+    p_obs.add_argument("--npz-key", default="U")
+    p_obs.add_argument("--delimiter", default=",")
+    p_obs.add_argument("--columns", help="CSV matrix columns (comma-separated)")
+    p_obs.add_argument("--column", help="CSV scalar column (for series)")
+    p_obs.add_argument("--regex", help="Regex with one capture group (for text series)")
+    p_obs.add_argument("--embed-dim", type=int, default=1)
+    p_obs.add_argument("--embed-delay", type=int, default=1)
+    p_obs.add_argument("--embed-stride", type=int, default=1)
+    p_obs.add_argument("--modulus", type=_parse_int_base0, default=None)
+    p_obs.add_argument("--modulus-embedding", choices=["wrap", "unit", "torus"], default="wrap")
+    p_obs.add_argument("--ecdsa-rsz", action="store_true")
+    p_obs.add_argument("--ecdsa-n", type=_parse_int_base0, default=None)
+    p_obs.add_argument("--ecdsa-r-col", default="r")
+    p_obs.add_argument("--ecdsa-s-col", default="s")
+    p_obs.add_argument("--ecdsa-z-col", default="z")
+    p_obs.add_argument("--pi-id", required=True)
+    p_obs.add_argument("--pi-version", required=True)
+    p_obs.add_argument("--pi-spec", help="PI spec as JSON/text or @file path")
+    p_obs.add_argument("--pi-registry", help="Optional registry JSON path")
+    p_obs.add_argument("--pi-registry-mode", choices=["check", "add"], default="check")
+    p_obs.add_argument("--pi-description", help="Optional description for registry entry")
+    p_obs.add_argument("--obs-space-type", help="Override obs_space.type (e.g., R^d, Z_mod_m)")
+    p_obs.add_argument("--obs-space-d", type=int, default=None)
+    p_obs.add_argument("--obs-space-modulus", type=_parse_int_base0, default=None)
+    p_obs.add_argument("--context-json", help="Optional context JSON or @file")
+    p_obs.add_argument("--public-context-hash", help="Optional public_context_hash to embed")
+    p_obs.add_argument("--no-stringify-large-ints", action="store_true")
+    p_obs.add_argument("--out", required=True, help="Output observations.jsonl path")
+    p_obs.set_defaults(func=cmd_obs_export)
+
+    p_odd = sub.add_parser("odd-report", help="Generate OND-ART report from observations.jsonl")
+    p_odd.add_argument("--observations", required=True, help="observations.jsonl path")
+    p_odd.add_argument("--out", required=True, help="Report output path")
+    p_odd.add_argument("--protocol", default="custom")
+    p_odd.add_argument("--scheme", default="custom")
+    p_odd.add_argument("--params-json", help="JSON params or @file")
+    p_odd.add_argument("--public-context", help="Text or @file to hash as public_context_hash")
+    p_odd.add_argument("--public-context-hash", help="Explicit public_context_hash")
+    p_odd.add_argument("--order", choices=["time", "generation_index", "custom"], default="custom")
+    p_odd.add_argument("--message-policy", default="custom")
+    p_odd.add_argument("--profile", choices=["core", "recommended", "dev"], default=None)
+    p_odd.add_argument("--method-version", help="Override method_version in report")
+    p_odd.add_argument("--timezone", default="Etc/UTC")
+    p_odd.add_argument("--bins", type=int, default=16)
+    p_odd.add_argument("--max-subspace-dim", type=int, default=6)
+    p_odd.add_argument("--branch-bins", type=int, default=None)
+    p_odd.add_argument("--branch-mode", choices=["raw", "delta"], default="raw")
+    p_odd.add_argument("--bootstrap-samples", type=int, default=200)
+    p_odd.add_argument("--bootstrap-seed", type=int, default=0)
+    p_odd.add_argument("--baseline-observations", help="Baseline observations.jsonl path")
+    p_odd.add_argument("--baseline-report", help="Baseline report JSON path")
+    p_odd.add_argument("--baseline-id", default="baseline-1")
+    p_odd.add_argument("--baseline-policy", help="Baseline policy JSON path")
+    p_odd.add_argument("--baseline-percentiles", default=None)
+    p_odd.add_argument("--note", action="append")
+    p_odd.set_defaults(func=cmd_odd_report)
+
+    p_pi = sub.add_parser("pi-registry", help="Manage pi_id registry")
+    pi_sub = p_pi.add_subparsers(dest="pi_command", required=True)
+
+    p_pi_add = pi_sub.add_parser("add", help="Add entry to registry")
+    p_pi_add.add_argument("--registry", required=True)
+    p_pi_add.add_argument("--pi-id", required=True)
+    p_pi_add.add_argument("--pi-version", required=True)
+    p_pi_add.add_argument("--pi-spec", required=True, help="PI spec JSON/text or @file")
+    p_pi_add.add_argument("--obs-space-type", required=True)
+    p_pi_add.add_argument("--obs-space-d", type=int, default=None)
+    p_pi_add.add_argument("--obs-space-modulus", type=_parse_int_base0, default=None)
+    p_pi_add.add_argument("--description")
+    p_pi_add.set_defaults(func=cmd_pi_registry)
+
+    p_pi_check = pi_sub.add_parser("check", help="Check registry entry")
+    p_pi_check.add_argument("--registry", required=True)
+    p_pi_check.add_argument("--pi-id", required=True)
+    p_pi_check.add_argument("--pi-version", required=True)
+    p_pi_check.add_argument("--pi-spec", required=True, help="PI spec JSON/text or @file")
+    p_pi_check.set_defaults(func=cmd_pi_registry)
+
 
     p_bench = sub.add_parser("benchmark", help="Generate benchmark datasets and profiles")
     p_bench.add_argument("--out-dir", default="data/benchmarks")

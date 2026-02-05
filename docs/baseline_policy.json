@@ -1,0 +1,39 @@
+{
+  "version": "0.1",
+  "default": {
+    "percentiles": [50, 80, 95],
+    "profile": "core"
+  },
+  "domains": [
+    {
+      "protocol": "rng",
+      "scheme": "*",
+      "percentiles": [50, 80, 95],
+      "profile": "core"
+    },
+    {
+      "protocol": "signature",
+      "scheme": "ECDSA-*",
+      "percentiles": [50, 80, 95],
+      "profile": "core"
+    },
+    {
+      "protocol": "signature",
+      "scheme": "Schnorr-*",
+      "percentiles": [50, 80, 95],
+      "profile": "core"
+    },
+    {
+      "protocol": "physics",
+      "scheme": "LHC-*",
+      "percentiles": [40, 70, 90],
+      "profile": "dev"
+    },
+    {
+      "protocol": "ml",
+      "scheme": "*",
+      "percentiles": [50, 80, 95],
+      "profile": "core"
+    }
+  ]
+}

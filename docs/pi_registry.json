@@ -1,0 +1,17 @@
+{
+  "pi": {
+    "benchmark-ondmax-r4": [
+      {
+        "description": "OND benchmark: I-ondmax U (R^4) from data/benchmarks/I-ondmax.npz",
+        "obs_space": {
+          "d": 4,
+          "type": "R^d"
+        },
+        "pi_id": "benchmark-ondmax-r4",
+        "pi_spec_hash": "sha256:aa26a2614c834c21ac4c78bb7015350e603b59fe9bcefbb5bff62404baa023d6",
+        "pi_version": "1.0.0"
+      }
+    ]
+  },
+  "version": "0.1"
+}

@@ -52,29 +52,34 @@ def _centered_diff(U: np.ndarray, modulus: int | None) -> np.ndarray:
     return diff
 
 
-def _rank_entropy(D: np.ndarray) -> Tuple[float, int]:
+def _rank_entropy_details(D: np.ndarray) -> Tuple[float, float, int]:
     if D.size == 0:
-        return 0.0, 0
+        return 0.0, 0.0, 0
     s = np.linalg.svd(D, compute_uv=False)
     s = s[s > 0]
     if s.size == 0:
-        return 0.0, 0
+        return 0.0, 0.0, 0
     p = s / s.sum()
     h = -np.sum(p * np.log(p))
     if p.size == 1:
-        return 0.0, 1
-    return float(h / np.log(p.size)), int(p.size)
+        return float(h), 0.0, 1
+    return float(h), float(h / np.log(p.size)), int(p.size)
 
 
-def _subspace_occupancy(D: np.ndarray, bins: int, max_dim: int, modulus: int | None) -> float:
+def _subspace_occupancy_details(
+    D: np.ndarray,
+    bins: int,
+    max_dim: int,
+    modulus: int | None,
+) -> Tuple[float, float, int, int, int]:
     if D.size == 0:
-        return 0.0
+        return 0.0, 0.0, 0, 0, 0
     # SVD for principal directions
     u, s, vt = np.linalg.svd(D, full_matrices=False)
     tol = 1e-9 * s[0] if s.size else 0.0
     r = int(np.sum(s > tol))
     if r == 0:
-        return 0.0
+        return 0.0, 0.0, 0, 0, 0
     proj_dim = min(r, max_dim)
     V = vt[:proj_dim].T
     Y = D @ V
@@ -102,17 +107,25 @@ def _subspace_occupancy(D: np.ndarray, bins: int, max_dim: int, modulus: int | N
         counts[key] = counts.get(key, 0) + 1
     total = sum(counts.values())
     if total == 0:
-        return 0.0
+        return 0.0, 0.0, 0, 0, proj_dim
     p = np.array([c / total for c in counts.values()], dtype=float)
     h = -np.sum(p * np.log(p))
     log_total = proj_dim * np.log(bins)
-    return float(h / log_total) if log_total > 0 else 0.0
+    h_norm = float(h / log_total) if log_total > 0 else 0.0
+    nonempty = len(counts)
+    total_bins = int(bins**proj_dim)
+    return float(h), float(h_norm), int(nonempty), int(total_bins), int(proj_dim)
 
 
-def _branching_index(U: np.ndarray, modulus: int | None, branch_bins: int, mode: str = "raw") -> float:
+def _branching_index_details(
+    U: np.ndarray,
+    modulus: int | None,
+    branch_bins: int,
+    mode: str = "raw",
+) -> Tuple[float, float, int]:
     n = U.shape[0]
     if n < 2:
-        return 0.0
+        return 0.0, 0.0, 0
     if mode not in {"raw", "delta"}:
         raise ValueError("branch_mode must be 'raw' or 'delta'")
     # Raw binning into discrete states (no normalization)
@@ -148,7 +161,7 @@ def _branching_index(U: np.ndarray, modulus: int | None, branch_bins: int, mode:
         state_ids.append(state_to_idx[state])
     k = len(state_to_idx)
     if k <= 1:
-        return 0.0
+        return 0.0, 0.0, k
 
     transitions = {i: {} for i in range(k)}
     counts = np.zeros(k, dtype=int)
@@ -169,9 +182,25 @@ def _branching_index(U: np.ndarray, modulus: int | None, branch_bins: int, mode:
         entropies.append(h)
         weights.append(total)
     if not entropies:
-        return 0.0
+        return 0.0, 0.0, k
     h_weighted = float(np.average(entropies, weights=weights))
-    return float(h_weighted / np.log(k)) if k > 1 else 0.0
+    h_norm = float(h_weighted / np.log(k)) if k > 1 else 0.0
+    return float(h_weighted), float(h_norm), int(k)
+
+
+def _rank_entropy(D: np.ndarray) -> Tuple[float, int]:
+    _, h_norm, rank = _rank_entropy_details(D)
+    return h_norm, rank
+
+
+def _subspace_occupancy(D: np.ndarray, bins: int, max_dim: int, modulus: int | None) -> float:
+    _, h_norm, _, _, _ = _subspace_occupancy_details(D, bins=bins, max_dim=max_dim, modulus=modulus)
+    return h_norm
+
+
+def _branching_index(U: np.ndarray, modulus: int | None, branch_bins: int, mode: str = "raw") -> float:
+    _, h_norm, _ = _branching_index_details(U, modulus=modulus, branch_bins=branch_bins, mode=mode)
+    return h_norm
 
 
 def compute_profile(
@@ -205,3 +234,50 @@ def compute_profile(
         dimension=int(U.shape[1]),
         modulus=modulus,
     )
+
+
+def compute_profile_details(
+    U: np.ndarray,
+    modulus: int | None = None,
+    bins: int = 16,
+    max_subspace_dim: int = 6,
+    branch_bins: int | None = None,
+    branch_mode: str = "raw",
+) -> dict:
+    if U.ndim != 2:
+        raise ValueError("U must be 2D array (samples x dimension)")
+    D = _centered_diff(U, modulus)
+    rank_h_raw, rank_h_norm, rank = _rank_entropy_details(D)
+    sub_h_raw, sub_h_norm, sub_nonempty, sub_total, sub_dim = _subspace_occupancy_details(
+        D, bins=bins, max_dim=max_subspace_dim, modulus=modulus
+    )
+    if branch_bins is None:
+        n = U.shape[0]
+        d = U.shape[1]
+        if n <= 0 or d <= 0:
+            branch_bins = 2
+        else:
+            branch_bins = max(2, int((n / 10.0) ** (1.0 / d)))
+    branch_h_raw, branch_h_norm, branch_k = _branching_index_details(
+        U, modulus=modulus, branch_bins=branch_bins, mode=branch_mode
+    )
+    return {
+        "rank": {"H": rank_h_raw, "rho": rank_h_norm, "rank": rank},
+        "subspace": {
+            "H": sub_h_raw,
+            "rho": sub_h_norm,
+            "nonempty": sub_nonempty,
+            "total_bins": sub_total,
+            "proj_dim": sub_dim,
+            "bins": int(bins),
+        },
+        "branching": {
+            "H": branch_h_raw,
+            "rho": branch_h_norm,
+            "K": branch_k,
+            "branch_bins": int(branch_bins),
+        },
+        "n_samples": int(U.shape[0]),
+        "dimension": int(U.shape[1]),
+        "modulus": modulus,
+    }

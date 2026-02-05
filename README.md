@@ -130,6 +130,77 @@ ond-random profile --rng quantum --samples 10000 --dimension 4 --word-bits 32 --
 ond-random profile --rng ondmax --source system --samples 10000 --dimension 4 --word-bits 32 --modulus --auto-calibrate
 ```
 
+Compute OND profile from existing artifacts (ODD / black-box diagnostics):
+
+```bash
+# CSV scalar series (with delay embedding)
+ond-random profile-file --input vqe_noisy.csv --input-format csv --column energy --embed-dim 6 --branch-mode delta
+
+# Text logs (regex extraction -> series)
+ond-random profile-file --input tad_lhc.log --input-format text \
+  --regex "Event distribution: min=[0-9.]+, max=([0-9.]+), mean=" \
+  --embed-dim 4 --branch-mode delta
+
+# ECDSA CSV (r,s,z) -> (u_r,u_z) and torus embedding (recommended for large moduli)
+ond-random profile-file --input data.csv --input-format csv --ecdsa-rsz \
+  --ecdsa-n 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141 \
+  --modulus-embedding torus --branch-mode delta
+```
+
+## ODD Observations (observations.jsonl)
+
+Unified observation export for any system:
+
+```bash
+ond-random obs-export \
+  --input vqe_noisy.csv --input-format csv --column energy \
+  --embed-dim 6 \
+  --pi-id vqe-energy-v1 --pi-version 1.0.0 \
+  --pi-registry docs/pi_registry.json --pi-registry-mode add \
+  --out observations.jsonl
+```
+
+ODD docs:
+- `docs/odd_quickstart.md`
+- `docs/how_to_choose_pi.md`
+- `docs/baseline_policy.json`
+- `docs/pi_registry.json`
+
+Format (JSONL):
+```
+{"type":"meta","spec":{"name":"ODD-OBS","version":"0.1"},"pi_id":"...","pi_version":"...","pi_spec_hash":"sha256:...","obs_space":{"type":"R^d","d":6}}
+{"type":"obs","i":0,"u":[...]}
+{"type":"obs","i":1,"u":[...]}
+...
+```
+
+## ODD baseline/regression (OND‑ART report)
+
+```bash
+# Build baseline (one-time)
+ond-random odd-report \
+  --observations observations.jsonl \
+  --baseline-observations observations.jsonl \
+  --out reports/baseline_report.json \
+  --protocol custom --scheme custom \
+  --baseline-policy docs/baseline_policy.json \
+  --bootstrap-samples 200
+
+# Regression run vs baseline
+ond-random odd-report \
+  --observations observations.jsonl \
+  --baseline-report reports/baseline_report.json \
+  --out reports/ond_art_report.json
+```
+
+Then validate in CI using OND‑ART CI Pack (`ond-art-validate`) against `reports/**/*.json`.
+Examples: `reports/observations.jsonl`, `reports/baseline_report.json`.
+Reports include `spec.profile` and `spec.x-method_version` (override with `--profile` / `--method-version`).
+
+### ODD audit (candidate discovery)
+
+The system can **scan repositories and artifacts** (CSV/NPY/NPZ/logs/JSONL) to **find candidates for ODD validation** and suggest π metadata (`pi_id`, `pi_version`, `obs_space`). This is **not automatic self‑improvement**, but it **automates discovery and triage** of what should be validated next.
+
 Generate benchmark datasets and reference profiles:
 
 ```bash

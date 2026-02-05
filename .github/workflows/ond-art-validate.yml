@@ -1,0 +1,32 @@
+name: OND-ART Validate
+
+on:
+  pull_request:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install validator
+        run: python -m pip install "ond-art-ci-pack @ git+https://github.com/miroaleksej/OND-ART-CI-Pack-v0.1-.git"
+      - name: Resolve schema path
+        run: |
+          python - <<'PY'
+          import importlib.resources as r
+          import os
+          with r.as_file(r.files("ond_art_ci_pack") / "schemas" / "ond-art-report-0.1.schema.json") as p:
+              with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as handle:
+                  handle.write(f"SCHEMA_PATH={p}\n")
+          PY
+      - name: Validate reports
+        env:
+          REPORT_GLOB: reports/**/*.json
+          DEFAULT_PROFILE: core
+          REQUIRE_DISCLAIMER: "1"
+        run: ond-art-validate
