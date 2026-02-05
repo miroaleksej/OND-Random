@@ -58,6 +58,11 @@ observed randomness dynamics, ondrandom, RNG extractor, SHAKE256, structural ran
 
 **OND Random** (Observed Randomness Dynamics) is a research-grade RNG system and analysis framework for measuring, improving, and comparing randomness quality. It is built around OND metrics (`H_rank`, `H_sub`, `H_branch`) and the SHAKE256-based `ONDMaxRNG` extractor.
 
+### Recent update
+- Q‑ideal in benchmarks is now truly “ideal” (zero‑noise model).
+- SLA regression is now anchored to large baseline profiles (`samples=100000`, `branch_mode=delta`) and stabilized.
+- Added large reference profiles and `benchmark_profiles_large.json`.
+
 **Goals**
 - Improve randomness quality via strict extraction.
 - Provide reproducible metrics and reports.
