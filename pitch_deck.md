@@ -215,4 +215,4 @@ OND‑Random + ODD/OND‑ART provides a **single pipeline**:
 ---
 
 ## 31) Contact
-`<your@email>` • `<website>` • `<repo>`
+`<miro-aleksej@ya.ru>` • `<website>` • `<[repo](https://github.com/miroaleksej/OND-Random)>`
