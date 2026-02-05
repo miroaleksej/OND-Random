@@ -1,0 +1,110 @@
+{
+  "params": {
+    "bins": 16,
+    "branch_bins": null,
+    "branch_mode": "raw",
+    "dimension": 4,
+    "max_subspace_dim": 6,
+    "modulus": false,
+    "reference": "data/benchmarks/reference_profiles.json",
+    "samples": 100000,
+    "stride": 1,
+    "word_bits": 32
+  },
+  "reference_class_I": {
+    "description": "auto-I",
+    "mean": {
+      "H_branch": 0.22582306910655459,
+      "H_rank": 0.9585076767036265,
+      "H_sub": 0.23310043219278548
+    },
+    "ond_class": "I",
+    "std": {
+      "H_branch": 0.0018531563330108922,
+      "H_rank": 0.0008572309333443246,
+      "H_sub": 0.0015883706320850529
+    }
+  },
+  "results": [
+    {
+      "distance_to_class_I": 17.51724405426155,
+      "metrics": {
+        "H_branch": 0.19341132492714283,
+        "H_rank": 0.9576722365848946,
+        "H_sub": 0.23301086644187843
+      },
+      "rank_class_I": 1,
+      "rng": "ondmax"
+    },
+    {
+      "distance_to_class_I": 17.589047697640286,
+      "metrics": {
+        "H_branch": 0.19323390809361837,
+        "H_rank": 0.9582204331473233,
+        "H_sub": 0.23319294010150787
+      },
+      "rank_class_I": 5,
+      "rng": "system"
+    },
+    {
+      "distance_to_class_I": 17.58834566658944,
+      "metrics": {
+        "H_branch": 0.19324380701027621,
+        "H_rank": 0.9581017114683796,
+        "H_sub": 0.23272946380558313
+      },
+      "rank_class_I": 4,
+      "rng": "lcg"
+    },
+    {
+      "distance_to_class_I": 17.538586413408993,
+      "metrics": {
+        "H_branch": 0.1933410001682181,
+        "H_rank": 0.9579996112137322,
+        "H_sub": 0.2328702406240654
+      },
+      "rank_class_I": 2,
+      "rng": "xorshift"
+    },
+    {
+      "distance_to_class_I": 47.53954968360293,
+      "metrics": {
+        "H_branch": 0.19345089587598008,
+        "H_rank": 0.9579233569780136,
+        "H_sub": 0.3033198849706751
+      },
+      "rank_class_I": 8,
+      "rng": "chacha20"
+    },
+    {
+      "distance_to_class_I": 17.655706690622353,
+      "metrics": {
+        "H_branch": 0.19312275029249354,
+        "H_rank": 0.9579992691354037,
+        "H_sub": 0.23310706215618804
+      },
+      "rank_class_I": 7,
+      "rng": "quantum"
+    },
+    {
+      "distance_to_class_I": 17.65279306891063,
+      "metrics": {
+        "H_branch": 0.1931351163688225,
+        "H_rank": 0.9579111287919131,
+        "H_sub": 0.23311311217718944
+      },
+      "rank_class_I": 6,
+      "rng": "masked"
+    },
+    {
+      "distance_to_class_I": 17.56948323582628,
+      "metrics": {
+        "H_branch": 0.19329219349645063,
+        "H_rank": 0.9579829516576456,
+        "H_sub": 0.23246836335917878
+      },
+      "rank_class_I": 3,
+      "rng": "bounded"
+    }
+  ]
+}
