@@ -101,3 +101,9 @@ Config: `bbattery_FIPS_140_2File`, 20,000 bits from each file.
 
 ### Notes
 - NIST STS results include occasional Non-overlapping Template failures at larger volumes; see each `result.txt`.
+
+### Conclusion (large run)
+- PractRand 1GB: all five runs show no anomalies → statistically comparable.
+- NIST STS 256 streams: results range 185/188–188/188 with no stable leader; best single result is `chacha20` seed2 (188/188), but other seeds are lower.
+- TestU01 FIPS: all Pass; Rabbit completes without obvious failures — no clear leader here either.
+- Conclusion: at large volumes there is **no clear “winner”**; `ondmax` is on par with `system` and `chacha20`.
