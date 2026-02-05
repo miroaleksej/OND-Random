@@ -313,6 +313,12 @@ Accuracy check (numeric validation vs analytic):
 PYTHONPATH=. python scripts/accuracy_report.py --thresholds docs/accuracy_thresholds.json --out data/reports/accuracy_report.json
 ```
 
+Large-sample SLA regression (hard thresholds on OND metrics):
+
+```bash
+PYTHONPATH=. python scripts/sla_regression.py --config docs/large_sample_sla.json --out data/reports/sla_regression.json
+```
+
 ## Lindblad (noisy two-level system)
 
 ```python

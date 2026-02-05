@@ -1,0 +1,156 @@
+{
+  "config": "docs/large_sample_sla.json",
+  "results": [
+    {
+      "baseline": {
+        "H_branch": 0.2245126896968838,
+        "H_rank": 0.9579015228976158,
+        "H_sub": 0.23197728454780056
+      },
+      "baseline_profile": "data/benchmarks/I-ondmax.json",
+      "diffs": {
+        "H_branch": 0.031297585626102686,
+        "H_rank": 3.313894481826729e-05,
+        "H_sub": 0.0012385191618152769
+      },
+      "id": "ondmax-system",
+      "l2": 0.031322099130279835,
+      "metrics": {
+        "H_branch": 0.1932151040707811,
+        "H_rank": 0.9578683839527975,
+        "H_sub": 0.23321580370961584
+      },
+      "ok": true,
+      "samples": 100000,
+      "thresholds": {
+        "max_abs": {
+          "H_branch": 0.05,
+          "H_rank": 0.02,
+          "H_sub": 0.02
+        },
+        "max_l2": 0.05
+      }
+    },
+    {
+      "baseline": {
+        "H_branch": 0.2241474485087468,
+        "H_rank": 0.9572484893142591,
+        "H_sub": 0.2315919310422216
+      },
+      "baseline_profile": "data/benchmarks/II-lcg.json",
+      "diffs": {
+        "H_branch": 0.03090364149847058,
+        "H_rank": 0.0008532221541205365,
+        "H_sub": 0.0011375327633615373
+      },
+      "id": "lcg",
+      "l2": 0.03093633828845935,
+      "metrics": {
+        "H_branch": 0.19324380701027621,
+        "H_rank": 0.9581017114683796,
+        "H_sub": 0.23272946380558313
+      },
+      "ok": true,
+      "samples": 100000,
+      "thresholds": {
+        "max_abs": {
+          "H_branch": 0.05,
+          "H_rank": 0.02,
+          "H_sub": 0.02
+        },
+        "max_l2": 0.05
+      }
+    },
+    {
+      "baseline": {
+        "H_branch": 0.2250186087612778,
+        "H_rank": 0.9575002275424379,
+        "H_sub": 0.23235236249985516
+      },
+      "baseline_profile": "data/benchmarks/II-xorshift.json",
+      "diffs": {
+        "H_branch": 0.03167760859305971,
+        "H_rank": 0.0004993836712943178,
+        "H_sub": 0.0005178781242102248
+      },
+      "id": "xorshift",
+      "l2": 0.03168577706129015,
+      "metrics": {
+        "H_branch": 0.1933410001682181,
+        "H_rank": 0.9579996112137322,
+        "H_sub": 0.2328702406240654
+      },
+      "ok": true,
+      "samples": 100000,
+      "thresholds": {
+        "max_abs": {
+          "H_branch": 0.05,
+          "H_rank": 0.02,
+          "H_sub": 0.02
+        },
+        "max_l2": 0.05
+      }
+    },
+    {
+      "baseline": {
+        "H_branch": 0.22446079993234014,
+        "H_rank": 0.9586823236880251,
+        "H_sub": 0.23878994308785337
+      },
+      "baseline_profile": "data/benchmarks/III-bounded.json",
+      "diffs": {
+        "H_branch": 0.03151763049573417,
+        "H_rank": 0.0005136041263614777,
+        "H_sub": 0.005823145037911315
+      },
+      "id": "bounded",
+      "l2": 0.032055168684578764,
+      "metrics": {
+        "H_branch": 0.19294316943660597,
+        "H_rank": 0.9581687195616636,
+        "H_sub": 0.23296679804994205
+      },
+      "ok": true,
+      "samples": 100000,
+      "thresholds": {
+        "max_abs": {
+          "H_branch": 0.05,
+          "H_rank": 0.02,
+          "H_sub": 0.02
+        },
+        "max_l2": 0.05
+      }
+    },
+    {
+      "baseline": {
+        "H_branch": 0.22509858561402377,
+        "H_rank": 0.9569390955669648,
+        "H_sub": 0.2321999857327659
+      },
+      "baseline_profile": "data/benchmarks/IV-masked.json",
+      "diffs": {
+        "H_branch": 0.03166301935350313,
+        "H_rank": 0.0012426879084782572,
+        "H_sub": 0.0011065531607321044
+      },
+      "id": "masked",
+      "l2": 0.0317067110832347,
+      "metrics": {
+        "H_branch": 0.19343556626052064,
+        "H_rank": 0.958181783475443,
+        "H_sub": 0.233306538893498
+      },
+      "ok": true,
+      "samples": 100000,
+      "thresholds": {
+        "max_abs": {
+          "H_branch": 0.05,
+          "H_rank": 0.02,
+          "H_sub": 0.02
+        },
+        "max_l2": 0.05
+      }
+    }
+  ],
+  "status": "PASS"
+}
