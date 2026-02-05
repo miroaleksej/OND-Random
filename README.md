@@ -319,6 +319,19 @@ Large-sample SLA regression (hard thresholds on OND metrics):
 PYTHONPATH=. python scripts/sla_regression.py --config docs/large_sample_sla.json --out data/reports/sla_regression.json
 ```
 
+External statistical test suites (NIST STS / TestU01 / PractRand):
+
+```bash
+# PractRand (streams OND-Random into RNG_test)
+PYTHONPATH=. python scripts/external_rng_tests.py practrand --rng ondmax --total-bytes 1000000
+
+# NIST STS (prepare bitstream; run your STS command if installed)
+PYTHONPATH=. python scripts/external_rng_tests.py nist-sts --rng ondmax --bits 1000000 --format byte
+
+# TestU01 (prepare raw bytes; run your TestU01 harness if installed)
+PYTHONPATH=. python scripts/external_rng_tests.py testu01 --rng ondmax --bytes 1000000
+```
+
 ## Lindblad (noisy two-level system)
 
 ```python
