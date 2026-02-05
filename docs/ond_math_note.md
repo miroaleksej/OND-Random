@@ -26,39 +26,41 @@ This makes randomness a **geometric object** in the observation space.
 ---
 
 ## 3) Data and notation
+Formulas below are shown in plain ASCII to render correctly on GitHub.
 Let:
 
-- \( U \in \mathbb{R}^{N \times d} \) be the observation matrix (N samples, dimension d)  
-- \( D = \Delta U \) be centered differences (dynamics)
+- U in R^(N x d): observation matrix (N samples, dimension d)  
+- D = ΔU: centered differences (dynamics)
 
-With a modulus, differences are computed modulo \(m\) and centered into \([-m/2, m/2)\):
-\[
-D_i = (U_{i+1} - U_i) \bmod m.
-\]
+With a modulus, differences are computed modulo m and centered into [-m/2, m/2):
+
+```
+Di = (U[i+1] - U[i]) mod m
+```
 
 ---
 
 ## 4) OND metrics
 ### 4.1 H_rank (rank entropy)
-Compute the entropy of singular values of \(D\).  
+Compute the entropy of singular values of D.
 
-Let \( s_1,\dots,s_r \) be singular values and \( p_i = s_i / \sum s_i \).  
-Then:
-\[
-H_{rank} = -\frac{1}{\log r}\sum_{i=1}^{r} p_i \log p_i.
-\]
+Let s1..sr be singular values and p_i = s_i / sum(s_i). Then:
+
+```
+H_rank = -(1 / log r) * sum_{i=1..r} (p_i * log p_i)
+```
 
 Interpretation: a more uniform spectrum (richer dynamics) gives higher H_rank.
 
 ### 4.2 H_sub (subspace occupancy entropy)
-1) Choose projection dimension \( r = \min(\text{rank}(D), d_{\max}) \).  
-2) Project \( Y = D \cdot V \) onto the first \(r\) singular directions.  
-3) Bin \(Y\) into \(B\) bins per axis (total \(B^r\) cells).  
+1) Choose projection dimension r = min(rank(D), d_max).  
+2) Project Y = D * V onto the first r singular directions.  
+3) Bin Y into B bins per axis (total B^r cells).  
 4) Compute entropy of the occupancy distribution.
 
-\[
-H_{sub} = -\frac{1}{\log(B^r)}\sum_{k} q_k \log q_k,
-\]
+```
+H_sub = -(1 / log(B^r)) * sum_k (q_k * log q_k)
+```
 where \(q_k\) is the fraction of points in cell \(k\).
 
 Interpretation: how fully the dynamic subspace is filled.
@@ -71,7 +73,7 @@ Modes:
 - **delta**: branching on differences \(D\)
 
 Process:  
-1) Discretize into \(K\) bins.  
+1) Discretize into K bins.  
 2) Build transition distributions.  
 3) Normalize entropy by \(\log K\).
 
@@ -79,9 +81,10 @@ Process:
 
 ## 5) Profile and classes
 An **OND profile** is:
-\[
-P(U) = (H_{rank}, H_{sub}, H_{branch})
-\]
+
+```
+P(U) = (H_rank, H_sub, H_branch)
+```
 
 Profiles are compared to **reference classes** (I/II/III/IV), defined by means and standard deviations over canonical sources.
 
@@ -91,8 +94,8 @@ Profiles are compared to **reference classes** (I/II/III/IV), defined by means a
 Define a baseline profile **B** for a given source/module.  
 A regression run passes if:
 
-- \(|P(U) - B| \le \text{thresholds}\)  
-- and/or \( \lVert P(U) - B \rVert_2 \le \text{max\_l2}\)
+- |P(U) - B| <= thresholds  
+- and/or ||P(U) - B||_2 <= max_l2
 
 This turns RNG quality into **measurable engineering tolerances**.
 
