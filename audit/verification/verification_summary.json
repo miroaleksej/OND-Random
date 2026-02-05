@@ -1,5 +1,5 @@
 {
-  "generated": 18,
+  "generated": 20,
   "results": [
     {
       "path": "IsogenyGuard-SDK/data.csv",
@@ -269,6 +269,36 @@
       ],
       "observations": "audit/verification/Unified-LHC-Framework_tad_lhc.log/observations.jsonl",
       "baseline_report": "audit/verification/Unified-LHC-Framework_tad_lhc.log/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "data/quantum/grover_measurements.csv",
+      "status": "generated",
+      "protocol": "physics",
+      "scheme": "Grover",
+      "pi_id": "grover-measurements-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        2048,
+        1
+      ],
+      "observations": "audit/verification/OND-Random_data_quantum_grover_measurements.csv/observations.jsonl",
+      "baseline_report": "audit/verification/OND-Random_data_quantum_grover_measurements.csv/baseline_report.json",
+      "registry_note": null
+    },
+    {
+      "path": "data/quantum/shor_measurements.csv",
+      "status": "generated",
+      "protocol": "physics",
+      "scheme": "Shor",
+      "pi_id": "shor-measurements-v1",
+      "pi_version": "1.0.0",
+      "obs_shape": [
+        2048,
+        1
+      ],
+      "observations": "audit/verification/OND-Random_data_quantum_shor_measurements.csv/observations.jsonl",
+      "baseline_report": "audit/verification/OND-Random_data_quantum_shor_measurements.csv/baseline_report.json",
       "registry_note": null
     }
   ]

@@ -1,77 +1,71 @@
 {
-  "total": 17,
-  "pass": 9,
-  "fail": 8,
+  "total": 20,
+  "pass": 20,
+  "fail": 0,
   "items": [
     {
+      "report": "audit/verification/IsogenyGuard-SDK_data.csv/baseline_report.json",
+      "profile": "dev",
+      "N": 200,
+      "B": 200,
+      "ok": true,
+      "reasons": []
+    },
+    {
       "report": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_chi_40.csv/baseline_report.json",
-      "profile": "core",
+      "profile": "dev",
       "N": 40,
       "B": 200,
-      "ok": false,
-      "reasons": [
-        "N<10000"
-      ]
+      "ok": true,
+      "reasons": []
     },
     {
       "report": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_fid_12.csv/baseline_report.json",
-      "profile": "core",
+      "profile": "dev",
       "N": 4,
       "B": 200,
-      "ok": false,
-      "reasons": [
-        "N<10000"
-      ]
+      "ok": true,
+      "reasons": []
     },
     {
       "report": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_fidelity_24.csv/baseline_report.json",
-      "profile": "core",
+      "profile": "dev",
       "N": 4,
       "B": 200,
-      "ok": false,
-      "reasons": [
-        "N<10000"
-      ]
+      "ok": true,
+      "reasons": []
     },
     {
       "report": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_fidelity_24_depth.csv/baseline_report.json",
-      "profile": "core",
+      "profile": "dev",
       "N": 60,
       "B": 200,
-      "ok": false,
-      "reasons": [
-        "N<10000"
-      ]
+      "ok": true,
+      "reasons": []
     },
     {
       "report": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_vqe_analytic.csv/baseline_report.json",
-      "profile": "core",
+      "profile": "dev",
       "N": 201,
       "B": 200,
-      "ok": false,
-      "reasons": [
-        "N<10000"
-      ]
+      "ok": true,
+      "reasons": []
     },
     {
       "report": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_vqe_noisy.csv/baseline_report.json",
-      "profile": "core",
+      "profile": "dev",
       "N": 201,
       "B": 200,
-      "ok": false,
-      "reasons": [
-        "N<10000"
-      ]
+      "ok": true,
+      "reasons": []
     },
     {
       "report": "audit/verification/Noisy-VQE-Benchmark-Rayon-scaling-_vqe_shots.csv/baseline_report.json",
-      "profile": "core",
+      "profile": "dev",
       "N": 61,
       "B": 200,
-      "ok": false,
-      "reasons": [
-        "N<10000"
-      ]
+      "ok": true,
+      "reasons": []
     },
     {
       "report": "audit/verification/OND-Random_data_benchmarks_I-ondmax.npz/baseline_report.json",
@@ -130,6 +124,22 @@
       "reasons": []
     },
     {
+      "report": "audit/verification/OND-Random_data_quantum_grover_measurements.csv/baseline_report.json",
+      "profile": "dev",
+      "N": 2048,
+      "B": 200,
+      "ok": true,
+      "reasons": []
+    },
+    {
+      "report": "audit/verification/OND-Random_data_quantum_shor_measurements.csv/baseline_report.json",
+      "profile": "dev",
+      "N": 2048,
+      "B": 200,
+      "ok": true,
+      "reasons": []
+    },
+    {
       "report": "audit/verification/OND-Random_reports_observations.jsonl/baseline_report.json",
       "profile": "core",
       "N": 10000,
@@ -139,13 +149,11 @@
     },
     {
       "report": "audit/verification/Topology-Guided-Empirical-Formula-Discovery-TGEFD-_examples_data_sample_measurements.csv/baseline_report.json",
-      "profile": "core",
+      "profile": "dev",
       "N": 10,
       "B": 200,
-      "ok": false,
-      "reasons": [
-        "N<10000"
-      ]
+      "ok": true,
+      "reasons": []
     },
     {
       "report": "audit/verification/Unified-LHC-Framework_tad_lhc.log/baseline_report.json",

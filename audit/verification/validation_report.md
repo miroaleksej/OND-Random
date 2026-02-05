@@ -1,7 +1,7 @@
 # ODD/OND-ART Validation Summary (OND-Random)
 
-- Total reports: **18**
-- Pass: **18**
+- Total reports: **20**
+- Pass: **20**
 - Fail: **0**
 
 ## Results
@@ -20,6 +20,8 @@
 - PASS: `OND-Random/audit/verification/OND-Random_data_benchmarks_IV-masked.npz/baseline_report.json` (profile=core, N=10000, B=200)
 - PASS: `OND-Random/audit/verification/OND-Random_data_benchmarks_Q-drift.npz/baseline_report.json` (profile=core, N=10000, B=200)
 - PASS: `OND-Random/audit/verification/OND-Random_data_benchmarks_Q-ideal.npz/baseline_report.json` (profile=core, N=10000, B=200)
+- PASS: `OND-Random/audit/verification/OND-Random_data_quantum_grover_measurements.csv/baseline_report.json` (profile=dev, N=2048, B=200)
+- PASS: `OND-Random/audit/verification/OND-Random_data_quantum_shor_measurements.csv/baseline_report.json` (profile=dev, N=2048, B=200)
 - PASS: `OND-Random/audit/verification/OND-Random_reports_observations.jsonl/baseline_report.json` (profile=core, N=10000, B=200)
 - PASS: `OND-Random/audit/verification/Topology-Guided-Empirical-Formula-Discovery-TGEFD-_examples_data_sample_measurements.csv/baseline_report.json` (profile=dev, N=10, B=200)
 - PASS: `OND-Random/audit/verification/Unified-LHC-Framework_tad_lhc.log/baseline_report.json` (profile=dev, N=28, B=200)

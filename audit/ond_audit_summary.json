@@ -1,9 +1,9 @@
 {
   "summary": {
-    "total": 70,
-    "confirmed": 26,
+    "total": 76,
+    "confirmed": 30,
     "needs_parameters": 0,
-    "derived_reports": 19,
+    "derived_reports": 21,
     "not_observation": 23,
     "error": 0
   },
@@ -2313,6 +2313,220 @@
         "obs_space": {
           "type": "R^d",
           "d": 4
+        }
+      }
+    },
+    {
+      "path": "audit/verification/OND-Random_data_quantum_grover_measurements.csv/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/OND-Random_data_quantum_grover_measurements.csv/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "grover-measurements-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:fd14460248e2950f876d18a9eabc767953f09cc6ee12870e5b882966a85542d9",
+          "obs_space": {
+            "type": "R^d",
+            "d": 1
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          2048,
+          1
+        ],
+        "dtype": "float64",
+        "stats": {
+          "overall": {
+            "count": 2048,
+            "min": 0.0,
+            "max": 252.0,
+            "mean": 58.84326171875,
+            "std": 52.96694635116736,
+            "p05": 3.0,
+            "p50": 42.0,
+            "p95": 128.0
+          },
+          "per_column": [
+            {
+              "count": 2048,
+              "min": 0.0,
+              "max": 252.0,
+              "mean": 58.84326171875,
+              "std": 52.96694635116736,
+              "p05": 3.0,
+              "p50": 42.0,
+              "p95": 128.0
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "grover-measurements-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 1
+        }
+      }
+    },
+    {
+      "path": "data/quantum/grover_measurements.csv",
+      "kind": "csv",
+      "status": "confirmed",
+      "analysis": {
+        "shape": [
+          2048,
+          1
+        ],
+        "dtype": "float64",
+        "stats": {
+          "overall": {
+            "count": 2048,
+            "min": 0.0,
+            "max": 252.0,
+            "mean": 58.84326171875,
+            "std": 52.96694635116736,
+            "p05": 3.0,
+            "p50": 42.0,
+            "p95": 128.0
+          },
+          "per_column": [
+            {
+              "count": 2048,
+              "min": 0.0,
+              "max": 252.0,
+              "mean": 58.84326171875,
+              "std": 52.96694635116736,
+              "p05": 3.0,
+              "p50": 42.0,
+              "p95": 128.0
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "grover-measurements-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 1
+        }
+      }
+    },
+    {
+      "path": "audit/verification/OND-Random_data_quantum_shor_measurements.csv/baseline_report.json",
+      "kind": "json",
+      "status": "derived_report"
+    },
+    {
+      "path": "audit/verification/OND-Random_data_quantum_shor_measurements.csv/observations.jsonl",
+      "kind": "observations",
+      "status": "confirmed",
+      "analysis": {
+        "meta": {
+          "pi_id": "shor-measurements-v1",
+          "pi_version": "1.0.0",
+          "pi_spec_hash": "sha256:0b009a710a90e57610f8dc63ab83123ec3cd2d46d687acdfb1c2b3e8e3711913",
+          "obs_space": {
+            "type": "R^d",
+            "d": 1
+          },
+          "spec": {
+            "name": "ODD-OBS",
+            "version": "0.1"
+          }
+        },
+        "invalid_count": 0,
+        "shape": [
+          2048,
+          1
+        ],
+        "dtype": "float64",
+        "stats": {
+          "overall": {
+            "count": 2048,
+            "min": 0.0,
+            "max": 192.0,
+            "mean": 95.875,
+            "std": 72.16636595395393,
+            "p05": 0.0,
+            "p50": 128.0,
+            "p95": 192.0
+          },
+          "per_column": [
+            {
+              "count": 2048,
+              "min": 0.0,
+              "max": 192.0,
+              "mean": 95.875,
+              "std": 72.16636595395393,
+              "p05": 0.0,
+              "p50": 128.0,
+              "p95": 192.0
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "shor-measurements-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 1
+        }
+      }
+    },
+    {
+      "path": "data/quantum/shor_measurements.csv",
+      "kind": "csv",
+      "status": "confirmed",
+      "analysis": {
+        "shape": [
+          2048,
+          1
+        ],
+        "dtype": "float64",
+        "stats": {
+          "overall": {
+            "count": 2048,
+            "min": 0.0,
+            "max": 192.0,
+            "mean": 95.875,
+            "std": 72.16636595395393,
+            "p05": 0.0,
+            "p50": 128.0,
+            "p95": 192.0
+          },
+          "per_column": [
+            {
+              "count": 2048,
+              "min": 0.0,
+              "max": 192.0,
+              "mean": 95.875,
+              "std": 72.16636595395393,
+              "p05": 0.0,
+              "p50": 128.0,
+              "p95": 192.0
+            }
+          ]
+        }
+      },
+      "pi_suggestion": {
+        "pi_id": "shor-measurements-v1",
+        "pi_version": "1.0.0",
+        "obs_space": {
+          "type": "R^d",
+          "d": 1
         }
       }
     }

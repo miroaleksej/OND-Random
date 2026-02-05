@@ -1,0 +1,81 @@
+{
+  "baseline": null,
+  "bootstrap": {
+    "B": 200,
+    "block_length": 0,
+    "method": "percentile",
+    "unit": "U"
+  },
+  "context": {
+    "params": {},
+    "protocol": "physics",
+    "public_context_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "scheme": "Shor"
+  },
+  "data": {
+    "N": 2048,
+    "invalid_count": 0,
+    "message_policy": "custom",
+    "order": "custom"
+  },
+  "metrics": {
+    "branching": {
+      "H": 1.3845607684199543,
+      "ci95": [
+        1.3800852278997309,
+        1.3890363089401778
+      ],
+      "clustering": {
+        "K": 4,
+        "method": "grid",
+        "seed": 0
+      }
+    },
+    "rank": {
+      "H": -0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "rho": 0.0,
+      "svd_settings": {
+        "eps": 1e-09
+      }
+    },
+    "subspace": {
+      "H": 1.8377890987363115,
+      "binning": {
+        "M_occ": 7,
+        "b": 16
+      },
+      "ci95": [
+        0.6543412935033258,
+        0.6713433159700112
+      ],
+      "rho": 0.6628423047366685
+    }
+  },
+  "notes": [
+    "Diagnostic only; no security claim."
+  ],
+  "pi": {
+    "obs_space": {
+      "d": 1,
+      "type": "R^d"
+    },
+    "pi_id": "shor-measurements-v1",
+    "pi_spec_hash": "sha256:0b009a710a90e57610f8dc63ab83123ec3cd2d46d687acdfb1c2b3e8e3711913",
+    "pi_version": "1.0.0"
+  },
+  "run": {
+    "created_at": "2026-02-05T16:55:50.807036+00:00",
+    "run_id": "2026-02-05T16:55:50.807036+00:00#ffdecc675a8a4c5998ac4716ae0e56f3",
+    "timezone": "Etc/UTC"
+  },
+  "spec": {
+    "name": "OND-ART",
+    "profile": "dev",
+    "version": "0.1",
+    "x-method_version": "ond-random@0.1.0/audit"
+  }
+}

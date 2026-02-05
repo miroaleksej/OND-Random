@@ -156,6 +156,18 @@
         "pi_version": "1.0.0"
       }
     ],
+    "grover-measurements-v1": [
+      {
+        "description": "OND-Random/data/quantum/grover_measurements.csv (Grover items=256 targets=[3,42,128] shots=2048)",
+        "obs_space": {
+          "d": 1,
+          "type": "R^d"
+        },
+        "pi_id": "grover-measurements-v1",
+        "pi_spec_hash": "sha256:fd14460248e2950f876d18a9eabc767953f09cc6ee12870e5b882966a85542d9",
+        "pi_version": "1.0.0"
+      }
+    ],
     "sample_measurements-v1": [
       {
         "description": "Topology-Guided-Empirical-Formula-Discovery-TGEFD-/examples/data/sample_measurements.csv",
@@ -165,6 +177,18 @@
         },
         "pi_id": "sample_measurements-v1",
         "pi_spec_hash": "sha256:af8b4c170fec4afbc5242a30626b88a688b7cb7724d96372d577ceb38f0f1cb8",
+        "pi_version": "1.0.0"
+      }
+    ],
+    "shor-measurements-v1": [
+      {
+        "description": "OND-Random/data/quantum/shor_measurements.csv (Shor N=15 a=2 shots=2048)",
+        "obs_space": {
+          "d": 1,
+          "type": "R^d"
+        },
+        "pi_id": "shor-measurements-v1",
+        "pi_spec_hash": "sha256:0b009a710a90e57610f8dc63ab83123ec3cd2d46d687acdfb1c2b3e8e3711913",
         "pi_version": "1.0.0"
       }
     ],

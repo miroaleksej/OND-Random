@@ -1,10 +1,10 @@
 # ODD/OND-ART Audit — Candidate Data Sources (OND-Random)
 
 ## Summary
-- Total files scanned: **70**
-- Confirmed observation sources: **26**
+- Total files scanned: **76**
+- Confirmed observation sources: **30**
 - Need extra parameters (e.g., curve order): **0**
-- Derived reports/registries (not raw observations): **19**
+- Derived reports/registries (not raw observations): **21**
 - Not observation sources: **23**
 - Errors: **0**
 
@@ -177,6 +177,32 @@
 - Kind: `observations`
 - π suggestion: `pi_id=benchmark-ondmax-r4`, `pi_version=1.0.0`, `obs_space={'type': 'R^d', 'd': 4}`
 - Observations shape: [10000, 4], invalid_count=0
+
+### audit/verification/OND-Random_data_quantum_grover_measurements.csv/observations.jsonl
+- Status: **confirmed**
+- Kind: `observations`
+- π suggestion: `pi_id=grover-measurements-v1`, `pi_version=1.0.0`, `obs_space={'type': 'R^d', 'd': 1}`
+- Observations shape: [2048, 1], invalid_count=0
+
+### data/quantum/grover_measurements.csv
+- Status: **confirmed**
+- Kind: `csv`
+- π suggestion: `pi_id=grover-measurements-v1`, `pi_version=1.0.0`, `obs_space={'type': 'R^d', 'd': 1}`
+- Series shape=[2048, 1], dtype=float64
+  - overall: mean=58.8433, std=52.9669, min=0, max=252
+
+### audit/verification/OND-Random_data_quantum_shor_measurements.csv/observations.jsonl
+- Status: **confirmed**
+- Kind: `observations`
+- π suggestion: `pi_id=shor-measurements-v1`, `pi_version=1.0.0`, `obs_space={'type': 'R^d', 'd': 1}`
+- Observations shape: [2048, 1], invalid_count=0
+
+### data/quantum/shor_measurements.csv
+- Status: **confirmed**
+- Kind: `csv`
+- π suggestion: `pi_id=shor-measurements-v1`, `pi_version=1.0.0`, `obs_space={'type': 'R^d', 'd': 1}`
+- Series shape=[2048, 1], dtype=float64
+  - overall: mean=95.875, std=72.1664, min=0, max=192
 
 ## Fix audit (need vs no‑need)
 - **Needs parameters:** none (ECDSA curve order resolved with secp256k1).
