@@ -1,29 +1,168 @@
 {
   "auto_calibration": {
-    "count": 2,
-    "description": "online",
-    "mean": {
-      "H_branch": 0.2260396043479167,
-      "H_rank": 0.9582964970485148,
-      "H_sub": 0.2331963077944129
+    "targets": {
+      "I-ondmax": {
+        "count": 1,
+        "description": "online",
+        "mean": {
+          "H_branch": 0.2245126896968838,
+          "H_rank": 0.9579015228976158,
+          "H_sub": 0.23197728454780056
+        },
+        "std": {
+          "H_branch": 0.05,
+          "H_rank": 0.05,
+          "H_sub": 0.05
+        }
+      },
+      "II-lcg": {
+        "count": 1,
+        "description": "online",
+        "mean": {
+          "H_branch": 0.2241474485087468,
+          "H_rank": 0.9572484893142591,
+          "H_sub": 0.2315919310422216
+        },
+        "std": {
+          "H_branch": 0.05,
+          "H_rank": 0.05,
+          "H_sub": 0.05
+        }
+      },
+      "II-xorshift": {
+        "count": 1,
+        "description": "online",
+        "mean": {
+          "H_branch": 0.2250186087612778,
+          "H_rank": 0.9575002275424379,
+          "H_sub": 0.23235236249985516
+        },
+        "std": {
+          "H_branch": 0.05,
+          "H_rank": 0.05,
+          "H_sub": 0.05
+        }
+      },
+      "III-bounded": {
+        "count": 1,
+        "description": "online",
+        "mean": {
+          "H_branch": 0.22446079993234014,
+          "H_rank": 0.9586823236880251,
+          "H_sub": 0.23878994308785337
+        },
+        "std": {
+          "H_branch": 0.05,
+          "H_rank": 0.05,
+          "H_sub": 0.05
+        }
+      },
+      "IV-masked": {
+        "count": 1,
+        "description": "online",
+        "mean": {
+          "H_branch": 0.22509858561402377,
+          "H_rank": 0.9569390955669648,
+          "H_sub": 0.2321999857327659
+        },
+        "std": {
+          "H_branch": 0.05,
+          "H_rank": 0.05,
+          "H_sub": 0.05
+        }
+      },
+      "Q-drift": {
+        "count": 1,
+        "description": "online",
+        "mean": {
+          "H_branch": 0.1835502879276999,
+          "H_rank": 0.9677352541860456,
+          "H_sub": 0.2000973285614397
+        },
+        "std": {
+          "H_branch": 0.05,
+          "H_rank": 0.05,
+          "H_sub": 0.05
+        }
+      },
+      "Q-ideal": {
+        "count": 1,
+        "description": "online",
+        "mean": {
+          "H_branch": 0.22713344851622538,
+          "H_rank": 0.959113830509637,
+          "H_sub": 0.23422357983777037
+        },
+        "std": {
+          "H_branch": 0.05,
+          "H_rank": 0.05,
+          "H_sub": 0.05
+        }
+      },
+      "my-quantum-source": {
+        "count": 1,
+        "description": "online",
+        "mean": {
+          "H_branch": 0.2286968091699935,
+          "H_rank": 0.9569735494503327,
+          "H_sub": 0.23329332675012543
+        },
+        "std": {
+          "H_branch": 0.05,
+          "H_rank": 0.05,
+          "H_sub": 0.05
+        }
+      },
+      "ondmax(system)": {
+        "count": 1,
+        "description": "online",
+        "mean": {
+          "H_branch": 0.22903847530545535,
+          "H_rank": 0.9572408237610704,
+          "H_sub": 0.23358047477064764
+        },
+        "std": {
+          "H_branch": 0.05,
+          "H_rank": 0.05,
+          "H_sub": 0.05
+        }
+      },
+      "quantum": {
+        "count": 1,
+        "description": "online",
+        "mean": {
+          "H_branch": 0.22866271077733413,
+          "H_rank": 0.9572767823045573,
+          "H_sub": 0.23305052975567633
+        },
+        "std": {
+          "H_branch": 0.05,
+          "H_rank": 0.05,
+          "H_sub": 0.05
+        }
+      }
     },
-    "std": {
-      "H_branch": 0.05,
-      "H_rank": 0.05,
-      "H_sub": 0.05
-    }
+    "updated_key": [
+      "I-ondmax",
+      "II-lcg",
+      "II-xorshift",
+      "III-bounded",
+      "IV-masked",
+      "Q-drift",
+      "Q-ideal"
+    ]
   },
   "backend_benchmark": {
     "best": "numpy",
     "times": {
-      "numpy": 0.003527212142944336
+      "numpy": 0.00360722541809082
     }
   },
   "bench_profiles": [
     {
-      "H_branch": 0.224945760179608,
-      "H_rank": 0.9574791635873926,
-      "H_sub": 0.2321690357510554,
+      "H_branch": 0.2245126896968838,
+      "H_rank": 0.9579015228976158,
+      "H_sub": 0.23197728454780056,
       "dimension": 4,
       "id": "I-ondmax",
       "modulus": null,
@@ -54,9 +193,9 @@
       "rank": 4
     },
     {
-      "H_branch": 0.22501355852253166,
-      "H_rank": 0.95871536690825,
-      "H_sub": 0.23259954634756344,
+      "H_branch": 0.22446079993234014,
+      "H_rank": 0.9586823236880251,
+      "H_sub": 0.23878994308785337,
       "dimension": 4,
       "id": "III-bounded",
       "modulus": null,
@@ -65,9 +204,9 @@
       "rank": 4
     },
     {
-      "H_branch": 0.22658555854164555,
-      "H_rank": 0.9581807033967047,
-      "H_sub": 0.2336064206764176,
+      "H_branch": 0.22509858561402377,
+      "H_rank": 0.9569390955669648,
+      "H_sub": 0.2321999857327659,
       "dimension": 4,
       "id": "IV-masked",
       "modulus": null,
@@ -98,6 +237,7 @@
       "rank": 4
     }
   ],
+  "nist_entropy": {},
   "numeric": {
     "dt_scan": [
       {
@@ -184,7 +324,7 @@
       "trace": 1.0
     },
     "perf": {
-      "grover_256_state_s": 2.6941299438476562e-05
+      "grover_256_state_s": 2.574920654296875e-05
     }
   },
   "numeric_summary": {
@@ -193,8 +333,8 @@
     "gamma_scan_max_error": 6.182587775072079e-11
   },
   "ond_diff": {
-    "H_branch_delta": 0.041395472251908094,
-    "H_sub_delta": 0.03207170718961572
+    "H_branch_delta": 0.04096240176918389,
+    "H_sub_delta": 0.03187995598636087
   },
   "quality": {
     "checks": [
@@ -202,22 +342,22 @@
         "name": "H_rank close to 1 for IID",
         "pass": true,
         "threshold": 0.95,
-        "value": 0.9574791635873926
+        "value": 0.9579015228976158
       },
       {
-        "iid": 0.2321690357510554,
+        "iid": 0.23197728454780056,
         "name": "Q-drift H_sub lower than IID",
         "pass": true,
         "q_drift": 0.2000973285614397
       },
       {
-        "iid": 0.224945760179608,
+        "iid": 0.2245126896968838,
         "name": "Q-drift H_branch lower than IID",
         "pass": true,
         "q_drift": 0.1835502879276999
       },
       {
-        "iid": 0.2321690357510554,
+        "iid": 0.23197728454780056,
         "name": "Q-ideal H_sub close to IID",
         "pass": true,
         "q_ideal": 0.23422357983777037,
@@ -295,6 +435,102 @@
         "successes": 50,
         "trials": 50
       }
+    }
+  ],
+  "trajectories_vs_lindblad": [
+    {
+      "abs_err": [
+        0.03064009207242613
+      ],
+      "abs_err_max": 0.03064009207242613,
+      "abs_err_mean": 0.03064009207242613,
+      "ci_1sigma": [
+        [
+          -1.261212281672606,
+          0.6412122816726054
+        ]
+      ],
+      "ci_2sigma": [
+        [
+          -2.2124245633452113,
+          1.592424563345211
+        ]
+      ],
+      "diff": [
+        0.03064009207242613
+      ],
+      "dt": 0.02,
+      "gamma1": 0.2,
+      "gamma_phi": 0.02,
+      "lindblad": [
+        -0.34064009207242635
+      ],
+      "n_qubits": 1,
+      "steps": 100,
+      "trajectories": 1000,
+      "trajectories_expect": [
+        -0.3100000000000002
+      ],
+      "trajectories_sem": [
+        0.030079973484110727
+      ],
+      "trajectories_std": [
+        0.9512122816726056
+      ]
+    },
+    {
+      "abs_err": [
+        0.0,
+        0.024640092072426567
+      ],
+      "abs_err_max": 0.024640092072426567,
+      "abs_err_mean": 0.012320046036213284,
+      "ci_1sigma": [
+        [
+          0.9999999999999999,
+          1.0
+        ],
+        [
+          -1.2652339253550968,
+          0.6332339253550971
+        ]
+      ],
+      "ci_2sigma": [
+        [
+          0.9999999999999998,
+          1.0000000000000002
+        ],
+        [
+          -2.214467850710194,
+          1.5824678507101941
+        ]
+      ],
+      "diff": [
+        0.0,
+        0.024640092072426567
+      ],
+      "dt": 0.02,
+      "gamma1": 0.2,
+      "gamma_phi": 0.02,
+      "lindblad": [
+        1.0,
+        -0.34064009207242635
+      ],
+      "n_qubits": 2,
+      "steps": 100,
+      "trajectories": 1000,
+      "trajectories_expect": [
+        1.0,
+        -0.3159999999999998
+      ],
+      "trajectories_sem": [
+        3.4344439399873424e-18,
+        0.03001741236424362
+      ],
+      "trajectories_std": [
+        1.0860665346522643e-16,
+        0.949233925355097
+      ]
     }
   ]
 }

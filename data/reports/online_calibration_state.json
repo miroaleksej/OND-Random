@@ -1,4 +1,137 @@
 {
+  "I-ondmax": {
+    "count": 1,
+    "m2": {
+      "H_branch": 0.0,
+      "H_rank": 0.0,
+      "H_sub": 0.0
+    },
+    "mean": {
+      "H_branch": 0.2245126896968838,
+      "H_rank": 0.9579015228976158,
+      "H_sub": 0.23197728454780056
+    },
+    "metrics": [
+      "H_rank",
+      "H_sub",
+      "H_branch"
+    ],
+    "min_std": 0.05
+  },
+  "II-lcg": {
+    "count": 1,
+    "m2": {
+      "H_branch": 0.0,
+      "H_rank": 0.0,
+      "H_sub": 0.0
+    },
+    "mean": {
+      "H_branch": 0.2241474485087468,
+      "H_rank": 0.9572484893142591,
+      "H_sub": 0.2315919310422216
+    },
+    "metrics": [
+      "H_rank",
+      "H_sub",
+      "H_branch"
+    ],
+    "min_std": 0.05
+  },
+  "II-xorshift": {
+    "count": 1,
+    "m2": {
+      "H_branch": 0.0,
+      "H_rank": 0.0,
+      "H_sub": 0.0
+    },
+    "mean": {
+      "H_branch": 0.2250186087612778,
+      "H_rank": 0.9575002275424379,
+      "H_sub": 0.23235236249985516
+    },
+    "metrics": [
+      "H_rank",
+      "H_sub",
+      "H_branch"
+    ],
+    "min_std": 0.05
+  },
+  "III-bounded": {
+    "count": 1,
+    "m2": {
+      "H_branch": 0.0,
+      "H_rank": 0.0,
+      "H_sub": 0.0
+    },
+    "mean": {
+      "H_branch": 0.22446079993234014,
+      "H_rank": 0.9586823236880251,
+      "H_sub": 0.23878994308785337
+    },
+    "metrics": [
+      "H_rank",
+      "H_sub",
+      "H_branch"
+    ],
+    "min_std": 0.05
+  },
+  "IV-masked": {
+    "count": 1,
+    "m2": {
+      "H_branch": 0.0,
+      "H_rank": 0.0,
+      "H_sub": 0.0
+    },
+    "mean": {
+      "H_branch": 0.22509858561402377,
+      "H_rank": 0.9569390955669648,
+      "H_sub": 0.2321999857327659
+    },
+    "metrics": [
+      "H_rank",
+      "H_sub",
+      "H_branch"
+    ],
+    "min_std": 0.05
+  },
+  "Q-drift": {
+    "count": 1,
+    "m2": {
+      "H_branch": 0.0,
+      "H_rank": 0.0,
+      "H_sub": 0.0
+    },
+    "mean": {
+      "H_branch": 0.1835502879276999,
+      "H_rank": 0.9677352541860456,
+      "H_sub": 0.2000973285614397
+    },
+    "metrics": [
+      "H_rank",
+      "H_sub",
+      "H_branch"
+    ],
+    "min_std": 0.05
+  },
+  "Q-ideal": {
+    "count": 1,
+    "m2": {
+      "H_branch": 0.0,
+      "H_rank": 0.0,
+      "H_sub": 0.0
+    },
+    "mean": {
+      "H_branch": 0.22713344851622538,
+      "H_rank": 0.959113830509637,
+      "H_sub": 0.23422357983777037
+    },
+    "metrics": [
+      "H_rank",
+      "H_sub",
+      "H_branch"
+    ],
+    "min_std": 0.05
+  },
   "my-quantum-source": {
     "count": 1,
     "m2": {
