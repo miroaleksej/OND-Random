@@ -307,6 +307,12 @@ Test status:
 PYTHONPATH=. python -m pytest -q
 ```
 
+Accuracy check (numeric validation vs analytic):
+
+```bash
+PYTHONPATH=. python scripts/accuracy_report.py --thresholds docs/accuracy_thresholds.json --out data/reports/accuracy_report.json
+```
+
 ## Lindblad (noisy two-level system)
 
 ```python

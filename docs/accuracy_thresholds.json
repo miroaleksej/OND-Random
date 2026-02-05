@@ -1,0 +1,8 @@
+{
+  "version": "0.1",
+  "dt_scan_max_error": 0.05,
+  "dt_scan_rk4_max_error": 1e-05,
+  "gamma_scan_max_error": 1e-05,
+  "grover_theory_error": 1e-06,
+  "multi_trace_error": 1e-06
+}

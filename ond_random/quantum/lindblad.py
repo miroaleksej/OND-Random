@@ -116,10 +116,14 @@ def simulate_relaxation(
     gamma1: float,
     gamma_phi: float,
     omega_z: float = 1.0,
+    method: str = "rk4",
 ) -> list[float]:
     """Simulate Z-expectation under relaxation/dephasing."""
     if steps <= 0:
         raise ValueError("steps must be positive")
+    method = method.lower().strip()
+    if method not in ("euler", "rk4"):
+        raise ValueError("method must be 'euler' or 'rk4'")
     dt = t_max / steps
     model = LindbladQubit(
         hamiltonian=QubitHamiltonian(omega_z=omega_z),
@@ -127,6 +131,9 @@ def simulate_relaxation(
     )
     results = []
     for _ in range(steps):
-        model.step(dt)
+        if method == "rk4":
+            model.step_rk4(dt)
+        else:
+            model.step(dt)
         results.append(model.expectation_z())
     return results
