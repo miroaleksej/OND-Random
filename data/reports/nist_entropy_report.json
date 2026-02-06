@@ -1,0 +1,10 @@
+{
+  "bits_per_symbol": 8,
+  "input": "data/reports/nist_entropy_symbols_8b.bin",
+  "min_entropy_candidates": [],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "\nRunning non-IID tests...\n\nRunning Most Common Value Estimate...\n\nRunning Entropic Statistic Estimates (bit strings only)...\n\nRunning Tuple Estimates...\n\nRunning Predictor Estimates...\n\nH_original: 7.333766\nH_bitstring: 0.903781\nmin(H_original, 8 X H_bitstring): 7.230251\n",
+  "tool": "/tmp/ea_non_iid_wrapper.sh",
+  "track": "non-iid"
+}
