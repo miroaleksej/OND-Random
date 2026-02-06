@@ -1,6 +1,6 @@
 {
   "baseline": {
-    "baseline_id": "IsogenyGuard-SDK_data.csv",
+    "baseline_id": "baseline-1",
     "classification": "Within Baseline Envelope",
     "distance": 0.0,
     "distance_ci95": [
@@ -21,9 +21,9 @@
   },
   "context": {
     "params": {},
-    "protocol": "signature",
+    "protocol": "custom",
     "public_context_hash": "sha256:fc3e2deab49d7a897f44ee35121f67083b3ac3a03381e0073f7d46ca389b1906",
-    "scheme": "ECDSA-secp256k1"
+    "scheme": "custom"
   },
   "data": {
     "N": 200,
@@ -81,8 +81,8 @@
     "pi_version": "1.0.0"
   },
   "run": {
-    "created_at": "2026-02-05T15:17:24.890515+00:00",
-    "run_id": "2026-02-05T15:17:24.890515+00:00#4d1ede302978491da41d668e23dd2327",
+    "created_at": "2026-02-06T20:07:23.914182+00:00",
+    "run_id": "2026-02-06T20:07:23.914182+00:00#f53a69a6909c4a2a976277890612f50e",
     "timezone": "Etc/UTC"
   },
   "spec": {
@@ -90,5 +90,150 @@
     "profile": "dev",
     "version": "0.1",
     "x-method_version": "ond-random@0.1.0/audit"
+  },
+  "topology": {
+    "baseline": {
+      "baseline_id": "baseline-1",
+      "classification": "Within Baseline Envelope",
+      "distance": 0.0,
+      "distance_ci95": [
+        0.0,
+        77.60055972752335
+      ],
+      "thresholds": {
+        "green": 69.9349676570084,
+        "red": 77.60055972752335,
+        "yellow": 74.4803418223065
+      }
+    },
+    "embedding": "auto",
+    "layers": {
+      "delta": {
+        "H": {
+          "H0": {
+            "count": 193,
+            "entropy": 5.223674184635995,
+            "finite_count": 198,
+            "infinite_count": 1,
+            "max_persistence": 1.3337841033935547,
+            "mean_persistence": 0.743200497614905,
+            "threshold": 0.2667568206787109,
+            "total_persistence": 143.43769603967667
+          },
+          "H1": {
+            "count": 54,
+            "entropy": 3.919502958697622,
+            "finite_count": 110,
+            "infinite_count": 0,
+            "max_persistence": 0.6860283613204956,
+            "mean_persistence": 0.2541997057420236,
+            "threshold": 0.13720567226409913,
+            "total_persistence": 13.726784110069275
+          },
+          "H2": {
+            "count": 29,
+            "entropy": 3.2637527687298893,
+            "finite_count": 46,
+            "infinite_count": 0,
+            "max_persistence": 0.2237609624862671,
+            "mean_persistence": 0.11199053813671243,
+            "threshold": 0.04475219249725342,
+            "total_persistence": 3.2477256059646606
+          }
+        },
+        "dimensions": 4,
+        "embedding": "raw",
+        "n_used": 199,
+        "status": "ok"
+      },
+      "points": {
+        "H": {
+          "H0": {
+            "count": 175,
+            "entropy": 5.094368370548044,
+            "finite_count": 199,
+            "infinite_count": 1,
+            "max_persistence": 0.5509809255599976,
+            "mean_persistence": 0.312347331898553,
+            "threshold": 0.11019618511199952,
+            "total_persistence": 54.66078308224678
+          },
+          "H1": {
+            "count": 16,
+            "entropy": 2.6378116714905433,
+            "finite_count": 57,
+            "infinite_count": 0,
+            "max_persistence": 1.221072018146515,
+            "mean_persistence": 0.48657234385609627,
+            "threshold": 0.244214403629303,
+            "total_persistence": 7.78515750169754
+          },
+          "H2": {
+            "count": 1,
+            "entropy": -1.000088900581841e-12,
+            "finite_count": 53,
+            "infinite_count": 0,
+            "max_persistence": 0.5708087682723999,
+            "mean_persistence": 0.5708087682723999,
+            "threshold": 0.11416175365447999,
+            "total_persistence": 0.5708087682723999
+          }
+        },
+        "dimensions": 4,
+        "embedding": "raw",
+        "n_used": 200,
+        "status": "ok"
+      }
+    },
+    "maxdim": 2,
+    "mode": "both",
+    "n_samples": 200,
+    "persistence_min": 0.0,
+    "persistence_rel": 0.2,
+    "reason": null,
+    "sample_size": 512,
+    "signature": {
+      "labels": [
+        "points:H0_count",
+        "points:H0_total",
+        "points:H0_entropy",
+        "points:H1_count",
+        "points:H1_total",
+        "points:H1_entropy",
+        "points:H2_count",
+        "points:H2_total",
+        "points:H2_entropy",
+        "delta:H0_count",
+        "delta:H0_total",
+        "delta:H0_entropy",
+        "delta:H1_count",
+        "delta:H1_total",
+        "delta:H1_entropy",
+        "delta:H2_count",
+        "delta:H2_total",
+        "delta:H2_entropy"
+      ],
+      "vector": [
+        175.0,
+        54.66078308224678,
+        5.094368370548044,
+        16.0,
+        7.78515750169754,
+        2.6378116714905433,
+        1.0,
+        0.5708087682723999,
+        -1.000088900581841e-12,
+        193.0,
+        143.43769603967667,
+        5.223674184635995,
+        54.0,
+        13.726784110069275,
+        3.919502958697622,
+        29.0,
+        3.2477256059646606,
+        3.2637527687298893
+      ]
+    },
+    "status": "ok"
   }
 }
