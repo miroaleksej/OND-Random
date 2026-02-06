@@ -170,6 +170,7 @@ ODD docs:
 - `docs/how_to_choose_pi.md`
 - `docs/baseline_policy.json`
 - `docs/pi_registry.json`
+- `docs/OND_TDA_onepager.pdf` (PDF) and `docs/OND_TDA_onepager.md` (text)
 
 Format (JSONL):
 ```
