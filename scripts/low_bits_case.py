@@ -157,7 +157,7 @@ def main() -> None:
         orbit_spectrum=orbit_cfg,
         spec_profile=args.profile,
         method_version="ond-random@case/low-bits",
-        notes=["Diagnostic only; no security claim.", "Case study: low-bits lag structure."],
+        notes=["Diagnostic only; no security claim.", "Case study: low-bits offset coupling."],
     )
     baseline_path = out_dir / "baseline_report.json"
     _write_json(baseline_path, baseline_report)
@@ -174,7 +174,7 @@ def main() -> None:
         orbit_spectrum=orbit_cfg,
         spec_profile=args.profile,
         method_version="ond-random@case/low-bits",
-        notes=["Diagnostic only; no security claim.", "Case study: low-bits lag structure."],
+        notes=["Diagnostic only; no security claim.", "Case study: low-bits offset coupling."],
     )
     report_path = out_dir / "ond_art_report.json"
     _write_json(report_path, structured_report)

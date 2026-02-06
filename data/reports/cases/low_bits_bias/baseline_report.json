@@ -70,7 +70,7 @@
   },
   "notes": [
     "Diagnostic only; no security claim.",
-    "Case study: low-bits lag structure."
+    "Case study: low-bits offset coupling."
   ],
   "orbit_spectrum": {
     "baseline": {
@@ -302,8 +302,8 @@
     "pi_version": "1.0.0"
   },
   "run": {
-    "created_at": "2026-02-06T20:54:06.650348+00:00",
-    "run_id": "2026-02-06T20:54:06.650348+00:00#b38f4ad258ce4f659a1b770aa04e9213",
+    "created_at": "2026-02-06T20:56:33.887033+00:00",
+    "run_id": "2026-02-06T20:56:33.887033+00:00#dafae051e7b646dd83f846d1cf8cfd9e",
     "timezone": "Etc/UTC"
   },
   "spec": {
