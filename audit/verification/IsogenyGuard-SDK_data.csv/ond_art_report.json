@@ -1,0 +1,94 @@
+{
+  "baseline": {
+    "baseline_id": "baseline-1",
+    "classification": "Within Baseline Envelope",
+    "distance": 0.0,
+    "distance_ci95": [
+      0.0,
+      0.09401902438041276
+    ],
+    "thresholds": {
+      "green": 0.03340195407475639,
+      "red": 0.09401902438041276,
+      "yellow": 0.060571033718143395
+    }
+  },
+  "bootstrap": {
+    "B": 200,
+    "block_length": 0,
+    "method": "percentile",
+    "unit": "U"
+  },
+  "context": {
+    "params": {},
+    "protocol": "custom",
+    "public_context_hash": "sha256:fc3e2deab49d7a897f44ee35121f67083b3ac3a03381e0073f7d46ca389b1906",
+    "scheme": "custom"
+  },
+  "data": {
+    "N": 200,
+    "invalid_count": 0,
+    "message_policy": "custom",
+    "order": "custom"
+  },
+  "metrics": {
+    "branching": {
+      "H": 2.062259062713611,
+      "ci95": [
+        1.9682707442039606,
+        2.156247381223261
+      ],
+      "clustering": {
+        "K": 16,
+        "method": "grid",
+        "seed": 0
+      }
+    },
+    "rank": {
+      "H": 1.3847725877675545,
+      "ci95": [
+        0.9941998163740076,
+        1.0
+      ],
+      "rho": 0.9989022725656139,
+      "svd_settings": {
+        "eps": 1e-09
+      }
+    },
+    "subspace": {
+      "H": 5.279372218080072,
+      "binning": {
+        "M_occ": 197,
+        "b": 16
+      },
+      "ci95": [
+        0.47289205385935495,
+        0.47917346089453094
+      ],
+      "rho": 0.47603275737694295
+    }
+  },
+  "notes": [
+    "Diagnostic only; no security claim."
+  ],
+  "pi": {
+    "obs_space": {
+      "d": 4,
+      "type": "R^d"
+    },
+    "pi_id": "ecdsa-secp256k1-rsz-v1",
+    "pi_spec_hash": "sha256:532f4e75fe15f1201b932d8e7853defb60919e2bdae8186bb10db97e978350da",
+    "pi_version": "1.0.0"
+  },
+  "run": {
+    "created_at": "2026-02-05T22:01:44.638580+00:00",
+    "run_id": "2026-02-05T22:01:44.638580+00:00#ea29b9bda02048d49b8a863a72761238",
+    "timezone": "Etc/UTC"
+  },
+  "spec": {
+    "name": "OND-ART",
+    "profile": "dev",
+    "version": "0.1",
+    "x-method_version": "ond-random@0.1.0/odd-report"
+  }
+}
