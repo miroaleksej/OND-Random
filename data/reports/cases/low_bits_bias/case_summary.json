@@ -1,0 +1,15 @@
+{
+  "baseline_observations": "data/reports/cases/low_bits_bias/observations_baseline.jsonl",
+  "baseline_report": "data/reports/cases/low_bits_bias/baseline_report.json",
+  "bit_tests": "data/reports/cases/low_bits_bias/bit_tests.json",
+  "bit_tests_bits": 200000,
+  "obs_space": {
+    "d": 2,
+    "modulus": 4294967296,
+    "type": "Z_mod_m"
+  },
+  "offset_low_bits": 2,
+  "samples": 5000,
+  "structured_observations": "data/reports/cases/low_bits_bias/observations_low_bits.jsonl",
+  "structured_report": "data/reports/cases/low_bits_bias/ond_art_report.json"
+}

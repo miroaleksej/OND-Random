@@ -1,0 +1,315 @@
+{
+  "baseline": {
+    "baseline_id": "baseline-1",
+    "classification": "Within Baseline Envelope",
+    "distance": 0.0,
+    "distance_ci95": [
+      0.0,
+      0.2841303442335094
+    ],
+    "thresholds": {
+      "green": 0.27878101776992265,
+      "red": 0.2841303442335094,
+      "yellow": 0.2812216098917805
+    }
+  },
+  "bootstrap": {
+    "B": 100,
+    "block_length": 0,
+    "method": "percentile",
+    "unit": "U"
+  },
+  "context": {
+    "params": {},
+    "protocol": "custom",
+    "public_context_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "scheme": "custom"
+  },
+  "data": {
+    "N": 5000,
+    "invalid_count": 0,
+    "message_policy": "custom",
+    "order": "custom"
+  },
+  "metrics": {
+    "branching": {
+      "H": 2.0913926001650767,
+      "ci95": [
+        1.8090210323628848,
+        2.3737641679672685
+      ],
+      "clustering": {
+        "K": 484,
+        "method": "grid",
+        "seed": 1
+      }
+    },
+    "rank": {
+      "H": 0.6931471759420603,
+      "ci95": [
+        0.9998263327806614,
+        1.0
+      ],
+      "rho": 0.9999999933378003,
+      "svd_settings": {
+        "eps": 1e-09
+      }
+    },
+    "subspace": {
+      "H": 5.292510985595436,
+      "binning": {
+        "M_occ": 224,
+        "b": 16
+      },
+      "ci95": [
+        0.9135691506057311,
+        0.9953006875864929
+      ],
+      "rho": 0.954434919096112
+    }
+  },
+  "notes": [
+    "Diagnostic only; no security claim.",
+    "Case study: low-bits lag structure."
+  ],
+  "orbit_spectrum": {
+    "baseline": {
+      "baseline_id": "baseline-1",
+      "classification": "Within Baseline Envelope",
+      "distance": 0.0,
+      "distance_ci95": [
+        0.0,
+        4.000005313600765
+      ],
+      "thresholds": {
+        "green": 1.0000417305132936,
+        "red": 4.000005313600765,
+        "yellow": 3.000004047673715
+      }
+    },
+    "connection_vector": {
+      "components": [
+        -0.03045389337723135,
+        0.017039010473892606,
+        -0.03040894486859264,
+        0.01700197412830341
+      ],
+      "norm": 0.04931063325533148
+    },
+    "delta": {
+      "count": 4999,
+      "nonzero_count": 4999,
+      "zero_count": 0
+    },
+    "include_zero": true,
+    "information_bound_bits": 32.0,
+    "n_samples": 5000,
+    "projective_space": {
+      "modulus": 4294967296,
+      "type": "P^1(Z_n)"
+    },
+    "reason": null,
+    "signature": {
+      "labels": [
+        "orbit:H_class",
+        "orbit:H0_max",
+        "orbit:I_structure",
+        "orbit:p1",
+        "orbit:p2",
+        "orbit:unique_classes",
+        "orbit:zero_share",
+        "orbit:log2_mean_cycle"
+      ],
+      "vector": [
+        12.287423811682139,
+        12.287423811683524,
+        1.3855583347321954e-12,
+        0.00020004000800160032,
+        0.00020004000800160032,
+        4999.0,
+        0.0,
+        31.775354916731906
+      ]
+    },
+    "spectrum": [
+      {
+        "class_id": "pair:1001252210:1297495853@2147483648",
+        "count": 1,
+        "cycle_length": {
+          "max": 2147483648,
+          "mean": 2147483648.0,
+          "min": 2147483648
+        },
+        "direction": {
+          "a": 1001252210,
+          "b": 1297495853,
+          "gcd": 2,
+          "inverse": null,
+          "modulus": 2147483648,
+          "type": "pair"
+        },
+        "p": 0.00020004000800160032
+      },
+      {
+        "class_id": "pair:1001577316:684443437@1073741824",
+        "count": 1,
+        "cycle_length": {
+          "max": 1073741824,
+          "mean": 1073741824.0,
+          "min": 1073741824
+        },
+        "direction": {
+          "a": 1001577316,
+          "b": 684443437,
+          "gcd": 4,
+          "inverse": null,
+          "modulus": 1073741824,
+          "type": "pair"
+        },
+        "p": 0.00020004000800160032
+      },
+      {
+        "class_id": "pair:1009298602:2545437287@4294967296",
+        "count": 1,
+        "cycle_length": {
+          "max": 4294967296,
+          "mean": 4294967296.0,
+          "min": 4294967296
+        },
+        "direction": {
+          "a": 1009298602,
+          "b": 2545437287,
+          "gcd": 1,
+          "inverse": null,
+          "modulus": 4294967296,
+          "type": "pair"
+        },
+        "p": 0.00020004000800160032
+      },
+      {
+        "class_id": "pair:101177990:1618944363@2147483648",
+        "count": 1,
+        "cycle_length": {
+          "max": 2147483648,
+          "mean": 2147483648.0,
+          "min": 2147483648
+        },
+        "direction": {
+          "a": 101177990,
+          "b": 1618944363,
+          "gcd": 2,
+          "inverse": null,
+          "modulus": 2147483648,
+          "type": "pair"
+        },
+        "p": 0.00020004000800160032
+      },
+      {
+        "class_id": "pair:1018582918:1118663895@4294967296",
+        "count": 1,
+        "cycle_length": {
+          "max": 4294967296,
+          "mean": 4294967296.0,
+          "min": 4294967296
+        },
+        "direction": {
+          "a": 1018582918,
+          "b": 1118663895,
+          "gcd": 1,
+          "inverse": null,
+          "modulus": 4294967296,
+          "type": "pair"
+        },
+        "p": 0.00020004000800160032
+      },
+      {
+        "class_id": "pair:1018727042:2551093915@4294967296",
+        "count": 1,
+        "cycle_length": {
+          "max": 4294967296,
+          "mean": 4294967296.0,
+          "min": 4294967296
+        },
+        "direction": {
+          "a": 1018727042,
+          "b": 2551093915,
+          "gcd": 1,
+          "inverse": null,
+          "modulus": 4294967296,
+          "type": "pair"
+        },
+        "p": 0.00020004000800160032
+      },
+      {
+        "class_id": "pair:1018854422:1509778745@4294967296",
+        "count": 1,
+        "cycle_length": {
+          "max": 4294967296,
+          "mean": 4294967296.0,
+          "min": 4294967296
+        },
+        "direction": {
+          "a": 1018854422,
+          "b": 1509778745,
+          "gcd": 1,
+          "inverse": null,
+          "modulus": 4294967296,
+          "type": "pair"
+        },
+        "p": 0.00020004000800160032
+      },
+      {
+        "class_id": "pair:1019276302:1191115015@4294967296",
+        "count": 1,
+        "cycle_length": {
+          "max": 4294967296,
+          "mean": 4294967296.0,
+          "min": 4294967296
+        },
+        "direction": {
+          "a": 1019276302,
+          "b": 1191115015,
+          "gcd": 1,
+          "inverse": null,
+          "modulus": 4294967296,
+          "type": "pair"
+        },
+        "p": 0.00020004000800160032
+      }
+    ],
+    "status": "ok",
+    "summary": {
+      "dominant_share": 0.00020004000800160032,
+      "entropy_bits": 12.287423811682139,
+      "max_entropy_bits": 12.287423811683524,
+      "mean_cycle_length": 3675656789.316263,
+      "second_share": 0.00020004000800160032,
+      "structure_bits": 1.3855583347321954e-12,
+      "type": "T2",
+      "unique_classes": 4999,
+      "zero_share": 0.0
+    },
+    "topk": 8
+  },
+  "pi": {
+    "obs_space": {
+      "d": 2,
+      "modulus": 4294967296,
+      "type": "Z_mod_m"
+    },
+    "pi_id": "case-low-bits-v1",
+    "pi_spec_hash": "sha256:67318fd135708876b96583b5d16b0b4a8cc5bd6e64c92b58c2e473b4a9fca9f4",
+    "pi_version": "1.0.0"
+  },
+  "run": {
+    "created_at": "2026-02-06T20:54:06.650348+00:00",
+    "run_id": "2026-02-06T20:54:06.650348+00:00#b38f4ad258ce4f659a1b770aa04e9213",
+    "timezone": "Etc/UTC"
+  },
+  "spec": {
+    "name": "OND-ART",
+    "profile": "recommended",
+    "version": "0.1",
+    "x-method_version": "ond-random@case/low-bits"
+  }
+}

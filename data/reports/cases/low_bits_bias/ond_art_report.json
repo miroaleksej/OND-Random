@@ -1,0 +1,323 @@
+{
+  "baseline": {
+    "baseline_id": "baseline-1",
+    "classification": "Strong Deviation",
+    "distance": 1.3851054546548514,
+    "distance_ci95": [
+      1.378042050477813,
+      1.3921688588318897
+    ],
+    "thresholds": {
+      "green": 0.27878101776992265,
+      "red": 0.2841303442335094,
+      "yellow": 0.2812216098917805
+    }
+  },
+  "bootstrap": {
+    "B": 100,
+    "block_length": 0,
+    "method": "percentile",
+    "unit": "U"
+  },
+  "context": {
+    "params": {},
+    "protocol": "custom",
+    "public_context_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "scheme": "custom"
+  },
+  "data": {
+    "N": 5000,
+    "invalid_count": 0,
+    "message_policy": "custom",
+    "order": "custom"
+  },
+  "metrics": {
+    "branching": {
+      "H": 3.049548776087826,
+      "ci95": [
+        3.0392143954462156,
+        3.0598831567294367
+      ],
+      "clustering": {
+        "K": 22,
+        "method": "grid",
+        "seed": 1
+      }
+    },
+    "rank": {
+      "H": 1.3122987389369787e-14,
+      "ci95": [
+        1.920998850048718e-15,
+        3.5943938806535675e-14
+      ],
+      "rho": 1.8932468828292198e-14,
+      "svd_settings": {
+        "eps": 1e-09
+      }
+    },
+    "subspace": {
+      "H": 2.705323761746903,
+      "binning": {
+        "M_occ": 16,
+        "b": 16
+      },
+      "ci95": [
+        0.9687186498289749,
+        0.9827599377066912
+      ],
+      "rho": 0.9757392937678331
+    }
+  },
+  "notes": [
+    "Diagnostic only; no security claim.",
+    "Case study: low-bits lag structure."
+  ],
+  "orbit_spectrum": {
+    "baseline": {
+      "baseline_id": "baseline-1",
+      "classification": "Strong Deviation",
+      "distance": 4987.018469704752,
+      "distance_ci95": [
+        4984.018009169708,
+        4990.018930239795
+      ],
+      "thresholds": {
+        "green": 1.0000417305132936,
+        "red": 4.000005313600765,
+        "yellow": 3.000004047673715
+      }
+    },
+    "connection_vector": {
+      "components": [
+        -0.03045389337723135,
+        0.017039010473892606,
+        -0.03045389337723135,
+        0.017039010473892606
+      ],
+      "norm": 0.04935113979962768
+    },
+    "delta": {
+      "count": 4999,
+      "nonzero_count": 4999,
+      "zero_count": 0
+    },
+    "include_zero": true,
+    "information_bound_bits": 32.0,
+    "n_samples": 5000,
+    "projective_space": {
+      "modulus": 4294967296,
+      "type": "P^1(Z_n)"
+    },
+    "reason": null,
+    "signature": {
+      "labels": [
+        "orbit:H_class",
+        "orbit:H0_max",
+        "orbit:I_structure",
+        "orbit:p1",
+        "orbit:p2",
+        "orbit:unique_classes",
+        "orbit:zero_share",
+        "orbit:log2_mean_cycle"
+      ],
+      "vector": [
+        2.0127862630249314,
+        3.5849625007211565,
+        1.5721762376962252,
+        0.4912982596519304,
+        0.2568513702740548,
+        12.0,
+        0.0,
+        31.40470520323449
+      ]
+    },
+    "spectrum": [
+      {
+        "class_id": "slope:1@4294967296",
+        "count": 2456,
+        "cycle_length": {
+          "max": 4294967296,
+          "mean": 4294967296.0,
+          "min": 4294967296
+        },
+        "direction": {
+          "a": 702500931,
+          "b": 702500931,
+          "gcd": 1,
+          "inverse": "a",
+          "modulus": 4294967296,
+          "slope": 1,
+          "type": "slope"
+        },
+        "p": 0.4912982596519304
+      },
+      {
+        "class_id": "slope:1@2147483648",
+        "count": 1284,
+        "cycle_length": {
+          "max": 2147483648,
+          "mean": 2147483648.0,
+          "min": 2147483648
+        },
+        "direction": {
+          "a": 1492524619,
+          "b": 1492524619,
+          "gcd": 2,
+          "inverse": "a",
+          "modulus": 2147483648,
+          "slope": 1,
+          "type": "slope"
+        },
+        "p": 0.2568513702740548
+      },
+      {
+        "class_id": "slope:1@1073741824",
+        "count": 643,
+        "cycle_length": {
+          "max": 1073741824,
+          "mean": 1073741824.0,
+          "min": 1073741824
+        },
+        "direction": {
+          "a": 810319071,
+          "b": 810319071,
+          "gcd": 4,
+          "inverse": "a",
+          "modulus": 1073741824,
+          "slope": 1,
+          "type": "slope"
+        },
+        "p": 0.128625725145029
+      },
+      {
+        "class_id": "slope:1@536870912",
+        "count": 293,
+        "cycle_length": {
+          "max": 536870912,
+          "mean": 536870912.0,
+          "min": 536870912
+        },
+        "direction": {
+          "a": 295302677,
+          "b": 295302677,
+          "gcd": 8,
+          "inverse": "a",
+          "modulus": 536870912,
+          "slope": 1,
+          "type": "slope"
+        },
+        "p": 0.058611722344468896
+      },
+      {
+        "class_id": "slope:1@268435456",
+        "count": 166,
+        "cycle_length": {
+          "max": 268435456,
+          "mean": 268435456.0,
+          "min": 268435456
+        },
+        "direction": {
+          "a": 57085839,
+          "b": 57085839,
+          "gcd": 16,
+          "inverse": "a",
+          "modulus": 268435456,
+          "slope": 1,
+          "type": "slope"
+        },
+        "p": 0.03320664132826565
+      },
+      {
+        "class_id": "slope:1@134217728",
+        "count": 76,
+        "cycle_length": {
+          "max": 134217728,
+          "mean": 134217728.0,
+          "min": 134217728
+        },
+        "direction": {
+          "a": 29407293,
+          "b": 29407293,
+          "gcd": 32,
+          "inverse": "a",
+          "modulus": 134217728,
+          "slope": 1,
+          "type": "slope"
+        },
+        "p": 0.015203040608121624
+      },
+      {
+        "class_id": "slope:1@67108864",
+        "count": 34,
+        "cycle_length": {
+          "max": 67108864,
+          "mean": 67108864.0,
+          "min": 67108864
+        },
+        "direction": {
+          "a": 15113167,
+          "b": 15113167,
+          "gcd": 64,
+          "inverse": "a",
+          "modulus": 67108864,
+          "slope": 1,
+          "type": "slope"
+        },
+        "p": 0.0068013602720544105
+      },
+      {
+        "class_id": "slope:1@33554432",
+        "count": 19,
+        "cycle_length": {
+          "max": 33554432,
+          "mean": 33554432.0,
+          "min": 33554432
+        },
+        "direction": {
+          "a": 6309891,
+          "b": 6309891,
+          "gcd": 128,
+          "inverse": "a",
+          "modulus": 33554432,
+          "slope": 1,
+          "type": "slope"
+        },
+        "p": 0.003800760152030406
+      }
+    ],
+    "status": "ok",
+    "summary": {
+      "dominant_share": 0.4912982596519304,
+      "entropy_bits": 2.0127862630249314,
+      "max_entropy_bits": 3.5849625007211565,
+      "mean_cycle_length": 2842878317.4362874,
+      "second_share": 0.2568513702740548,
+      "structure_bits": 1.5721762376962252,
+      "type": "T2",
+      "unique_classes": 12,
+      "zero_share": 0.0
+    },
+    "topk": 8
+  },
+  "pi": {
+    "obs_space": {
+      "d": 2,
+      "modulus": 4294967296,
+      "type": "Z_mod_m"
+    },
+    "pi_id": "case-low-bits-v1",
+    "pi_spec_hash": "sha256:67318fd135708876b96583b5d16b0b4a8cc5bd6e64c92b58c2e473b4a9fca9f4",
+    "pi_version": "1.0.0"
+  },
+  "run": {
+    "created_at": "2026-02-06T20:54:07.968366+00:00",
+    "run_id": "2026-02-06T20:54:07.968366+00:00#388501d281704ae49a9665aa1a5b6536",
+    "timezone": "Etc/UTC"
+  },
+  "spec": {
+    "name": "OND-ART",
+    "profile": "recommended",
+    "version": "0.1",
+    "x-method_version": "ond-random@case/low-bits"
+  }
+}

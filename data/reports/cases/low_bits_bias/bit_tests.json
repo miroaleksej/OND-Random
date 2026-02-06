@@ -1,0 +1,21 @@
+{
+  "baseline": {
+    "n_bits": 200000,
+    "ones": 100489,
+    "p_monobit": 0.02875168825129976,
+    "p_runs": 0.40145130886180097,
+    "runs": 99810
+  },
+  "low_bits_offset": {
+    "n_bits": 200000,
+    "ones": 100475,
+    "p_monobit": 0.03364802587476166,
+    "p_runs": 0.18895000010657167,
+    "runs": 99704
+  },
+  "n_bits": 200000,
+  "note": "These are simple SP800-22-style monobit/runs checks, not full test batteries.",
+  "threshold": {
+    "p_value": 0.01
+  }
+}

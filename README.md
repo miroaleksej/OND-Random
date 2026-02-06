@@ -46,6 +46,9 @@ PYTHONPATH=. python scripts/run_pipeline.py --samples 10000 --dimension 4 --word
 ![Lindblad dt scan](data/reports/plots/dt_scan.png)
 ![Lindblad gamma scan](data/reports/plots/gamma_scan.png)
 
+**Case study (bit‑tests look OK, OND/ks1‑ks2 sees structure)**
+- `docs/cases/low_bits_bias.md` (artifacts in `data/reports/cases/low_bits_bias/`)
+
 ## Search Tags
 
 Hashtags:
