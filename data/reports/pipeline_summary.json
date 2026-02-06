@@ -4,42 +4,42 @@
     {
       "name": "benchmark",
       "returncode": 0,
-      "seconds": 0.7295498847961426
+      "seconds": 1.4586679935455322
     },
     {
       "name": "quality_report",
       "returncode": 0,
-      "seconds": 0.017277240753173828
+      "seconds": 0.018558025360107422
     },
     {
       "name": "auto_calibrate",
       "returncode": 0,
-      "seconds": 0.06676602363586426
+      "seconds": 0.0785679817199707
     },
     {
       "name": "numeric_validation",
       "returncode": 0,
-      "seconds": 0.5131099224090576
+      "seconds": 1.7071208953857422
     },
     {
       "name": "shor_noise_report",
       "returncode": 0,
-      "seconds": 0.3783152103424072
+      "seconds": 0.44670891761779785
     },
     {
       "name": "backend_benchmark",
       "returncode": 0,
-      "seconds": 0.11224508285522461
+      "seconds": 0.14699482917785645
     },
     {
       "name": "trajectories_report",
       "returncode": 0,
-      "seconds": 1.556469202041626
+      "seconds": 1.605774164199829
     },
     {
       "name": "system_report",
       "returncode": 0,
-      "seconds": 0.11047792434692383
+      "seconds": 0.15717673301696777
     }
   ]
 }

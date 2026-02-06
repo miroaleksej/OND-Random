@@ -6,6 +6,7 @@ Your observation map `π` defines what is “visible” to ODD. Good `π` should
 2. **Public‑only** (no hidden state, no secret fields).
 3. **Fixed shape** (consistent dimension across runs).
 4. **Documented** (pi_id, pi_version, pi_spec_hash).
+5. **Raw‑policy explicit** (any normalization/rescaling must be part of π and documented; otherwise ODD/TDA uses raw data).
 
 ## Practical patterns
 

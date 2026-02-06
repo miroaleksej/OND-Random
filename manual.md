@@ -77,6 +77,17 @@ ond-random odd-report \
   --out reports/ond_art_report.json
 ```
 
+**Topology channel (optional, raw-only)**
+
+```bash
+pip install "ond-random[tda]"
+ond-random odd-report \
+  --observations observations.jsonl \
+  --baseline-observations observations.jsonl \
+  --out reports/baseline_report.json \
+  --topology on --topology-mode both --topology-maxdim 2
+```
+
 **Validate reports (CI equivalent)**
 
 ```bash

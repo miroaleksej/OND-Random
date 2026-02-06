@@ -405,6 +405,24 @@ def cmd_odd_report(args: argparse.Namespace) -> None:
     if profile is None:
         profile = "core"
 
+    topology_enabled = None
+    if args.topology == "on":
+        topology_enabled = True
+    elif args.topology == "off":
+        topology_enabled = False
+
+    topology_config = {
+        "enabled": topology_enabled,
+        "mode": args.topology_mode,
+        "embedding": args.topology_embedding,
+        "maxdim": args.topology_maxdim,
+        "persistence_rel": args.topology_persistence_rel,
+        "persistence_min": args.topology_persistence_min,
+        "sample_size": args.topology_sample_size,
+        "bootstrap_samples": args.topology_bootstrap_samples,
+        "bootstrap_seed": args.topology_bootstrap_seed if args.topology_bootstrap_seed is not None else args.bootstrap_seed,
+    }
+
     notes = []
     if args.note:
         notes.extend(args.note)
@@ -429,6 +447,7 @@ def cmd_odd_report(args: argparse.Namespace) -> None:
         branch_mode=args.branch_mode,
         bootstrap_samples=args.bootstrap_samples,
         bootstrap_seed=args.bootstrap_seed,
+        topology=topology_config,
         protocol=args.protocol,
         scheme=args.scheme,
         params=params,
@@ -744,6 +763,15 @@ def build_parser() -> argparse.ArgumentParser:
     p_odd.add_argument("--branch-mode", choices=["raw", "delta"], default="raw")
     p_odd.add_argument("--bootstrap-samples", type=int, default=200)
     p_odd.add_argument("--bootstrap-seed", type=int, default=0)
+    p_odd.add_argument("--topology", choices=["auto", "on", "off"], default="auto", help="Enable OND/TDA topology channel")
+    p_odd.add_argument("--topology-mode", choices=["points", "delta", "both"], default="points")
+    p_odd.add_argument("--topology-embedding", choices=["auto", "raw", "torus", "unit"], default="auto")
+    p_odd.add_argument("--topology-maxdim", type=int, default=2)
+    p_odd.add_argument("--topology-persistence-rel", type=float, default=0.2)
+    p_odd.add_argument("--topology-persistence-min", type=float, default=0.0)
+    p_odd.add_argument("--topology-sample-size", type=int, default=512)
+    p_odd.add_argument("--topology-bootstrap-samples", type=int, default=30)
+    p_odd.add_argument("--topology-bootstrap-seed", type=int, default=None)
     p_odd.add_argument("--baseline-observations", help="Baseline observations.jsonl path")
     p_odd.add_argument("--baseline-report", help="Baseline report JSON path")
     p_odd.add_argument("--baseline-id", default="baseline-1")

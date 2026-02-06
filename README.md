@@ -198,6 +198,29 @@ ond-random odd-report \
   --out reports/ond_art_report.json
 ```
 
+### OND/TDA topology channel (optional)
+
+OND‑Random can add a **topological observability axis** to ODD reports using persistent homology on **raw observations** (or on dynamics `Δ_i = U_{i+1}-U_i`).  
+No normalization or rescaling is applied unless it is explicitly part of π. For `Z_mod_m`, torus embedding is used as the canonical geometry.
+
+Install optional dependency:
+```bash
+pip install "ond-random[tda]"
+```
+
+Enable topology in reports:
+```bash
+ond-random odd-report \
+  --observations observations.jsonl \
+  --baseline-observations observations.jsonl \
+  --out reports/baseline_report.json \
+  --topology on --topology-mode both --topology-maxdim 2
+```
+
+Default is `--topology auto` (enabled for `--profile recommended|dev`).
+
+Topology output is stored under the `topology` section (signature + optional baseline distance/classification).
+
 Then validate in CI using OND‑ART CI Pack (`ond-art-validate`) against `reports/**/*.json`. See the full gate list in `manual.md` → **CI / Quality Gates (Formalized)**.  
 Scientific note: `docs/ond_math_note.md`.
 Examples: `reports/observations.jsonl`, `reports/baseline_report.json`.

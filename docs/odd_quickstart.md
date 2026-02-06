@@ -26,6 +26,17 @@ ond-random odd-report \
   --bootstrap-samples 200
 ```
 
+Optional OND/TDA topology channel (raw-only; requires `ripser`):
+
+```bash
+pip install "ond-random[tda]"
+ond-random odd-report \
+  --observations observations.jsonl \
+  --baseline-observations observations.jsonl \
+  --out reports/baseline_report.json \
+  --topology on --topology-mode both --topology-maxdim 2
+```
+
 ## 3) Regression report (per build/PR)
 
 ```bash
