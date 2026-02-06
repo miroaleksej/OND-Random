@@ -11,6 +11,7 @@ import numpy as np
 
 from .metrics import compute_profile_details
 from .observations_jsonl import read_observations_jsonl
+from .orbit_spectrum import bootstrap_orbit_vectors, compute_orbit_spectrum, normalize_orbit_config
 from .topology import bootstrap_topology_vectors, compute_topology_signature, normalize_topology_config
 
 
@@ -208,6 +209,7 @@ def build_ond_art_report(
     bootstrap_samples: int = 200,
     bootstrap_seed: int = 0,
     topology: Dict[str, Any] | None = None,
+    orbit_spectrum: Dict[str, Any] | None = None,
     protocol: str = "custom",
     scheme: str = "custom",
     params: Dict[str, Any] | None = None,
@@ -297,6 +299,12 @@ def build_ond_art_report(
     topo_cfg = normalize_topology_config(topology, profile=spec_profile)
     if topo_cfg.enabled:
         topology_result = compute_topology_signature(U, obs_space, topo_cfg)
+
+    orbit_result: Dict[str, Any] | None = None
+    orbit_baseline: Dict[str, Any] | None = None
+    orbit_cfg = normalize_orbit_config(orbit_spectrum, profile=spec_profile)
+    if orbit_cfg.enabled:
+        orbit_result = compute_orbit_spectrum(U, obs_space, orbit_cfg)
 
     baseline = None
     baseline_mean_vector: np.ndarray | None = None
@@ -411,6 +419,74 @@ def build_ond_art_report(
                         "classification": classification,
                     }
 
+    if orbit_cfg.enabled and orbit_result and orbit_result.get("signature"):
+        if baseline_observations:
+            base_meta, base_U, _ = read_observations_jsonl(baseline_observations)
+            base_obs_space = base_meta.get("obs_space") if isinstance(base_meta, dict) else None
+            if not isinstance(base_obs_space, dict):
+                base_obs_space = obs_space
+            base_orbit = compute_orbit_spectrum(base_U, base_obs_space, orbit_cfg)
+            base_sig = base_orbit.get("signature") if isinstance(base_orbit, dict) else None
+            cur_sig = orbit_result.get("signature")
+            if base_sig and cur_sig:
+                base_vec = np.array(base_sig.get("vector", []), dtype=float)
+                cur_vec = np.array(cur_sig.get("vector", []), dtype=float)
+                if base_vec.size == cur_vec.size and base_vec.size > 0:
+                    boot_vecs, _ = bootstrap_orbit_vectors(base_U, base_obs_space, orbit_cfg)
+                    dist_samples = np.array(
+                        [
+                            float(np.linalg.norm(v - base_vec))
+                            for v in boot_vecs
+                            if v.shape == base_vec.shape
+                        ],
+                        dtype=float,
+                    )
+                    thresholds = _baseline_thresholds(dist_samples, baseline_percentiles)
+                    dist = float(np.linalg.norm(cur_vec - base_vec))
+                    dist_ci = _ci95(dist_samples, center=dist, min_value=0.0)
+                    orbit_baseline = {
+                        "baseline_id": baseline_id,
+                        "distance": dist,
+                        "distance_ci95": dist_ci,
+                        "thresholds": thresholds,
+                        "classification": _classify(dist, thresholds),
+                    }
+        elif baseline_report:
+            base_orbit = baseline_report.get("orbit_spectrum") if isinstance(baseline_report, dict) else None
+            base_sig = None
+            base_thresholds = None
+            if isinstance(base_orbit, dict):
+                base_sig = base_orbit.get("signature")
+                base_thresholds = base_orbit.get("baseline", {}).get("thresholds")
+            cur_sig = orbit_result.get("signature")
+            if base_sig and cur_sig:
+                base_vec = np.array(base_sig.get("vector", []), dtype=float)
+                cur_vec = np.array(cur_sig.get("vector", []), dtype=float)
+                if base_vec.size == cur_vec.size and base_vec.size > 0:
+                    dist = float(np.linalg.norm(cur_vec - base_vec))
+                    boot_vecs, _ = bootstrap_orbit_vectors(U, obs_space, orbit_cfg)
+                    dist_samples = np.array(
+                        [
+                            float(np.linalg.norm(v - base_vec))
+                            for v in boot_vecs
+                            if v.shape == base_vec.shape
+                        ],
+                        dtype=float,
+                    )
+                    dist_ci = _ci95(dist_samples, center=dist, min_value=0.0)
+                    classification = "Unknown"
+                    thresholds = None
+                    if isinstance(base_thresholds, dict):
+                        thresholds = base_thresholds
+                        classification = _classify(dist, thresholds)
+                    orbit_baseline = {
+                        "baseline_id": baseline_id,
+                        "distance": dist,
+                        "distance_ci95": dist_ci,
+                        "thresholds": thresholds,
+                        "classification": classification,
+                    }
+
     report = {
         "spec": {"name": "OND-ART", "version": "0.1"},
         "run": _build_run(run_id=run_id, created_at=created_at, timezone_name=timezone_name),
@@ -446,6 +522,10 @@ def build_ond_art_report(
         if topology_baseline:
             topology_result["baseline"] = topology_baseline
         report["topology"] = topology_result
+    if orbit_result:
+        if orbit_baseline:
+            orbit_result["baseline"] = orbit_baseline
+        report["orbit_spectrum"] = orbit_result
     if spec_profile:
         report["spec"]["profile"] = spec_profile
     if method_version:

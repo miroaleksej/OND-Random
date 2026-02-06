@@ -6,6 +6,7 @@ from .benchmark import ONDClass, ReferenceProfile, classify_profile
 from .observation import ObservationMap
 from .online import OnlineCalibrator
 from .embedding import delay_embed_series, torus_embed_modular, unit_scale_modular
+from .orbit_spectrum import OrbitSpectrumConfig, compute_orbit_spectrum, normalize_orbit_config
 from .fileio import (
     load_csv_matrix,
     load_csv_series,
@@ -37,6 +38,9 @@ __all__ = [
     "delay_embed_series",
     "torus_embed_modular",
     "unit_scale_modular",
+    "OrbitSpectrumConfig",
+    "normalize_orbit_config",
+    "compute_orbit_spectrum",
     "load_npy",
     "load_npz",
     "load_csv_matrix",

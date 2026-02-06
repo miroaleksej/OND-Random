@@ -37,6 +37,16 @@ ond-random odd-report \
   --topology on --topology-mode both --topology-maxdim 2
 ```
 
+Optional orbit‑spectrum channel (ks1/ks2; **Z_mod_m with 2D observations**):
+
+```bash
+ond-random odd-report \
+  --observations observations.jsonl \
+  --baseline-observations observations.jsonl \
+  --out reports/baseline_report.json \
+  --orbit-spectrum on --orbit-topk 8
+```
+
 ## 3) Regression report (per build/PR)
 
 ```bash

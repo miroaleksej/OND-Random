@@ -423,6 +423,24 @@ def cmd_odd_report(args: argparse.Namespace) -> None:
         "bootstrap_seed": args.topology_bootstrap_seed if args.topology_bootstrap_seed is not None else args.bootstrap_seed,
     }
 
+    orbit_enabled = None
+    if args.orbit_spectrum == "on":
+        orbit_enabled = True
+    elif args.orbit_spectrum == "off":
+        orbit_enabled = False
+    include_zero = None
+    if args.orbit_include_zero:
+        include_zero = True
+    elif args.orbit_exclude_zero:
+        include_zero = False
+    orbit_config = {
+        "enabled": orbit_enabled,
+        "topk": args.orbit_topk,
+        "include_zero": include_zero,
+        "bootstrap_samples": args.orbit_bootstrap_samples,
+        "bootstrap_seed": args.orbit_bootstrap_seed if args.orbit_bootstrap_seed is not None else args.bootstrap_seed,
+    }
+
     notes = []
     if args.note:
         notes.extend(args.note)
@@ -448,6 +466,7 @@ def cmd_odd_report(args: argparse.Namespace) -> None:
         bootstrap_samples=args.bootstrap_samples,
         bootstrap_seed=args.bootstrap_seed,
         topology=topology_config,
+        orbit_spectrum=orbit_config,
         protocol=args.protocol,
         scheme=args.scheme,
         params=params,
@@ -772,6 +791,13 @@ def build_parser() -> argparse.ArgumentParser:
     p_odd.add_argument("--topology-sample-size", type=int, default=512)
     p_odd.add_argument("--topology-bootstrap-samples", type=int, default=30)
     p_odd.add_argument("--topology-bootstrap-seed", type=int, default=None)
+    p_odd.add_argument("--orbit-spectrum", choices=["auto", "on", "off"], default="auto", help="Enable ks1/ks2 orbit-spectrum channel")
+    p_odd.add_argument("--orbit-topk", type=int, default=8)
+    orbit_zero = p_odd.add_mutually_exclusive_group()
+    orbit_zero.add_argument("--orbit-include-zero", action="store_true", help="Include zero steps in orbit-spectrum")
+    orbit_zero.add_argument("--orbit-exclude-zero", action="store_true", help="Exclude zero steps from orbit-spectrum")
+    p_odd.add_argument("--orbit-bootstrap-samples", type=int, default=30)
+    p_odd.add_argument("--orbit-bootstrap-seed", type=int, default=None)
     p_odd.add_argument("--baseline-observations", help="Baseline observations.jsonl path")
     p_odd.add_argument("--baseline-report", help="Baseline report JSON path")
     p_odd.add_argument("--baseline-id", default="baseline-1")

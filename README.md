@@ -218,6 +218,19 @@ ond-random odd-report \
   --topology on --topology-mode both --topology-maxdim 2
 ```
 
+### Orbit‑spectrum channel (ks1/ks2, optional)
+
+For `obs_space = Z_mod_m` with **2D modular coordinates**, OND‑Random can compute the **orbit‑spectrum** on raw modular steps `Δ_i`:
+projective direction classes `P^1(Z_n)`, cycle length `L = n / gcd(n,Δ_r,Δ_z)`, and entropy‑based structure bits.
+
+```bash
+ond-random odd-report \
+  --observations observations.jsonl \
+  --baseline-observations observations.jsonl \
+  --out reports/baseline_report.json \
+  --orbit-spectrum on --orbit-topk 8
+```
+
 Default is `--topology auto` (enabled for `--profile recommended|dev`).
 
 Topology output is stored under the `topology` section (signature + optional baseline distance/classification).
