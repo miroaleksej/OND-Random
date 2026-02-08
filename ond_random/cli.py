@@ -42,6 +42,7 @@ from .rng.extractor import ONDMaxRNG
 from .rng.structured import MaskedRNG, BoundedRNG
 from .quantum.grover import grover_search
 from .quantum.shor import shor_factor
+from .suites import run_suite
 
 
 def _parse_int_base0(text: str) -> int:
@@ -485,6 +486,10 @@ def cmd_odd_report(args: argparse.Namespace) -> None:
     print(json.dumps(report, indent=2, sort_keys=True))
 
 
+def cmd_run_suite(args: argparse.Namespace) -> None:
+    run_suite(args)
+
+
 def cmd_pi_registry(args: argparse.Namespace) -> None:
     registry = load_registry(args.registry)
     if args.pi_command == "add":
@@ -805,6 +810,77 @@ def build_parser() -> argparse.ArgumentParser:
     p_odd.add_argument("--baseline-percentiles", default=None)
     p_odd.add_argument("--note", action="append")
     p_odd.set_defaults(func=cmd_odd_report)
+
+    p_suite = sub.add_parser("run-suite", parents=[common_rng], help="Run OND + external test suites")
+    p_suite.add_argument("--suite", default="all", help="comma-separated: ond,nist,practrand,testu01,ea90b or all")
+    p_suite.add_argument("--mode", choices=["quick", "full"], default="quick")
+    p_suite.add_argument("--out", default="data/reports/run_suite")
+    p_suite.add_argument("--ond-samples", type=int, default=None)
+    p_suite.add_argument("--ond-dimension", type=int, default=4)
+    p_suite.add_argument("--ond-word-bits", type=int, default=32)
+    p_suite.add_argument("--ond-stride", type=int, default=1)
+    p_suite.add_argument("--pi-id", default=None)
+    p_suite.add_argument("--pi-version", default=None)
+    p_suite.add_argument("--pi-spec", help="PI spec as JSON/text or @file path")
+    p_suite.add_argument("--no-stringify-large-ints", action="store_true")
+    p_suite.add_argument("--protocol", default="custom")
+    p_suite.add_argument("--scheme", default="custom")
+    p_suite.add_argument("--params-json", help="JSON params or @file")
+    p_suite.add_argument("--public-context", help="Text or @file to hash as public_context_hash")
+    p_suite.add_argument("--public-context-hash", help="Explicit public_context_hash")
+    p_suite.add_argument("--order", choices=["time", "generation_index", "custom"], default="custom")
+    p_suite.add_argument("--message-policy", default="custom")
+    p_suite.add_argument("--profile", choices=["core", "recommended", "dev"], default=None)
+    p_suite.add_argument("--method-version", help="Override method_version in report")
+    p_suite.add_argument("--timezone", default="Etc/UTC")
+    p_suite.add_argument("--bins", type=int, default=16)
+    p_suite.add_argument("--max-subspace-dim", type=int, default=6)
+    p_suite.add_argument("--branch-bins", type=int, default=None)
+    p_suite.add_argument("--branch-mode", choices=["raw", "delta"], default="raw")
+    p_suite.add_argument("--bootstrap-samples", type=int, default=200)
+    p_suite.add_argument("--bootstrap-seed", type=int, default=0)
+    p_suite.add_argument("--topology", choices=["auto", "on", "off"], default="auto", help="Enable OND/TDA topology channel")
+    p_suite.add_argument("--topology-mode", choices=["points", "delta", "both"], default="points")
+    p_suite.add_argument("--topology-embedding", choices=["auto", "raw", "torus", "unit"], default="auto")
+    p_suite.add_argument("--topology-maxdim", type=int, default=2)
+    p_suite.add_argument("--topology-persistence-rel", type=float, default=0.2)
+    p_suite.add_argument("--topology-persistence-min", type=float, default=0.0)
+    p_suite.add_argument("--topology-sample-size", type=int, default=512)
+    p_suite.add_argument("--topology-bootstrap-samples", type=int, default=30)
+    p_suite.add_argument("--topology-bootstrap-seed", type=int, default=None)
+    p_suite.add_argument("--orbit-spectrum", choices=["auto", "on", "off"], default="auto", help="Enable ks1/ks2 orbit-spectrum channel")
+    p_suite.add_argument("--orbit-topk", type=int, default=8)
+    suite_orbit_zero = p_suite.add_mutually_exclusive_group()
+    suite_orbit_zero.add_argument("--orbit-include-zero", action="store_true")
+    suite_orbit_zero.add_argument("--orbit-exclude-zero", action="store_true")
+    p_suite.add_argument("--orbit-bootstrap-samples", type=int, default=30)
+    p_suite.add_argument("--orbit-bootstrap-seed", type=int, default=None)
+    p_suite.add_argument("--baseline-observations", help="Baseline observations.jsonl path")
+    p_suite.add_argument("--baseline-report", help="Baseline report JSON path")
+    p_suite.add_argument("--baseline-id", default="baseline-1")
+    p_suite.add_argument("--baseline-policy", help="Baseline policy JSON path")
+    p_suite.add_argument("--baseline-percentiles", default=None)
+    p_suite.add_argument("--note", action="append")
+    p_suite.add_argument("--nist-bits", type=int, default=None)
+    p_suite.add_argument("--nist-format", choices=["byte", "ascii"], default="byte")
+    p_suite.add_argument("--nist-command", help="optional command to run (use {input} placeholder)")
+    p_suite.add_argument("--nist-chunk-bits", type=int, default=1 << 20)
+    p_suite.add_argument("--testu01-bytes", type=int, default=None)
+    p_suite.add_argument("--testu01-command", help="optional command to run (use {input} placeholder)")
+    p_suite.add_argument("--testu01-chunk", type=int, default=1 << 20)
+    p_suite.add_argument("--practrand-bytes", type=int, default=None)
+    p_suite.add_argument("--practrand-stdin-word", type=int, default=64)
+    p_suite.add_argument("--practrand-cmd", default="RNG_test")
+    p_suite.add_argument("--practrand-args", nargs="*", default=[])
+    p_suite.add_argument("--practrand-args-str", default=None, help="optional raw args string passed to RNG_test")
+    p_suite.add_argument("--practrand-chunk", type=int, default=1 << 20)
+    p_suite.add_argument("--ea-symbols", type=int, default=None)
+    p_suite.add_argument("--ea-bits-per-symbol", type=int, default=8)
+    p_suite.add_argument("--ea-track", choices=["iid", "non-iid"], default="non-iid")
+    p_suite.add_argument("--ea-path", help="path to NIST EA binary (ea_non_iid / ea_iid)")
+    p_suite.add_argument("--ea-conditioned", action="store_true", help="use conditioned source mode")
+    p_suite.add_argument("--ea-truncate", action="store_true")
+    p_suite.set_defaults(func=cmd_run_suite)
 
     p_pi = sub.add_parser("pi-registry", help="Manage pi_id registry")
     pi_sub = p_pi.add_subparsers(dest="pi_command", required=True)

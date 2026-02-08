@@ -387,6 +387,14 @@ PYTHONPATH=. python scripts/external_rng_tests.py nist-sts --rng ondmax --bits 1
 PYTHONPATH=. python scripts/external_rng_tests.py testu01 --rng ondmax --bytes 1000000
 ```
 
+Unified test harness (OND + external batteries):
+
+```bash
+ond-random run-suite --suite ond,nist,practrand,testu01,ea90b --out data/reports/run_suite
+```
+
+Details: `docs/suites.md`
+
 ## Lindblad (noisy two-level system)
 
 ```python
