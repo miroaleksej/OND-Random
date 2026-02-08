@@ -64,3 +64,14 @@ The validator:
 - rejects missing required fields for the declared `schema_version`.
 
 This is the default contract for CI gates.
+
+## Backward‑compat mode
+
+If you need to accept older **major** versions during a transition window:
+
+```bash
+ond-odd-validate \
+  --allow-older-majors \
+  --observations observations.jsonl \
+  --ond-art-report reports/ond_art_report.json
+```

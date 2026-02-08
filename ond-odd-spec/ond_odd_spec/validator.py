@@ -9,6 +9,8 @@ from typing import Any, Dict, Iterable, List, Tuple
 
 from jsonschema import Draft7Validator
 
+from .compat import compatibility_notes
+
 
 SCHEMA_FILES = {
     "observations_record": "observations_record.schema.json",
@@ -84,6 +86,7 @@ def validate_artifacts(
     ond_art_reports: List[str],
     profiles: List[str],
     reference_profiles: List[str],
+    allow_older_majors: bool = False,
 ) -> int:
     schema_observations = _load_schema("observations_record")
     schema_report = _load_schema("ond_art_report")
@@ -102,12 +105,32 @@ def validate_artifacts(
     errors = 0
 
     for path_str in observations:
-        errors += _validate_observations(Path(path_str), validators["observations"])
+        path = Path(path_str)
+        errors += _validate_observations(path, validators["observations"])
+        if not allow_older_majors:
+            with path.open("r", encoding="utf-8") as handle:
+                for line in handle:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    try:
+                        obj = json.loads(line)
+                    except Exception:
+                        continue
+                    if isinstance(obj, dict) and (obj.get("type") == "meta" or ("pi_id" in obj and "pi_version" in obj)):
+                        notes = compatibility_notes(obj.get("spec"))
+                        if notes:
+                            errors += _report_errors(str(path), notes)
+                        break
 
     for path_str in ond_art_reports:
         path = Path(path_str)
         obj = json.loads(path.read_text(encoding="utf-8"))
         errors += _validate_json(str(path), obj, validators["ond_art_report"])
+        if isinstance(obj, dict) and not allow_older_majors:
+            notes = compatibility_notes(obj.get("spec"))
+            if notes:
+                errors += _report_errors(str(path), notes)
 
     for path_str in profiles:
         path = Path(path_str)
@@ -133,6 +156,11 @@ def main(argv: List[str] | None = None) -> int:
     parser.add_argument("--ond-art-report", action="append", default=[], help="Path to ond_art_report.json")
     parser.add_argument("--profile", action="append", default=[], help="Path to OND profile JSON (single or list)")
     parser.add_argument("--reference-profiles", action="append", default=[], help="Path to reference_profiles.json")
+    parser.add_argument(
+        "--allow-older-majors",
+        action="store_true",
+        help="Allow older spec/schema major versions (compat mode)",
+    )
     args = parser.parse_args(argv)
 
     errors = validate_artifacts(
@@ -140,6 +168,7 @@ def main(argv: List[str] | None = None) -> int:
         ond_art_reports=args.ond_art_report,
         profiles=args.profile,
         reference_profiles=args.reference_profiles,
+        allow_older_majors=args.allow_older_majors,
     )
 
     if errors:

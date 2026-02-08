@@ -216,6 +216,11 @@ pip install -e ./ond-odd-spec
 ond-odd-validate --observations observations.jsonl --ond-art-report reports/ond_art_report.json
 ```
 
+Backward‑compat (older majors):
+```bash
+ond-odd-validate --allow-older-majors --observations observations.jsonl --ond-art-report reports/ond_art_report.json
+```
+
 Migration (fill missing `spec_version` / `schema_version`):
 ```bash
 PYTHONPATH=. python scripts/migrate_odd_artifacts.py \
