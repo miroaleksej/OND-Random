@@ -183,6 +183,7 @@ ODD docs:
 - `docs/baseline_policy.json`
 - `docs/pi_registry.json`
 - `docs/OND_TDA_onepager.pdf` (PDF) and `docs/OND_TDA_onepager.md` (text)
+- `docs/ODD_VERSIONING.md`
 - Spec package: `ond-odd-spec/` (schemas + validator CLI)
 
 Format (JSONL):

@@ -25,7 +25,16 @@
         "pi_version": { "type": "string", "minLength": 1 },
         "pi_spec_hash": { "type": "string", "minLength": 1 },
         "obs_space": { "$ref": "#/$defs/obs_space" },
-        "spec": { "type": "object" },
+        "spec": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "version": { "type": "string" },
+            "spec_version": { "type": "string" },
+            "schema_version": { "type": "string" }
+          },
+          "additionalProperties": true
+        },
         "context": { "type": "object" },
         "public_context_hash": { "type": "string" }
       },

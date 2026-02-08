@@ -218,6 +218,8 @@ def build_ond_art_report(
     message_policy: str = "custom",
     spec_profile: str | None = "core",
     method_version: str | None = "unknown",
+    spec_version: str | None = "0.1",
+    schema_version: str | None = "0.1",
     notes: List[str] | None = None,
     run_id: str | None = None,
     created_at: str | None = None,
@@ -488,7 +490,12 @@ def build_ond_art_report(
                     }
 
     report = {
-        "spec": {"name": "OND-ART", "version": "0.1"},
+        "spec": {
+            "name": "OND-ART",
+            "version": "0.1",
+            "spec_version": spec_version or "0.1",
+            "schema_version": schema_version or "0.1",
+        },
         "run": _build_run(run_id=run_id, created_at=created_at, timezone_name=timezone_name),
         "context": {
             "protocol": protocol,

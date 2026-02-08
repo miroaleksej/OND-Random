@@ -10,7 +10,9 @@
         "name": { "type": "string" },
         "version": { "type": "string" },
         "profile": { "type": "string" },
-        "x-method_version": { "type": "string" }
+        "x-method_version": { "type": "string" },
+        "spec_version": { "type": "string" },
+        "schema_version": { "type": "string" }
       },
       "required": ["name", "version"],
       "additionalProperties": true

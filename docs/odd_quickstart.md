@@ -57,6 +57,7 @@ ond-random odd-report \
 ```
 
 Reports include `spec.profile` and `spec.x-method_version` (override with `--profile` / `--method-version`).
+Spec/schema versioning: see `docs/ODD_VERSIONING.md`.
 
 ## 4) Validate in CI
 

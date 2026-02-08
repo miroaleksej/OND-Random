@@ -16,6 +16,8 @@ ond-odd-validate \
   --ond-art-report reports/ond_art_report.json
 ```
 
+Versioning and compatibility: see `docs/ODD_VERSIONING.md` in the main repo.
+
 ### Validate profiles
 
 ```bash

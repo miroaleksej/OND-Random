@@ -1,4 +1,4 @@
-{"type":"meta","spec":{"name":"ODD-OBS","version":"0.1"},"pi_id":"sample-r2","pi_version":"1.0.0","pi_spec_hash":"sha256:sample","obs_space":{"type":"R^d","d":2}}
+{"type":"meta","spec":{"name":"ODD-OBS","version":"0.1","spec_version":"0.1","schema_version":"0.1"},"pi_id":"sample-r2","pi_version":"1.0.0","pi_spec_hash":"sha256:sample","obs_space":{"type":"R^d","d":2}}
 {"type":"obs","i":0,"u":[1,2]}
 {"type":"obs","i":1,"u":[2,4]}
 {"type":"obs","i":2,"u":[3,6]}

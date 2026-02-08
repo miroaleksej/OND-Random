@@ -310,7 +310,7 @@ def _run_ond_suite(args: argparse.Namespace, out_dir: Path, defaults: Dict[str, 
         pi_version=pi_version,
         pi_spec_hash=pi_spec_hash,
         obs_space=obs_space,
-        spec={"name": "ODD-OBS", "version": "0.1"},
+        spec={"name": "ODD-OBS", "version": "0.1", "spec_version": "0.1", "schema_version": "0.1"},
     )
 
     suite_dir = out_dir / "artifacts" / "ond"
