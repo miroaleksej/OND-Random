@@ -183,6 +183,7 @@ ODD docs:
 - `docs/baseline_policy.json`
 - `docs/pi_registry.json`
 - `docs/OND_TDA_onepager.pdf` (PDF) and `docs/OND_TDA_onepager.md` (text)
+- Spec package: `ond-odd-spec/` (schemas + validator CLI)
 
 Format (JSONL):
 ```
@@ -206,6 +207,12 @@ PYTHONPATH=. python scripts/validate_odd_artifacts.py \
   --profile data/benchmarks/large/I-ondmax.json \
   --profile data/reports/benchmark_profiles.json \
   --reference-profiles data/benchmarks/reference_profiles.json
+```
+
+Install the standalone validator:
+```bash
+pip install -e ./ond-odd-spec
+ond-odd-validate --observations observations.jsonl --ond-art-report reports/ond_art_report.json
 ```
 
 ## ODD baseline/regression (OND‑ART report)

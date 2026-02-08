@@ -67,3 +67,10 @@ PYTHONPATH=. python scripts/validate_odd_artifacts.py \
   --observations observations.jsonl \
   --ond-art-report reports/ond_art_report.json
 ```
+
+Or install the spec package and use the CLI:
+
+```bash
+pip install -e ./ond-odd-spec
+ond-odd-validate --observations observations.jsonl --ond-art-report reports/ond_art_report.json
+```

@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ODD observations JSONL record",
+  "type": "object",
+  "oneOf": [
+    { "$ref": "#/$defs/meta" },
+    { "$ref": "#/$defs/obs" }
+  ],
+  "$defs": {
+    "obs_space": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "minLength": 1 },
+        "d": { "type": "integer", "minimum": 1 },
+        "modulus": { "type": ["integer", "string"] }
+      },
+      "required": ["type"],
+      "additionalProperties": true
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "type": { "const": "meta" },
+        "pi_id": { "type": "string", "minLength": 1 },
+        "pi_version": { "type": "string", "minLength": 1 },
+        "pi_spec_hash": { "type": "string", "minLength": 1 },
+        "obs_space": { "$ref": "#/$defs/obs_space" },
+        "spec": { "type": "object" },
+        "context": { "type": "object" },
+        "public_context_hash": { "type": "string" }
+      },
+      "required": ["type", "pi_id", "pi_version", "pi_spec_hash", "obs_space"],
+      "additionalProperties": true
+    },
+    "obs": {
+      "type": "object",
+      "properties": {
+        "type": { "const": "obs" },
+        "i": { "type": "integer", "minimum": 0 },
+        "u": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": ["number", "string"] }
+        },
+        "obs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": ["number", "string"] }
+        },
+        "valid": { "type": "boolean" }
+      },
+      "required": ["type"],
+      "anyOf": [
+        { "required": ["u"] },
+        { "required": ["obs"] }
+      ],
+      "additionalProperties": true
+    }
+  }
+}
