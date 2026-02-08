@@ -1,4 +1,4 @@
-{"type": "meta", "pi_id": "benchmark-ondmax-r4", "pi_version": "1.0.0", "pi_spec_hash": "sha256:aa26a2614c834c21ac4c78bb7015350e603b59fe9bcefbb5bff62404baa023d6", "obs_space": {"type": "R^d", "d": 4}, "spec": {"name": "ODD-OBS", "version": "0.1"}}
+{"type": "meta", "pi_id": "benchmark-ondmax-r4", "pi_version": "1.0.0", "pi_spec_hash": "sha256:aa26a2614c834c21ac4c78bb7015350e603b59fe9bcefbb5bff62404baa023d6", "obs_space": {"type": "R^d", "d": 4}, "spec": {"name": "ODD-OBS", "version": "0.1", "spec_version": "0.2", "schema_version": "0.2"}, "provenance": {"commit": "unknown", "platform": "unknown", "generator_id": "benchmark-ondmax-r4", "profile_id": "observations"}}
 {"type": "obs", "u": [2699436730, 2089984536, 1381971285, 4104494269], "i": 0}
 {"type": "obs", "u": [2089984536, 1381971285, 4104494269, 2800043833], "i": 1}
 {"type": "obs", "u": [1381971285, 4104494269, 2800043833, 1066985859], "i": 2}
