@@ -1,9 +1,0 @@
-numpy>=1.23
-
-[dev]
-pytest>=8.2
-build>=1.2
-sigstore>=2.3
-
-[plot]
-matplotlib>=3.7

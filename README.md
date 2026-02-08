@@ -114,6 +114,15 @@ Offline / no-build-isolation (if you do not have access to PyPI):
 pip install -e . --no-build-isolation
 ```
 
+Optional extras (heavy dependencies are opt-in):
+
+```bash
+pip install "ond-random[tda]"      # persistent homology channel (ripser)
+pip install "ond-random[jax]"      # JAX backend (CPU/TPU depending on env)
+pip install "ond-random[cupy]"     # CuPy backend (requires CUDA-capable setup)
+pip install "ond-random[all]"      # everything above + dev tooling
+```
+
 ## CLI quickstart
 
 Generate 64 bytes:

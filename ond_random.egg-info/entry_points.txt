@@ -1,2 +1,0 @@
-[console_scripts]
-ond-random = ond_random.cli:main
