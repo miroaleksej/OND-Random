@@ -1,6 +1,6 @@
 # External Batteries Summary
 
-Generated: 2026-02-05  
+Generated: 2026-02-08  
 Artifacts: `data/reports/external/`
 
 ## Baseline run (64MB / 16 streams / 64MB)
@@ -65,6 +65,9 @@ Config: `stdin64`, core test set, folding standard, `-tlmin 1GB -tlmax 1GB`.
 | `chacha20` | 1 | No anomalies (243 tests) | `data/reports/external/large/practrand/chacha20_seed1_1gb.log` |
 | `chacha20` | 2 | No anomalies (243 tests) | `data/reports/external/large/practrand/chacha20_seed2_1gb.log` |
 | `chacha20` | 3 | No anomalies (243 tests) | `data/reports/external/large/practrand/chacha20_seed3_1gb.log` |
+| `lcg` | — | **Multiple FAILs** (BCFN / Gap / BRank / TMFn classes) | `data/reports/external/large/practrand/lcg_1gb.log` |
+| `xorshift` | — | No anomalies (243 tests) | `data/reports/external/large/practrand/xorshift_1gb.log` |
+| `quantum` | — | **Multiple FAIL/suspicious at 1GB** | `data/reports/external/large/practrand/quantum_1gb.log` |
 
 ### NIST STS (SP 800-22)
 Config: 256 bitstreams × 1,048,576 bits (ASCII input, STS legacy FFT build).
@@ -76,6 +79,9 @@ Config: 256 bitstreams × 1,048,576 bits (ASCII input, STS legacy FFT build).
 | `chacha20` | 1 | **187/188** | `data/reports/external/large/nist/chacha20_seed1/result.txt` |
 | `chacha20` | 2 | **188/188** | `data/reports/external/large/nist/chacha20_seed2/result.txt` |
 | `chacha20` | 3 | **185/188** | `data/reports/external/large/nist/chacha20_seed3/result.txt` |
+| `lcg` | — | **Severe failures** (many tests flagged) | `data/reports/external/large/nist/lcg/result.txt` |
+| `xorshift` | — | **Severe failures** (many tests flagged) | `data/reports/external/large/nist/xorshift/result.txt` |
+| `quantum` | — | **Severe failures** (many tests flagged) | `data/reports/external/large/nist/quantum/result.txt` |
 
 ### TestU01 — Rabbit (file-based)
 Config: `bbattery_RabbitFile`, `nb = 2,147,483,648` bits (256MB per RNG/seed).
@@ -87,6 +93,9 @@ Config: `bbattery_RabbitFile`, `nb = 2,147,483,648` bits (256MB per RNG/seed).
 | `chacha20` | 1 | Completed (see p-values) | `data/reports/external/large/testu01/chacha20_seed1_rabbit.txt` |
 | `chacha20` | 2 | Completed (see p-values) | `data/reports/external/large/testu01/chacha20_seed2_rabbit.txt` |
 | `chacha20` | 3 | Completed (see p-values) | `data/reports/external/large/testu01/chacha20_seed3_rabbit.txt` |
+| `lcg` | — | Completed (see p-values) | `data/reports/external/large/testu01/lcg_rabbit.txt` |
+| `xorshift` | — | Completed (see p-values) | `data/reports/external/large/testu01/xorshift_rabbit.txt` |
+| `quantum` | — | Completed (see p-values) | `data/reports/external/large/testu01/quantum_rabbit.txt` |
 
 ### TestU01 — FIPS 140-2 (file-based)
 Config: `bbattery_FIPS_140_2File`, 20,000 bits from each file.
@@ -98,12 +107,17 @@ Config: `bbattery_FIPS_140_2File`, 20,000 bits from each file.
 | `chacha20` | 1 | Pass | `data/reports/external/large/testu01/chacha20_seed1_fips.txt` |
 | `chacha20` | 2 | Pass | `data/reports/external/large/testu01/chacha20_seed2_fips.txt` |
 | `chacha20` | 3 | Pass | `data/reports/external/large/testu01/chacha20_seed3_fips.txt` |
+| `lcg` | — | Pass | `data/reports/external/large/testu01/lcg_fips.txt` |
+| `xorshift` | — | **Fail** (longest run of 0) | `data/reports/external/large/testu01/xorshift_fips.txt` |
+| `quantum` | — | Pass | `data/reports/external/large/testu01/quantum_fips.txt` |
 
 ### Notes
-- NIST STS results include occasional Non-overlapping Template failures at larger volumes; see each `result.txt`.
+- Coverage is now complete for all target generators in the large matrix (`ondmax/system/chacha20/lcg/xorshift/quantum`).
+- `lcg` and `xorshift` fail strongly in STS legacy run profile used here.
+- `quantum` is now measured on full large profile and also shows strong failures in PractRand and STS legacy profile.
 
 ### Conclusion (large run)
-- PractRand 1GB: all five runs show no anomalies → statistically comparable.
-- NIST STS 256 streams: results range 185/188–188/188 with no stable leader; best single result is `chacha20` seed2 (188/188), but other seeds are lower.
-- TestU01 FIPS: all Pass; Rabbit completes without obvious failures — no clear leader here either.
-- Conclusion: at large volumes there is **no clear “winner”**; `ondmax` is on par with `system` and `chacha20`.
+- PractRand: `ondmax/system/chacha20/xorshift` show no anomalies at 1GB, while `lcg` fails heavily.
+- NIST STS (legacy FFT profile in this repo): `lcg/xorshift` show widespread failures under this run profile; `ondmax/system/chacha20` remain comparatively stronger.
+- TestU01 FIPS: most generators pass, but `xorshift` has a fail case on longest run.
+- Conclusion: there is still **no single global winner** across all channels; `lcg` and `quantum` are clearly weaker in this large-run profile, while `ondmax/system/chacha20` remain the strongest group.

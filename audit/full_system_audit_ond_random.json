@@ -1,108 +1,116 @@
 {
   "audit": {
     "name": "full_system_audit_ond_random",
-    "timestamp_utc": "2026-02-08T12:04:38Z",
+    "timestamp_utc": "2026-02-08T17:10:00Z",
     "repo": "OND-Random",
-    "scope": "OND-Random only",
-    "head": "ee02f37213b0aa290d3bc7a19048c66e780fab69",
-    "runtime_output_root": "/tmp/ond_audit_run"
+    "head": "83556cbd0b24ca1ba619b5c20f6888cf5a204fb0",
+    "scope": "full practical audit + competitor comparison (refreshed external large artifacts)"
   },
-  "p1_status": {
-    "baseline_schema_runtime_alignment": "fixed",
-    "run_suite_git_provenance": "fixed"
-  },
-  "changes": {
-    "runtime": [
-      "ond_random/ond/odd_report.py",
-      "ond_random/suites/run_suite.py"
-    ],
-    "schemas": [
-      "schemas/ond_art_report.schema.json",
-      "ond-odd-spec/ond_odd_spec/schemas/ond_art_report.schema.json"
-    ],
-    "tests": [
-      "tests/test_odd_report.py",
-      "tests/test_run_suite.py",
-      "tests/test_odd_schema_compat.py"
-    ],
-    "audit_artifacts": [
-      "audit/full_system_audit_ond_random.md",
-      "audit/full_system_audit_ond_random.json"
-    ]
-  },
-  "verification": {
+  "checks": {
     "pytest": {
-      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python -m pytest -q",
       "status": "pass",
-      "passed": 59,
+      "passed": 73,
       "failed": 0
     },
-    "smoke": [
-      {
-        "command": "python -m ond_random.cli obs-export ... --out /tmp/ond_audit_run/smoke/observations.jsonl",
-        "status": "pass"
-      },
-      {
-        "command": "python -m ond_random.cli odd-report ... --out /tmp/ond_audit_run/smoke/ond_art_report.json",
-        "status": "pass"
-      },
-      {
-        "command": "python -m ond_random.cli run-suite --suite ond --mode quick --out /tmp/ond_audit_run/run_suite_quick",
-        "status": "pass"
-      }
-    ],
-    "validators": [
-      {
-        "command": "python scripts/validate_odd_artifacts.py --observations /tmp/ond_audit_run/smoke/observations.jsonl --ond-art-report /tmp/ond_audit_run/smoke/ond_art_report.json",
-        "status": "pass"
-      },
-      {
-        "command": "python scripts/validate_odd_artifacts.py --observations /tmp/ond_audit_run/run_suite_quick/artifacts/ond/observations.jsonl --ond-art-report /tmp/ond_audit_run/run_suite_quick/artifacts/ond/ond_art_report.json",
-        "status": "pass"
-      },
-      {
-        "command": "python scripts/validate_run_suite_metadata.py --metadata /tmp/ond_audit_run/run_suite_quick/metadata.json",
-        "status": "pass"
-      }
-    ],
-    "metadata_git": {
-      "commit": "ee02f37213b0aa290d3bc7a19048c66e780fab69",
-      "present": true
+    "validators": {
+      "extractor_specs": "pass",
+      "run_suite_metadata": "pass",
+      "odd_artifacts": "pass",
+      "scripts_py_compile": "pass"
+    },
+    "external_coverage": {
+      "status": "ok",
+      "coverage_ratio": 1.0,
+      "full_target_coverage_ratio": 1.0,
+      "target_coverage_ratio": 1.0,
+      "missing_targets": [],
+      "partial_targets": [],
+      "report_path": "data/reports/external/large_coverage.json"
     }
   },
-  "open_findings": [
+  "comparison": {
+    "matrix": [
+      {
+        "rng": "ondmax",
+        "quick_ond_status": "ok",
+        "practrand_large": "no_anomalies_1gb",
+        "nist_large": "stable_profile",
+        "testu01_fips_large": "pass",
+        "external_level": "full"
+      },
+      {
+        "rng": "system",
+        "quick_ond_status": "ok",
+        "practrand_large": "no_anomalies_1gb",
+        "nist_large": "stable_profile",
+        "testu01_fips_large": "pass",
+        "external_level": "full"
+      },
+      {
+        "rng": "chacha20",
+        "quick_ond_status": "ok",
+        "practrand_large": "no_anomalies_1gb_seeded",
+        "nist_large": "stable_profile",
+        "testu01_fips_large": "pass",
+        "external_level": "full"
+      },
+      {
+        "rng": "lcg",
+        "quick_ond_status": "ok",
+        "practrand_large": "multiple_fail_classes",
+        "nist_large": "severe_failures_legacy_profile",
+        "testu01_fips_large": "pass",
+        "external_level": "full"
+      },
+      {
+        "rng": "xorshift",
+        "quick_ond_status": "ok",
+        "practrand_large": "no_anomalies_1gb",
+        "nist_large": "severe_failures_legacy_profile",
+        "testu01_fips_large": "fail_longest_run_0",
+        "external_level": "full"
+      },
+      {
+        "rng": "quantum",
+        "quick_ond_status": "ok",
+        "practrand_large": "multiple_fail_suspicious_1gb",
+        "nist_large": "severe_failures_legacy_profile",
+        "testu01_fips_large": "pass",
+        "external_level": "full"
+      }
+    ],
+    "verdict": "no_clear_global_winner",
+    "confidence": "medium",
+    "notes": [
+      "ondmax/system/chacha20 remain the strongest full-evidence group.",
+      "lcg is clearly weak in PractRand and NIST legacy profile.",
+      "xorshift is mixed: clean PractRand but fails in STS profile and FIPS longest-run check.",
+      "quantum now has full large artifacts and still fails strongly in PractRand and STS legacy profile."
+    ]
+  },
+  "findings": [
     {
-      "id": "P2-001",
-      "severity": "P2",
-      "title": "Some scripts are under-wired to docs/CI",
+      "id": "P1-002",
+      "severity": "P1",
+      "status": "closed",
+      "summary": "Missing large-battery artifacts for lcg/xorshift/quantum are fully backfilled.",
       "evidence": [
-        "scripts/big_physics_test.py",
-        "scripts/evidence_report.py",
-        "scripts/generate_benchmarks.py",
-        "scripts/shor_batch.py",
-        "scripts/system_report.py",
-        "scripts/verify_manifest.py"
-      ],
-      "proposed_fix": "Document, wire into CI/manual flows, or deprecate"
+        "data/reports/external/large/practrand/lcg_1gb.log",
+        "data/reports/external/large/practrand/xorshift_1gb.log",
+        "data/reports/external/large/practrand/quantum_1gb.log",
+        "data/reports/external/large_coverage.json"
+      ]
     },
     {
-      "id": "P2-002",
-      "severity": "P2",
-      "title": "No committed static metadata fixture for run-suite schema",
+      "id": "P1-003",
+      "severity": "P1",
+      "status": "open",
+      "summary": "Cross-profile comparability risk remains because NIST channel is legacy STS-profile specific.",
       "evidence": [
-        "schemas/run_suite_metadata.schema.json",
-        "scripts/validate_run_suite_metadata.py"
-      ],
-      "proposed_fix": "Add deterministic fixture and validate it in CI"
+        "data/reports/external/large/nist/ondmax/result.txt",
+        "data/reports/external/large/nist/system/result.txt",
+        "data/reports/external/large_coverage.json"
+      ]
     }
-  ],
-  "competitor_comparison": {
-    "status": "unchanged",
-    "sources": [
-      "external_batteries_summary.md",
-      "data/reports/evidence_report.json",
-      "data/reports/evidence_report.md"
-    ],
-    "verdict": "no_clear_global_winner_with_current_local_evidence"
-  }
+  ]
 }

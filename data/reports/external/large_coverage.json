@@ -1,0 +1,141 @@
+{
+  "coverage_ratio": 1.0,
+  "full_target_coverage_ratio": 1.0,
+  "missing_targets": [],
+  "partial_targets": [],
+  "present_files": 24,
+  "root": "data/reports/external/large",
+  "status": "ok",
+  "target_coverage_ratio": 1.0,
+  "targets": [
+    {
+      "coverage_level": "full",
+      "missing": [],
+      "present": [
+        "practrand/ondmax_1gb.log",
+        "nist/ondmax/result.txt",
+        "testu01/ondmax_fips.txt"
+      ],
+      "required": [
+        "practrand/ondmax_1gb.log",
+        "nist/ondmax/result.txt",
+        "testu01/ondmax_fips.txt"
+      ],
+      "status": "ok",
+      "target": "ondmax"
+    },
+    {
+      "coverage_level": "full",
+      "missing": [],
+      "present": [
+        "practrand/system_1gb.log",
+        "nist/system/result.txt",
+        "testu01/system_fips.txt"
+      ],
+      "required": [
+        "practrand/system_1gb.log",
+        "nist/system/result.txt",
+        "testu01/system_fips.txt"
+      ],
+      "status": "ok",
+      "target": "system"
+    },
+    {
+      "coverage_level": "full",
+      "missing": [],
+      "present": [
+        "practrand/chacha20_seed1_1gb.log",
+        "nist/chacha20_seed1/result.txt",
+        "testu01/chacha20_seed1_fips.txt"
+      ],
+      "required": [
+        "practrand/chacha20_seed1_1gb.log",
+        "nist/chacha20_seed1/result.txt",
+        "testu01/chacha20_seed1_fips.txt"
+      ],
+      "status": "ok",
+      "target": "chacha20:seed1"
+    },
+    {
+      "coverage_level": "full",
+      "missing": [],
+      "present": [
+        "practrand/chacha20_seed2_1gb.log",
+        "nist/chacha20_seed2/result.txt",
+        "testu01/chacha20_seed2_fips.txt"
+      ],
+      "required": [
+        "practrand/chacha20_seed2_1gb.log",
+        "nist/chacha20_seed2/result.txt",
+        "testu01/chacha20_seed2_fips.txt"
+      ],
+      "status": "ok",
+      "target": "chacha20:seed2"
+    },
+    {
+      "coverage_level": "full",
+      "missing": [],
+      "present": [
+        "practrand/chacha20_seed3_1gb.log",
+        "nist/chacha20_seed3/result.txt",
+        "testu01/chacha20_seed3_fips.txt"
+      ],
+      "required": [
+        "practrand/chacha20_seed3_1gb.log",
+        "nist/chacha20_seed3/result.txt",
+        "testu01/chacha20_seed3_fips.txt"
+      ],
+      "status": "ok",
+      "target": "chacha20:seed3"
+    },
+    {
+      "coverage_level": "full",
+      "missing": [],
+      "present": [
+        "practrand/lcg_1gb.log",
+        "nist/lcg/result.txt",
+        "testu01/lcg_fips.txt"
+      ],
+      "required": [
+        "practrand/lcg_1gb.log",
+        "nist/lcg/result.txt",
+        "testu01/lcg_fips.txt"
+      ],
+      "status": "ok",
+      "target": "lcg"
+    },
+    {
+      "coverage_level": "full",
+      "missing": [],
+      "present": [
+        "practrand/xorshift_1gb.log",
+        "nist/xorshift/result.txt",
+        "testu01/xorshift_fips.txt"
+      ],
+      "required": [
+        "practrand/xorshift_1gb.log",
+        "nist/xorshift/result.txt",
+        "testu01/xorshift_fips.txt"
+      ],
+      "status": "ok",
+      "target": "xorshift"
+    },
+    {
+      "coverage_level": "full",
+      "missing": [],
+      "present": [
+        "practrand/quantum_1gb.log",
+        "nist/quantum/result.txt",
+        "testu01/quantum_fips.txt"
+      ],
+      "required": [
+        "practrand/quantum_1gb.log",
+        "nist/quantum/result.txt",
+        "testu01/quantum_fips.txt"
+      ],
+      "status": "ok",
+      "target": "quantum"
+    }
+  ],
+  "total_required_files": 24
+}

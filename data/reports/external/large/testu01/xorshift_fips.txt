@@ -1,0 +1,35 @@
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                 Starting FIPS_140_2
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+
+============== Summary results of FIPS-140-2 ==============
+
+ File:             /tmp/ond_tools/rng_data/testu01_xorshift_256.bin
+ Number of bits:   20000
+
+       Test          s-value        p-value    FIPS Decision
+ --------------------------------------------------------
+ Monobit               9856           0.98       Pass
+ Poker                26.76           0.03       Pass
+
+ 0 Runs, length 1:     2504                      Pass
+ 0 Runs, length 2:     1163                      Pass
+ 0 Runs, length 3:      629                      Pass
+ 0 Runs, length 4:      319                      Pass
+ 0 Runs, length 5:      162                      Pass
+ 0 Runs, length 6+:     166                      Pass
+
+ 1 Runs, length 1:     2462                      Pass
+ 1 Runs, length 2:     1255                      Pass
+ 1 Runs, length 3:      616                      Pass
+ 1 Runs, length 4:      313                      Pass
+ 1 Runs, length 5:      151                      Pass
+ 1 Runs, length 6+:     145                      Pass
+
+ Longest run of 0:       40         9.1e-9       Fail
+ Longest run of 1:       13           0.50       Pass
+
+
+

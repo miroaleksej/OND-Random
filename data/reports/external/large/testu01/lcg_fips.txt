@@ -1,0 +1,37 @@
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                 Starting FIPS_140_2
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+
+============== Summary results of FIPS-140-2 ==============
+
+ File:             /tmp/ond_tools/rng_data/testu01_lcg_256.bin
+ Number of bits:   20000
+
+       Test          s-value        p-value    FIPS Decision
+ --------------------------------------------------------
+ Monobit               9890           0.94       Pass
+ Poker                11.90           0.69       Pass
+
+ 0 Runs, length 1:     2508                      Pass
+ 0 Runs, length 2:     1256                      Pass
+ 0 Runs, length 3:      620                      Pass
+ 0 Runs, length 4:      307                      Pass
+ 0 Runs, length 5:      161                      Pass
+ 0 Runs, length 6+:     172                      Pass
+
+ 1 Runs, length 1:     2558                      Pass
+ 1 Runs, length 2:     1250                      Pass
+ 1 Runs, length 3:      606                      Pass
+ 1 Runs, length 4:      308                      Pass
+ 1 Runs, length 5:      160                      Pass
+ 1 Runs, length 6+:     142                      Pass
+
+ Longest run of 0:       14           0.46       Pass
+ Longest run of 1:       13           0.50       Pass
+ ----------------------------------------------------------
+ All values are within the required intervals of FIPS-140-2
+
+
+

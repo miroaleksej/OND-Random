@@ -1,11 +1,15 @@
 from __future__ import annotations
 
-import math
 from dataclasses import dataclass
 
 import numpy as np
 
 from .base import RNG
+
+try:
+    from scipy.signal import lfilter as _lfilter
+except Exception:
+    _lfilter = None
 
 
 @dataclass
@@ -56,6 +60,55 @@ class QuantumEmulatorRNG(RNG):
     def model(self) -> QuantumNoiseModel:
         return self._model
 
+    def _drift_series(self, n_bits: int) -> np.ndarray:
+        m = self._model
+        if n_bits <= 0:
+            return np.empty(0, dtype=np.float64)
+
+        rho = float(m.drift_rho)
+        sigma = float(m.drift_sigma)
+
+        if sigma == 0.0:
+            if rho == 0.0:
+                self._drift = 0.0
+                return np.zeros(n_bits, dtype=np.float64)
+            if rho == 1.0:
+                return np.full(n_bits, self._drift, dtype=np.float64)
+            steps = np.arange(1, n_bits + 1, dtype=np.float64)
+            drift = self._drift * np.power(rho, steps)
+            self._drift = float(drift[-1])
+            return drift
+
+        eps = self._rng.normal(size=n_bits)
+        if _lfilter is not None:
+            zi = np.array([rho * self._drift], dtype=np.float64)
+            drift, _ = _lfilter([sigma], [1.0, -rho], eps, zi=zi)
+            self._drift = float(drift[-1])
+            return np.asarray(drift, dtype=np.float64)
+
+        drift = np.empty(n_bits, dtype=np.float64)
+        cur = float(self._drift)
+        for i, e in enumerate(eps):
+            cur = rho * cur + sigma * float(e)
+            drift[i] = cur
+        self._drift = float(cur)
+        return drift
+
+    def _random_bytes_vectorized(self, n: int) -> bytes:
+        m = self._model
+        n_bits = n * 8
+
+        p = np.full(n_bits, 0.5 + m.bias, dtype=np.float64)
+        p += self._drift_series(n_bits)
+        if m.phase_sigma > 0.0:
+            p += m.phase_sigma * self._rng.normal(size=n_bits)
+        np.clip(p, m.clamp_eps, 1.0 - m.clamp_eps, out=p)
+
+        bits = (self._rng.random(n_bits) < p).astype(np.uint8)
+        if bits.size:
+            self._last_bit = int(bits[-1])
+        return np.packbits(bits, bitorder="big").tobytes()
+
     def _next_bit(self) -> int:
         m = self._model
         # Update drift as AR(1)
@@ -81,6 +134,10 @@ class QuantumEmulatorRNG(RNG):
             raise ValueError("n must be non-negative")
         if n == 0:
             return b""
+
+        if self._model.memory == 0.0:
+            return self._random_bytes_vectorized(n)
+
         out = bytearray(n)
         for i in range(n):
             byte = 0

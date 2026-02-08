@@ -1,82 +1,62 @@
-# Full System Audit — OND-Random (Post-P1 Fix)
+# Full System Audit — OND-Random
 
-- Audit timestamp (UTC): `2026-02-08T12:04:38Z`
-- Repo head during audit: `ee02f37213b0aa290d3bc7a19048c66e780fab69`
-- Scope: `OND-Random` only
-- Runtime output root: `/tmp/ond_audit_run`
+- Audit timestamp (UTC): `2026-02-08T17:10:00Z`
+- Repo head during audit: `83556cbd0b24ca1ba619b5c20f6888cf5a204fb0`
+- Scope: full module/runtime audit + competitor comparison with refreshed large external artifacts.
 
 ## Executive Summary
-- P1 fixes are implemented and validated:
-  1. `ond_art_report.json` no longer emits top-level `baseline: null` at runtime.
-  2. Schema now accepts legacy `baseline: null` for backward compatibility.
-  3. `run-suite` resolves git provenance from repository context even when `--out` is under `/tmp`.
-- Verification status: `pytest` passed (`59/59`), smoke commands passed, validators passed.
-- Competitor comparison section is unchanged methodologically and remains "no clear winner" across all channels with current local evidence.
+- Functional baseline is healthy: `pytest` passes (`73 passed`), validators pass, CLI smoke checks pass.
+- P1-002 is now fully closed on artifact completeness:
+  - `lcg`, `xorshift`, and `quantum` now all have full large artifacts for PractRand/NIST/TestU01 FIPS.
+- External coverage status is now `ok`:
+  - `missing_targets=[]`
+  - `partial_targets=[]`
+  - `target_coverage_ratio=1.0`
+  - `full_target_coverage_ratio=1.0`
 
-## What Was Fixed (P1)
+## Runtime Verification Matrix
+- `pytest -q`: `PASS` (`73` passed).
+- `validate_extractor_spec.py` (ondmax/toeplitz): `PASS`.
+- `validate_run_suite_metadata.py`: `PASS`.
+- `validate_odd_artifacts.py`: `PASS`.
+- `python -m py_compile scripts/*.py`: `PASS`.
+- `scripts/check_external_coverage.py`: `PASS` (`status=ok`, details below).
 
-### 1) Baseline schema/runtime alignment
-- Runtime change (`ond_random/ond/odd_report.py`):
-  - top-level `baseline` is added only when computed as an object;
-  - topology/orbit baseline fallback thresholds are always deterministic objects (`green/yellow/red`), never `null`.
-- Schema change (`schemas/ond_art_report.schema.json` and `ond-odd-spec/.../ond_art_report.schema.json`):
-  - baseline references now allow `object | null` for compatibility at:
-    - top-level `baseline`,
-    - `topology.baseline`,
-    - `orbit_spectrum.baseline`.
+## Competitor Benchmark Matrix
 
-### 2) `run-suite` git provenance in `/tmp`
-- `ond_random/suites/run_suite.py` now resolves git context via candidate roots:
-  - `Path.cwd()` → package root (`Path(__file__).resolve().parents[2]`) → `out_dir`.
-- The resolved repo base is reused both for:
-  - `metadata.json.git`,
-  - OND observations provenance in suite mode.
+| RNG | Quick OND status | Large PractRand | Large NIST STS | Large TestU01 FIPS | External channel level |
+| --- | --- | --- | --- | --- | --- |
+| `ondmax` | `ok` | no anomalies @1GB | stable/passing profile | pass | `full` |
+| `system` | `ok` | no anomalies @1GB | stable/passing profile | pass | `full` |
+| `chacha20` | `ok` | no anomalies @1GB (seeds 1–3) | stable/passing profile | pass | `full` |
+| `lcg` | `ok` | multiple FAIL classes @1GB | severe failures in legacy STS profile | pass | `full` |
+| `xorshift` | `ok` | no anomalies @1GB | severe failures in legacy STS profile | **fail** (longest run) | `full` |
+| `quantum` | `ok` | multiple FAIL/suspicious @1GB | severe failures in legacy STS profile | pass | `full` |
 
-## Verification Evidence
+## External Coverage Status
+- Source: `data/reports/external/large_coverage.json`
+- `status`: `ok`
+- `coverage_ratio`: `1.0`
+- `full_target_coverage_ratio`: `1.0`
+- `target_coverage_ratio`: `1.0`
+- `missing_targets`: `[]`
+- `partial_targets`: `[]`
 
-### Tests
+## Findings (Prioritized)
+- `P1-002` closed: all target generators now have required large external artifacts for comparator matrix.
+- `P1-new`: benchmark comparability risk across NIST implementations.
+  - Existing repo uses legacy STS profile (`sts_legacy_fft`) rather than the earlier `assess` style report.
+  - Results are internally consistent and reproducible here, but should be labeled profile-specific.
+
+## Comparative Verdict
+- Verdict: `no_clear_global_winner`.
+- Strongest overall external posture remains `ondmax/system/chacha20`.
+- `lcg` is clearly weak on PractRand and STS in this run profile.
+- `xorshift` is mixed: PractRand clean, STS severe failures, and FIPS fail case.
+- `quantum` now has full large evidence and also fails strongly on PractRand and STS in this run profile.
+
+## Repro Commands
 - `PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python -m pytest -q`
-- Result: `59 passed in 0.57s`
-
-### Smoke and validators
-- `obs-export` smoke: PASS
-- `odd-report` smoke: PASS
-- `run-suite --suite ond --mode quick`: PASS (`overall=ok`)
-- `validate_odd_artifacts.py` on smoke report: PASS
-- `validate_odd_artifacts.py` on run-suite report: PASS
-- `validate_run_suite_metadata.py` on `/tmp/ond_audit_run/run_suite_quick/metadata.json`: PASS
-- Observed metadata snippet confirms provenance fix:
-  - `git.commit = ee02f37213b0aa290d3bc7a19048c66e780fab69`
-
-## Current Findings (Open)
-
-### P2
-1. Some scripts remain weakly wired to docs/CI flows (operational discoverability gap):
-   - `scripts/big_physics_test.py`
-   - `scripts/evidence_report.py`
-   - `scripts/generate_benchmarks.py`
-   - `scripts/shor_batch.py`
-   - `scripts/system_report.py`
-   - `scripts/verify_manifest.py`
-2. No committed canonical `run-suite` metadata fixture for static schema checks (validation currently demonstrated via dynamic generation).
-
-## Competitor Comparison (Local Evidence, unchanged)
-- Source set:
-  - `external_batteries_summary.md`
-  - `data/reports/evidence_report.json`
-  - `data/reports/evidence_report.md`
-- Verdict unchanged: **no strict global winner**.
-  - External batteries (large): `ondmax/system/chacha20` are on-par.
-  - OND distance channel: `quantum/chacha20/system` clustered; `lcg/xorshift` less stable across seeds.
-  - Confidence remains medium due incomplete external-battery coverage for some generators.
-
-## Updated Command Set (Repro)
-```bash
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python -m pytest -q
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python -m ond_random.cli obs-export --input data/benchmarks/Q-ideal.npz --input-format npz --npz-key U --pi-id audit-smoke-qideal --pi-version 1.0.0 --out /tmp/ond_audit_run/smoke/observations.jsonl
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python -m ond_random.cli odd-report --observations /tmp/ond_audit_run/smoke/observations.jsonl --out /tmp/ond_audit_run/smoke/ond_art_report.json --profile recommended
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python -m ond_random.cli run-suite --suite ond --mode quick --out /tmp/ond_audit_run/run_suite_quick
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python scripts/validate_odd_artifacts.py --observations /tmp/ond_audit_run/smoke/observations.jsonl --ond-art-report /tmp/ond_audit_run/smoke/ond_art_report.json
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python scripts/validate_odd_artifacts.py --observations /tmp/ond_audit_run/run_suite_quick/artifacts/ond/observations.jsonl --ond-art-report /tmp/ond_audit_run/run_suite_quick/artifacts/ond/ond_art_report.json
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python scripts/validate_run_suite_metadata.py --metadata /tmp/ond_audit_run/run_suite_quick/metadata.json
-```
+- `PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python scripts/check_external_coverage.py --root data/reports/external/large --out data/reports/external/large_coverage.json`
+- `PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python scripts/external_rng_tests.py practrand --rng lcg --total-bytes 1073741824 --practrand-cmd /tmp/ond_tools/PractRand/RNG_test --practrand-args-str "-tlmin 1GB -tlmax 1GB" > data/reports/external/large/practrand/lcg_1gb.log`
+- `PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python scripts/external_rng_tests.py testu01 --rng xorshift --bytes 268435456 --out /tmp/ond_tools/rng_data/testu01_xorshift_256.bin`
