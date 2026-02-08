@@ -258,6 +258,27 @@ def _git_info(base: Path) -> Dict[str, Any] | None:
         return None
 
 
+def _resolve_git_context(out_dir: Path) -> Tuple[Dict[str, Any] | None, Path | None]:
+    candidates = [
+        Path.cwd(),
+        Path(__file__).resolve().parents[2],
+        out_dir,
+    ]
+    seen: set[str] = set()
+    for candidate in candidates:
+        try:
+            key = str(candidate.resolve())
+        except Exception:
+            key = str(candidate)
+        if key in seen:
+            continue
+        seen.add(key)
+        info = _git_info(candidate)
+        if info is not None:
+            return info, candidate
+    return None, None
+
+
 def _relpath(path: Path, base: Path) -> str:
     try:
         return str(path.relative_to(base))
@@ -287,7 +308,12 @@ def _resolve_percentiles(args: argparse.Namespace) -> Tuple[float, float, float]
     return percentiles, profile
 
 
-def _run_ond_suite(args: argparse.Namespace, out_dir: Path, defaults: Dict[str, int]) -> Dict[str, Any]:
+def _run_ond_suite(
+    args: argparse.Namespace,
+    out_dir: Path,
+    defaults: Dict[str, int],
+    provenance_base: Path | None = None,
+) -> Dict[str, Any]:
     rng = _rng_from_args(args)
     samples = _resolve_int(args.ond_samples, defaults["ond_samples"])
     obs = ObservationMap(dimension=args.ond_dimension, word_bits=args.ond_word_bits, stride=args.ond_stride)
@@ -306,7 +332,11 @@ def _run_ond_suite(args: argparse.Namespace, out_dir: Path, defaults: Dict[str, 
     else:
         pi_spec_hash = hash_json({"pi_id": pi_id, "pi_version": pi_version, "obs_space": obs_space})
 
-    provenance = resolve_provenance(generator_id=pi_id, profile_id="suite", base_path=out_dir)
+    provenance = resolve_provenance(
+        generator_id=pi_id,
+        profile_id="suite",
+        base_path=provenance_base or out_dir,
+    )
 
     meta = ObservationsMeta(
         pi_id=pi_id,
@@ -514,11 +544,12 @@ def run_suite(args: argparse.Namespace) -> Dict[str, Any]:
     suite_list = _parse_suite_list(args.suite)
     defaults = _mode_defaults(args.mode)
     start = datetime.now(timezone.utc)
+    git_info, git_base = _resolve_git_context(out_dir)
 
     suites: Dict[str, Dict[str, Any]] = {}
 
     if "ond" in suite_list:
-        suites["ond"] = _run_ond_suite(args, out_dir, defaults)
+        suites["ond"] = _run_ond_suite(args, out_dir, defaults, provenance_base=git_base)
     if "nist" in suite_list:
         suites["nist"] = _run_nist_suite(args, out_dir, defaults)
     if "practrand" in suite_list:
@@ -543,8 +574,6 @@ def run_suite(args: argparse.Namespace) -> Dict[str, Any]:
         from ond_random import __version__ as pkg_version
     except Exception:
         pkg_version = "unknown"
-
-    git_info = _git_info(out_dir)
 
     metadata = {
         "run": {

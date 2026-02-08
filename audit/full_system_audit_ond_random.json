@@ -1,0 +1,108 @@
+{
+  "audit": {
+    "name": "full_system_audit_ond_random",
+    "timestamp_utc": "2026-02-08T12:04:38Z",
+    "repo": "OND-Random",
+    "scope": "OND-Random only",
+    "head": "ee02f37213b0aa290d3bc7a19048c66e780fab69",
+    "runtime_output_root": "/tmp/ond_audit_run"
+  },
+  "p1_status": {
+    "baseline_schema_runtime_alignment": "fixed",
+    "run_suite_git_provenance": "fixed"
+  },
+  "changes": {
+    "runtime": [
+      "ond_random/ond/odd_report.py",
+      "ond_random/suites/run_suite.py"
+    ],
+    "schemas": [
+      "schemas/ond_art_report.schema.json",
+      "ond-odd-spec/ond_odd_spec/schemas/ond_art_report.schema.json"
+    ],
+    "tests": [
+      "tests/test_odd_report.py",
+      "tests/test_run_suite.py",
+      "tests/test_odd_schema_compat.py"
+    ],
+    "audit_artifacts": [
+      "audit/full_system_audit_ond_random.md",
+      "audit/full_system_audit_ond_random.json"
+    ]
+  },
+  "verification": {
+    "pytest": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python -m pytest -q",
+      "status": "pass",
+      "passed": 59,
+      "failed": 0
+    },
+    "smoke": [
+      {
+        "command": "python -m ond_random.cli obs-export ... --out /tmp/ond_audit_run/smoke/observations.jsonl",
+        "status": "pass"
+      },
+      {
+        "command": "python -m ond_random.cli odd-report ... --out /tmp/ond_audit_run/smoke/ond_art_report.json",
+        "status": "pass"
+      },
+      {
+        "command": "python -m ond_random.cli run-suite --suite ond --mode quick --out /tmp/ond_audit_run/run_suite_quick",
+        "status": "pass"
+      }
+    ],
+    "validators": [
+      {
+        "command": "python scripts/validate_odd_artifacts.py --observations /tmp/ond_audit_run/smoke/observations.jsonl --ond-art-report /tmp/ond_audit_run/smoke/ond_art_report.json",
+        "status": "pass"
+      },
+      {
+        "command": "python scripts/validate_odd_artifacts.py --observations /tmp/ond_audit_run/run_suite_quick/artifacts/ond/observations.jsonl --ond-art-report /tmp/ond_audit_run/run_suite_quick/artifacts/ond/ond_art_report.json",
+        "status": "pass"
+      },
+      {
+        "command": "python scripts/validate_run_suite_metadata.py --metadata /tmp/ond_audit_run/run_suite_quick/metadata.json",
+        "status": "pass"
+      }
+    ],
+    "metadata_git": {
+      "commit": "ee02f37213b0aa290d3bc7a19048c66e780fab69",
+      "present": true
+    }
+  },
+  "open_findings": [
+    {
+      "id": "P2-001",
+      "severity": "P2",
+      "title": "Some scripts are under-wired to docs/CI",
+      "evidence": [
+        "scripts/big_physics_test.py",
+        "scripts/evidence_report.py",
+        "scripts/generate_benchmarks.py",
+        "scripts/shor_batch.py",
+        "scripts/system_report.py",
+        "scripts/verify_manifest.py"
+      ],
+      "proposed_fix": "Document, wire into CI/manual flows, or deprecate"
+    },
+    {
+      "id": "P2-002",
+      "severity": "P2",
+      "title": "No committed static metadata fixture for run-suite schema",
+      "evidence": [
+        "schemas/run_suite_metadata.schema.json",
+        "scripts/validate_run_suite_metadata.py"
+      ],
+      "proposed_fix": "Add deterministic fixture and validate it in CI"
+    }
+  ],
+  "competitor_comparison": {
+    "status": "unchanged",
+    "sources": [
+      "external_batteries_summary.md",
+      "data/reports/evidence_report.json",
+      "data/reports/evidence_report.md"
+    ],
+    "verdict": "no_clear_global_winner_with_current_local_evidence"
+  }
+}

@@ -138,7 +138,12 @@
       "required": ["rank", "subspace", "branching"],
       "additionalProperties": true
     },
-    "baseline": { "$ref": "#/$defs/baseline" },
+    "baseline": {
+      "anyOf": [
+        { "$ref": "#/$defs/baseline" },
+        { "type": "null" }
+      ]
+    },
     "topology": { "$ref": "#/$defs/topology" },
     "orbit_spectrum": { "$ref": "#/$defs/orbit" },
     "notes": {
@@ -209,7 +214,12 @@
         "n_samples": { "type": "integer", "minimum": 0 },
         "layers": { "type": "object" },
         "signature": { "$ref": "#/$defs/signature" },
-        "baseline": { "$ref": "#/$defs/baseline" }
+        "baseline": {
+          "anyOf": [
+            { "$ref": "#/$defs/baseline" },
+            { "type": "null" }
+          ]
+        }
       },
       "required": ["status", "n_samples"],
       "additionalProperties": true
@@ -228,7 +238,12 @@
         "information_bound_bits": { "type": "number" },
         "connection_vector": { "type": "object" },
         "signature": { "$ref": "#/$defs/signature" },
-        "baseline": { "$ref": "#/$defs/baseline" }
+        "baseline": {
+          "anyOf": [
+            { "$ref": "#/$defs/baseline" },
+            { "type": "null" }
+          ]
+        }
       },
       "required": ["status", "topk", "include_zero", "n_samples"],
       "additionalProperties": true

@@ -24,7 +24,13 @@ def test_run_suite_ond_only(tmp_path: Path) -> None:
     )
     args.func(args)
     results_path = out_dir / "results.json"
+    metadata_path = out_dir / "metadata.json"
     assert results_path.exists()
+    assert metadata_path.exists()
     results = json.loads(results_path.read_text(encoding="utf-8"))
+    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
     assert results["suites"]["ond"]["status"] == "ok"
     assert (out_dir / "artifacts" / "ond" / "observations.jsonl").exists()
+    assert isinstance(metadata.get("git"), dict)
+    assert isinstance(metadata["git"].get("commit"), str)
+    assert len(metadata["git"]["commit"]) > 0

@@ -50,4 +50,4 @@ def test_odd_report_serializable(tmp_path):
     report = build_ond_art_report(observations_path=str(obs_path), bins=6, bootstrap_samples=20)
     payload = json.dumps(report)
     assert "OND-ART" in payload
-
+    assert ("baseline" not in report) or isinstance(report["baseline"], dict)

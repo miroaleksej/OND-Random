@@ -125,6 +125,19 @@ def _baseline_thresholds(distances: np.ndarray, percentiles: Tuple[float, float,
     }
 
 
+def _thresholds_or_default(value: Any) -> Dict[str, float]:
+    if isinstance(value, dict):
+        try:
+            return {
+                "green": float(value.get("green", 0.0)),
+                "yellow": float(value.get("yellow", 0.0)),
+                "red": float(value.get("red", 0.0)),
+            }
+        except Exception:
+            pass
+    return {"green": 0.0, "yellow": 0.0, "red": 0.0}
+
+
 def _classify(distance: float, thresholds: Dict[str, float]) -> str:
     if distance <= thresholds.get("green", 0.0):
         return "Within Baseline Envelope"
@@ -336,7 +349,9 @@ def build_ond_art_report(
             dtype=float,
         )
         baseline_mean_vector = ref_vec
-        thresholds = baseline_report.get("baseline", {}).get("thresholds", {"green": 0.0, "yellow": 0.0, "red": 0.0})
+        base_baseline = baseline_report.get("baseline") if isinstance(baseline_report, dict) else None
+        base_thresholds = base_baseline.get("thresholds") if isinstance(base_baseline, dict) else None
+        thresholds = _thresholds_or_default(base_thresholds)
     else:
         thresholds = None
 
@@ -351,8 +366,8 @@ def build_ond_art_report(
             "baseline_id": baseline_id,
             "distance": dist,
             "distance_ci95": dist_ci,
-            "thresholds": thresholds or {"green": 0.0, "yellow": 0.0, "red": 0.0},
-            "classification": _classify(dist, thresholds or {"green": 0.0, "yellow": 0.0, "red": 0.0}),
+            "thresholds": _thresholds_or_default(thresholds),
+            "classification": _classify(dist, _thresholds_or_default(thresholds)),
         }
 
     if topo_cfg.enabled and topology_result and topology_result.get("signature"):
@@ -393,7 +408,9 @@ def build_ond_art_report(
             base_thresholds = None
             if isinstance(base_topology, dict):
                 base_sig = base_topology.get("signature")
-                base_thresholds = base_topology.get("baseline", {}).get("thresholds")
+                base_topology_baseline = base_topology.get("baseline")
+                if isinstance(base_topology_baseline, dict):
+                    base_thresholds = base_topology_baseline.get("thresholds")
             cur_sig = topology_result.get("signature")
             if base_sig and cur_sig:
                 base_vec = np.array(base_sig.get("vector", []), dtype=float)
@@ -410,11 +427,8 @@ def build_ond_art_report(
                         dtype=float,
                     )
                     dist_ci = _ci95(dist_samples, center=dist, min_value=0.0)
-                    classification = "Unknown"
-                    thresholds = None
-                    if isinstance(base_thresholds, dict):
-                        thresholds = base_thresholds
-                        classification = _classify(dist, thresholds)
+                    thresholds = _thresholds_or_default(base_thresholds)
+                    classification = _classify(dist, thresholds)
                     topology_baseline = {
                         "baseline_id": baseline_id,
                         "distance": dist,
@@ -461,7 +475,9 @@ def build_ond_art_report(
             base_thresholds = None
             if isinstance(base_orbit, dict):
                 base_sig = base_orbit.get("signature")
-                base_thresholds = base_orbit.get("baseline", {}).get("thresholds")
+                base_orbit_baseline = base_orbit.get("baseline")
+                if isinstance(base_orbit_baseline, dict):
+                    base_thresholds = base_orbit_baseline.get("thresholds")
             cur_sig = orbit_result.get("signature")
             if base_sig and cur_sig:
                 base_vec = np.array(base_sig.get("vector", []), dtype=float)
@@ -478,11 +494,8 @@ def build_ond_art_report(
                         dtype=float,
                     )
                     dist_ci = _ci95(dist_samples, center=dist, min_value=0.0)
-                    classification = "Unknown"
-                    thresholds = None
-                    if isinstance(base_thresholds, dict):
-                        thresholds = base_thresholds
-                        classification = _classify(dist, thresholds)
+                    thresholds = _thresholds_or_default(base_thresholds)
+                    classification = _classify(dist, thresholds)
                     orbit_baseline = {
                         "baseline_id": baseline_id,
                         "distance": dist,
@@ -539,9 +552,10 @@ def build_ond_art_report(
             "block_length": 0,
         },
         "metrics": metrics,
-        "baseline": baseline,
         "notes": notes or ["Diagnostic only; no security claim."],
     }
+    if isinstance(baseline, dict):
+        report["baseline"] = baseline
     if topology_result:
         if topology_baseline:
             topology_result["baseline"] = topology_baseline
