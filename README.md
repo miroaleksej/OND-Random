@@ -216,6 +216,14 @@ pip install -e ./ond-odd-spec
 ond-odd-validate --observations observations.jsonl --ond-art-report reports/ond_art_report.json
 ```
 
+Migration (fill missing `spec_version` / `schema_version`):
+```bash
+PYTHONPATH=. python scripts/migrate_odd_artifacts.py \
+  --observations observations.jsonl \
+  --ond-art-report reports/ond_art_report.json \
+  --out-dir migrated/
+```
+
 ## ODD baseline/regression (OND‑ART report)
 
 ```bash

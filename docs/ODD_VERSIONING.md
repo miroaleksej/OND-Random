@@ -37,6 +37,26 @@ When a **MAJOR** bump happens:
    - deterministic field mapping
 3. Keep the validator compatible with the previous **major** for one release cycle.
 
+## Migration tool
+
+Use the built‑in migration script to fill missing `spec_version` / `schema_version` fields:
+
+```bash
+PYTHONPATH=. python scripts/migrate_odd_artifacts.py \
+  --observations observations.jsonl \
+  --ond-art-report reports/ond_art_report.json \
+  --out-dir migrated/
+```
+
+In‑place update:
+
+```bash
+PYTHONPATH=. python scripts/migrate_odd_artifacts.py \
+  --observations observations.jsonl \
+  --ond-art-report reports/ond_art_report.json \
+  --in-place
+```
+
 ## Validator behavior
 
 The validator:
