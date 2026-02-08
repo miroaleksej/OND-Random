@@ -395,6 +395,15 @@ ond-random run-suite --suite ond,nist,practrand,testu01,ea90b --out data/reports
 
 Details: `docs/suites.md`
 
+Extractors (ONDMax + Toeplitz):
+
+```bash
+ond-random extract --method ondmax --out-bytes 32 --hex
+ond-random extract --method toeplitz --out-bytes 32 --input-bytes 64 --hex
+```
+
+Details: `docs/extractors.md`
+
 ## Lindblad (noisy two-level system)
 
 ```python

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import os
+from typing import Iterable, List
 
 from .base import RNG
 
@@ -82,4 +83,101 @@ class ONDMaxRNG(RNG):
             out.extend(block[:take])
             if take < len(block):
                 self._buffer = block[take:]
+        return bytes(out)
+
+
+def _bytes_to_bits(data: bytes) -> List[int]:
+    bits: List[int] = []
+    for b in data:
+        for i in range(7, -1, -1):
+            bits.append((b >> i) & 1)
+    return bits
+
+
+def _bits_to_bytes(bits: Iterable[int]) -> bytes:
+    out = bytearray()
+    acc = 0
+    count = 0
+    for bit in bits:
+        acc = (acc << 1) | (1 if bit else 0)
+        count += 1
+        if count == 8:
+            out.append(acc)
+            acc = 0
+            count = 0
+    if count:
+        acc = acc << (8 - count)
+        out.append(acc)
+    return bytes(out)
+
+
+def toeplitz_hash(input_bytes: bytes, seed: bytes, output_bits: int) -> bytes:
+    if output_bits <= 0:
+        raise ValueError("output_bits must be positive")
+    input_bits = _bytes_to_bits(input_bytes)
+    n = len(input_bits)
+    m = output_bits
+    required = n + m - 1
+    seed_bits = _bytes_to_bits(seed)
+    if len(seed_bits) < required:
+        raise ValueError("seed is too short for requested dimensions")
+    tprime = seed_bits[:required]
+
+    out_bits: List[int] = []
+    for i in range(m):
+        start = (m - 1) - i
+        acc = 0
+        for j in range(n):
+            acc ^= input_bits[j] & tprime[start + j]
+        out_bits.append(acc)
+    return _bits_to_bytes(out_bits)
+
+
+class ToeplitzExtractorRNG(RNG):
+    """Toeplitz (universal hashing) extractor.
+
+    Generates output blocks by hashing fresh source bytes using a fixed
+    Toeplitz matrix defined by `seed`. This is an information-theoretic
+    extractor when the input has sufficient min-entropy.
+    """
+
+    def __init__(
+        self,
+        source: RNG | None = None,
+        *,
+        input_bytes: int = 64,
+        output_bytes: int = 32,
+        seed: bytes | None = None,
+    ):
+        if input_bytes <= 0:
+            raise ValueError("input_bytes must be positive")
+        if output_bytes <= 0:
+            raise ValueError("output_bytes must be positive")
+        self._source = source
+        self._input_bytes = input_bytes
+        self._output_bytes = output_bytes
+        input_bits = input_bytes * 8
+        output_bits = output_bytes * 8
+        required_bits = input_bits + output_bits - 1
+        required_bytes = (required_bits + 7) // 8
+        if seed is None:
+            seed = self._get_entropy(required_bytes)
+        if len(seed) * 8 < required_bits:
+            raise ValueError("seed is too short for requested dimensions")
+        self._seed = seed[:required_bytes]
+
+    def _get_entropy(self, n: int) -> bytes:
+        if self._source is None:
+            return os.urandom(n)
+        return self._source.random_bytes(n)
+
+    def random_bytes(self, n: int) -> bytes:
+        if n < 0:
+            raise ValueError("n must be non-negative")
+        out = bytearray()
+        while len(out) < n:
+            chunk = self._get_entropy(self._input_bytes)
+            block = toeplitz_hash(chunk, self._seed, self._output_bytes * 8)
+            take = min(n - len(out), len(block))
+            out.extend(block[:take])
         return bytes(out)

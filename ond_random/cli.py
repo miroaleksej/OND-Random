@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import hashlib
 from pathlib import Path
 from typing import Any
 
@@ -38,7 +39,7 @@ from .rng.lcg import LCGRNG
 from .rng.xorshift import XorShiftRNG
 from .rng.chacha20 import ChaCha20RNG
 from .rng.quantum import QuantumEmulatorRNG, QuantumNoiseModel
-from .rng.extractor import ONDMaxRNG
+from .rng.extractor import ONDMaxRNG, ToeplitzExtractorRNG, toeplitz_hash
 from .rng.structured import MaskedRNG, BoundedRNG
 from .quantum.grover import grover_search
 from .quantum.shor import shor_factor
@@ -165,6 +166,66 @@ def cmd_gen(args: argparse.Namespace) -> None:
             print(data.hex())
         else:
             os.write(1, data)
+
+
+def cmd_extract(args: argparse.Namespace) -> None:
+    source_rng = _rng_from_args(args)
+    out_bytes = args.out_bytes
+    out_data: bytes
+
+    if args.input:
+        input_bytes = Path(args.input).read_bytes()
+    else:
+        input_bytes = None
+
+    if args.method == "ondmax":
+        personalization = (args.personalization or "OND-RANDOM-v1").encode("utf-8")
+        if input_bytes is not None:
+            shake = hashlib.shake_256()
+            shake.update(personalization)
+            shake.update(input_bytes)
+            out_data = shake.digest(out_bytes)
+        else:
+            extractor = ONDMaxRNG(
+                source=source_rng,
+                seed_bytes=args.seed_bytes,
+                reseed_interval=args.reseed_interval,
+                personalization=personalization,
+            )
+            out_data = extractor.random_bytes(out_bytes)
+    elif args.method == "toeplitz":
+        seed = bytes.fromhex(args.toeplitz_seed_hex) if args.toeplitz_seed_hex else None
+        if input_bytes is None:
+            in_bytes = args.input_bytes if args.input_bytes is not None else out_bytes * 2
+            required_bits = in_bytes * 8 + out_bytes * 8 - 1
+            required_bytes = (required_bits + 7) // 8
+            if seed is None:
+                seed_len = args.toeplitz_seed_bytes or required_bytes
+                seed = source_rng.random_bytes(seed_len)
+            extractor = ToeplitzExtractorRNG(
+                source=source_rng,
+                input_bytes=in_bytes,
+                output_bytes=out_bytes,
+                seed=seed,
+            )
+            out_data = extractor.random_bytes(out_bytes)
+        else:
+            required_bits = len(input_bytes) * 8 + out_bytes * 8 - 1
+            required_bytes = (required_bits + 7) // 8
+            if seed is None:
+                seed_len = args.toeplitz_seed_bytes or required_bytes
+                seed = source_rng.random_bytes(seed_len)
+            out_data = toeplitz_hash(input_bytes, seed, out_bytes * 8)
+    else:
+        raise ValueError("unknown extraction method")
+
+    if args.out:
+        Path(args.out).write_bytes(out_data)
+    else:
+        if args.hex:
+            print(out_data.hex())
+        else:
+            os.write(1, out_data)
 
 
 def cmd_profile(args: argparse.Namespace) -> None:
@@ -690,6 +751,20 @@ def build_parser() -> argparse.ArgumentParser:
     p_gen.add_argument("--out")
     p_gen.add_argument("--hex", action="store_true")
     p_gen.set_defaults(func=cmd_gen)
+
+    p_extract = sub.add_parser("extract", parents=[common_rng], help="Extract/whiten bytes using ONDMax or Toeplitz")
+    p_extract.add_argument("--method", choices=["ondmax", "toeplitz"], default="ondmax")
+    p_extract.add_argument("--input", help="optional input file (raw bytes)")
+    p_extract.add_argument("--input-bytes", type=int, default=None, help="input byte length when sourcing from RNG")
+    p_extract.add_argument("--out-bytes", type=int, default=32)
+    p_extract.add_argument("--out")
+    p_extract.add_argument("--hex", action="store_true")
+    p_extract.add_argument("--personalization", default="OND-RANDOM-v1")
+    p_extract.add_argument("--seed-bytes", type=int, default=64)
+    p_extract.add_argument("--reseed-interval", type=int, default=1 << 20)
+    p_extract.add_argument("--toeplitz-seed-hex", default=None)
+    p_extract.add_argument("--toeplitz-seed-bytes", type=int, default=None)
+    p_extract.set_defaults(func=cmd_extract)
 
     p_profile = sub.add_parser("profile", parents=[common_rng], help="Compute OND profile")
     p_profile.add_argument("--samples", type=int, default=10000)

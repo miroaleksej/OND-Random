@@ -2,7 +2,7 @@
 
 from .ond import ObservationMap, ONDClass, compute_profile, OnlineCalibrator
 from .rng.system import SystemRNG
-from .rng.extractor import ONDMaxRNG
+from .rng.extractor import ONDMaxRNG, ToeplitzExtractorRNG, toeplitz_hash
 from .protocols import (
     ProtocolObservation,
     ECDSAObservation,
@@ -65,6 +65,8 @@ __all__ = [
     "OnlineCalibrator",
     "SystemRNG",
     "ONDMaxRNG",
+    "ToeplitzExtractorRNG",
+    "toeplitz_hash",
     "ProtocolObservation",
     "ECDSAObservation",
     "ECDSAParams",
