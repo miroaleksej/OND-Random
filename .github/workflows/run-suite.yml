@@ -31,6 +31,9 @@ jobs:
           if data["summary"]["overall"] == "error":
               raise SystemExit("run-suite failed")
           PY
+      - name: Validate metadata schema
+        run: |
+          PYTHONPATH=. python scripts/validate_run_suite_metadata.py --metadata data/reports/run_suite_ci/metadata.json
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -61,6 +64,9 @@ jobs:
           if data["summary"]["overall"] == "error":
               raise SystemExit("run-suite failed")
           PY
+      - name: Validate metadata schema
+        run: |
+          PYTHONPATH=. python scripts/validate_run_suite_metadata.py --metadata data/reports/run_suite_nightly/metadata.json
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:

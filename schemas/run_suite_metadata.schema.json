@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OND-Random run-suite metadata",
+  "type": "object",
+  "required": [
+    "run",
+    "ond_random_version",
+    "python",
+    "platform",
+    "mode",
+    "suite",
+    "rng",
+    "args"
+  ],
+  "properties": {
+    "run": {
+      "type": "object",
+      "required": [
+        "run_id",
+        "created_at",
+        "finished_at",
+        "duration_seconds",
+        "timezone"
+      ],
+      "properties": {
+        "run_id": { "type": "string" },
+        "created_at": { "type": "string" },
+        "finished_at": { "type": "string" },
+        "duration_seconds": { "type": "number" },
+        "timezone": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "ond_random_version": { "type": "string" },
+    "python": { "type": "string" },
+    "platform": { "type": "string" },
+    "mode": { "type": "string", "enum": ["quick", "full"] },
+    "suite": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "git": {
+      "type": ["object", "null"],
+      "properties": {
+        "commit": { "type": "string" },
+        "dirty": { "type": "boolean" }
+      },
+      "required": ["commit", "dirty"],
+      "additionalProperties": true
+    },
+    "rng": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "source": { "type": ["string", "null"] },
+        "seed": { "type": ["integer", "null"] },
+        "seed2": { "type": ["integer", "null"] },
+        "key_hex": { "type": ["string", "null"] },
+        "bias": { "type": ["number", "null"] },
+        "drift_sigma": { "type": ["number", "null"] },
+        "drift_rho": { "type": ["number", "null"] },
+        "memory": { "type": ["number", "null"] },
+        "phase_sigma": { "type": ["number", "null"] },
+        "mask_low_bits": { "type": ["integer", "null"] },
+        "bound_bits": { "type": ["integer", "null"] }
+      },
+      "additionalProperties": true
+    },
+    "args": { "type": "object" }
+  },
+  "additionalProperties": true
+}

@@ -47,6 +47,8 @@ data/reports/run_suite/
 - RNG configuration used for generation
 - full CLI arguments (for reproducibility)
 
+Schema: `schemas/run_suite_metadata.schema.json` (validated in CI).
+
 ## External suite notes
 
 The external batteries are optional:
