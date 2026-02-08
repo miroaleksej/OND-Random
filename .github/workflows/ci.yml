@@ -24,3 +24,7 @@ jobs:
           pip install --no-cache-dir -r requirements.txt -r requirements-dev.txt
       - name: Run tests
         run: PYTHONPATH=. python -m pytest -q
+      - name: Validate extractor specs
+        run: |
+          PYTHONPATH=. python scripts/validate_extractor_spec.py --spec schemas/extractor_spec_ondmax.json
+          PYTHONPATH=. python scripts/validate_extractor_spec.py --spec schemas/extractor_spec_toeplitz.json

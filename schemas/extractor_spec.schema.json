@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OND-Random extractor spec",
+  "type": "object",
+  "required": ["extractor_id", "version", "params"],
+  "properties": {
+    "extractor_id": {
+      "type": "string",
+      "enum": ["ondmax", "toeplitz"]
+    },
+    "version": { "type": "string" },
+    "params": {
+      "type": "object",
+      "properties": {
+        "seed_bytes": { "type": "integer", "minimum": 1 },
+        "reseed_interval": { "type": "integer", "minimum": 1 },
+        "personalization": { "type": "string" },
+        "input_bytes": { "type": "integer", "minimum": 1 },
+        "output_bytes": { "type": "integer", "minimum": 1 },
+        "toeplitz_seed_hex": { "type": "string" },
+        "toeplitz_seed_bytes": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

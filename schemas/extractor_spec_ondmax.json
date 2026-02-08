@@ -1,0 +1,9 @@
+{
+  "extractor_id": "ondmax",
+  "version": "0.1",
+  "params": {
+    "seed_bytes": 64,
+    "reseed_interval": 1048576,
+    "personalization": "OND-RANDOM-v1"
+  }
+}

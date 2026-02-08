@@ -54,6 +54,18 @@ PYTHONPATH=. python scripts/extractor_comparison.py --output-bytes 100000
 The report includes throughput and OND profiles for `raw`, `ondmax`,
 and `toeplitz`.
 
+## Extractor spec (JSON)
+
+Schema: `schemas/extractor_spec.schema.json`  
+Examples: `schemas/extractor_spec_ondmax.json`, `schemas/extractor_spec_toeplitz.json`
+
+Validate:
+
+```bash
+PYTHONPATH=. python scripts/validate_extractor_spec.py --spec schemas/extractor_spec_ondmax.json
+PYTHONPATH=. python scripts/validate_extractor_spec.py --spec schemas/extractor_spec_toeplitz.json
+```
+
 ## Conditioning component report (90B‑style)
 
 This is a lightweight report that checks whether the observed min‑entropy
