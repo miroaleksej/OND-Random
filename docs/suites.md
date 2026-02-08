@@ -54,3 +54,5 @@ The external batteries are optional:
 - `nist` and `testu01` always generate input files and can optionally run a command via `--nist-command` / `--testu01-command` (use `{input}` placeholder).
 - `practrand` runs `RNG_test` if found in `PATH` (or via `--practrand-cmd`).
 - `ea90b` runs NIST EntropyAssessment if `ea_non_iid` / `ea_iid` is available (or via `--ea-path`).
+
+Installation notes for external batteries live in `runners/README.md`.
