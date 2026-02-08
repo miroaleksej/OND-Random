@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "OND-ART report",
   "type": "object",
-  "required": ["spec", "run", "context", "data", "pi", "bootstrap", "metrics", "notes"],
+  "required": ["spec", "run", "provenance", "context", "data", "pi", "bootstrap", "metrics", "notes"],
   "properties": {
     "spec": {
       "type": "object",
@@ -25,6 +25,17 @@
         "timezone": { "type": "string" }
       },
       "required": ["run_id", "created_at", "timezone"],
+      "additionalProperties": true
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "commit": { "type": "string" },
+        "platform": { "type": "string" },
+        "generator_id": { "type": "string" },
+        "profile_id": { "type": "string" }
+      },
+      "required": ["commit", "platform", "generator_id", "profile_id"],
       "additionalProperties": true
     },
     "context": {

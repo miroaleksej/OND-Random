@@ -13,6 +13,7 @@ from .metrics import compute_profile_details
 from .observations_jsonl import read_observations_jsonl
 from .orbit_spectrum import bootstrap_orbit_vectors, compute_orbit_spectrum, normalize_orbit_config
 from .topology import bootstrap_topology_vectors, compute_topology_signature, normalize_topology_config
+from .provenance import resolve_provenance
 
 
 @dataclass
@@ -218,9 +219,10 @@ def build_ond_art_report(
     message_policy: str = "custom",
     spec_profile: str | None = "core",
     method_version: str | None = "unknown",
-    spec_version: str | None = "0.1",
-    schema_version: str | None = "0.1",
+    spec_version: str | None = "0.2",
+    schema_version: str | None = "0.2",
     notes: List[str] | None = None,
+    provenance: Dict[str, Any] | None = None,
     run_id: str | None = None,
     created_at: str | None = None,
     timezone_name: str = "Etc/UTC",
@@ -489,14 +491,29 @@ def build_ond_art_report(
                         "classification": classification,
                     }
 
+    report_provenance = provenance
+    if report_provenance is None:
+        meta_prov = meta.get("provenance") if isinstance(meta, dict) else None
+        generator_id = None
+        if isinstance(meta_prov, dict):
+            generator_id = meta_prov.get("generator_id")
+        if not generator_id:
+            generator_id = pi_id
+        profile_id = spec_profile or "core"
+        report_provenance = resolve_provenance(
+            generator_id=str(generator_id) if generator_id else "unknown",
+            profile_id=str(profile_id) if profile_id else "unknown",
+        )
+
     report = {
         "spec": {
             "name": "OND-ART",
             "version": "0.1",
-            "spec_version": spec_version or "0.1",
-            "schema_version": schema_version or "0.1",
+            "spec_version": spec_version or "0.2",
+            "schema_version": schema_version or "0.2",
         },
         "run": _build_run(run_id=run_id, created_at=created_at, timezone_name=timezone_name),
+        "provenance": report_provenance,
         "context": {
             "protocol": protocol,
             "scheme": scheme,

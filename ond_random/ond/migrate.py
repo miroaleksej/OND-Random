@@ -6,6 +6,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable, Tuple
 
+from .provenance import resolve_provenance
+
 
 @dataclass
 class MigrationStats:
@@ -60,8 +62,8 @@ def migrate_observations_jsonl(
     input_path: str,
     output_path: str,
     *,
-    spec_version: str = "0.1",
-    schema_version: str = "0.1",
+    spec_version: str = "0.2",
+    schema_version: str = "0.2",
 ) -> MigrationStats:
     stats = MigrationStats(files=1)
     in_path = Path(input_path)
@@ -128,12 +130,31 @@ def migrate_ond_art_report(
         spec_version=spec_version,
         schema_version=schema_version,
     )
+    if spec.get("spec_version") != spec_version:
+        spec["spec_version"] = spec_version
+        changed = True
+    if spec.get("schema_version") != schema_version:
+        spec["schema_version"] = schema_version
+        changed = True
+
     if changed:
         obj["spec"] = spec
         stats.updated += 1
         stats.spec_added += spec_stats.spec_added
         stats.spec_version_added += spec_stats.spec_version_added
         stats.schema_version_added += spec_stats.schema_version_added
+
+    if "provenance" not in obj or not isinstance(obj.get("provenance"), dict):
+        pi = obj.get("pi") if isinstance(obj.get("pi"), dict) else {}
+        generator_id = pi.get("pi_id") if isinstance(pi, dict) else None
+        profile_id = spec.get("profile") if isinstance(spec, dict) else None
+        obj["provenance"] = resolve_provenance(
+            generator_id=str(generator_id) if generator_id else "unknown",
+            profile_id=str(profile_id) if profile_id else "unknown",
+            commit="unknown",
+            platform="unknown",
+        )
+        stats.updated += 1
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(obj, ensure_ascii=False, indent=2, sort_keys=True), encoding="utf-8")

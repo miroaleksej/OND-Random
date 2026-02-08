@@ -309,6 +309,12 @@
     "pi_spec_hash": "sha256:67318fd135708876b96583b5d16b0b4a8cc5bd6e64c92b58c2e473b4a9fca9f4",
     "pi_version": "1.0.0"
   },
+  "provenance": {
+    "commit": "unknown",
+    "generator_id": "case-low-bits-v1",
+    "platform": "unknown",
+    "profile_id": "recommended"
+  },
   "run": {
     "created_at": "2026-02-06T20:56:35.133920+00:00",
     "run_id": "2026-02-06T20:56:35.133920+00:00#c4db6674b9d24df6891a79d06497be53",
@@ -317,6 +323,8 @@
   "spec": {
     "name": "OND-ART",
     "profile": "recommended",
+    "schema_version": "0.2",
+    "spec_version": "0.2",
     "version": "0.1",
     "x-method_version": "ond-random@case/low-bits"
   }
