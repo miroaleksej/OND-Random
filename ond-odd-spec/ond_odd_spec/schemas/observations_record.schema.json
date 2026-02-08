@@ -35,10 +35,21 @@
           },
           "additionalProperties": true
         },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "commit": { "type": "string" },
+            "platform": { "type": "string" },
+            "generator_id": { "type": "string" },
+            "profile_id": { "type": "string" }
+          },
+          "required": ["commit", "platform", "generator_id", "profile_id"],
+          "additionalProperties": true
+        },
         "context": { "type": "object" },
         "public_context_hash": { "type": "string" }
       },
-      "required": ["type", "pi_id", "pi_version", "pi_spec_hash", "obs_space"],
+      "required": ["type", "pi_id", "pi_version", "pi_spec_hash", "obs_space", "provenance"],
       "additionalProperties": true
     },
     "obs": {

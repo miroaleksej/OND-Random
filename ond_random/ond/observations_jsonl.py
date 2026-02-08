@@ -24,6 +24,7 @@ class ObservationsMeta:
     spec: Dict[str, Any] | None = None
     context: Dict[str, Any] | None = None
     public_context_hash: str | None = None
+    provenance: Dict[str, Any] | None = None
     extras: Dict[str, Any] | None = None
 
     def to_dict(self) -> Dict[str, Any]:
@@ -40,6 +41,8 @@ class ObservationsMeta:
             data["context"] = self.context
         if self.public_context_hash:
             data["public_context_hash"] = self.public_context_hash
+        if self.provenance:
+            data["provenance"] = self.provenance
         if self.extras:
             data.update(self.extras)
         return data
@@ -156,4 +159,3 @@ def read_observations_jsonl(path: str) -> Tuple[Dict[str, Any], np.ndarray, int]
     else:
         U = np.array(rows, dtype=np.int64)
     return meta, U, invalid_count
-

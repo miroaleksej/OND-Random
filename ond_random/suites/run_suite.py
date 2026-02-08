@@ -15,6 +15,7 @@ from typing import Any, Dict, Iterable, List, Tuple
 from ond_random.ond import ObservationMap, ObservationsMeta, write_observations_jsonl
 from ond_random.ond.baseline_policy import load_policy, select_policy
 from ond_random.ond.odd_report import build_ond_art_report, hash_json, hash_text
+from ond_random.ond.provenance import resolve_provenance
 from ond_random.rng.base import RNG
 from ond_random.rng.chacha20 import ChaCha20RNG
 from ond_random.rng.extractor import ONDMaxRNG
@@ -305,12 +306,15 @@ def _run_ond_suite(args: argparse.Namespace, out_dir: Path, defaults: Dict[str, 
     else:
         pi_spec_hash = hash_json({"pi_id": pi_id, "pi_version": pi_version, "obs_space": obs_space})
 
+    provenance = resolve_provenance(generator_id=pi_id, profile_id="suite", base_path=out_dir)
+
     meta = ObservationsMeta(
         pi_id=pi_id,
         pi_version=pi_version,
         pi_spec_hash=pi_spec_hash,
         obs_space=obs_space,
-        spec={"name": "ODD-OBS", "version": "0.1", "spec_version": "0.1", "schema_version": "0.1"},
+        spec={"name": "ODD-OBS", "version": "0.1", "spec_version": "0.2", "schema_version": "0.2"},
+        provenance=provenance,
     )
 
     suite_dir = out_dir / "artifacts" / "ond"

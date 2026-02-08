@@ -15,7 +15,7 @@ Both values are carried in:
 - `ond_art_report.json` → `spec.spec_version` / `spec.schema_version`
 
 Current versions:
-- ODD‑OBS: `spec_version = "0.1"`, `schema_version = "0.1"`
+- ODD‑OBS: `spec_version = "0.2"`, `schema_version = "0.2"`
 - OND‑ART: `spec_version = "0.2"`, `schema_version = "0.2"`
 
 ## Compatibility policy
@@ -67,13 +67,13 @@ This is the default contract for CI gates.
 
 ## Required provenance fields
 
-OND‑ART reports now require:
+Observations and OND‑ART reports now require:
 - `provenance.commit`
 - `provenance.platform`
 - `provenance.generator_id`
 - `provenance.profile_id`
 
-Use the migration tool to backfill these fields in existing reports.
+Use the migration tool to backfill these fields in existing artifacts.
 
 ## Backward‑compat mode
 

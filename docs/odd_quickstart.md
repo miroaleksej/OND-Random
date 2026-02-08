@@ -13,6 +13,7 @@ ond-random obs-export \
 ```
 
 Tip: use `--pi-registry` with `check`/`add` to prevent `pi_spec_hash` drift.
+Provenance (`commit`, `platform`, `generator_id`, `profile_id`) is included automatically.
 
 ## 2) Generate baseline report (one‑time)
 

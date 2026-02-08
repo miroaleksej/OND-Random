@@ -22,7 +22,7 @@ tda = ["ripser>=0.6.8"]
 jax = ["jax>=0.4.23", "jaxlib>=0.4.23"]
 cupy = ["cupy>=12.0.0"]
 quantum = []
-spec = ["ond-odd-spec>=0.2.0"]
+spec = ["ond-odd-spec>=0.3.0"]
 dev = [
   "pytest>=8.2",
   "build>=1.2",
@@ -34,7 +34,7 @@ all = [
   "jax>=0.4.23",
   "jaxlib>=0.4.23",
   "cupy>=12.0.0",
-  "ond-odd-spec>=0.2.0",
+  "ond-odd-spec>=0.3.0",
   "pytest>=8.2",
   "build>=1.2",
   "sigstore>=2.1.5,<3.0",

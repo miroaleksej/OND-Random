@@ -33,6 +33,7 @@ from .ond import (
 from .ond.benchmark import classify_profile, load_reference_profiles, save_reference_profiles, ReferenceProfile, ONDClass
 from .ond.baseline_policy import load_policy, select_policy
 from .ond.odd_report import build_ond_art_report, hash_json, hash_text
+from .ond.provenance import resolve_provenance
 from .rng.base import RNG
 from .rng.system import SystemRNG
 from .rng.lcg import LCGRNG
@@ -404,14 +405,17 @@ def cmd_obs_export(args: argparse.Namespace) -> None:
 
     context = _load_json_arg(args.context_json)
 
+    provenance = resolve_provenance(generator_id=args.pi_id, profile_id="observations", base_path=Path.cwd())
+
     meta = ObservationsMeta(
         pi_id=args.pi_id,
         pi_version=args.pi_version,
         pi_spec_hash=pi_spec_hash,
         obs_space=obs_space,
-        spec={"name": "ODD-OBS", "version": "0.1", "spec_version": "0.1", "schema_version": "0.1"},
+        spec={"name": "ODD-OBS", "version": "0.1", "spec_version": "0.2", "schema_version": "0.2"},
         context=context,
         public_context_hash=args.public_context_hash,
+        provenance=provenance,
     )
 
     if args.pi_registry:

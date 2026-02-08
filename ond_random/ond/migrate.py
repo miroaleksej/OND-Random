@@ -90,6 +90,23 @@ def migrate_observations_jsonl(
                     spec_version=spec_version,
                     schema_version=schema_version,
                 )
+                if spec.get("spec_version") != spec_version:
+                    spec["spec_version"] = spec_version
+                    changed = True
+                if spec.get("schema_version") != schema_version:
+                    spec["schema_version"] = schema_version
+                    changed = True
+
+                provenance = obj.get("provenance")
+                if not isinstance(provenance, dict):
+                    generator_id = obj.get("pi_id") or "unknown"
+                    obj["provenance"] = resolve_provenance(
+                        generator_id=str(generator_id),
+                        profile_id="observations",
+                        commit="unknown",
+                        platform="unknown",
+                    )
+                    changed = True
                 if changed:
                     obj["spec"] = spec
                     meta_updated = True
@@ -112,8 +129,8 @@ def migrate_ond_art_report(
     input_path: str,
     output_path: str,
     *,
-    spec_version: str = "0.1",
-    schema_version: str = "0.1",
+    spec_version: str = "0.2",
+    schema_version: str = "0.2",
 ) -> MigrationStats:
     stats = MigrationStats(files=1)
     in_path = Path(input_path)
