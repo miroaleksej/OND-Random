@@ -1,32 +1,37 @@
-# Release प्रक्रिया
+# Release Guide
 
-## Tagging
-Use semantic version tags:
+## Prerequisites
+- Configure a PyPI Trusted Publisher for this repository/workflow:
+  - publisher repo: `miroaleksej/OND-Random`
+  - workflow: `.github/workflows/release.yml`
+  - environment (optional): use your PyPI policy
+- Ensure the target version in `pyproject.toml` is correct.
 
+## Create a release tag
 ```bash
 git tag v0.1.0
 git push origin v0.1.0
 ```
 
-## Automated pipeline
-The GitHub Actions workflow `.github/workflows/release.yml` will:
-- build sdist + wheel
-- generate MANIFEST.json + SHA256SUMS
-- sign artifacts using Sigstore
-- publish a GitHub Release with signed artifacts
+## What the release workflow does
+Workflow: `.github/workflows/release.yml`
 
-## Verification
-Download artifacts and verify signatures using Sigstore:
+1. Builds `sdist` and `wheel`.
+2. Generates `dist/MANIFEST.json` and `dist/SHA256SUMS`.
+3. Publishes to PyPI via Trusted Publishing (`pypa/gh-action-pypi-publish`).
+4. Enables PyPI attestations (PEP 740 support in the publish action).
+5. Creates a GitHub Release and uploads all `dist/*` artifacts.
 
-```bash
-sigstore verify identity \
-  --cert-identity "https://github.com/<org>/<repo>/.github/workflows/release.yml@refs/tags/v0.1.0" \
-  --cert-oidc-issuer "https://token.actions.githubusercontent.com" \
-  dist/<artifact>
+## Manual rerun for an existing tag
+Use `workflow_dispatch` and provide `tag` (for example `v0.1.0`).
 
-Verify hashes:
-
+## Verify artifacts
 ```bash
 python scripts/verify_manifest.py
 ```
+
+For installation checks:
+```bash
+python -m pip install ond-random==0.1.0
+python -m ond_random.cli --help
 ```

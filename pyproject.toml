@@ -8,12 +8,28 @@ version = "0.1.0"
 description = "Observed Randomness Dynamics (OND) random system with benchmarks and reports"
 readme = "README.md"
 requires-python = ">=3.10"
-license = {text = "MIT"}
+license = "MIT"
 authors = [{name = "OND Random"}]
+keywords = ["randomness", "rng", "entropy", "ond", "diagnostics"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Security :: Cryptography",
+  "Topic :: Scientific/Engineering",
+]
 
 dependencies = [
   "numpy>=1.23",
 ]
+
+[project.urls]
+Homepage = "https://github.com/miroaleksej/OND-Random"
+Repository = "https://github.com/miroaleksej/OND-Random"
+Issues = "https://github.com/miroaleksej/OND-Random/issues"
 
 [project.optional-dependencies]
 core = []
@@ -26,6 +42,9 @@ spec = ["ond-odd-spec>=0.3.0"]
 dev = [
   "pytest>=8.2",
   "build>=1.2",
+  "jsonschema>=4.23.0",
+]
+release = [
   "sigstore>=2.1.5,<3.0",
 ]
 all = [
@@ -37,6 +56,7 @@ all = [
   "ond-odd-spec>=0.3.0",
   "pytest>=8.2",
   "build>=1.2",
+  "jsonschema>=4.23.0",
   "sigstore>=2.1.5,<3.0",
 ]
 

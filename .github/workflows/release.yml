@@ -4,39 +4,81 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing tag to release (e.g. v0.1.0)"
+        required: false
+        type: string
 
 jobs:
-  build-and-sign:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag || github.ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install build tools
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --no-cache-dir build
+      - name: Build sdist and wheel
+        run: python -m build
+      - name: Generate manifest and checksums
+        run: python scripts/generate_manifest.py
+      - name: Upload release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-dist
+          path: dist/*
+          if-no-files-found: error
+
+  publish-pypi:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - name: Download release artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: release-dist
+          path: dist
+      - name: Publish to PyPI (Trusted Publishing + PEP 740 attestation)
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist
+          skip-existing: true
+          attestations: true
+
+  github-release:
+    needs: [build, publish-pypi]
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      id-token: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Download release artifacts
+        uses: actions/download-artifact@v4
         with:
-          python-version: "3.11"
-      - name: Install build tools
+          name: release-dist
+          path: dist
+      - name: Resolve release tag
+        id: reltag
         run: |
-          echo "HEAD: $(git rev-parse HEAD)"
-          echo "requirements-dev.txt:"
-          cat requirements-dev.txt
-          python -m pip install --upgrade pip
-          pip install --no-cache-dir -r requirements.txt -r requirements-dev.txt
-      - name: Build
-        run: python -m build
-      - name: Generate manifest + hashes
-        run: python scripts/generate_manifest.py
-      - name: Sign artifacts (Sigstore)
-        run: |
-          sigstore sign dist/*.whl
-          sigstore sign dist/*.tar.gz
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist
-          path: dist/*
-      - name: Create GitHub Release
+          if [ -n "${{ github.event.inputs.tag }}" ]; then
+            echo "tag=${{ github.event.inputs.tag }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Publish GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/*
+          tag_name: ${{ steps.reltag.outputs.tag }}
+          generate_release_notes: true
+          files: |
+            dist/*
