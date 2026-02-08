@@ -53,3 +53,26 @@ PYTHONPATH=. python scripts/extractor_comparison.py --output-bytes 100000
 
 The report includes throughput and OND profiles for `raw`, `ondmax`,
 and `toeplitz`.
+
+## Conditioning component report (90B‑style)
+
+This is a lightweight report that checks whether the observed min‑entropy
+is sufficient for a given output length and security parameter.
+
+```bash
+PYTHONPATH=. python scripts/conditioning_report.py \
+  --method toeplitz \
+  --output-bits 256 \
+  --epsilon 2.3283064365386963e-10 \
+  --run-suite-results data/reports/run_suite/results.json
+```
+
+If you have a standalone EntropyAssessment report:
+
+```bash
+PYTHONPATH=. python scripts/conditioning_report.py \
+  --method toeplitz \
+  --output-bits 256 \
+  --epsilon 2.3283064365386963e-10 \
+  --ea-report data/reports/nist_entropy_report.json
+```
