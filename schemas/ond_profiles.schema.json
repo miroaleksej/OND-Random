@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "ond_profiles.schema.json",
+  "title": "OND profiles list",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "H_rank": { "type": "number" },
+      "H_sub": { "type": "number" },
+      "H_branch": { "type": "number" },
+      "rank": { "type": "integer", "minimum": 0 },
+      "n_samples": { "type": "integer", "minimum": 0 },
+      "dimension": { "type": "integer", "minimum": 1 },
+      "modulus": { "type": ["integer", "string", "null"] },
+      "id": { "type": "string" },
+      "ond_class": { "type": "string" },
+      "description": { "type": "string" }
+    },
+    "required": ["H_rank", "H_sub", "H_branch", "rank", "n_samples", "dimension"],
+    "additionalProperties": true
+  }
+}

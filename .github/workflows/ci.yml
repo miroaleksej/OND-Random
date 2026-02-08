@@ -28,3 +28,11 @@ jobs:
         run: |
           PYTHONPATH=. python scripts/validate_extractor_spec.py --spec schemas/extractor_spec_ondmax.json
           PYTHONPATH=. python scripts/validate_extractor_spec.py --spec schemas/extractor_spec_toeplitz.json
+      - name: Validate ODD artifacts
+        run: |
+          PYTHONPATH=. python scripts/validate_odd_artifacts.py \
+            --observations data/samples/observations_sample.jsonl \
+            --ond-art-report data/reports/cases/low_bits_bias/ond_art_report.json \
+            --profile data/benchmarks/large/I-ondmax.json \
+            --profile data/reports/benchmark_profiles.json \
+            --reference-profiles data/benchmarks/reference_profiles.json

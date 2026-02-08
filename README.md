@@ -192,6 +192,22 @@ Format (JSONL):
 ...
 ```
 
+Schemas:
+- `schemas/observations_record.schema.json`
+- `schemas/ond_art_report.schema.json`
+- `schemas/ond_profile.schema.json` and `schemas/ond_profiles.schema.json`
+- `schemas/reference_profiles.schema.json`
+
+Validation:
+```bash
+PYTHONPATH=. python scripts/validate_odd_artifacts.py \
+  --observations data/samples/observations_sample.jsonl \
+  --ond-art-report data/reports/cases/low_bits_bias/ond_art_report.json \
+  --profile data/benchmarks/large/I-ondmax.json \
+  --profile data/reports/benchmark_profiles.json \
+  --reference-profiles data/benchmarks/reference_profiles.json
+```
+
 ## ODD baseline/regression (OND‑ART report)
 
 ```bash

@@ -1,0 +1,224 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OND-ART report",
+  "type": "object",
+  "required": ["spec", "run", "context", "data", "pi", "bootstrap", "metrics", "notes"],
+  "properties": {
+    "spec": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" },
+        "profile": { "type": "string" },
+        "x-method_version": { "type": "string" }
+      },
+      "required": ["name", "version"],
+      "additionalProperties": true
+    },
+    "run": {
+      "type": "object",
+      "properties": {
+        "run_id": { "type": "string" },
+        "created_at": { "type": "string" },
+        "timezone": { "type": "string" }
+      },
+      "required": ["run_id", "created_at", "timezone"],
+      "additionalProperties": true
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "protocol": { "type": "string" },
+        "scheme": { "type": "string" },
+        "params": { "type": "object" },
+        "public_context_hash": { "type": "string" }
+      },
+      "required": ["protocol", "scheme", "params", "public_context_hash"],
+      "additionalProperties": true
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "N": { "type": "integer", "minimum": 0 },
+        "order": { "type": "string" },
+        "message_policy": { "type": "string" },
+        "invalid_count": { "type": "integer", "minimum": 0 }
+      },
+      "required": ["N", "order", "message_policy", "invalid_count"],
+      "additionalProperties": true
+    },
+    "pi": {
+      "type": "object",
+      "properties": {
+        "pi_id": { "type": "string" },
+        "pi_version": { "type": "string" },
+        "pi_spec_hash": { "type": "string" },
+        "obs_space": { "$ref": "#/$defs/obs_space" }
+      },
+      "required": ["pi_id", "pi_version", "pi_spec_hash", "obs_space"],
+      "additionalProperties": true
+    },
+    "bootstrap": {
+      "type": "object",
+      "properties": {
+        "B": { "type": "integer", "minimum": 0 },
+        "method": { "type": "string" },
+        "unit": { "type": "string" },
+        "block_length": { "type": "integer", "minimum": 0 }
+      },
+      "required": ["B", "method", "unit", "block_length"],
+      "additionalProperties": true
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "rank": {
+          "type": "object",
+          "properties": {
+            "H": { "type": "number" },
+            "rho": { "type": "number" },
+            "ci95": { "$ref": "#/$defs/ci95" },
+            "svd_settings": { "type": "object" }
+          },
+          "required": ["H", "rho", "ci95"],
+          "additionalProperties": true
+        },
+        "subspace": {
+          "type": "object",
+          "properties": {
+            "H": { "type": "number" },
+            "rho": { "type": "number" },
+            "ci95": { "$ref": "#/$defs/ci95" },
+            "binning": {
+              "type": "object",
+              "properties": {
+                "b": { "type": "integer", "minimum": 1 },
+                "M_occ": { "type": "integer", "minimum": 0 }
+              },
+              "required": ["b", "M_occ"],
+              "additionalProperties": true
+            }
+          },
+          "required": ["H", "rho", "ci95", "binning"],
+          "additionalProperties": true
+        },
+        "branching": {
+          "type": "object",
+          "properties": {
+            "H": { "type": "number" },
+            "ci95": { "$ref": "#/$defs/ci95" },
+            "clustering": {
+              "type": "object",
+              "properties": {
+                "method": { "type": "string" },
+                "K": { "type": "integer", "minimum": 1 },
+                "seed": { "type": "integer", "minimum": 0 }
+              },
+              "required": ["method", "K", "seed"],
+              "additionalProperties": true
+            }
+          },
+          "required": ["H", "ci95", "clustering"],
+          "additionalProperties": true
+        }
+      },
+      "required": ["rank", "subspace", "branching"],
+      "additionalProperties": true
+    },
+    "baseline": { "$ref": "#/$defs/baseline" },
+    "topology": { "$ref": "#/$defs/topology" },
+    "orbit_spectrum": { "$ref": "#/$defs/orbit" },
+    "notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "obs_space": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "minLength": 1 },
+        "d": { "type": "integer", "minimum": 1 },
+        "modulus": { "type": ["integer", "string"] }
+      },
+      "required": ["type"],
+      "additionalProperties": true
+    },
+    "ci95": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": { "type": "number" }
+    },
+    "thresholds": {
+      "type": "object",
+      "properties": {
+        "green": { "type": "number" },
+        "yellow": { "type": "number" },
+        "red": { "type": "number" }
+      },
+      "required": ["green", "yellow", "red"],
+      "additionalProperties": true
+    },
+    "baseline": {
+      "type": "object",
+      "properties": {
+        "baseline_id": { "type": "string" },
+        "distance": { "type": "number" },
+        "distance_ci95": { "$ref": "#/$defs/ci95" },
+        "thresholds": { "$ref": "#/$defs/thresholds" },
+        "classification": { "type": "string" }
+      },
+      "required": ["baseline_id", "distance", "distance_ci95", "thresholds", "classification"],
+      "additionalProperties": true
+    },
+    "signature": {
+      "type": "object",
+      "properties": {
+        "vector": { "type": "array", "items": { "type": "number" } },
+        "labels": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["vector", "labels"],
+      "additionalProperties": true
+    },
+    "topology": {
+      "type": "object",
+      "properties": {
+        "status": { "type": "string" },
+        "reason": { "type": ["string", "null"] },
+        "mode": { "type": "string" },
+        "embedding": { "type": "string" },
+        "maxdim": { "type": "integer", "minimum": 0 },
+        "persistence_rel": { "type": "number" },
+        "persistence_min": { "type": "number" },
+        "sample_size": { "type": ["integer", "null"] },
+        "n_samples": { "type": "integer", "minimum": 0 },
+        "layers": { "type": "object" },
+        "signature": { "$ref": "#/$defs/signature" },
+        "baseline": { "$ref": "#/$defs/baseline" }
+      },
+      "required": ["status", "n_samples"],
+      "additionalProperties": true
+    },
+    "orbit": {
+      "type": "object",
+      "properties": {
+        "status": { "type": "string" },
+        "reason": { "type": ["string", "null"] },
+        "topk": { "type": "integer", "minimum": 0 },
+        "include_zero": { "type": "boolean" },
+        "n_samples": { "type": "integer", "minimum": 0 },
+        "summary": { "type": "object" },
+        "spectrum": { "type": "array" },
+        "projective_space": { "type": "object" },
+        "information_bound_bits": { "type": "number" },
+        "connection_vector": { "type": "object" },
+        "signature": { "$ref": "#/$defs/signature" },
+        "baseline": { "$ref": "#/$defs/baseline" }
+      },
+      "required": ["status", "topk", "include_zero", "n_samples"],
+      "additionalProperties": true
+    }
+  }
+}

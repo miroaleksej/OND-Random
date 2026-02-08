@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OND reference profiles",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "ond_class": { "type": "string" },
+      "description": { "type": "string" },
+      "mean": {
+        "type": "object",
+        "properties": {
+          "H_rank": { "type": "number" },
+          "H_sub": { "type": "number" },
+          "H_branch": { "type": "number" }
+        },
+        "required": ["H_rank", "H_sub", "H_branch"],
+        "additionalProperties": true
+      },
+      "std": {
+        "type": "object",
+        "properties": {
+          "H_rank": { "type": "number" },
+          "H_sub": { "type": "number" },
+          "H_branch": { "type": "number" }
+        },
+        "required": ["H_rank", "H_sub", "H_branch"],
+        "additionalProperties": true
+      }
+    },
+    "required": ["ond_class", "mean", "std"],
+    "additionalProperties": true
+  }
+}

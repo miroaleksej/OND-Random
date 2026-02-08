@@ -60,4 +60,10 @@ Reports include `spec.profile` and `spec.x-method_version` (override with `--pro
 
 ## 4) Validate in CI
 
-Use OND‑ART CI Pack (`ond-art-validate`) on `reports/**/*.json`.
+Schema validation:
+
+```bash
+PYTHONPATH=. python scripts/validate_odd_artifacts.py \
+  --observations observations.jsonl \
+  --ond-art-report reports/ond_art_report.json
+```
